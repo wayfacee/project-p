@@ -3,6 +3,7 @@ import pluginJs from "@eslint/js";
 import tseslint from "typescript-eslint";
 // import pluginReactConfig from "eslint-plugin-react/configs/recommended.js";
 // import { fixupConfigRules } from "@eslint/compat";
+import {fixupPluginRules} from '@eslint/compat';
 import i18nPlugin from 'eslint-plugin-i18next';
 // import jest from 'eslint-plugin-jest';
 import react from 'eslint-plugin-react';
@@ -38,7 +39,7 @@ export default tseslint.config(
       "@typescript-eslint": tseslint.plugin,
       'i18next': i18nPlugin,
       react,
-      'react-hooks': reactHooks,
+      'react-hooks': fixupPluginRules(reactHooks),
     },
     rules: {
       'react/jsx-indent': [2, 2],
