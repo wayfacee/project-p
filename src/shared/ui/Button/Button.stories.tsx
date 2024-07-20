@@ -26,6 +26,12 @@ Clear.args = {
   theme: ButtonTheme.CLEAR,
 }
 
+export const ClearInverted: StoryObj<typeof Button> = Template.bind({});
+Clear.args = {
+  children: 'text',
+  theme: ButtonTheme.CLEAR_INVERTED,
+}
+
 export const Outline: StoryObj<typeof Button> = Template.bind({});
 Outline.args = {
   children: "text",

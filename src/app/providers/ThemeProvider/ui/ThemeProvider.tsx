@@ -1,12 +1,21 @@
-import { FC, useMemo, useState } from "react";
+import { FC, ReactNode, useMemo, useState } from "react";
 import { LOCAL_STORAGE_KEY, Theme, ThemeContext } from "../lib/ThemeContext";
 // советуется исп. относительные пути, чтобы переместить,
 // и импортв не поменяются, а когда экспорт лучше абсолют.
 
 const defaultTheme = localStorage.getItem(LOCAL_STORAGE_KEY) as Theme || Theme.LIGHT;
 
-const ThemeProvider: FC<{ children: React.ReactNode }> = ({children}) => {
-  const [theme, setTheme] = useState<Theme>(defaultTheme);
+interface ThemeProviderProps {
+  children: ReactNode;
+  initialTheme?: Theme;
+}
+
+const ThemeProvider: FC<ThemeProviderProps> = (props) => {
+  const {
+    children,
+    initialTheme
+  } = props;
+  const [theme, setTheme] = useState<Theme>(initialTheme || defaultTheme);
 
   // позволяет меморизировать знач какого-то obj, arr,
   // и не создавать новый, а возв. уже сущ.,

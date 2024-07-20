@@ -1,12 +1,12 @@
 import globals from "globals";
 import pluginJs from "@eslint/js";
 import tseslint from "typescript-eslint";
-import pluginReactConfig from "eslint-plugin-react/configs/recommended.js";
-import { fixupConfigRules } from "@eslint/compat";
+// import pluginReactConfig from "eslint-plugin-react/configs/recommended.js";
+// import { fixupConfigRules } from "@eslint/compat";
 import i18nPlugin from 'eslint-plugin-i18next';
 // import jest from 'eslint-plugin-jest';
-import r from 'eslint-plugin-react/configs/jsx-runtime.js';
 import react from 'eslint-plugin-react';
+import reactHooks from 'eslint-plugin-react-hooks';
 
 /**@type {import('eslint').Linter.FlatConfig[]} */
 export default tseslint.config(
@@ -37,7 +37,8 @@ export default tseslint.config(
     plugins: {
       "@typescript-eslint": tseslint.plugin,
       'i18next': i18nPlugin,
-      react
+      react,
+      'react-hooks': reactHooks,
     },
     rules: {
       'react/jsx-indent': [2, 2],
@@ -65,8 +66,13 @@ export default tseslint.config(
       'react/function-component-definition': 'off',
       'no-shadow': 'off',
       "react/display-name": 0,
-      
+
       "i18next/no-literal-string": 1,
+      'jsx-a11y/no-static-element-interactions': 'off',
+      '@typescript-eslint/ban-ts-comment': 'off',
+
+      "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
+      "react-hooks/exhaustive-deps": "error" // Checks effect dependencies
     },
   },
   pluginJs.configs.recommended,

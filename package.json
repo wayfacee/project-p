@@ -65,6 +65,7 @@
     "eslint-plugin-i18next": "^6.0.9",
     "eslint-plugin-jest": "^28.6.0",
     "eslint-plugin-react": "7.34.4",
+    "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-storybook": "^0.8.0",
     "file-loader": "^6.2.0",
     "globals": "^15.8.0",
