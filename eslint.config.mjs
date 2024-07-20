@@ -1,0 +1,76 @@
+import globals from "globals";
+import pluginJs from "@eslint/js";
+import tseslint from "typescript-eslint";
+import pluginReactConfig from "eslint-plugin-react/configs/recommended.js";
+import { fixupConfigRules } from "@eslint/compat";
+import i18nPlugin from 'eslint-plugin-i18next';
+// import jest from 'eslint-plugin-jest';
+import r from 'eslint-plugin-react/configs/jsx-runtime.js';
+import react from 'eslint-plugin-react';
+
+/**@type {import('eslint').Linter.FlatConfig[]} */
+export default tseslint.config(
+  {
+    ignores: ["node_modules", "build", 'eslint.config.mjs'],
+  },
+  {
+    files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"],
+    settings: {
+      version: "detect",
+    },
+    languageOptions: {
+      ecmaVersion: "latest",
+      sourceType: "module",
+      parser: tseslint.parser,
+
+      parserOptions: {
+        ecmaFeatures: {
+          jsx: true,
+        },
+        project: ['./tsconfig.json'],
+        globals: {
+          ...globals.browser,
+          __IS_DEV__: true,
+        },
+      },
+    },
+    plugins: {
+      "@typescript-eslint": tseslint.plugin,
+      'i18next': i18nPlugin,
+      react
+    },
+    rules: {
+      'react/jsx-indent': [2, 2],
+      'react/jsx-indent-props': [2, 2],
+      indent: [2, 2],
+      // jsx не разрешен в файлах tsx:
+      "react/jsx-filename-extension": [2, { extensions: [".js", ".jsx", ".tsx"] },],
+      // абсолют пути ошибка:
+      "import/no-unresolved": "off",
+      "import/prefer-default-export": "off",
+      // чтоб ошибка не была на unused перем.
+      "no-unused-vars": "warn",
+      '@typescript-eslint/no-unused-vars': 'warn',
+      // class?: string; делает не обяз.:
+      "react/require-default-props": "off",
+
+      // исп. jsx, но не импорт React
+      // начиная с 17-версии не надо:
+      "react/jsx-uses-react": "off",
+      "react/react-in-jsx-scope": "off",
+      // spread для пропсов всгда плохо
+      // иск.: ui comp. button, input etc., обертки
+      'react/jsx-props-no-spreading': 'warn',
+      // fdeclaration лучше исп говорит:
+      'react/function-component-definition': 'off',
+      'no-shadow': 'off',
+      "react/display-name": 0,
+      
+      "i18next/no-literal-string": 1,
+    },
+  },
+  pluginJs.configs.recommended,
+  ...tseslint.configs.recommended,
+  // ...fixupConfigRules(pluginReactConfig),
+  // ...fixupConfigRules(r),
+);

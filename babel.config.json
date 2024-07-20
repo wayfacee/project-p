@@ -1,0 +1,24 @@
+{
+  // {"presets": ["@babel/preset-react"]}
+  "presets": [
+    ["@babel/preset-env", {
+      "targets": {"node": "current"}
+      }],
+    "@babel/preset-typescript",
+    [
+      "@babel/preset-react",
+      {
+        // чтобы реакт авоматом. рантайм подставлялся без импортов
+        "runtime": "automatic"
+      }]
+  ],
+  // "env": {
+  //   "test": {
+  //     "plugins": ["dynamic-import-node"]
+  //   }
+  // },
+  "plugins": [
+    "i18next-extract"
+    // […] your other plugins […]
+  ]
+}

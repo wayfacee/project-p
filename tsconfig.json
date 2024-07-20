@@ -1,0 +1,57 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/", // то куда происходит сборка, не столь
+    // важна тк. собираем с помощью вебпака
+    "noImplicitAny": true, // Подсвечивает все места где не указан тип
+    // Однако это не означает, что теперь вовсе нельзя использовать any.
+    // Это означает лишь, что в подобных ситуация разработчик должен явно писать any
+    "module": "ESNext", // модуль. система (require, import etc.)
+    // ESNext or es6, back - commonJs,  
+    "target": "es5", // версия стандарт. экмаскрипта, в который код будет компил.
+    // es5 (+) or es6
+    // В какую спецификацию компилируем: для поддержки большинства браузеров
+    "jsx": "react-jsx", // писать констр.: return <div>ts</div>
+    "allowJs": true, // Компилятор будет обрабатывать не только TS файлы, но и JS файлы
+    "moduleResolution": "node", // позволяет работать с пакетами, которые используют
+    // common js, как с обычными пакета с помощью import (require() module.export) = common js
+    // node (99%) or classic
+    "baseUrl": ".",
+    "paths": {
+      // все импорты, экспорт будут идти от папки src
+      "*": ["./src/*"]
+    },
+    
+    "allowSyntheticDefaultImports": true,
+    // Если какая-либо библиотека не имеет default import,
+    // лоадеры вроде ts-loader или babel-loader автоматически создают их
+    // вместо такого импорта
+    // import * as React from 'react';
+    // можно писать такой
+    // import React from 'react';
+    "esModuleInterop": true,
+    // esModuleInterop позволяет работать с пакетами, которые используют
+    // common js как с обычными пакета с помощью import (require() module.export) = common js
+    // import Moment from 'moment';
+    // без флага esModuleInterop результат undefined
+    // console.log(Moment);
+    // c флагом результат [object Object]
+    // console.log(Moment);
+  },
+  // ts-node не подд. ниче кроме commonJs
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
+  },
+  "include": [
+    "eslint.config.mjs",
+    "./src/**/*.ts",
+    "./src/**/*.tsx",
+    "webpack.config.ts",
+    "./config/jest/setupTests.ts",
+    "./config/jest/jestEmptyComponent.tsx",
+    "jest.config.ts",
+
+    "./config/storybook/**/*.ts",
+  ],
+}
