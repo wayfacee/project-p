@@ -1,6 +1,6 @@
 import path from "path";
 import { BuildPaths } from "../build/types/config";
-import { Configuration, RuleSetRule } from "webpack";
+import { Configuration, DefinePlugin, RuleSetRule } from "webpack";
 import { buildCssLoader } from "../build/loaders/buildCssLoader";
 
 // absolute imports for storybook
@@ -29,5 +29,10 @@ export default ({ config }: { config: Configuration }) => {
   });
   // Только на этапе разработки
   config.module.rules.push(buildCssLoader(true));
+
+  // global consts:
+  config.plugins.push(new DefinePlugin({
+    __IS_DEV__: true,
+  }))
   return config;
 }

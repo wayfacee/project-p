@@ -65,7 +65,7 @@ export const Input = memo((props: InputProps) => {
   }
 
   // какая часть текста выделна, где находится каретка
-  const onSelect = (e: any) => {
+  const onSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
     // позивиця каретки
     setCaretPosition(e?.target?.selectionStart || 0);
   }

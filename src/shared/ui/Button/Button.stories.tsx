@@ -15,7 +15,7 @@ export default {
 
 const Template = (args: StoryObj<typeof Button>) => <Button {...args} />;
 
-export const Primary = Template.bind({});
+export const Primary: StoryObj<typeof Button> = Template.bind({});
 Primary.args = {
   children: 'text',
 }
@@ -94,4 +94,12 @@ SquareSizeXL.args = {
   theme: ButtonTheme.BACKGROUND_INVERTED,
   square: true,
   size: ButtonSize.XL,
+};
+
+// -----------------
+export const Disabled: StoryObj<typeof Button> = Template.bind({});
+Disabled.args = {
+  children: "Disabled",
+  theme: ButtonTheme.OUTLINE,
+  disabled: true,
 };
