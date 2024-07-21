@@ -73,7 +73,8 @@ export default tseslint.config(
       '@typescript-eslint/ban-ts-comment': 'off',
 
       "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
-      "react-hooks/exhaustive-deps": "error" // Checks effect dependencies
+      "react-hooks/exhaustive-deps": "error", // Checks effect dependencies
+      "@typescript-eslint/no-explicit-any": "warn"
     },
   },
   pluginJs.configs.recommended,

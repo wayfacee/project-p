@@ -19,8 +19,8 @@ export const Counter = () => {
   return (
     <div>
       <h1 data-testid='value-title'>{counterValue}</h1>
-      <button data-testid='increment-btn' onClick={increment}>{t('increment')}</button>
-      <button data-testid='decrement-btn' onClick={decrement}>{t('decrement')}</button>
+      <button data-testid='increment-btn' onClick={increment}>{t('Increment')}</button>
+      <button data-testid='decrement-btn' onClick={decrement}>{t('Decrement')}</button>
     </div>
   );
 };

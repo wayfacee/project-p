@@ -10,7 +10,7 @@ import { StoreProvider } from 'app/providers/StoreProvider';
 
 createRoot(document.getElementById('root'))
   .render(
-    <StoreProvider initialState={{ counter: { value: 0 } }}>
+    <StoreProvider>
       <BrowserRouter>
         <ErrorBoundary>
           <I18nextProvider i18n={i18next}>

@@ -15,6 +15,8 @@ export function useTheme(): UseThemeResult {
     localStorage.setItem(LOCAL_STORAGE_KEY, newTheme);
   }
 
+  // вешаем класс на боди, и не надо вешать на модалки, и на апп итд.
+  document.body.className = theme;
   return {
     theme,
     toggleTheme,
