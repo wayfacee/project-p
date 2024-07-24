@@ -15,7 +15,8 @@ export default {
   }
 } as Meta<typeof MainPage>;
 
-const Template = (args: typeof MainPage) => <MainPage {...args} />;
+// @ts-ignore
+const Template = (args) => <MainPage {...args} />;
 
 export const Light: StoryObj<typeof MainPage> = Template.bind({});
 Light.args = {};

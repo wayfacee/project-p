@@ -13,7 +13,8 @@ export default {
   },
 } as Meta<typeof Button>;
 
-const Template = (args: StoryObj<typeof Button>) => <Button {...args} />;
+// @ts-ignore
+const Template = (args) => <Button {...args} />;
 
 export const Primary: StoryObj<typeof Button> = Template.bind({});
 Primary.args = {

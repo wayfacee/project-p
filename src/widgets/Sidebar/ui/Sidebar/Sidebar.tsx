@@ -1,28 +1,33 @@
 import { classNames } from "shared/lib/classNames/classNames";
 import * as cl from './Sidebar.module.scss';
-import { useState } from "react";
+import { memo, useState } from "react";
 import { ThemeSwitcher } from "widgets/ThemeSwitcher";
 import { LangSwitcher } from "widgets/LangSwitcher/LangSwitcher";
 import { Button, ButtonSize, ButtonTheme } from "shared/ui/Button/Button";
-import { useTranslation } from "react-i18next";
-import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink";
-import { RoutePath } from "shared/config/routeConfig/routeConfig";
-import MainIcon from 'widgets/assets/icons/main.svg';
-import AboutIcon from 'widgets/assets/icons/about.svg';
+import { SidebarItemList } from "../../model/items";
+import { SidebarItem } from "../SidebarItem/SidebarItem";
 
 
 interface SidebarProps {
   className?: string;
 }
 
-export const Sidebar = ({ className }: SidebarProps) => {
+export const Sidebar = memo(({ className }: SidebarProps) => {
   const [collapsed, setCollapsed] = useState(false);
-  const { t } = useTranslation();
 
   const onToggle = () => {
     setCollapsed(prev => !prev)
-  }
-  console.log(cl);
+  };
+
+  // перерисовывается род комп., если добавим счетчик
+  // поэтому в юзмемо, но для компов хук исп. нет нужды
+  // пошта есть memo - будет сравнивать пропсы, если пропсы
+  // не измен. то перерис. не произойдет.
+  // 90% комп. надо оборач в мемо
+
+  {/*const itemsList = useMemo(() => {
+    return cl.items
+  }, [collapsed]) */}
 
   return (
     <div
@@ -41,35 +46,20 @@ export const Sidebar = ({ className }: SidebarProps) => {
       </Button>
 
       <div className={cl.items}>
-        <AppLink
-          theme={AppLinkTheme.SECONDARY}
-          to={RoutePath.main}
-          className={cl.item}
-        >
-          <MainIcon className={cl.icon} />
-
-          <span className={cl.link}>
-            {t('Главная страница')}
-          </span>
-        </AppLink>
-
-        <AppLink
-          theme={AppLinkTheme.SECONDARY}
-          to={RoutePath.about}
-          className={cl.item}
-        >
-          <AboutIcon className={cl.icon} />
-
-          <span className={cl.link}>
-            {t('О сайте')}
-          </span>
-        </AppLink>
+        {SidebarItemList.map((item) => (
+          <SidebarItem
+            item={item}
+            collapsed={collapsed}
+            key={item.path}
+          />
+        ))}
       </div>
 
       <div className={cl.switchers}>
+        {/* зем, ланг свитчер тож перерис. */}
         <ThemeSwitcher />
         <LangSwitcher short={collapsed} className={cl.lang} />
       </div>
     </div >
   );
-};
+});

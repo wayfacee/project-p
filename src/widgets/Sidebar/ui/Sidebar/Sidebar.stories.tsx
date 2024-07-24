@@ -12,7 +12,8 @@ export default {
   },
 } as Meta<typeof Sidebar>;
 
-const Template = (args: typeof Sidebar) => <Sidebar {...args} />;
+// @ts-ignore
+const Template = (args) => <Sidebar {...args} />;
 
 export const Light: StoryObj<typeof Sidebar> = Template.bind({});
 Light.args = {};

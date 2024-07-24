@@ -13,7 +13,8 @@ export default {
   },
 } as Meta<typeof Navbar>;
 
-const Template = (args: typeof Navbar) => <Navbar {...args} />;
+// @ts-ignore
+const Template = (args) => <Navbar {...args} />;
 
 export const Light: StoryObj<typeof Navbar> = Template.bind({});
 Light.args = {};

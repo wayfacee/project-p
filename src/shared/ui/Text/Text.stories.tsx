@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj, StoryFn } from '@storybook/react';
 import 'app/styles/index.scss'
 import { Text, TextTheme } from './Text';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
@@ -10,7 +10,8 @@ export default {
   tags: ['autodocs'],
 } as Meta<typeof Text>;
 
-const Template = (args: typeof Text) => <Text {...args} />;
+// @ts-ignore
+const Template = (args) => <Text {...args} />;
 
 export const Primary: StoryObj<typeof Text> = Template.bind({});
 Primary.args = {

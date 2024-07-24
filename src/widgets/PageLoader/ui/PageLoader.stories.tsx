@@ -15,7 +15,8 @@ export default {
   }
 } as Meta<typeof PageLoader>;
 
-const Template = (args: typeof PageLoader) => <PageLoader {...args} />;
+// @ts-ignore
+const Template = (args) => <PageLoader {...args} />;
 
 export const Light: StoryObj<typeof PageLoader> = Template.bind({});
 Light.args = {};

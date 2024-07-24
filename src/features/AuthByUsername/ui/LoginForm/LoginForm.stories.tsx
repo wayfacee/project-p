@@ -9,7 +9,8 @@ export default {
   tags: ['autodocs'],
 } as Meta<typeof LoginForm>;
 
-const Template = (args: typeof LoginForm.type) => <LoginForm {...args} />;
+// @ts-ignore
+const Template = (args) => <LoginForm {...args} />;
 
 export const Primary: StoryObj<typeof LoginForm> = Template.bind({});
 Primary.args = {}

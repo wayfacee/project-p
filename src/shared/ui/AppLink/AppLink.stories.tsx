@@ -15,7 +15,8 @@ export default {
   }
 } as Meta<typeof AppLink>;
 
-const Template = (args: typeof AppLink) => <AppLink to='/' {...args} />;
+// @ts-ignore
+const Template = (args) => <AppLink to='/' {...args} />;
 
 export const Primary: StoryObj<typeof AppLink> = Template.bind({});
 Primary.args = {

@@ -10,7 +10,8 @@ export default {
   tags: ['autodocs'],
 } as Meta<typeof Input>;
 
-const Template = (args: StoryObj<typeof Input>) => <Input {...args} />;
+// @ts-ignore
+const Template = (args) => <Input {...args} />;
 
 export const Primary: StoryObj<typeof Input> = Template.bind({});
 Primary.args = {

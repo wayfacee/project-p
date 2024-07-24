@@ -15,7 +15,8 @@ export default {
   }
 } as Meta<typeof ThemeSwitcher>;
 
-const Template = (args: typeof ThemeSwitcher) => <ThemeSwitcher {...args} />;
+// @ts-ignore
+const Template = (args) => <ThemeSwitcher {...args} />;
 
 export const Light: StoryObj<typeof ThemeSwitcher> = Template.bind({});
 Light.args = {};
