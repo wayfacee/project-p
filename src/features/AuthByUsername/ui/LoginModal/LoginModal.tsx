@@ -1,6 +1,8 @@
 import { Modal } from "widgets/Modal/Modal";
-import { LoginForm } from "../LoginForm/LoginForm";
 import { classNames } from "shared/lib/classNames/classNames";
+import { Suspense } from "react";
+import { LoginFormAsync } from "../LoginForm/LoginForm.async";
+import { BeatLoader } from "react-spinners";
 
 interface LoginModalProps {
   className?: string;
@@ -16,7 +18,9 @@ export const LoginModal = ({ className, isOpen, onClose }: LoginModalProps) => {
       onClose={onClose}
       lazy
     >
-      <LoginForm />
+      <Suspense fallback={<BeatLoader color="#f48dff" />}>
+        <LoginFormAsync />
+      </Suspense>
     </Modal>
   );
 };

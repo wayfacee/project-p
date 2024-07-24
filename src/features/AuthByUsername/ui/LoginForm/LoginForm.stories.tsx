@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import 'app/styles/index.scss'
-import { LoginForm } from './LoginForm';
+import LoginForm from './LoginForm';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 
 export default {
