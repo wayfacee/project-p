@@ -25,15 +25,15 @@ export function buildPlugins({ paths, isDev }: BuildOptions): WebpackPluginInsta
     new ReactRefreshWebpackPlugin(),
   ];
 
-  plugins.push(new BundleAnalyzerPlugin.BundleAnalyzerPlugin({
-    // чтобы автоматом. не открывалась, в терминале
-    // будет сс
-    openAnalyzer: false,
-  }));
-
   if (isDev) {
     // бесконечно крутится actions:
     plugins.push(new HotModuleReplacementPlugin());
+
+    plugins.push(new BundleAnalyzerPlugin.BundleAnalyzerPlugin({
+      // чтобы автоматом. не открывалась, в терминале
+      // будет сс
+      openAnalyzer: false,
+    }));
   }
 
   return plugins;
