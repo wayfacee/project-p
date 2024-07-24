@@ -33,7 +33,7 @@ export const loginByUsername = createAsyncThunk<User, LoginByUsernameProps, { re
     } catch (e) {
       console.log(e);
       // нельяз юз useTranslation
-      return thunkAPI.rejectWithValue('errro');
+      return thunkAPI.rejectWithValue('error');
     }
   },
 );
