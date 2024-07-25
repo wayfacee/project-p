@@ -11,10 +11,11 @@ export default ({ config }: { config: Configuration }) => {
     html: '',
     src: path.resolve(__dirname, '..', '..', 'src'),
   }
-  config.resolve.modules.push(paths.src);
-  config.resolve.extensions.push('.ts', '.tsx');
+  config!.resolve!.modules!.push(paths.src);
+  config!.resolve!.extensions!.push('.ts', '.tsx');
 
-  config.module.rules = config.module.rules.map((rule: RuleSetRule) => {
+  // @ts-ignore - ругается на рулсы, но в конфиге сторибука не так страшно
+  config!.module!.rules = config!.module!.rules!.map((rule: RuleSetRule) => {
     if (/svg/.test(rule.test as string)) {
       // дефолт лоадер обрабатывать не будет.
       return { ...rule, exclude: /\.svg$/i }
@@ -23,15 +24,16 @@ export default ({ config }: { config: Configuration }) => {
     return rule;
   });
 
-  config.module.rules.push({
+  // !. - поле точно не undefined
+  config!.module!.rules.push({
     test: /\.svg$/,
     use: ['@svgr/webpack'],
   });
   // Только на этапе разработки
-  config.module.rules.push(buildCssLoader(true));
+  config!.module!.rules.push(buildCssLoader(true));
 
   // global consts:
-  config.plugins.push(new DefinePlugin({
+  config!.plugins!.push(new DefinePlugin({
     __IS_DEV__: JSON.stringify(true),
     __API__: JSON.stringify(''),
   }))
