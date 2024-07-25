@@ -1,6 +1,6 @@
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames, Mods } from "shared/lib/classNames/classNames";
 import * as cl from './Modal.module.scss';
-import React, { ReactNode, useCallback, useEffect, useRef, useState } from "react";
+import React, { MutableRefObject, ReactNode, useCallback, useEffect, useRef, useState } from "react";
 import { Portal } from "widgets/Portal/Portal";
 
 interface ModalProps {
@@ -24,7 +24,8 @@ export const Modal = (props: ModalProps) => {
 
   const [isClosing, setIsClosing] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
-  const timeRef = useRef<ReturnType<typeof setTimeout>>();
+  // const timeRef = useRef<ReturnType<typeof setTimeout> | null>(null); хитрим:
+  const timeRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
 
   useEffect(() => {
     if (isOpen) {
@@ -35,6 +36,8 @@ export const Modal = (props: ModalProps) => {
   const closeHandler = useCallback(() => {
     if (onClose) {
       setIsClosing(true);
+
+      // реф - не/мутабельный, тип надо явно указать 
       timeRef.current = setTimeout(() => {
         onClose();
         setIsClosing(false);
@@ -65,7 +68,7 @@ export const Modal = (props: ModalProps) => {
     window.removeEventListener('keydown', onKeyDown);
   }, [isOpen, onKeyDown]);
 
-  const mods: Record<string, boolean> = {
+  const mods: Mods = {
     [cl.opened]: isOpen,
     [cl.isClosing]: isClosing,
   }

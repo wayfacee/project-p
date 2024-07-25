@@ -26,7 +26,7 @@ export const Input = memo((props: InputProps) => {
     ...otherProps
   } = props;
 
-  
+
   const ref = useRef<HTMLInputElement>(null);
   const [isFocused, setIsFocused] = useState(false);
   const [caretPosition, setCaretPosition] = useState(0);
@@ -46,7 +46,7 @@ export const Input = memo((props: InputProps) => {
       ref.current?.focus();
     }
   }, [autoFocus])
-  
+
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     // optional changing, если функц. не передана, то она
     // не будет вызвана

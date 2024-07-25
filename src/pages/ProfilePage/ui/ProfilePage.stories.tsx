@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
 import ProfilePage from './ProfilePage';
@@ -17,12 +17,12 @@ export default {
 } as Meta<typeof ProfilePage>;
 
 // @ts-ignore
-const Template = (args) => <ProfilePage {...args} />;
+const Template: StoryFn<typeof ProfilePage> = (args) => <ProfilePage {...args} />;
 
-export const Light: StoryObj<typeof ProfilePage> = Template.bind({});
+export const Light = Template.bind({});
 Light.args = {};
 Light.decorators = [StoreDecorator({})]
 
-export const Dark: StoryObj<typeof ProfilePage> = Template.bind({});
+export const Dark = Template.bind({});
 Dark.args = {};
 Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})];

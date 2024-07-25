@@ -10,8 +10,8 @@ import { StoreProvider } from 'app/providers/StoreProvider';
 
 createRoot(document.getElementById('root'))
   .render(
-    <StoreProvider>
-      <BrowserRouter>
+    <BrowserRouter>
+      <StoreProvider>
         <ErrorBoundary>
           <I18nextProvider i18n={i18next}>
             <ThemeProvider>
@@ -19,6 +19,6 @@ createRoot(document.getElementById('root'))
             </ThemeProvider>
           </I18nextProvider>
         </ErrorBoundary>
-      </BrowserRouter>
-    </StoreProvider>
+      </StoreProvider>
+    </BrowserRouter>
   );

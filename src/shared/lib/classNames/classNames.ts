@@ -1,10 +1,14 @@
 // 1) key 2) value
-type Mods = Record<string, boolean | string>;
+export type Mods = Record<string, boolean | string | undefined>;
 
 // cls - main class
 // mods - 1) ключ - назв. 2) знач. - boolean
 // additional[]
-export function classNames(cls: string, mods: Mods = {}, additional: string[] = []): string {
+export function classNames(
+  cls: string,
+  mods: Mods = {},
+  additional: Array<string | undefined> = []
+): string {
   return [
     cls,
     ...additional.filter(Boolean),

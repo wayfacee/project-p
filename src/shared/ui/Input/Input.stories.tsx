@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import 'app/styles/index.scss'
 import { Input } from './Input';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
@@ -11,15 +11,15 @@ export default {
 } as Meta<typeof Input>;
 
 // @ts-ignore
-const Template = (args) => <Input {...args} />;
+const Template: StoryFn<typeof Input> = (args) => <Input {...args} />;
 
-export const Primary: StoryObj<typeof Input> = Template.bind({});
+export const Primary = Template.bind({});
 Primary.args = {
   placeholder: 'text',
   value: '1234',
 }
 
-export const Dark: StoryObj<typeof Input> = Template.bind({});
+export const Dark = Template.bind({});
 Dark.args = {
   placeholder: 'text',
   value: '1234',

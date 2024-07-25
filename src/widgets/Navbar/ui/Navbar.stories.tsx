@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
 import { Navbar } from './Navbar';
@@ -14,18 +14,18 @@ export default {
 } as Meta<typeof Navbar>;
 
 // @ts-ignore
-const Template = (args) => <Navbar {...args} />;
+const Template: StoryFn<typeof Navbar> = (args) => <Navbar {...args} />;
 
-export const Light: StoryObj<typeof Navbar> = Template.bind({});
+export const Light = Template.bind({});
 Light.args = {};
 Light.decorators = [StoreDecorator({})];
 
-export const Dark: StoryObj<typeof Navbar> = Template.bind({});
+export const Dark = Template.bind({});
 Dark.args = {
 };
 Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})];
 
-export const AuthNavbar: StoryObj<typeof Navbar> = Template.bind({});
+export const AuthNavbar = Template.bind({});
 AuthNavbar.args = {};
 AuthNavbar.decorators = [StoreDecorator({
   user: { authData: {} }

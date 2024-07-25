@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
 import { Sidebar } from './Sidebar';
@@ -12,12 +12,13 @@ export default {
   },
 } as Meta<typeof Sidebar>;
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-const Template = (args) => <Sidebar {...args} />;
+const Template: StoryFn<typeof Sidebar> = (args) => <Sidebar {...args} />;
 
-export const Light: StoryObj<typeof Sidebar> = Template.bind({});
+export const Light = Template.bind({});
 Light.args = {};
 
-export const Dark: StoryObj<typeof Sidebar> = Template.bind({});
+export const Dark = Template.bind({});
 Dark.args = {};
 Dark.decorators = [ThemeDecorator(Theme.DARK)];

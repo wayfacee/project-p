@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import { Modal } from './Modal';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
@@ -13,15 +13,15 @@ export default {
 } as Meta<typeof Modal>;
 
 // @ts-ignore
-const Template = (args) => <Modal {...args} />;
+const Template: StoryFn<typeof Modal> = (args) => <Modal {...args} />;
 
-export const Primary: StoryObj<typeof Modal> = Template.bind({});
+export const Primary = Template.bind({});
 Primary.args = {
   isOpen: true,
   children: 'lorem',
 }
 
-export const Dark: StoryObj<typeof Modal> = Template.bind({});
+export const Dark = Template.bind({});
 Dark.args = {
   isOpen: true,
   children: 'lorem',

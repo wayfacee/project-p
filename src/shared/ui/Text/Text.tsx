@@ -23,7 +23,7 @@ export const Text = memo((props: TextProps) => {
   } = props;
 
   return (
-    <div className={classNames(cl.Text, { }, [className, cl[theme]])}>
+    <div className={classNames('Text', { }, [className, cl[theme]])}>
       {title && (
         <p className={cl.title}>{title}</p>
       )}

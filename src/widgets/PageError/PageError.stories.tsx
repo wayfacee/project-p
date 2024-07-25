@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
 import { PageError } from './PageError';
@@ -13,11 +13,11 @@ export default {
 } as Meta<typeof PageError>;
 
 // @ts-ignore
-const Template = (args) => <PageError {...args} />;
+const Template: StoryFn<typeof PageError> = (args) => <PageError {...args} />;
 
-export const Light: StoryObj<typeof PageError> = Template.bind({});
+export const Light = Template.bind({});
 Light.args = {};
 
-export const Dark: StoryObj<typeof PageError> = Template.bind({});
+export const Dark = Template.bind({});
 Dark.args = {};
 Dark.decorators = [ThemeDecorator(Theme.DARK)];

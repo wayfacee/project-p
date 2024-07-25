@@ -3,7 +3,7 @@ import pluginJs from "@eslint/js";
 import tseslint from "typescript-eslint";
 // import pluginReactConfig from "eslint-plugin-react/configs/recommended.js";
 // import { fixupConfigRules } from "@eslint/compat";
-import {fixupPluginRules} from '@eslint/compat';
+import { fixupPluginRules } from '@eslint/compat';
 import i18nPlugin from 'eslint-plugin-i18next';
 // import jest from 'eslint-plugin-jest';
 import react from 'eslint-plugin-react';
@@ -32,6 +32,7 @@ export default tseslint.config(
         globals: {
           ...globals.browser,
           __IS_DEV__: true,
+          __API__: true,
         },
       },
     },
@@ -74,7 +75,9 @@ export default tseslint.config(
 
       "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
       "react-hooks/exhaustive-deps": "error", // Checks effect dependencies
-      "@typescript-eslint/no-explicit-any": "warn"
+      "@typescript-eslint/no-explicit-any": "warn",
+      "@typescript-eslint/ban-ts-comment": "warn",
+      "no-undef": "off",
     },
   },
   pluginJs.configs.recommended,

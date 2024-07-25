@@ -1,5 +1,6 @@
 import { AsyncThunkAction } from "@reduxjs/toolkit";
 import { StateSchema } from "app/providers/StoreProvider";
+import axios, { AxiosStatic } from "axios";
 
 // возвращает асинксанкэкшен, исп. акшенкриетор, который
 // асинксанкэкшен создает, и функц. аргументом принимает
@@ -8,10 +9,19 @@ type ActionCreatorType<Return, Arg, RejectedValue>
   = (arg: Arg)
     => AsyncThunkAction<Return, Arg, { rejectValue: RejectedValue }>;
 
+jest.mock('axios');
+// не подхватывает функц. по типу mockReturnValue
+// 2) глубокий мок, мокаем внутренние поля (пост итд.)
+// @ts-ignore
+const mockedAxios = jest.mocked(axios, true);
+
 export class TestAsyncThunk<Return, Arg, RejectedValue> {
   dispatch: jest.MockedFn<any>;
   getState: () => StateSchema;
   actionCreator: ActionCreatorType<Return, Arg, RejectedValue>;
+
+  api: jest.MockedFunctionDeep<AxiosStatic>; // то что возв. mocked
+  navigate: jest.MockedFn<any>;
 
   constructor(actionCreator: ActionCreatorType<Return, Arg, RejectedValue>) {
     this.actionCreator = actionCreator;
@@ -21,17 +31,26 @@ export class TestAsyncThunk<Return, Arg, RejectedValue> {
     // бефорич не нужен
     this.dispatch = jest.fn();
     this.getState = jest.fn();
+
+    this.api = mockedAxios;
+    this.navigate = jest.fn();
   }
 
   async callThunk(arg: Arg) {
     const action = this.actionCreator(arg);
-    const result = await action(this.dispatch, this.getState, undefined);
+
+    // 1) dispatch 2) getState 3) extra
+    const result = await action(
+      this.dispatch,
+      this.getState,
+      { api: this.api, navigate: this.navigate }
+    );
 
     // тип резулта, тс сам подхватил
     return result;
   }
 }
 
-// createAsynThunk => AsyncThunk<Returned, ThunkArg, ThunkApiConfig> 
-  // => AsyncThunkActionCreator<Returned, ThunkArg, ThunkApiConfig>
-    // => (arg: ThunkArg) => AsyncThunkAction<Returned, ThunkArg, ThunkApiConfig>
+// createAsynThunk => AsyncThunk<Returned, ThunkArg, ThunkApiConfig>
+// => AsyncThunkActionCreator<Returned, ThunkArg, ThunkApiConfig>
+// => (arg: ThunkArg) => AsyncThunkAction<Returned, ThunkArg, ThunkApiConfig>

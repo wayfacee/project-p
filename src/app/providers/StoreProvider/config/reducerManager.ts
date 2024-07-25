@@ -26,6 +26,7 @@ export function createReducerManager(initialReducers: ReducersMapObject<StateSch
       }
 
       // Delegate to the combined reducer
+      // @ts-ignore
       return combinedReducer(state, action)
     },
 

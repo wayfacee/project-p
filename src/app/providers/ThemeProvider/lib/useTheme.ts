@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { LOCAL_STORAGE_KEY, Theme, ThemeContext } from "./ThemeContext";
 
 interface UseThemeResult {
@@ -11,14 +11,18 @@ export function useTheme(): UseThemeResult {
 
   function toggleTheme() {
     const newTheme = theme === Theme.DARK ? Theme.LIGHT : Theme.DARK;
-    setTheme(newTheme);
+    // контекст иниц. не сразу, в какое-то время пустой
+    setTheme?.(newTheme);
     localStorage.setItem(LOCAL_STORAGE_KEY, newTheme);
   }
 
   // вешаем класс на боди, и не надо вешать на модалки, и на апп итд.
-  document.body.className = theme;
+  useEffect(() => {
+    document.body.className = theme || Theme.LIGHT;
+  }, [theme]);
+
   return {
-    theme,
+    theme: theme || Theme.LIGHT,
     toggleTheme,
   }
 }

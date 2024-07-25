@@ -1,6 +1,6 @@
 import { createReduxStore, AppDispatch } from "./config/store";
 import { StoreProvider } from "./ui/StoreProvider";
-import type { StateSchema, ReduxStoreWithManager } from "./config/StateSchema";
+import type { StateSchema, ReduxStoreWithManager, ThunkConfig } from "./config/StateSchema";
 // типы иногда могут исп. из выше стоящего слоя, но это
 // скорее исклю.
 
@@ -9,5 +9,6 @@ export {
   createReduxStore,
   StateSchema,
   ReduxStoreWithManager,
-  AppDispatch
+  AppDispatch,
+  ThunkConfig,
 }

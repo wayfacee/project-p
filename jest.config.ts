@@ -73,7 +73,8 @@ const config: Config = {
 
   // A set of global variables that need to be available in all test environments
   globals: {
-    '__IS_DEV__': true,
+    __IS_DEV__: true,
+    __API__: ''
   },
 
   // A list of paths to directories that Jest should use to search for files in

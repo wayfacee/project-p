@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
 import MainPage from './MainPage';
@@ -16,11 +16,11 @@ export default {
 } as Meta<typeof MainPage>;
 
 // @ts-ignore
-const Template = (args) => <MainPage {...args} />;
+const Template: StoryFn<typeof MainPage> = () => <MainPage />;
 
-export const Light: StoryObj<typeof MainPage> = Template.bind({});
+export const Light = Template.bind({});
 Light.args = {};
 
-export const Dark: StoryObj<typeof MainPage> = Template.bind({});
+export const Dark = Template.bind({});
 Dark.args = {};
 Dark.decorators = [ThemeDecorator(Theme.DARK)];

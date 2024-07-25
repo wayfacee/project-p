@@ -4,13 +4,15 @@ import { ReduxStoreWithManager } from 'app/providers/StoreProvider';
 import { StateSchemaKey } from 'app/providers/StoreProvider/config/StateSchema';
 import { Reducer } from '@reduxjs/toolkit';
 
+// * если дважды открыть модалку, то редюсер иниц. дважды (вроде)
+
 // если будет нескока редюсеров
 export type ReducersList = {
   [name in StateSchemaKey]?: Reducer;
 }
 
-// потеряли тип для ключа:
-type ReducerListEntry = [StateSchemaKey, Reducer];
+// потеряли тип для ключа: уже не нужно
+// type ReducerListEntry = [StateSchemaKey, Reducer];
 
 interface DynamicModuleLoaderProps {
   reducers: ReducersList;
@@ -29,9 +31,13 @@ export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = (props) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    Object.entries(reducers).forEach(([name, reducer]: ReducerListEntry) => {
+    // entries - когда достает ключи, по умолч. восп. из стринговыми
+    // у любого объекта ключ - всегда string, изменить никак не можем,
+    // тока тс проверки итд.
+    Object.entries(reducers).forEach(([name, reducer]) => {
       // добавляем редюсер в момент монтирования
-      store.reducerManager.add(name, reducer);
+      // всегда уверны что приходит стейтсхемаки
+      store.reducerManager.add(name as StateSchemaKey, reducer);
 
       // отслеживаем редюсер, когда иниц:
       dispatch({ type: `@INIT ${name} reducer ` });
@@ -40,8 +46,8 @@ export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = (props) => {
     // когда демонтируется реактом, удаляем
     return () => {
       if (removeAfterAmount) {
-        Object.entries(reducers).forEach(([name]: ReducerListEntry) => {
-          store.reducerManager.remove(name);
+        Object.entries(reducers).forEach(([name]) => {
+          store.reducerManager.remove(name as StateSchemaKey);
           dispatch({ type: `@DESTROY ${name} reducer` });
         })
       }

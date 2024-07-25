@@ -1,4 +1,4 @@
-import type { Meta, StoryObj, StoryFn } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react/*';
 import 'app/styles/index.scss'
 import { Text, TextTheme } from './Text';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
@@ -10,47 +10,46 @@ export default {
   tags: ['autodocs'],
 } as Meta<typeof Text>;
 
-// @ts-ignore
-const Template = (args) => <Text {...args} />;
+const Template: StoryFn<typeof Text> = (args) => <Text {...args} />;
 
-export const Primary: StoryObj<typeof Text> = Template.bind({});
+export const Primary = Template.bind({});
 Primary.args = {
   title: 'Title',
   text: 'Text'
 }
 
-export const Error: StoryObj<typeof Text> = Template.bind({});
+export const Error = Template.bind({});
 Error.args = {
   title: 'Title',
   text: 'Text',
   theme: TextTheme.ERROR,
 }
 
-export const onlyTitle: StoryObj<typeof Text> = Template.bind({});
+export const onlyTitle = Template.bind({});
 onlyTitle.args = {
   title: 'Title',
 }
 
-export const onlyText: StoryObj<typeof Text> = Template.bind({});
+export const onlyText = Template.bind({});
 onlyText.args = {
   text: 'Text'
 }
 
 // ----------
-export const PrimaryDark: StoryObj<typeof Text> = Template.bind({});
+export const PrimaryDark = Template.bind({});
 PrimaryDark.args = {
   title: 'Title',
   text: 'Text'
 };
 PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)];
 
-export const onlyTitleDark: StoryObj<typeof Text> = Template.bind({});
+export const onlyTitleDark = Template.bind({});
 onlyTitleDark.args = {
   title: 'Title',
 };
 onlyTitleDark.decorators = [ThemeDecorator(Theme.DARK)];
 
-export const onlyTextDark: StoryObj<typeof Text> = Template.bind({});
+export const onlyTextDark = Template.bind({});
 onlyTextDark.args = {
   text: 'Text'
 };

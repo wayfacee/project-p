@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryFn, StoryObj } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
 import { PageLoader } from './PageLoader';
@@ -15,12 +15,11 @@ export default {
   }
 } as Meta<typeof PageLoader>;
 
-// @ts-ignore
-const Template = (args) => <PageLoader {...args} />;
+const Template: StoryFn<typeof PageLoader> = (args) => <PageLoader {...args} />;
 
-export const Light: StoryObj<typeof PageLoader> = Template.bind({});
+export const Light = Template.bind({});
 Light.args = {};
 
-export const Dark: StoryObj<typeof PageLoader> = Template.bind({});
+export const Dark = Template.bind({});
 Dark.args = {};
 Dark.decorators = [ThemeDecorator(Theme.DARK)];
