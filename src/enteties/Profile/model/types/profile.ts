@@ -1,6 +1,15 @@
 import { Country } from "enteties/Country/model/types/country";
 import { Currency } from "enteties/Currency/model/types/currency";
 
+export enum ValidateProfileError {
+  INCORRECT_USER_DATA = 'INCORRECT_USER_DATA',
+  INCORRECT_AGE = 'INCORRECT_AGE',
+  INCORRECT_CURRENCY = 'INCORRECT_CURRENCY',
+  INCORRECT_COUNTRY = 'INCORRECT_COUNTRY',
+  SERVER_ERROR = 'SERVER_ERROR',
+  NO_DATA = 'NO_DATA'
+}
+
 export interface Profile {
   first?: string
   lastname?: string;
@@ -20,4 +29,7 @@ export interface ProfileSchema {
   error?: string;
   // режим для чтения / редактирования
   readonly: boolean;
+
+  // ошибок мб нескока:
+  validateErrors?: ValidateProfileError[];
 }

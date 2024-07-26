@@ -1,7 +1,7 @@
 import { classNames } from "shared/lib/classNames/classNames";
 import { useTranslation } from "react-i18next";
 import { DynamicModuleLoader, ReducersList } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
-import { fetchProfileData, getProfileError, getProfileIsLoading, getProfileReadonly, profileActions, ProfileCard, profileReducer } from "enteties/Profile";
+import { fetchProfileData, getProfileError, getProfileIsLoading, getProfileReadonly, getValidateErrors, profileActions, ProfileCard, profileReducer, ValidateProfileError } from "enteties/Profile";
 import { useCallback, useEffect } from "react";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { useSelector } from "react-redux";
@@ -9,6 +9,7 @@ import { ProfilePageHeader } from "./ProfilePageHeader/ProfilePageHeader";
 import { getProfileForm } from "enteties/Profile/model/selectors/getProfileForm/getProfileForm";
 import { Currency } from "enteties/Currency";
 import { Country } from "enteties/Country";
+import { Text, TextTheme } from "shared/ui/Text/Text";
 
 const reducers: ReducersList = {
   profile: profileReducer,
@@ -19,13 +20,24 @@ interface ProfilePageProps {
 }
 
 const ProfilePage = ({ className }: ProfilePageProps) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('profile');
   //  чтобы с асинх. экшеном работать
   const dispatch = useAppDispatch();
   const formData = useSelector(getProfileForm);
   const isLoading = useSelector(getProfileIsLoading);
   const error = useSelector(getProfileError);
   const readonly = useSelector(getProfileReadonly);
+  const validateErrors = useSelector(getValidateErrors);
+
+  // мапинг
+  const validateErrorTranslates = {
+    [ValidateProfileError.INCORRECT_USER_DATA]: t('Имя и фамилия обязательны'),
+    [ValidateProfileError.INCORRECT_AGE]: t('Некорректный возвраст'),
+    [ValidateProfileError.INCORRECT_CURRENCY]: t('Некорректная валюта'),
+    [ValidateProfileError.INCORRECT_COUNTRY]: t('Некорректный регион | страна'),
+    [ValidateProfileError.SERVER_ERROR]: t('Серверная ошибка при сохранений'),
+    [ValidateProfileError.NO_DATA]: t('Данные не указаны'),
+  }
 
   useEffect(() => {
     // ошибка в навигейте
@@ -77,6 +89,17 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
     <DynamicModuleLoader reducers={reducers} removeAfterAmount>
       <div className={classNames('', {}, [className])}>
         <ProfilePageHeader />
+
+        {validateErrors?.length && (
+          validateErrors.map(err => (
+            <Text
+              theme={TextTheme.ERROR}
+              text={validateErrorTranslates[err]}
+              key={err}
+            />
+          ))
+        )}
+
         <ProfileCard
           data={formData}
           isLoading={isLoading}
