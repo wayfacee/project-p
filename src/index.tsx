@@ -8,8 +8,10 @@ import i18next from './shared/config/i18n/i18n';
 import { ErrorBoundary } from 'app/providers/ErrorBoundary';
 import { StoreProvider } from 'app/providers/StoreProvider';
 
-createRoot(document.getElementById('root'))
-  .render(
+const rootElement = document.getElementById('root') as HTMLElement;
+
+if (rootElement) {
+  createRoot(rootElement).render(
     <BrowserRouter>
       <StoreProvider>
         <ErrorBoundary>
@@ -22,3 +24,6 @@ createRoot(document.getElementById('root'))
       </StoreProvider>
     </BrowserRouter>
   );
+} else {
+  throw new Error("Could not find root element with id 'root'");
+}

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider';
 import { NotFoundPage } from './NotFoundPage';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
@@ -16,11 +16,11 @@ export default {
 } as Meta<typeof NotFoundPage>;
 
 // @ts-ignore
-const Template = (args) => <NotFoundPage {...args} />;
+const Template: StoryFn<typeof NotFoundPage> = (args) => <NotFoundPage {...args} />;
 
-export const Light: StoryObj<typeof NotFoundPage> = Template.bind({});
+export const Light = Template.bind({});
 Light.args = {};
 
-export const Dark: StoryObj<typeof NotFoundPage> = Template.bind({});
+export const Dark = Template.bind({});
 Dark.args = {};
-Dark.decorators = [ThemeDecorator (Theme.DARK)];
+Dark.decorators = [ThemeDecorator(Theme.DARK)];

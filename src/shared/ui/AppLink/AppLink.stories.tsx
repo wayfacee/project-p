@@ -4,11 +4,10 @@ import { Theme } from 'app/providers/ThemeProvider';
 import { AppLink, AppLinkTheme } from './AppLink';
 
 export default {
-  title: 'widgets/AppLink',
+  title: 'shared/AppLink',
   component: AppLink,
   tags: ['autodocs'],
   argTypes: {
-    backgroundColor: {control: 'color'},
   },
   args: {
     to: '/',
