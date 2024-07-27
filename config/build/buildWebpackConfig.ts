@@ -22,6 +22,16 @@ export function buildWebpackConfig(options: BuildOptions): Configuration {
       // dist or build
       path: paths.build,
       clean: true,
+
+      // браузер пытается запросить чанк по запросу (articles/main.js)
+      // в строке запросов появляется лишний артиклес
+      // должен запраш. из корня
+      // а запрашивает из артиклес, а у нас такой папки ваще нет
+      // стат. файлы запрос. из папки билд, в дев режиме эти папки не создаются
+      // и эти папки хранятся в памяти
+
+      // Он позволяет указать базовый путь для всех активов в вашем приложении.
+      publicPath: '/',
     },
     plugins: buildPlugins(options),
     module: {
