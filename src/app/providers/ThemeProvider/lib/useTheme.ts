@@ -10,7 +10,23 @@ export function useTheme(): UseThemeResult {
   const { theme, setTheme } = useContext(ThemeContext);
 
   function toggleTheme() {
-    const newTheme = theme === Theme.DARK ? Theme.LIGHT : Theme.DARK;
+    // const newTheme = theme === Theme.DARK ? Theme.LIGHT : Theme.DARK;
+    let newTheme: Theme;
+    switch (theme) {
+    case Theme.DARK:
+      newTheme = Theme.LIGHT;
+      break;
+    case Theme.LIGHT:
+      newTheme = Theme.VIOLET;
+      break;
+    case Theme.VIOLET:
+      newTheme = Theme.DARK;
+      break;
+    default:
+      newTheme = Theme.LIGHT;
+      break;
+    }
+
     // контекст иниц. не сразу, в какое-то время пустой
     setTheme?.(newTheme);
     localStorage.setItem(LOCAL_STORAGE_KEY, newTheme);

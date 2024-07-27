@@ -25,10 +25,11 @@ export function buildPlugins({ paths, isDev, apiUrl, project }: BuildOptions): W
       // чтобы не было лишниз запросов в сторибуке
       __PROJECT__: JSON.stringify(project),
     }),
-    new ReactRefreshWebpackPlugin(),
   ];
 
   if (isDev) {
+    // обнолвяет автоматом, некоторые вещи не может обнов.
+    plugins.push(new ReactRefreshWebpackPlugin())
     // бесконечно крутится actions:
     plugins.push(new HotModuleReplacementPlugin());
 

@@ -62,7 +62,7 @@ describe('profileSlice', () => {
 
     expect(profileReducer(
       state as ProfileSchema,
-      updateProfileData.pending(),
+      updateProfileData.pending(''),
     )).toEqual({
       form: {
         isLoading: true,
