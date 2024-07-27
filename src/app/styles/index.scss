@@ -20,8 +20,11 @@ body {
 }
 
 .page-wrapper {
-  padding: 20px;
-
   // растянется на 100%, соседний блок не тронет
   flex-grow: 1;
+
+  padding: 20px 20px 20px 45px;
+  height: calc(100vh - var(--navbar-height));
+  overflow-y: auto;
+  width: 100%;
 }

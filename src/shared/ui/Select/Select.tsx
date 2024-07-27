@@ -58,10 +58,10 @@ export const Select = memo((props: SelectProps) => {
 
       <select 
       // нет ридОнли
-      disabled={readonly}
-      className={cl.select}
-      value={value}
-      onChange={onChangeHandler}
+        disabled={readonly}
+        className={cl.select}
+        value={value}
+        onChange={onChangeHandler}
       >
         {optionsList}
       </select>
