@@ -23,7 +23,7 @@ export const RoutePath: Record<AppRoutes, string> = {
   [AppRoutes.NOT_FOUND]: '*'
 }
 
-interface RouteConfigProps {
+export interface RouteConfigProps {
   path: string;
   element: React.ComponentType;
   authOnly?: boolean;

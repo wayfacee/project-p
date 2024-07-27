@@ -4,14 +4,16 @@ import { AppRouter } from './providers/router';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
 import { Suspense, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { userActions } from 'enteties/User';
-import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { getUserInited, userActions } from 'enteties/User';
 
 const App = () => {
   const dispatch = useDispatch();
+  const inited = useSelector(getUserInited);
 
   useEffect(() => {
+    // app router renderится раньше чем мы иниц. данные о юзере,
+    // можно было весь комп. не рендер. пока данные о юзере не будут
     dispatch(userActions.initAuthData());
   }, [dispatch]);
 
@@ -21,7 +23,7 @@ const App = () => {
         <Navbar />
         <div className="content-page">
           <Sidebar />
-          <AppRouter />
+          {inited && <AppRouter />}
         </div>
       </Suspense>
     </div>
