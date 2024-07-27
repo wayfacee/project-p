@@ -5,7 +5,7 @@ import { BuildOptions } from "./types/config";
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin'
 import BundleAnalyzerPlugin from 'webpack-bundle-analyzer';
 
-export function buildPlugins({ paths, isDev, apiUrl }: BuildOptions): WebpackPluginInstance[] {
+export function buildPlugins({ paths, isDev, apiUrl, project }: BuildOptions): WebpackPluginInstance[] {
   // порядок не важен
 
   const plugins = [
@@ -22,6 +22,8 @@ export function buildPlugins({ paths, isDev, apiUrl }: BuildOptions): WebpackPlu
     new DefinePlugin({
       __IS_DEV__: JSON.stringify(isDev),
       __API__: JSON.stringify(apiUrl),
+      // чтобы не было лишниз запросов в сторибуке
+      __PROJECT__: JSON.stringify(project),
     }),
     new ReactRefreshWebpackPlugin(),
   ];

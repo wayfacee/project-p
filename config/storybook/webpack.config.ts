@@ -14,6 +14,7 @@ export default ({ config }: { config: Configuration }) => {
   config!.resolve!.modules!.push(paths.src);
   config!.resolve!.extensions!.push('.ts', '.tsx');
 
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore - ругается на рулсы, но в конфиге сторибука не так страшно
   config!.module!.rules = config!.module!.rules!.map((rule: RuleSetRule) => {
     if (/svg/.test(rule.test as string)) {
@@ -36,6 +37,7 @@ export default ({ config }: { config: Configuration }) => {
   config!.plugins!.push(new DefinePlugin({
     __IS_DEV__: JSON.stringify(true),
     __API__: JSON.stringify(''),
+    __PROJECT__: JSON.stringify('storybook'),
   }))
   return config;
 }

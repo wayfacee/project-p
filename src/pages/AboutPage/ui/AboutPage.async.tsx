@@ -1,4 +1,4 @@
 import { lazy } from "react";
 
 // нельзя так делать!!:
-export const AboutPageAsync = lazy(() => import('./AboutPage'));
+export const AboutPageAsync = lazy(() => import('./AboutPage')); 

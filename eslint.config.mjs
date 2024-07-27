@@ -33,6 +33,7 @@ export default tseslint.config(
           ...globals.browser,
           __IS_DEV__: true,
           __API__: true,
+          __PROJECT__: true,
         },
       },
     },

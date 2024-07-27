@@ -15,6 +15,7 @@ export default {
   }
 } as Meta<typeof AboutPage>;
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 const Template: StoryFn<typeof AboutPage> = () => <AboutPage />;
 

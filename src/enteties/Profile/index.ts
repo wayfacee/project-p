@@ -10,7 +10,7 @@ export { ProfileCard } from './ui/ProfileCard/ProfileCard';
 
 // работу со стейтом, лучше надо было бы делать на слое стр.
 // не над было бы отдавать наружу
-export { updateProfileData } from './services/updataProfileData/updataProfileData';
+export { updateProfileData } from './services/updataProfileData/updateProfileData';
 export { fetchProfileData } from './services/fetchProfileData/fetchProfileData';
 export { Profile, ProfileSchema, } from './model/types/profile';
 // изодируем в рамках конкрет. стр.:

@@ -40,9 +40,10 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
   }
 
   useEffect(() => {
-    // ошибка в навигейте
-    dispatch(fetchProfileData());
-
+    if (__PROJECT__ !== 'storybook') {
+      // ошибка в навигейте
+      dispatch(fetchProfileData());
+    }
   }, [dispatch]);
 
   // тк передаем кк пропсы, поэтому каллбэк
@@ -57,6 +58,7 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
   }, [dispatch]);
 
   const onChangeAge = useCallback((value?: string) => {
+    // eslint-disable-next-line no-useless-escape
     const reg = new RegExp('^\d+$')
     if (value?.match(reg)) {
       dispatch(profileActions.updateProfile({ age: Number(value || 0) }))
