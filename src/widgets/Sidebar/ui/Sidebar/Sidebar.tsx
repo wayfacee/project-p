@@ -1,11 +1,12 @@
 import { classNames } from "shared/lib/classNames/classNames";
 import * as cl from './Sidebar.module.scss';
-import { memo, useState } from "react";
+import { memo, useMemo, useState } from "react";
 import { ThemeSwitcher } from "widgets/ThemeSwitcher";
 import { LangSwitcher } from "widgets/LangSwitcher/LangSwitcher";
 import { Button, ButtonSize, ButtonTheme } from "shared/ui/Button/Button";
-import { SidebarItemList } from "../../model/items";
 import { SidebarItem } from "../SidebarItem/SidebarItem";
+import { useSelector } from "react-redux";
+import { getSidebarItems } from "widgets/Sidebar/model/selectors/getSidebarItems/getSidebarItems";
 
 
 interface SidebarProps {
@@ -14,6 +15,7 @@ interface SidebarProps {
 
 export const Sidebar = memo(({ className }: SidebarProps) => {
   const [collapsed, setCollapsed] = useState(false);
+  const sidebarItemsList = useSelector(getSidebarItems);
 
   const onToggle = () => {
     setCollapsed(prev => !prev)
@@ -25,9 +27,15 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
   // не измен. то перерис. не произойдет.
   // 90% комп. надо оборач в мемо
 
-  {/*const itemsList = useMemo(() => {
-    return cl.items
-  }, [collapsed]) */}
+  const itemsList = useMemo(() => (
+    sidebarItemsList.map((item) => (
+      <SidebarItem
+        item={item}
+        collapsed={collapsed}
+        key={item.path}
+      />
+    ))
+  ), [collapsed, sidebarItemsList]);
 
   return (
     <div
@@ -46,13 +54,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
       </Button>
 
       <div className={cl.items}>
-        {SidebarItemList.map((item) => (
-          <SidebarItem
-            item={item}
-            collapsed={collapsed}
-            key={item.path}
-          />
-        ))}
+        {itemsList}
       </div>
 
       <div className={cl.switchers}>

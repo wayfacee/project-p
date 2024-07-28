@@ -33,6 +33,14 @@ const ArticlesDetailsPage = ({ className }: ArticlesDetailsPageProps) => {
   const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
   const commentsError = useSelector(getArticleCommentsError);
 
+  useInitialEffect(() => {
+    dispatch(fetchCommentsByArticleId(id));
+  })
+
+  const onSendComment = useCallback((text: string) => {
+    dispatch(addCommentForArticle(text));
+  }, [dispatch]);
+
   if (!id) {
     return (
       <div className={classNames(cl.ArticlesDetailsPage, {}, [className])}>
@@ -40,14 +48,6 @@ const ArticlesDetailsPage = ({ className }: ArticlesDetailsPageProps) => {
       </div>
     )
   }
-
-  const onSendComment = useCallback((text: string) => {
-    dispatch(addCommentForArticle(text));
-  }, [dispatch]);
-
-  useInitialEffect(() => {
-    dispatch(fetchCommentsByArticleId(id));
-  })
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterAmount>

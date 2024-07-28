@@ -12,7 +12,6 @@ export default {
   },
 } as Meta<typeof Modal>;
 
-// @ts-ignore
 const Template: StoryFn<typeof Modal> = (args) => <Modal {...args} />;
 
 export const Primary = Template.bind({});

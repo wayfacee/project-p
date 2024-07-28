@@ -20,7 +20,7 @@ export const addCommentForArticle = createAsyncThunk<
       } = thunkAPI;
 
       const userData = getUserAuthData(getState());
-      // зависим от модуля аддКоммФорм, поэтому принимаем как пропс
+      // зависим от модуля аддКоммФорм, поэтому принимаем как пропс (string)
       // const text = getaddCommentFormText(getState());
       // зависим от артикла, но мы не хотим так!
       const article = getArticleDetailsData(getState());

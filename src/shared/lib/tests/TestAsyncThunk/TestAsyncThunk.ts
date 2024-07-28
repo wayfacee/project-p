@@ -12,7 +12,9 @@ type ActionCreatorType<Return, Arg, RejectedValue>
 jest.mock('axios');
 // не подхватывает функц. по типу mockReturnValue
 // 2) глубокий мок, мокаем внутренние поля (пост итд.)
-// @ts-ignore
+
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore 
 const mockedAxios = jest.mocked(axios, true);
 
 export class TestAsyncThunk<Return, Arg, RejectedValue> {
@@ -26,8 +28,8 @@ export class TestAsyncThunk<Return, Arg, RejectedValue> {
   constructor(actionCreator: ActionCreatorType<Return, Arg, RejectedValue>,
     // иниц. стейт, чтобы гетстейт => возв. правильно
     // (?) инишал стейт не нужен во многих сценариях
-    state?: DeepPartial<StateSchema> 
-) {
+    state?: DeepPartial<StateSchema>
+  ) {
     this.actionCreator = actionCreator;
 
     // когда создаем кд раз дистпатч, гетстейт

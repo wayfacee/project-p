@@ -5,7 +5,6 @@ import { Text } from "shared/ui/Text/Text";
 import { useTranslation } from "react-i18next";
 import { CommentCard } from "../CommentCard/CommentCard";
 import { Comment } from "../../model/types/comment";
-import { BeatLoader } from "react-spinners";
 
 interface CommentListProps {
   className?: string;

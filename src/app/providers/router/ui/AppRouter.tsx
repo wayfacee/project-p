@@ -1,4 +1,4 @@
-import { memo, Suspense, useCallback, useMemo } from "react";
+import { memo, Suspense, useCallback } from "react";
 import { Route, Routes } from "react-router-dom";
 import { routeConfig, RouteConfigProps } from "shared/config/routeConfig/routeConfig";
 import { PageLoader } from "widgets/PageLoader/ui/PageLoader";

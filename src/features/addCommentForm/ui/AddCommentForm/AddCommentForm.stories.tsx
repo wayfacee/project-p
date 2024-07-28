@@ -13,7 +13,7 @@ const Template: StoryFn<typeof AddCommentForm> = (args) => <AddCommentForm {...a
 
 export const Primary = Template.bind({});
 Primary.args = {
-  onSendComment: action('onSendComment');
+  onSendComment: action('onSendComment'),
 };
 Primary.decorators = [
   StoreDecorator({})

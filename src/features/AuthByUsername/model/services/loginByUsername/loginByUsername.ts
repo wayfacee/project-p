@@ -8,11 +8,6 @@ interface LoginByUsernameProps {
   password: string;
 }
 
-enum LoginErrors {
-  INCORRECT_DATA = '',
-  SERVER_DATA = '',
-}
-
 // EXTRAREDUCERS IS FOR ASYNC THUNK
 
 // 1) то что возв., 2) аргумент, 3) конфиг санкАпи

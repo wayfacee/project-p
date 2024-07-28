@@ -27,8 +27,8 @@ export const Skeleton = memo((props: SkeletonProps) => {
 
   return (
     <div 
-    className={classNames(cl.Skeleton, {}, [className])}
-    style={styles}
+      className={classNames(cl.Skeleton, {}, [className])}
+      style={styles}
     >
 
     </div>

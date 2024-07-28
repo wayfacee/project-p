@@ -10,7 +10,6 @@ export default {
   tags: ['autodocs'],
 } as Meta<typeof Input>;
 
-// @ts-ignore
 const Template: StoryFn<typeof Input> = (args) => <Input {...args} />;
 
 export const Primary = Template.bind({});

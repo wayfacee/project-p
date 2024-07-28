@@ -12,7 +12,6 @@ export default {
   },
 } as Meta<typeof PageError>;
 
-// @ts-ignore
 const Template: StoryFn<typeof PageError> = (args) => <PageError {...args} />;
 
 export const Light = Template.bind({});
