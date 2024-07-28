@@ -5,6 +5,7 @@ import { StateSchemaKey } from 'app/providers/StoreProvider/config/StateSchema';
 import { Reducer } from '@reduxjs/toolkit';
 
 // * если дважды открыть модалку, то редюсер иниц. дважды (вроде)
+// ДЛЯ ASYNC СHUNK / REDUCERОВ
 
 // если будет нескока редюсеров
 export type ReducersList = {
@@ -31,9 +32,9 @@ export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = (props) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    // entries - когда достает ключи, по умолч. восп. из стринговыми
+    // entries - когда достает ключи, по умолч. восп. их стринговыми
     // у любого объекта ключ - всегда string, изменить никак не можем,
-    // тока тс проверки итд.
+    // тока тс проверками итд.
     Object.entries(reducers).forEach(([name, reducer]) => {
       // добавляем редюсер в момент монтирования
       // всегда уверны что приходит стейтсхемаки

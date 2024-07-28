@@ -28,6 +28,9 @@ const reducers: ReducersList = {
   articleDetails: articleDetailsReducer,
 }
 
+// изолировали полностью стейт, редюсеры, подгружаем сущ. по ид
+// этот комп. не предназнач. для переисп., зависит от ид статьи
+// наружу ниче не выходит
 export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
   const { t } = useTranslation('article-details');
   const dispatch = useAppDispatch();
@@ -37,20 +40,20 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
 
   const renderBlock = useCallback((block: ArticleBlock) => {
     switch (block.type) {
-      case ArticleBlockType.CODE:
-        return <ArticleCodeBlockComponent key={block.id}
-          className={cl.block}
-          block={block} />;
-      case ArticleBlockType.IMAGE:
-        return <ArticleImageBlockComponent key={block.id}
-          className={cl.block}
-          block={block} />;
-      case ArticleBlockType.TEXT:
-        return <ArticleTextBlockComponent key={block.id}
-          className={cl.block}
-          block={block} />;
-      default:
-        return null;
+    case ArticleBlockType.CODE:
+      return <ArticleCodeBlockComponent key={block.id}
+        className={cl.block}
+        block={block} />;
+    case ArticleBlockType.IMAGE:
+      return <ArticleImageBlockComponent key={block.id}
+        className={cl.block}
+        block={block} />;
+    case ArticleBlockType.TEXT:
+      return <ArticleTextBlockComponent key={block.id}
+        className={cl.block}
+        block={block} />;
+    default:
+      return null;
     }
   }, [])
 

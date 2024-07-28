@@ -105,7 +105,7 @@
     "eslint": "9.7.0"
   },
   "dependencies": {
-    "@reduxjs/toolkit": "^2.2.6",
+    "@reduxjs/toolkit": "^2.2.7",
     "axios": "^1.7.2",
     "i18next": "^23.11.5",
     "react": "18.3.1",
