@@ -16,5 +16,7 @@
   "Форма авторизации": "Authorization form",
   "Вы ввели неверный логин или пароль": "You entered an incorrect username or password",
   "Выйти": "Logout",
-  "Комментарии отсутствуют": "No comments"
+  "Комментарии отсутствуют": "No comments",
+  "Введите текст комментария": "Enter comment text",
+  "Отправить": "Send"
 }

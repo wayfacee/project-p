@@ -1,9 +1,10 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { ThunkConfig } from "app/providers/StoreProvider";
-import { Comment } from "enteties/Comment";
+import { Comment } from "entities/Comment";
 
 export const fetchCommentsByArticleId = createAsyncThunk<
   Comment[],
+  // тк ид - мб андефайнд
   string | undefined,
   ThunkConfig<string>
 >(

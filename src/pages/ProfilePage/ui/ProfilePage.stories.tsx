@@ -3,8 +3,8 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDeco
 import { Theme } from 'app/providers/ThemeProvider';
 import ProfilePage from './ProfilePage';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import { Country } from 'enteties/Country';
-import { Currency } from 'enteties/Currency';
+import { Country } from 'entities/Country';
+import { Currency } from 'entities/Currency';
 import AvatarImg from 'widgets/assets/tests/AvatarImg.jpg';
 
 export default {

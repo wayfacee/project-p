@@ -24,7 +24,7 @@ interface DynamicModuleLoaderProps {
 export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = (props) => {
   const {
     reducers,
-    removeAfterAmount,
+    removeAfterAmount = true,
     children
   } = props;
 

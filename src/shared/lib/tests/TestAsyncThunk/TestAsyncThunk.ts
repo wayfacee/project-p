@@ -27,7 +27,7 @@ export class TestAsyncThunk<Return, Arg, RejectedValue> {
     // иниц. стейт, чтобы гетстейт => возв. правильно
     // (?) инишал стейт не нужен во многих сценариях
     state?: DeepPartial<StateSchema> 
-  ) {
+) {
     this.actionCreator = actionCreator;
 
     // когда создаем кд раз дистпатч, гетстейт

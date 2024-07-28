@@ -4,7 +4,7 @@ import {
   PayloadAction,
 } from '@reduxjs/toolkit'
 import { StateSchema } from 'app/providers/StoreProvider';
-import { Comment } from 'enteties/Comment';
+import { Comment } from 'entities/Comment';
 import { ArticleDetailsCommentsSchema } from '../types/ArticleDetailsCommentsSchema';
 import { fetchCommentsByArticleId } from '../services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 
@@ -39,7 +39,7 @@ const articleDetailsCommentSlice = createSlice({
         state, action: PayloadAction<Comment[]>
       ) => {
         state.isLoading = false;
-        // setAll/ deletemany etc. 1) state 2) datas that we wanna add
+        // setAll/ deleteMany etc. 1) state 2) datas that we wanna add
         // сам нормализирует данные, сам добавит энтити / ид
         commentsAdapter.setAll(state, action.payload);
       })

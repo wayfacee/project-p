@@ -1,7 +1,7 @@
 import { configureStore, Reducer, ReducersMapObject } from "@reduxjs/toolkit";
 import { StateSchema, ThunkExtraArg } from "./StateSchema";
-import { counterReducer } from "enteties/Counter";
-import { userReducer } from "enteties/User";
+import { counterReducer } from "entities/Counter";
+import { userReducer } from "entities/User";
 import { createReducerManager } from "./reducerManager";
 import { $api } from "shared/api/api";
 import { NavigateOptions, To } from "react-router-dom";

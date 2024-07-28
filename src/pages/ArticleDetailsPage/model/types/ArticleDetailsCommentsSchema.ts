@@ -6,7 +6,7 @@
 // но мы делаем тоже самое на ур. стр
 
 import { EntityState } from "@reduxjs/toolkit";
-import { Comment } from "enteties/Comment";
+import { Comment } from "entities/Comment";
 
 // type EntetyId = number | string;
 
@@ -20,7 +20,7 @@ import { Comment } from "enteties/Comment";
 
 // interface EntityState<T> {
 //   ids: EntetyId[];
-//   enteties: Dictionary<T>;
+//   entities: Dictionary<T>;
 // }
 
 export interface ArticleDetailsCommentsSchema extends EntityState<Comment, string> {

@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import { memo, useCallback, useState } from "react";
 import { LoginModal } from "features/AuthByUsername";
 import { useDispatch, useSelector } from "react-redux";
-import { getUserAuthData, userActions } from "enteties/User";
+import { getUserAuthData, userActions } from "entities/User";
 
 interface NavbarProps {
   className?: string;

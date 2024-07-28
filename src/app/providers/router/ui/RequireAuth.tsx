@@ -1,7 +1,7 @@
 // когда маршруты открываем получаем ошибки, так делать не над
 // 1-раз открывает, 2 - раз открывать пейж нот фоунд
 
-import { getUserAuthData } from "enteties/User";
+import { getUserAuthData } from "entities/User";
 import { useSelector } from "react-redux";
 import { Navigate, useLocation } from "react-router-dom";
 import { RoutePath } from "shared/config/routeConfig/routeConfig";

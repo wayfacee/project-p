@@ -10,14 +10,26 @@
   ],
   "profile": [
     {
-      "first": "Timur",
-      "lastname": "Ulbi",
-      "age": 22,
+      "id": "1",
+      "first": "jgh",
+      "lastname": "asf",
+      "age": 465,
+      "currency": "RUB",
+      "country": "Belarus",
+      "city": "Moscow",
+      "username": "admin213",
+      "avatar": "https://avatars.mds.yandex.net/get-zen_doc/3413519/pub_5ff887b2fe4e686f6ae6ba3f_5ff887d7f906b16872a69755/scale_1200"
+    },
+    {
+      "id": "2",
+      "first": "ulbi tv",
+      "lastname": "asf",
+      "age": 465,
       "currency": "RUB",
       "country": "Russia",
       "city": "Moscow",
-      "username": "admin",
-      "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
+      "username": "ulbi tv",
+      "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
     }
   ],
   "articles": [
@@ -28,7 +40,9 @@
       "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1024px-Unofficial_JavaScript_logo_2.svg.png",
       "views": 1022,
       "createdAt": "26.07.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -109,6 +123,18 @@
       "text": "some comment 3",
       "articleId": "1",
       "userId": "1"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "n",
+      "id": "LEs9Ea-"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "user",
+      "id": "eh2h8TW"
     }
   ]
 }
