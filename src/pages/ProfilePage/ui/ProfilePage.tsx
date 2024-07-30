@@ -10,7 +10,7 @@ import { getProfileForm } from "entities/Profile/model/selectors/getProfileForm/
 import { Currency } from "entities/Currency";
 import { Country } from "entities/Country";
 import { Text, TextTheme } from "shared/ui/Text/Text";
-import { useInitialEffect } from "shared/lib/hooks/useAppDispatch/useInitialEffect/useInitialEffect";
+import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect";
 import { useParams } from "react-router-dom";
 
 const reducers: ReducersList = {

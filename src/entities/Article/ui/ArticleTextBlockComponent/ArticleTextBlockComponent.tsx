@@ -19,7 +19,7 @@ export const ArticleTextBlockComponent = memo((props: ArticleTextBlockComponentP
     <div className={classNames(cl.ArticleTextBlockComponent, {}, [className])}>
       {block.title && (
         <Text title={block.title} className={cl.title} />
-      )}
+      )} 
 
       {/* тк параграфы не будут меняться */}
       {block.paragraphs.map((paragraph) => (

@@ -4,7 +4,7 @@ import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDeco
 import { Article, ArticleBlockType, ArticleType } from '../../model/types/article';
 
 export default {
-  title: 'entities/ArticleDetails',
+  title: 'entities/Article/ArticleDetails',
   component: ArticleDetails,
   tags: ['autodocs'],
 } as Meta<typeof ArticleDetails>;
@@ -19,6 +19,10 @@ const article: Article = {
   views: 1022,
   createdAt: '26.02.2022',
   type: [ArticleType.IT],
+  user: {
+    id: '1',
+    username: 'ulbi tv',
+  },
   blocks: [
     {
       id: '1',

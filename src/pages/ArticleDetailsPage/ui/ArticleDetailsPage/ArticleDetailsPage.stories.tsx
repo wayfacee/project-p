@@ -1,15 +1,15 @@
 import type { Meta, StoryFn } from '@storybook/react';
-import ArticlesDetailsPage from './ArticlesDetailsPage';
+import ArticleDetailsPage from './ArticleDetailsPage';
 import { Article, ArticleBlockType, ArticleType } from 'entities/Article/model/types/article';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 
 export default {
-  title: 'pages/ArticlesDetailsPage',
-  component: ArticlesDetailsPage,
+  title: 'pages/ArticleDetailsPage',
+  component: ArticleDetailsPage,
   tags: ['autodocs'],
-} as Meta<typeof ArticlesDetailsPage>;
+} as Meta<typeof ArticleDetailsPage>;
 
-const Template: StoryFn<typeof ArticlesDetailsPage> = (args) => <ArticlesDetailsPage {...args} />;
+const Template: StoryFn<typeof ArticleDetailsPage> = (args) => <ArticleDetailsPage {...args} />;
 
 const article: Article = {
   id: '1',
@@ -19,6 +19,10 @@ const article: Article = {
   views: 1022,
   createdAt: '26.02.2022',
   type: [ArticleType.IT],
+  user: {
+    id: '1',
+    username: 'ulbi tv',
+  },
   blocks: [
     {
       id: '1',
