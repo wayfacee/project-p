@@ -18,7 +18,10 @@
   //   }
   // },
   "plugins": [
-    "i18next-extract"
+    ["i18next-extract",{
+      "locales": ["ru", "en"],
+      "keyAsDefaultValue": true // optional: if you want the default value to be the key
+    }]
     // […] your other plugins […]
   ]
 }
