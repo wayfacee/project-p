@@ -18,14 +18,3 @@ body {
 .content-page {
   display: flex;
 }
-
-.page-wrapper {
-  // растянется на 100%, соседний блок не тронет
-  flex-grow: 1;
-  padding: 20px 20px 20px 45px;
-  height: calc(100vh - var(--navbar-height));
-  overflow-y: auto;
-  flex-shrink: 100; //  sidebar скочит
-  // width: 100%; 
-  // можно еще width: 1% вместе с flex-grow: 1 = hack
-}

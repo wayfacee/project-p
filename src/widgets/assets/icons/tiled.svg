@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-<svg height="800px" width="800px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
-	 viewBox="0 0 265.655 265.655" xml:space="preserve">
-<g>
-	<path style="fill:#010002;" d="M252.938,0.003H132.822H12.717C5.695,0.003,0,5.697,0,12.714v120.111v120.116
+<svg height="800px" width="800px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+	xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 265.655 265.655" xml:space="preserve">
+	<g>
+		<path  d="M252.938,0.003H132.822H12.717C5.695,0.003,0,5.697,0,12.714v120.111v120.116
 		c0,7.022,5.695,12.711,12.717,12.711h120.105h120.116c7.022,0,12.717-5.695,12.717-12.711V132.825V12.714
 		C265.655,5.697,259.96,0.003,252.938,0.003z M240.233,120.114h-94.694V25.425h94.694V120.114z M25.422,25.425h94.694v94.683H25.422
-		V25.425z M25.422,145.536h94.694v94.694H25.422V145.536z M240.233,240.23h-94.694v-94.694h94.694V240.23z"/>
-</g>
+		V25.425z M25.422,145.536h94.694v94.694H25.422V145.536z M240.233,240.23h-94.694v-94.694h94.694V240.23z" />
+	</g>
 </svg>

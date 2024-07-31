@@ -1,6 +1,5 @@
 import { classNames } from "shared/lib/classNames/classNames";
 import * as cl from './ArticleList.module.scss';
-import { useTranslation } from "react-i18next";
 import { memo } from "react";
 import { Article, ArticleView } from "../../model/types/article";
 import { ArticleListItem } from "../ArticleListItem/ArticleListItem";
@@ -31,15 +30,11 @@ export const ArticleList = memo((props: ArticleListProps) => {
     view = ArticleView.SMALL,
     isLoading
   } = props;
-  const { t } = useTranslation();
 
-  if (isLoading) {
-    return (
-      <div className={classNames(cl.ArticleList, {}, [className, cl[view]])}>
-        {getSkeletons(view)}
-      </div>
-    )
-  }
+  // целиком замен. на скелетоны, поэтому надо под конец
+  // добавить - исЛоадинг
+  // иначе будут скачки
+  // так же ошибка в setAll => addMany
 
   const renderArticle = (article: Article) => {
     return (
@@ -57,6 +52,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
       {articles.length > 0
         ? articles.map(renderArticle)
         : null}
+      {isLoading && getSkeletons(view)}
     </div>
   );
 });

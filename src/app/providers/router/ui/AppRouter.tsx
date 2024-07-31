@@ -11,15 +11,13 @@ const AppRouter = () => {
     // _inited => App.tsx
     return (
       <Route key={route.path} path={route.path} element={
-        <div className="page-wrapper">
-          {route.authOnly ? (
-            <RequireAuth>
-              <route.element />
-            </RequireAuth>
-          ) : (
+        route.authOnly ? (
+          <RequireAuth>
             <route.element />
-          )}
-        </div>
+          </RequireAuth>
+        ) : (
+          <route.element />
+        )
       } />
     )
   }, []);

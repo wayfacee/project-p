@@ -2,6 +2,12 @@
 
 }
 
-.notSelected {
+.icons {
+  width: 25px;
+  height: 25px;
+  margin-right: 5px;
+}
+
+.selected {
   fill: var(--secondary-color);
 }
