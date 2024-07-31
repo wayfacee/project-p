@@ -8,7 +8,6 @@ import { AddCommentFormSchema } from "features/addCommentForm";
 import { LoginSchema } from "features/AuthByUsername";
 import { ArticleDetailsCommentsSchema } from "pages/ArticleDetailsPage";
 import { ArticlesPageSchema } from "pages/ArticlesPage";
-import { NavigateOptions, To } from "react-router-dom";
 
 export interface StateSchema {
   counter: CounterSchema;
@@ -24,12 +23,17 @@ export interface StateSchema {
 };
 
 export type StateSchemaKey = keyof StateSchema;
+export type MountedReducers = OptionalRecord<StateSchemaKey, boolean>; // DynamicModuleLoader
 
 export interface ReducerManager {
   getReducerMap: () => ReducersMapObject<StateSchema>;
   reduce: (state: StateSchema, action: AnyAction) => StateSchema;
   add: (key: StateSchemaKey, reducer: Reducer) => void;
   remove: (key: StateSchemaKey) => void;
+
+  // true - вмонтирован, false - демонтирован
+  // не все редюс. де/монтируем OptionalRecord
+  getMountedReducers: () => MountedReducers;
 }
 
 // стандартный тип который возвращается при создании стора
@@ -40,7 +44,7 @@ export interface ReduxStoreWithManager extends EnhancedStore<StateSchema> {
 // надо указ как не обяз. навигейт
 export interface ThunkExtraArg {
   api: AxiosInstance;
-  navigate?: (to: To, options?: NavigateOptions) => void;
+  // navigate?: (to: To, options?: NavigateOptions) => void;
 }
 
 export interface ThunkConfig<T> {

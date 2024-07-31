@@ -3,7 +3,6 @@ import { Provider } from "react-redux";
 import { createReduxStore } from "../config/store";
 import { StateSchema } from "../config/StateSchema";
 import { ReducersMapObject } from "@reduxjs/toolkit";
-import { useNavigate } from "react-router-dom";
 
 interface StoreProviderProps {
   children?: ReactNode;
@@ -18,14 +17,16 @@ export const StoreProvider = (props: StoreProviderProps) => {
     asyncReducers
   } = props;
 
+  // из за навигейта происходит при обнов. новый рендер
+  // НЕЛЬЗЯ ТАК ДЕЛАТЬ!!!
   // напр хотим, чтоб с регистр на => стр профиля
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const store = createReduxStore(
     // с as это плохо, но нам надо
     initialState as StateSchema, 
     asyncReducers as ReducersMapObject<StateSchema>,
-    navigate,
+    // navigate,
   );
 
   return (

@@ -32,16 +32,24 @@ export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = (props) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    const mountedReducers = store.reducerManager.getMountedReducers();
+
     // entries - когда достает ключи, по умолч. восп. их стринговыми
     // у любого объекта ключ - всегда string, изменить никак не можем,
     // тока тс проверками итд.
     Object.entries(reducers).forEach(([name, reducer]) => {
-      // добавляем редюсер в момент монтирования
-      // всегда уверны что приходит стейтсхемаки
-      store.reducerManager.add(name as StateSchemaKey, reducer);
+      const mounted = mountedReducers[name as StateSchemaKey];
 
-      // отслеживаем редюсер, когда иниц:
-      dispatch({ type: `@INIT ${name} reducer ` });
+      // добавляем новый редюс только если его нет
+      if (!mounted) {
+        // добавляем редюсер в момент монтирования
+        // всегда уверны что приходит стейтсхемаки
+        store.reducerManager.add(name as StateSchemaKey, reducer);
+
+        // отслеживаем редюсер, когда иниц:
+        dispatch({ type: `@INIT ${name} reducer ` });
+      }
+
     });
 
     // когда демонтируется реактом, удаляем

@@ -11,4 +11,9 @@ export interface ArticlesPageSchema extends EntityState<Article, string> {
   page: number;
   limit?: number;
   hasMore: boolean;
+
+  // поле не измен. - то инитед называем.
+  // меняется тока в момент иниц., потом руками менять
+  // уже нельзя
+  _inited: boolean;
 }

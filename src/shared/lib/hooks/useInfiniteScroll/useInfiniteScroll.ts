@@ -1,4 +1,4 @@
-import { MutableRefObject, useEffect, useRef } from "react";
+import { MutableRefObject, useEffect } from "react";
 
 export interface UseInfiniteScrollOptions {
   callback?: () => void;
@@ -9,7 +9,7 @@ export interface UseInfiniteScrollOptions {
 };
 
 // Intersection Observer API 
-// позволяет за появл. каких-то элем., и реализ. лэйзи
+// позволяет след. за появл. каких-то элем., и реализ. лэйзи
 // лоадинг (бесконечную ленту итд.)
 
 // можно исп. где угодно, где есть скролл
