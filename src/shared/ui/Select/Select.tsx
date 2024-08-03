@@ -1,22 +1,23 @@
 import { classNames, Mods } from "shared/lib/classNames/classNames";
 import * as cl from './Select.module.scss';
-import { ChangeEvent, memo, useMemo } from "react";
+import { ChangeEvent, useMemo } from "react";
 
-export interface SelectOption {
-  value: string;
+export interface SelectOption<T extends string> {
+  value: T;
   content: string;
 }
 
-interface SelectProps {
+interface SelectProps<T extends string> {
   className?: string;
   label?: string;
-  options?: SelectOption[];
-  value?: string;
-  onChange?: (value: string) => void;
+  options?: SelectOption<T>[];
+  value?: T;
+  onChange?: (value: T) => void;
   readonly?: boolean;
 }
 
-export const Select = memo((props: SelectProps) => {
+// generics - с мемо не оч работают, поэтому убрали
+export const Select = <T extends string>(props: SelectProps<T>) => {
   const {
     className,
     label,
@@ -29,7 +30,8 @@ export const Select = memo((props: SelectProps) => {
   const onChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
     // на вверх отдаем выбранное знач.
     // можно так же через иф проверка или ?.
-    onChange?.(e.target.value);
+    onChange?.(e.target.value as T); // здесб можно скастовать
+    // сверху есть тайп глаб, который не даст передать лиш. знач
   }
 
   // <SelectOption[]>
@@ -56,8 +58,8 @@ export const Select = memo((props: SelectProps) => {
         </span>
       )}
 
-      <select 
-      // нет ридОнли
+      <select
+        // нет ридОнли
         disabled={readonly}
         className={cl.select}
         value={value}
@@ -67,4 +69,4 @@ export const Select = memo((props: SelectProps) => {
       </select>
     </div>
   );
-});
+};

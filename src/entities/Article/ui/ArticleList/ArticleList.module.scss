@@ -10,9 +10,5 @@
 .SMALL {
   display: flex;
   flex-wrap: wrap; // на новую строку, то что не вместилось
-
-  .card {
-    margin-right: 30px;
-    margin-bottom: 30px;
-  }
+  gap: 30px; 
 }
