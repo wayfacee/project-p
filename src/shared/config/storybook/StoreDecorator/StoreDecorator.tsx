@@ -7,6 +7,7 @@ import { profileReducer } from 'entities/Profile';
 import { ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { articleDetailsReducer } from 'entities/Article/model/slice/articleDetailsSlice';
 import { addCommentFormReducer } from 'features/addCommentForm/model/slices/addCommentFormSlice';
+import { articleDetailsPageReducer } from 'pages/ArticleDetailsPage/model/slices';
 
 // ЭТО ВСЕ ДЕЛАЕТСЯ ДЛ СТОРИСОВ, ПОЭТОМУ МОЖНО ЗАБИТЬ
 // ДАЖЕ НА АБСОЛЮТ ИМПОРТЫ
@@ -18,7 +19,7 @@ const defaultAsyncReducers: ReducersList = {
   profile: profileReducer,
   articleDetails: articleDetailsReducer,
   addCommentForm: addCommentFormReducer,
-  articleDetailsComments: articleDetailsReducer,
+  articleDetailsPage: articleDetailsPageReducer,
 }
 
 export const StoreDecorator = (

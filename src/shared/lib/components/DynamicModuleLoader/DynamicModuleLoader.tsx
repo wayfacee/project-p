@@ -1,7 +1,7 @@
 import { useDispatch, useStore } from 'react-redux';
 import { FC, ReactNode, useEffect } from "react";
 import { ReduxStoreWithManager } from 'app/providers/StoreProvider';
-import { StateSchemaKey } from 'app/providers/StoreProvider/config/StateSchema';
+import { StateSchema, StateSchemaKey } from 'app/providers/StoreProvider/config/StateSchema';
 import { Reducer } from '@reduxjs/toolkit';
 
 // * если дважды открыть модалку, то редюсер иниц. дважды (вроде)
@@ -9,7 +9,10 @@ import { Reducer } from '@reduxjs/toolkit';
 
 // если будет нескока редюсеров
 export type ReducersList = {
-  [name in StateSchemaKey]?: Reducer;
+  // делем более строгим, мы забираем поле из стейтСхемы
+  // взавис. от того какое навз. у редюсера, разраб указал в качестве нейм
+  // динамически на основании этого достает кусочек из стейтСхемы
+  [name in StateSchemaKey]?: Reducer<NonNullable<StateSchema[name]>>;
 }
 
 // потеряли тип для ключа: уже не нужно

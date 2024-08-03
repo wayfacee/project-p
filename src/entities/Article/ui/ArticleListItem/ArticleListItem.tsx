@@ -1,7 +1,7 @@
 import { classNames } from "shared/lib/classNames/classNames";
 import * as cl from './ArticleListItem.module.scss';
 import { useTranslation } from "react-i18next";
-import { memo, useCallback } from "react";
+import { HTMLAttributeAnchorTarget, memo, useCallback } from "react";
 import { Article, ArticleBlockType, ArticleTextBlock, ArticleView } from "../../model/types/article";
 import { Text } from "shared/ui/Text/Text";
 import { Icon } from "shared/ui/Icon/Icon";
@@ -10,13 +10,14 @@ import { Card } from "shared/ui/Card/Card";
 import { Avatar } from "shared/ui/Avatar/Avatar";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
-import { useNavigate } from "react-router-dom";
 import { RoutePath } from "shared/config/routeConfig/routeConfig";
+import { AppLink } from "shared/ui/AppLink/AppLink";
 
 interface ArticleListItemProps {
   className?: string;
   article: Article;
   view: ArticleView;
+  target?: HTMLAttributeAnchorTarget;
 }
 
 export const ArticleListItem = memo((props: ArticleListItemProps) => {
@@ -24,13 +25,14 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
     className,
     article,
     view,
+    target
   } = props;
   const { t } = useTranslation();
-  const navigate = useNavigate();
 
-  const onOpenArticle = useCallback(() => {
-    navigate(`${RoutePath.article_details}${article.id}`);
-  }, [navigate, article.id]);
+  // если нажать средней кнопкой мыши, то не откроется, доступность терям
+  // const onOpenArticle = useCallback(() => {
+  //   navigate(`${RoutePath.article_details}${article.id}`);
+  // }, [navigate, article.id]);
 
   const types = <Text text={article.type.join(', ')} className={cl.types} />;
   const views = (
@@ -63,12 +65,14 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
           )}
 
           <div className={cl.footer}>
-            <Button
-              theme={ButtonTheme.OUTLINE}
-              onClick={onOpenArticle}
-            >
-              Читать далее...
-            </Button>
+            <AppLink to={`${RoutePath.article_details}${article.id}`}>
+              <Button
+                theme={ButtonTheme.OUTLINE}
+              >
+                Читать далее...
+              </Button>
+            </AppLink>
+
 
             {views}
           </div>
@@ -79,8 +83,12 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
   }
 
   return (
-    <div className={classNames(cl.ArticleListItem, {}, [className, cl[view]])}>
-      <Card className={cl.card} onClick={onOpenArticle}>
+    <AppLink
+    target={target}
+      to={`${RoutePath.article_details}${article.id}`}
+      className={classNames(cl.ArticleListItem, {}, [className, cl[view]])}
+    >
+      <Card className={cl.card} >
         <div className={cl.imageWrapper}>
           <img src={article.img} alt={article.title} className={cl.img} />
           <Text text={article.createdAt} className={cl.date} />
@@ -93,6 +101,6 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
 
         <Text text={article.title} className={cl.title} />
       </Card>
-    </div>
+    </AppLink>
   );
 });
