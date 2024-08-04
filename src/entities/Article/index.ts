@@ -1,3 +1,4 @@
+export { getArticleDetailsData } from "./model/selectors/articleDetails";
 export { ArticleTypeTabs } from "./ui/ArticleTypeTabs/ArticleTypeTabs";
 export { ArticleType } from "./model/types/article";
 export { ArticlesSortSelector } from "./ui/ArticlesSortSelector/ArticlesSortSelector";

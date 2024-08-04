@@ -15,3 +15,9 @@
     }
   }
 }
+
+.appName {
+  // чтобы лишнее в эту область не попадало
+  width: var(--sidebar-width);
+  margin-left: 15px;
+}

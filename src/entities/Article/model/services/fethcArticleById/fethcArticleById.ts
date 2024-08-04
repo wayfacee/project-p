@@ -11,7 +11,11 @@ export const fethcArticleById = createAsyncThunk<Article, string, ThunkConfig<st
     } = thunkAPI;
 
     try {
-      const { data } = await extra.api.get<Article>(`/articles/${articleId}`);
+      const { data } = await extra.api.get<Article>(`/articles/${articleId}`, {
+        params: {
+          _expand: 'user', // вернет фулл инфу о юзере
+        }
+      });
 
       if (!data) throw new Error('problem with fethcProfileData')
 
