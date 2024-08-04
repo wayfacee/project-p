@@ -4,6 +4,7 @@ import { DefinePlugin, HotModuleReplacementPlugin, ProgressPlugin, WebpackPlugin
 import { BuildOptions } from "./types/config";
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin'
 import BundleAnalyzerPlugin from 'webpack-bundle-analyzer';
+import CopyPlugin from "copy-webpack-plugin";
 
 export function buildPlugins({ paths, isDev, apiUrl, project }: BuildOptions): WebpackPluginInstance[] {
   // порядок не важен
@@ -24,6 +25,12 @@ export function buildPlugins({ paths, isDev, apiUrl, project }: BuildOptions): W
       __API__: JSON.stringify(apiUrl),
       // чтобы не было лишниз запросов в сторибуке
       __PROJECT__: JSON.stringify(project),
+    }),
+    new CopyPlugin({
+      patterns: [
+        // откуда -> куда
+        { from: paths.locales, to: paths.buildLocales },
+      ],
     }),
   ];
 
