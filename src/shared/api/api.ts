@@ -1,4 +1,4 @@
-import axios, { AxiosRequestConfig } from "axios";
+import axios from "axios";
 import { USER_LOCALSTORAGE_KEY } from "shared/const/localstorage";
 
 // const baseURL = __IS_DEV__ ? 'http://localhost:8000' : 'https://production.ru';
@@ -8,13 +8,13 @@ import { USER_LOCALSTORAGE_KEY } from "shared/const/localstorage";
 export const $api = axios.create({
   baseURL: __API__,
   // headers: {
-    // проверяется наличие заголовка, имитация авторизации
-    // Authorization: localStorage.getItem(USER_LOCALSTORAGE_KEY) || '',
+  // проверяется наличие заголовка, имитация авторизации
+  // Authorization: localStorage.getItem(USER_LOCALSTORAGE_KEY) || '',
   // },
 });
 
-// ошибка что не юзер не авториз. (в начале)
-// все дело из хедера достаем в момент созд. инстанса
+// ошибка (в начале), что не юзер не авториз. 
+// все дело из за хедера достаем в момент созд. инстанса
 // когда авториз. инстанс уже был создан, но в Authorization
 // оставалась пустая строка
 // и по хорошему надо добавь интерцептор

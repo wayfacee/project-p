@@ -1,4 +1,4 @@
-import { Meta, StoryFn } from '@storybook/react/*';
+import { Meta, StoryFn } from '@storybook/react';
 import 'app/styles/index.scss'
 import { Text, TextSize, TextTheme } from './Text';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';

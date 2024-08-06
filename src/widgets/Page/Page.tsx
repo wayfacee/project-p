@@ -16,6 +16,8 @@ interface PageProps {
   onScrollEnd?: () => void;
 }
 
+export const PAGE_ID = 'PAGE_ID';
+
 export const Page = memo((props: PageProps) => {
   const {
     className,
@@ -57,11 +59,15 @@ export const Page = memo((props: PageProps) => {
     // можно сделать isSaveScroll, и передавать из вне
   }, 500);
 
+  // надо было сделать пейдж провайдер/контекст,
+  // и управлять этим всем через реф, но мы через ид сделаем 
+
   return (
     <section
       ref={wrapperRef}
       className={classNames(cl.Page, {}, [className])}
       onScroll={onScroll}
+      id={PAGE_ID}
     >
       {children}
       {/* не всегда данные подгруз. */}
