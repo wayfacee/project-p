@@ -6,7 +6,8 @@ import { LangSwitcher } from "widgets/LangSwitcher/LangSwitcher";
 import { Button, ButtonSize, ButtonTheme } from "shared/ui/Button/Button";
 import { SidebarItem } from "../SidebarItem/SidebarItem";
 import { useSelector } from "react-redux";
-import { getSidebarItems } from "widgets/Sidebar/model/selectors/getSidebarItems/getSidebarItems";
+import { getSidebarItems } from "../../model/selectors/getSidebarItems/getSidebarItems";
+import { VStack } from "shared/ui/Stack/VStack/Vstack";
 
 
 interface SidebarProps {
@@ -53,9 +54,9 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
         {collapsed ? '>' : '<'}
       </Button>
 
-      <div className={cl.items}>
+      <VStack gap="8" className={cl.items}>
         {itemsList}
-      </div>
+      </VStack>
 
       <div className={cl.switchers}>
         {/* зем, ланг свитчер тож перерис. */}

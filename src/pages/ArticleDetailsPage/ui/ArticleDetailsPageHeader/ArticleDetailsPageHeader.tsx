@@ -1,5 +1,4 @@
 import { classNames } from "shared/lib/classNames/classNames";
-import * as cl from './ArticleDetailsPageHeader.module.scss';
 import { useTranslation } from "react-i18next";
 import { memo, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
@@ -7,7 +6,8 @@ import { RoutePath } from "shared/config/routeConfig/routeConfig";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import { useSelector } from "react-redux";
 import { getArticleDetailsData } from "entities/Article/model/selectors/articleDetails";
-import { getCanEditArticle } from "pages/ArticleDetailsPage/model/selectors/article";
+import { getCanEditArticle } from "../../model/selectors/article";
+import { HStack } from "shared/ui/Stack";
 
 interface ArticleDetailsPageHeaderProps {
   className?: string;
@@ -32,7 +32,7 @@ export const ArticleDetailsPageHeader = memo((props: ArticleDetailsPageHeaderPro
   }, [navigate, article?.id]);
 
   return (
-    <div className={classNames(cl.ArticleDetailsPageHeader, {}, [className])}>
+    <HStack max justify="between" className={classNames('', {}, [className])}>
       <Button
         theme={ButtonTheme.OUTLINE}
         onClick={onBackToList}
@@ -42,13 +42,12 @@ export const ArticleDetailsPageHeader = memo((props: ArticleDetailsPageHeaderPro
 
       {canEdit && (
         <Button
-          className={cl.editBtn}
           theme={ButtonTheme.OUTLINE}
           onClick={onEditArticle}
         >
           {t('Редактировать')}
         </Button>
       )}
-    </div>
+    </HStack>
   );
 });

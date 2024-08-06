@@ -10,8 +10,8 @@ export default ({ config }: { config: Configuration }) => {
     entry: '',
     html: '',
     src: path.resolve(__dirname, '..', '..', 'src'),
-    locales: path.resolve(__dirname, "public", "locales"),
-    buildLocales: path.resolve(__dirname, "build", "locales"),
+    locales: '', // в качестве переводов исп. ключи на русс.
+    buildLocales: '', // но если англ был, то надо настроить
   }
   config!.resolve!.modules!.push(paths.src);
   config!.resolve!.extensions!.push('.ts', '.tsx');

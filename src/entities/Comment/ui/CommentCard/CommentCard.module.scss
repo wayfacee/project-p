@@ -3,17 +3,15 @@
   border: 1px solid var(--primary-color);
 }
 
-.header{
+// хедер навешивается на ссылку. поэтому чтоб не создавть лишнюю
+// ноду, оставим
+.header {
   display: flex;
   align-items: center;
 }
 
 .username {
   margin-right: 10px;
-}
-
-.text {
-  margin-top: 10px;
 }
 
 .loading {
