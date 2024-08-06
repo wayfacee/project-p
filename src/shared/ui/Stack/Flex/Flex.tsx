@@ -3,7 +3,7 @@
 
 import { classNames, Mods } from "shared/lib/classNames/classNames";
 import * as cl from './Flex.module.scss';
-import { ReactNode } from "react";
+import { DetailedHTMLProps, HTMLAttributes, ReactNode } from "react";
 
 // лучше создавать Union types, чем перечисления
 // пошта надо импортить итд. + в жс компил.
@@ -38,7 +38,11 @@ const gapClasses: Record<FlexGap, string> = {
   32: cl.gap32,
 };
 
-export interface FlexProps {
+// появятся пропсы как у дива, можно поменять роль
+// фактически див, а с точки семнтики спаном можем сделать role='span'
+type DivProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
+
+export interface FlexProps extends DivProps {
   className?: string;
   children: ReactNode;
   justify?: FlexJustify;
