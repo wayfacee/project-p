@@ -17,6 +17,8 @@ interface ArticleListProps {
   target?: HTMLAttributeAnchorTarget;
 }
 
+// ЛУЧШЕ ИСП. ДРУГУЮ ЛИБУ + ПРАКТИКА 
+
 // разгрузили комп.
 const getSkeletons = (view: ArticleView) => new Array(view === ArticleView.SMALL ? 9 : 3)
   .fill(0)

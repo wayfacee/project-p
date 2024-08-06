@@ -8,6 +8,7 @@ import i18nPlugin from 'eslint-plugin-i18next';
 // import jest from 'eslint-plugin-jest';
 import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
+import pathChecker from 'eslint-plugin-path-checker-ulbi-tv';
 
 /**@type {import('eslint').Linter.FlatConfig[]} */
 export default tseslint.config(
@@ -42,6 +43,7 @@ export default tseslint.config(
       'i18next': i18nPlugin,
       react,
       'react-hooks': fixupPluginRules(reactHooks),
+      "path-checker-ulbi-tv": pathChecker,
     },
     rules: {
       'react/jsx-indent': [2, 2],
@@ -79,6 +81,8 @@ export default tseslint.config(
       "@typescript-eslint/no-explicit-any": "warn",
       "@typescript-eslint/ban-ts-comment": "warn",
       "no-undef": "off",
+
+      'path-checker-ulbi-tv/path-checker': 'error',
     },
   },
   pluginJs.configs.recommended,
