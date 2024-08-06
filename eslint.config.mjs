@@ -13,7 +13,7 @@ import pathChecker from 'eslint-plugin-path-checker-ulbi-tv';
 /**@type {import('eslint').Linter.FlatConfig[]} */
 export default tseslint.config(
   {
-    ignores: ["node_modules", "build", 'eslint.config.mjs'],
+    ignores: ["node_modules", "build", 'eslint.config.mjs', 'scripts'],
   },
   {
     files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"],

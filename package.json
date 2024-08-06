@@ -21,7 +21,8 @@
     "test:ui:html": "reg-cli -F .loki/report.json -R .loki/report.html",
     "storybook": "storybook dev - p 6006 -c ./config/storybook",
     "build:storybook": "storybook build -c ./config/storybook",
-    "json": "json-server --watch ./json-server/db.json --port 8000"
+    "json": "json-server --watch ./json-server/db.json --port 8000",
+    "generate:slice": "node ./scripts/createSlice/index.js"
   },
   "author": "",
   "license": "ISC",

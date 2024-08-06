@@ -55,4 +55,7 @@
 
     "./config/storybook/**/*.ts",
   ],
+  "exclude": [
+    "./scripts/"
+  ]
 }
