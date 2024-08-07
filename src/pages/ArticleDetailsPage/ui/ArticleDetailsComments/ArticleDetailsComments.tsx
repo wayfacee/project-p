@@ -38,19 +38,19 @@ export const ArticleDetailsComments = memo((props: ArticleDetailsCommentsProps) 
   const comments = useSelector(getArticleComments.selectAll);
   const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
   const commentsError = useSelector(getArticleCommentsError);
-  
+
   const onSendComment = useCallback((text: string) => {
     dispatch(addCommentForArticle(text));
   }, [dispatch]);
 
-  
+
   useInitialEffect(() => {
     dispatch(fetchCommentsByArticleId(id));
   });
 
   return (
     <VStack gap="16"
-    className={classNames('', {}, [className])}
+      className={classNames('', {}, [className])}
     >
       <Text
         size={TextSize.L}

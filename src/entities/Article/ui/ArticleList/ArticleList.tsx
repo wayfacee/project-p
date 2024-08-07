@@ -103,8 +103,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
           isScrolling,
           scrollTop }) => (
           <div
-            // @ts-ignore
-            ref={registerChild} // чтобы скролл знал про список
+            ref={registerChild as React.Ref<HTMLDivElement>} // чтобы скролл знал про список
             className={classNames(cl.ArticleList, {}, [className, cl[view]])}
           >
             <List

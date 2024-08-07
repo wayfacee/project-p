@@ -1,6 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import * as cl from './EditableProfileCard.module.scss';
 import { memo, useCallback } from 'react';
 import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
@@ -105,8 +104,8 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
 
   return (
     <DynamicModuleLoader reducers={reducers}>
-      <VStack gap='8' max 
-      className={classNames(cl.EditableProfileCard, {}, [className])}
+      <VStack gap='8' max
+        className={classNames('', {}, [className])}
       >
         <EditableProfileCardHeader />
 

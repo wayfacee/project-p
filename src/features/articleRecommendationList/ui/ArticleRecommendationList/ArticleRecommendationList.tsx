@@ -18,7 +18,10 @@ export const ArticleRecommendationList = memo((props: ArticleRecommendationListP
   if (isLoading || error) return null;
 
   return (
-    <VStack className={classNames('', {}, [className])}>
+    <VStack
+      gap='8'
+      className={classNames('', {}, [className])}
+    >
 
       <Text
         size={TextSize.L}
