@@ -1,4 +1,5 @@
-import { Profile, ValidateProfileError } from "entities/Profile/model/types/profile";
+import { Profile } from "entities/Profile/model/types/profile";
+import { ValidateProfileError } from "../../types/editableProfileCardSchema";
 
 // 1 ) аргом принимает профиль
 // 2) асинксанк который с помощью гетстейт достает профиль из стейта

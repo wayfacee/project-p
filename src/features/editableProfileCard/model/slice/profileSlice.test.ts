@@ -1,8 +1,8 @@
 import { Country } from "entities/Country";
-import { ProfileSchema, ValidateProfileError } from "../types/profile";
-import { profileActions, profileReducer } from "./profileSlice";
 import { Currency } from "entities/Currency";
-import { updateProfileData } from "entities/Profile/services/updataProfileData/updateProfileData";
+import { ProfileSchema, ValidateProfileError } from "../types/editableProfileCardSchema";
+import { profileActions, profileReducer } from "./profileSlice";
+import { updateProfileData } from "../services/updataProfileData/updateProfileData";
 
 // в продукшене вот такие тесты, лучше не над
 // трата времени, обычно тест. где есть логика, циклы, условия итд.

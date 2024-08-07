@@ -1,7 +1,7 @@
 import { classNames } from "shared/lib/classNames/classNames";
 import * as cl from './ArticleListItem.module.scss';
 import { useTranslation } from "react-i18next";
-import { HTMLAttributeAnchorTarget, memo, useCallback } from "react";
+import { HTMLAttributeAnchorTarget, memo } from "react";
 import { Article, ArticleBlockType, ArticleTextBlock, ArticleView } from "../../model/types/article";
 import { Text } from "shared/ui/Text/Text";
 import { Icon } from "shared/ui/Icon/Icon";
@@ -84,7 +84,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
 
   return (
     <AppLink
-    target={target}
+      target={target}
       to={`${RoutePath.article_details}${article.id}`}
       className={classNames(cl.ArticleListItem, {}, [className, cl[view]])}
     >

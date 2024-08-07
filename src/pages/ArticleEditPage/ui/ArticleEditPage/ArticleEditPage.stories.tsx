@@ -2,7 +2,7 @@ import type { Meta, StoryFn } from '@storybook/react';
 import ArticleEditPage from './ArticleEditPage';
 
 export default {
-  title: 'pages/Article/ArticleEditPage',
+  title: 'pages/ArticleEditPage/ArticleEditPage',
   component: ArticleEditPage,
   tags: ['autodocs'],
 } as Meta<typeof ArticleEditPage>;

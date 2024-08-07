@@ -2,23 +2,22 @@ import { classNames } from "shared/lib/classNames/classNames";
 import * as cl from './ArticlesPage.module.scss';
 import { useTranslation } from "react-i18next";
 import { memo, useCallback } from "react";
-import { ArticleList } from "entities/Article";
 import { DynamicModuleLoader, ReducersList } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
-import {  articlesPageReducer, getArticles } from "../../models/slices/articlesPageSlice";
-import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect";
+import { articlesPageReducer } from "../../models/slices/articlesPageSlice";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
-import { useSelector } from "react-redux";
-import { getArticlesPageError, getArticlesPageIsLoading, getArticlesPageView } from "../../models/selectors/articlesPageSelectors";
 import { Page } from "widgets/Page/Page";
 import { fetchNextArticlesPage } from "../../models/services/fetchNextArticlesPage/fetchNextArticlesPage";
-import { Text } from "shared/ui/Text/Text";
-import { initArticlesPage } from "../../models/services/initArticlesPage/initArticlesPage";
 import { ArticlesPageFilters } from "../ArticlesPageFilters/ArticlesPageFilters";
-import { useSearchParams } from "react-router-dom";
+import { ArticleInfiniteList } from "../ArticleInfiniteList/ArticleInfiniteList";
 
 interface ArticlesPageProps {
   className?: string;
 }
+
+// ArticleList - переисп., надо было сделать отдел. фичу
+// ArticleInfiniteList - чтоб там была логика по подгруз. данных
+// но из за того что стейт на ур. стр., надр координально менять все
+// и поэтому мы просто отдел. комп. создадим на ур. стр.
 
 const reducers: ReducersList = {
   articlesPage: articlesPageReducer,
@@ -27,28 +26,11 @@ const reducers: ReducersList = {
 const ArticlesPage = ({ className }: ArticlesPageProps) => {
   const { t } = useTranslation('article');
   const dispatch = useAppDispatch();
-  const articles = useSelector(getArticles.selectAll);
-  const isLoading = useSelector(getArticlesPageIsLoading);
-  const view = useSelector(getArticlesPageView);
-  const error = useSelector(getArticlesPageError);
-  // URLSearchParams:
-  const [searchParams] = useSearchParams();
 
 
   const onLoadNextPart = useCallback(() => {
     dispatch(fetchNextArticlesPage());
   }, [dispatch]);
-
-  useInitialEffect(() => {
-    // чтобы работало на две стороны, подставлялись парамсы
-    dispatch(initArticlesPage(searchParams));
-  });
-
-  if (error) {
-    return (
-      <Text title='Some problems with server, try to refresh the page / (ArticlesPage)' />
-    )
-  }
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterAmount={false}>
@@ -58,12 +40,7 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
         className={classNames(cl.ArticlesPage, {}, [className])}
       >
         <ArticlesPageFilters />
-        <ArticleList
-          articles={articles}
-          view={view}
-          isLoading={isLoading}
-          className={cl.list}
-        />
+        <ArticleInfiniteList className={cl.list} />
       </Page>
     </DynamicModuleLoader>
   );

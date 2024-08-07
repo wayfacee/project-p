@@ -4,7 +4,7 @@ import { Article, ArticleBlockType, ArticleType } from 'entities/Article/model/t
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 
 export default {
-  title: 'pages/ArticleDetailsPage',
+  title: 'pages/ArticleDetailsPage/ArticleDetailsPage',
   component: ArticleDetailsPage,
   tags: ['autodocs'],
 } as Meta<typeof ArticleDetailsPage>;

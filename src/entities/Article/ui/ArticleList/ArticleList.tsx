@@ -1,6 +1,6 @@
 import { classNames } from "shared/lib/classNames/classNames";
 import * as cl from './ArticleList.module.scss';
-import { HTMLAttributeAnchorTarget, memo } from "react";
+import { HTMLAttributeAnchorTarget, LegacyRef, memo } from "react";
 import { Article, ArticleView } from "../../model/types/article";
 import { ArticleListItem } from "../ArticleListItem/ArticleListItem";
 import { ArticleListItemSkeleton } from "../ArticleListItem/ArticleListItemSkeleton";
@@ -103,6 +103,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
           isScrolling,
           scrollTop }) => (
           <div
+            // @ts-ignore
             ref={registerChild} // чтобы скролл знал про список
             className={classNames(cl.ArticleList, {}, [className, cl[view]])}
           >

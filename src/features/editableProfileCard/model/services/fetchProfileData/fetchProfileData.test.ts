@@ -3,7 +3,6 @@ import { fetchProfileData } from "./fetchProfileData";
 import { TestAsyncThunk } from "shared/lib/tests/TestAsyncThunk/TestAsyncThunk";
 import { Currency } from "entities/Currency";
 
-
 describe('fetchProfileData', () => {
   const data = {
     username: 'admin',

@@ -2,8 +2,7 @@ import { Country } from "entities/Country";
 import { updateProfileData } from "./updateProfileData";
 import { TestAsyncThunk } from "shared/lib/tests/TestAsyncThunk/TestAsyncThunk";
 import { Currency } from "entities/Currency";
-import { ValidateProfileError } from "entities/Profile/model/types/profile";
-
+import { ValidateProfileError } from "../../types/editableProfileCardSchema";
 
 describe('updateProfileData', () => {
   const data = {

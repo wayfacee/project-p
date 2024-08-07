@@ -1,6 +1,6 @@
 import { StateSchema } from "app/providers/StoreProvider";
 import { getValidateErrors } from "./getValidateErrors";
-import { ValidateProfileError } from "../../types/profile";
+import { ValidateProfileError } from "../../types/editableProfileCardSchema";
 
 describe('getValidateErrors', () => {
   test('should work with filled state', () => {

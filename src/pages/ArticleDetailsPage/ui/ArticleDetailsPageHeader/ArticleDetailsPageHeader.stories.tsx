@@ -2,7 +2,7 @@ import type { Meta, StoryFn } from '@storybook/react';
 import { ArticleDetailsPageHeader } from './ArticleDetailsPageHeader';
 
 export default {
-  title: 'pages/Article/ArticleDetailsPageHeader',
+  title: 'pages/ArticleDetailsPage/ArticleDetailsPageHeader',
   component: ArticleDetailsPageHeader,
   tags: ['autodocs'],
 } as Meta<typeof ArticleDetailsPageHeader>;
