@@ -97,6 +97,8 @@ export const ProfileCard = (props: ProfileCardProps) => {
         placeholder={t('Ваше имя')}
         onChange={onChangeFirstname}
         readonly={readonly}
+        // по хорошему надо проверить все инпуты
+        data-testid={'ProfileCard.firstname'}
       />
 
       <Input
@@ -104,6 +106,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
         placeholder={t('Ваше фамилия')}
         onChange={onChangeLastname}
         readonly={readonly}
+        data-testid={'ProfileCard.lastname'}
       />
 
       <Input

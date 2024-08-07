@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-indent */
 import { classNames } from "shared/lib/classNames/classNames";
 import * as cl from './ArticleList.module.scss';
 import { HTMLAttributeAnchorTarget, LegacyRef, memo } from "react";
@@ -15,6 +16,8 @@ interface ArticleListProps {
   isLoading?: boolean;
   view?: ArticleView;
   target?: HTMLAttributeAnchorTarget;
+// вирт. сделали условной 
+  virtualized?: boolean;
 }
 
 // ЛУЧШЕ ИСП. ДРУГУЮ ЛИБУ + ПРАКТИКА 
@@ -37,6 +40,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
     view = ArticleView.SMALL,
     isLoading,
     target,
+    virtualized = true,
   } = props;
   const { t } = useTranslation();
 
@@ -106,17 +110,30 @@ export const ArticleList = memo((props: ArticleListProps) => {
             ref={registerChild as React.Ref<HTMLDivElement>} // чтобы скролл знал про список
             className={classNames(cl.ArticleList, {}, [className, cl[view]])}
           >
-            <List
-              height={height ?? 700}
-              rowCount={rowCount} // колл элементов
-              rowHeight={isBig ? 700 : 330} // если динамическая высота, то в доке есть
-              rowRenderer={rowRenderer} // функц. которая будет рендер. комп.
-              width={width ? width - 80 : 700} // нужно учит. паддинги в пейдж итд., но хардкодить тоже низя
-              autoHeight // просто булеан флаг
-              onScroll={onChildScroll}
-              isScrolling={isScrolling} // момент когда скроллим
-              scrollTop={scrollTop}
-            />
+            {virtualized
+              ? (
+                <List
+                  height={height ?? 700}
+                  rowCount={rowCount} // колл элементов
+                  rowHeight={isBig ? 700 : 330} // если динамическая высота, то в доке есть
+                  rowRenderer={rowRenderer} // функц. которая будет рендер. комп.
+                  width={width ? width - 80 : 700} // нужно учит. паддинги в пейдж итд., но хардкодить тоже низя
+                  autoHeight // просто булеан флаг
+                  onScroll={onChildScroll}
+                  isScrolling={isScrolling} // момент когда скроллим
+                  scrollTop={scrollTop}
+                />
+              ) : (
+                articles.map(item => (
+                  <ArticleListItem
+                    article={item}
+                    view={view}
+                    target={target}
+                    key={item.id}
+                    className={cl.card}
+                  />
+                ))
+              )}
             {isLoading && getSkeletons(view)}
           </div>
         )}
