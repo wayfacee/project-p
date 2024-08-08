@@ -21,6 +21,7 @@
       // все импорты, экспорт будут идти от папки src
       "*": ["./src/*"]
     },
+    "isolatedModules": true,
     
     "allowSyntheticDefaultImports": true,
     // Если какая-либо библиотека не имеет default import,

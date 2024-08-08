@@ -14,7 +14,8 @@ import { Avatar } from "shared/ui/Avatar/Avatar";
 import EyeIcon from 'widgets/assets/icons/eye.svg';
 import CalendarIcon from 'widgets/assets/icons/calendar.svg';
 import { Icon } from "shared/ui/Icon/Icon";
-import { ArticleBlock, ArticleBlockType } from "../../model/types/article";
+import { ArticleBlock } from "../../model/types/article";
+import { ArticleBlockType } from "entities/Article/model/consts/consts";
 import { ArticleCodeBlockComponent } from "../ArticleCodeBlockComponent/ArticleCodeBlockComponent";
 import { ArticleImageBlockComponent } from "../ArticleImageBlockComponent/ArticleImageBlockComponent";
 import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
@@ -41,20 +42,20 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
 
   const renderBlock = useCallback((block: ArticleBlock) => {
     switch (block.type) {
-    case ArticleBlockType.CODE:
-      return <ArticleCodeBlockComponent key={block.id}
-        className={cl.block}
-        block={block} />;
-    case ArticleBlockType.IMAGE:
-      return <ArticleImageBlockComponent key={block.id}
-        className={cl.block}
-        block={block} />;
-    case ArticleBlockType.TEXT:
-      return <ArticleTextBlockComponent key={block.id}
-        className={cl.block}
-        block={block} />;
-    default:
-      return null;
+      case ArticleBlockType.CODE:
+        return <ArticleCodeBlockComponent key={block.id}
+          className={cl.block}
+          block={block} />;
+      case ArticleBlockType.IMAGE:
+        return <ArticleImageBlockComponent key={block.id}
+          className={cl.block}
+          block={block} />;
+      case ArticleBlockType.TEXT:
+        return <ArticleTextBlockComponent key={block.id}
+          className={cl.block}
+          block={block} />;
+      default:
+        return null;
     }
   }, [])
 
