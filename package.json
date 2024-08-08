@@ -30,6 +30,8 @@
   "devDependencies": {
     "@babel/cli": "^7.24.8",
     "@babel/core": "^7.24.8",
+    "@babel/plugin-transform-runtime": "^7.24.7",
+    "@babel/plugin-transform-typescript": "^7.25.2",
     "@babel/preset-env": "^7.24.8",
     "@babel/preset-react": "^7.24.7",
     "@babel/preset-typescript": "^7.24.7",
@@ -79,6 +81,7 @@
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-storybook": "^0.8.0",
     "file-loader": "^6.2.0",
+    "fork-ts-checker-webpack-plugin": "^9.0.2",
     "globals": "^15.8.0",
     "html-webpack-plugin": "^5.6.0",
     "i18next-browser-languagedetector": "^8.0.0",

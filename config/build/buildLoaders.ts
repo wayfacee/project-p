@@ -12,18 +12,19 @@ export function buildLoaders(options: BuildOptions): RuleSetRule[] {
     use: ['@svgr/webpack'],
   }
 
-  const babelLoader = buildBabelLoader(options);
+  const codebabelLoader = buildBabelLoader({ ...options, isTsx: false });
+  const tsxCodebabelLoader = buildBabelLoader({ ...options, isTsx: true });
 
   const cssLoader = buildCssLoader(isDev);
 
   // если не исп. ts, то нужен babel-loader
   // новый стандарт жса, в старый (чтобы браузеры перегонялись)
   // {"presets": ["@babel/preset-react"]}
-  const typescriptLoader = {
-    test: /\.tsx?$/,
-    use: 'ts-loader',
-    exclude: /node_modules/, // исключ. нод модули
-  };
+  // const typescriptLoader = {
+  //   test: /\.tsx?$/,
+  //   use: 'ts-loader',
+  //   exclude: /node_modules/, // исключ. нод модули
+  // };
 
   const fileLoader = {
     // + woff2, woff
@@ -33,13 +34,14 @@ export function buildLoaders(options: BuildOptions): RuleSetRule[] {
         loader: 'file-loader',
       },
     ]
-  }
+  } 
 
   return [
     fileLoader,
     svgLoader,
-    babelLoader,
-    typescriptLoader,
+    codebabelLoader,
+    tsxCodebabelLoader,
+    // typescriptLoader,
     cssLoader,
   ]
 }
