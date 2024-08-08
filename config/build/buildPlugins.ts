@@ -5,6 +5,7 @@ import { BuildOptions } from "./types/config";
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin'
 import BundleAnalyzerPlugin from 'webpack-bundle-analyzer';
 import CopyPlugin from "copy-webpack-plugin";
+import CircularDependencyPlugin from 'circular-dependency-plugin';
 
 export function buildPlugins({ paths, isDev, apiUrl, project }: BuildOptions): WebpackPluginInstance[] {
   // порядок не важен
@@ -32,6 +33,10 @@ export function buildPlugins({ paths, isDev, apiUrl, project }: BuildOptions): W
         { from: paths.locales, to: paths.buildLocales },
       ],
     }),
+    new CircularDependencyPlugin({
+      exclude: /node.modules/, // регулярка - без кавычек
+      failOnError: true, // при обноруж кольц. завис. - ошибка в консоли
+    })
   ];
 
   if (isDev) {
