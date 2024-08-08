@@ -4,6 +4,10 @@
   opacity: 0;
   pointer-events: none; // чтоб нельзя было клик итд.
   z-index: -1;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .overlay {
@@ -20,15 +24,15 @@
   border-radius: 12px;
   color: var(--primary-color);
   background-color: var(--bg-color);
-  transition: .3s transform;
-  transform: scale(.5);
+  transition: 0.3s transform;
+  transform: scale(0.5);
   max-width: 60%;
 }
 
 .opened {
   opacity: 1;
   pointer-events: auto;
-  z-index: var(--modal-z-index); 
+  z-index: var(--modal-z-index);
 
   .content {
     transform: scale(1);
@@ -37,6 +41,6 @@
 
 .isClosing {
   .content {
-    transform: scale(.2);
+    transform: scale(0.2);
   }
 }
