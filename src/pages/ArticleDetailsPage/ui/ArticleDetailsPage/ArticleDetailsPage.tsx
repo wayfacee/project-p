@@ -24,13 +24,15 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
   const { t } = useTranslation('article-details');
   const { id } = useParams<{ id: string }>();
   
-  if (!id) {
-    return (
-      <Page className={classNames(cl.ArticleDetailsPage, {}, [className])}>
-        {t('Статья не найдена')}
-      </Page>
-    )
-  }
+  // вылезает заглушка статья не найдена
+  // иф убираем, а внутри комп. делаем не обяз.
+  // if (!id) {
+  //   return (
+  //     <Page className={classNames(cl.ArticleDetailsPage, {}, [className])}>
+  //       {t('Статья не найдена')}
+  //     </Page>
+  //   )
+  // }
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterAmount>

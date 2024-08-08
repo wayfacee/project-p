@@ -25,7 +25,7 @@ interface DynamicModuleLoaderProps {
 }
 
 
-export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = (props) => {
+export const DynamicModuleLoader = (props: DynamicModuleLoaderProps) => {
   const {
     reducers,
     removeAfterAmount = true,

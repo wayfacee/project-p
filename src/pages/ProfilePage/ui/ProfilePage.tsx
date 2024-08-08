@@ -1,6 +1,4 @@
 import { classNames } from "shared/lib/classNames/classNames";
-import { useTranslation } from "react-i18next";
-import { Text } from "shared/ui/Text/Text";
 import { useParams } from "react-router-dom";
 import { Page } from "widgets/Page/Page";
 import { EditableProfileCard } from "features/editableProfileCard";
@@ -15,11 +13,10 @@ interface ProfilePageProps {
 const ProfilePage = ({ className }: ProfilePageProps) => {
   // надо чтобы ид передовался, пропсом, пошта эдитабле можем исп. нескока раз
   const { id } = useParams<{ id: string }>();
-  const { t } = useTranslation('profile');
 
-  if (!id) {
-    return <Text title={t('Статья не найдена')} />
-  }
+  // if (!id) {
+  //   return <Text title={t('Статья не найдена')} />
+  // }
 
   return (
     <Page className={classNames('', {}, [className])}>

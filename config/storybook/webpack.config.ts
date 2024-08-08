@@ -38,7 +38,7 @@ export default ({ config }: { config: Configuration }) => {
   // global consts:
   config!.plugins!.push(new DefinePlugin({
     __IS_DEV__: JSON.stringify(true),
-    __API__: JSON.stringify(''),
+    __API__: JSON.stringify('https://testapi.ru'),
     __PROJECT__: JSON.stringify('storybook'),
   }))
   return config;

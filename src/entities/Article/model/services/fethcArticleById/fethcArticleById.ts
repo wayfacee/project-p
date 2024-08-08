@@ -2,7 +2,11 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { ThunkConfig } from "app/providers/StoreProvider";
 import { Article } from "../../types/article";
 
-export const fethcArticleById = createAsyncThunk<Article, string, ThunkConfig<string>>(
+export const fethcArticleById = createAsyncThunk<
+  Article,
+  string | undefined,
+  ThunkConfig<string>
+>(
   'articleDetails/fethcArticleById',
   async (articleId, thunkAPI) => {
     const {
@@ -11,6 +15,10 @@ export const fethcArticleById = createAsyncThunk<Article, string, ThunkConfig<st
     } = thunkAPI;
 
     try {
+      if (!articleId) {
+        throw new Error('Ошибка в fethcArticleById')
+      }
+
       const { data } = await extra.api.get<Article>(`/articles/${articleId}`, {
         params: {
           _expand: 'user', // вернет фулл инфу о юзере
