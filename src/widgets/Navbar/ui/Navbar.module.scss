@@ -5,15 +5,15 @@
   display: flex;
   align-items: center;
   padding: 20px;
+}
 
-  .links,
-  .dropdown {
-    // position по правому краю
-    margin-left: auto;
+.links,
+.actions {
+  // position по правому краю
+  margin-left: auto;
 
-    .mainLink {
-      margin-right: 15px;
-    }
+  .mainLink {
+    margin-right: 15px;
   }
 }
 

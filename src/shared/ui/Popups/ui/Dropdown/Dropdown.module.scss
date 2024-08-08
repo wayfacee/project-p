@@ -1,16 +1,6 @@
-.Dropdown{
-  position: relative;
-}
-
-.btn {
-  background: none;
-  outline: none;
-  margin: 0;
-  padding: 0;
-  border: none;
-  cursor: pointer;
-}
-
+// menu не выносим в общие стили, чтоб не было жоской свзяи
+// между выпад. меню в dropdown и в popover
+// чтоб могли кастомизировать
 .menu {
   background: var(--card-bg);
   position: absolute;
@@ -29,8 +19,4 @@
   outline: none;
   color: var(--primary-color);
   cursor: pointer;
-}
-
-.active {
-  background: var(--inverted-primary-color);
 }

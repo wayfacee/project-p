@@ -1,25 +1,16 @@
-.ListBox {
+// тк это shared slice, тут не нужна кл. структура FSD
+
+.popup {
   position: relative;
 }
 
 .trigger {
   background: none;
-  border: none;
   outline: none;
   margin: 0;
   padding: 0;
-}
-
-.options {
-  background: var(--listbox-bg);
-  position: absolute;
-  z-index: 10000;
-  border-radius: 12px;
-  box-shadow: 4px 4px 8px var(--listbox-bg);
-}
-
-.item {
-  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
 }
 
 .active {

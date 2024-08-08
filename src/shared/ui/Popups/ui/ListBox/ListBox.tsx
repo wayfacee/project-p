@@ -3,7 +3,9 @@ import { Fragment, ReactNode } from 'react'
 import * as cl from './ListBox.module.scss';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DropdownDirection } from 'shared/types/ui';
-import { HStack } from '../Stack';
+import { HStack } from '../../../Stack';
+import { mapDirectionClass } from '../../styles/consts';
+import * as popupCl from '../../styles/popup.module.scss';
 
 export interface ListBoxItem {
   value: string;
@@ -35,13 +37,6 @@ export function ListBox(props: ListBoxProps) {
     label,
   } = props;
 
-  const mapDirectionClass: Record<DropdownDirection, string> = {
-    'bottom left': cl.optionsBottomLeft,
-    'bottom right': cl.optionsBottomRight,
-    'top right': cl.optionsTopRight,
-    'top left': cl.optionsTopLeft,
-  };
-
   const optionsClasses = mapDirectionClass[direction];
 
   return (
@@ -51,7 +46,7 @@ export function ListBox(props: ListBoxProps) {
       <HListbox
         disabled={readonly}
         as={'div'} // какая будет обертка
-        className={classNames(cl.ListBox, {}, [className])}
+        className={classNames('', {}, [className, popupCl.popup])}
         value={value}
         onChange={onChange}
       >
@@ -66,7 +61,7 @@ export function ListBox(props: ListBoxProps) {
             {value ?? defaultValue}
           </Button>
         </ListboxButton>
-        <ListboxOptions anchor="bottom"
+        <ListboxOptions
           className={classNames(cl.options, {}, [optionsClasses])}
         >
 
@@ -79,8 +74,8 @@ export function ListBox(props: ListBoxProps) {
             >
               {({ active, selected }) => (
                 <li className={classNames(cl.item, {
-                  [cl.active]: active,
-                  [cl.disabled]: item.disabled,
+                  [popupCl.active]: active,
+                  [popupCl.disabled]: item.disabled,
                 })}>
                   {selected && '!!!'}
                   {item.content}

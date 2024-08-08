@@ -1,0 +1,10 @@
+// menu не выносим в общие стили, чтоб не было жоской свзяи
+// между выпад. меню в dropdown и в popover
+// чтоб могли кастомизировать
+.panel {
+  background: var(--card-bg);
+  position: absolute;
+  z-index: 10000;
+  border-radius: 8px;
+  padding: 10px 15px;
+}
