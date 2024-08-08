@@ -31,14 +31,17 @@ export function Dropdown(props: DropdownProps) {
     className,
     items,
     trigger,
+    direction = 'bottom right',
   } = props;
+
+  const menuClasses = mapDirectionClass[direction];
 
   return (
     <Menu as={'div'} className={classNames(cl.Dropdown, {}, [className])}>
       <MenuButton className={cl.btn}>
         {trigger}
       </MenuButton>
-      <MenuItems className={cl.menu} anchor="bottom">
+      <MenuItems className={classNames(cl.menu, {}, [menuClasses])} anchor="bottom">
         {items.map(item => {
           const content = ({ active }: { active: boolean }) => (
             <button

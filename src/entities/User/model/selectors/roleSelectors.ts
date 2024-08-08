@@ -2,7 +2,7 @@ import { createSelector } from "@reduxjs/toolkit";
 import { StateSchema } from "app/providers/StoreProvider";
 import { UserRole } from "../types/user";
 
-export const getUserRoles = (state: StateSchema) => state.user.authData?.rules;
+export const getUserRoles = (state: StateSchema) => state.user.authData?.roles;
 
 // является ля юзер админом, и надо пробегаться по массиву
 // кд раз

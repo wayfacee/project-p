@@ -16,7 +16,7 @@ interface ArticleListProps {
   isLoading?: boolean;
   view?: ArticleView;
   target?: HTMLAttributeAnchorTarget;
-// вирт. сделали условной 
+  // вирт. сделали условной 
   virtualized?: boolean;
 }
 
@@ -94,50 +94,48 @@ export const ArticleList = memo((props: ArticleListProps) => {
   }
 
   return (
-    <>
-      <WindowScroller // у спсика свой скролл, а у нас общий скролл
-        scrollElement={document.getElementById(PAGE_ID) as Element} // с таким ид есть элем. поэтому кастуем
-      >
-        {/* функция которая возвращает */}
+    <WindowScroller // у спсика свой скролл, а у нас общий скролл
+      scrollElement={document.getElementById(PAGE_ID) as Element} // с таким ид есть элем. поэтому кастуем
+    >
+      {/* функция которая возвращает */}
 
-        {({ width,
-          height,
-          registerChild, // чтобы скроллилось не изнутри
-          onChildScroll,
-          isScrolling,
-          scrollTop }) => (
-          <div
-            ref={registerChild as React.Ref<HTMLDivElement>} // чтобы скролл знал про список
-            className={classNames(cl.ArticleList, {}, [className, cl[view]])}
-          >
-            {virtualized
-              ? (
-                <List
-                  height={height ?? 700}
-                  rowCount={rowCount} // колл элементов
-                  rowHeight={isBig ? 700 : 330} // если динамическая высота, то в доке есть
-                  rowRenderer={rowRenderer} // функц. которая будет рендер. комп.
-                  width={width ? width - 80 : 700} // нужно учит. паддинги в пейдж итд., но хардкодить тоже низя
-                  autoHeight // просто булеан флаг
-                  onScroll={onChildScroll}
-                  isScrolling={isScrolling} // момент когда скроллим
-                  scrollTop={scrollTop}
+      {({ width,
+        height,
+        registerChild, // чтобы скроллилось не изнутри
+        onChildScroll,
+        isScrolling,
+        scrollTop }) => (
+        <div
+          ref={registerChild as LegacyRef<HTMLDivElement>} // чтобы скролл знал про список
+          className={classNames(cl.ArticleList, {}, [className, cl[view]])}
+        >
+          {virtualized
+            ? (
+              <List
+                height={height ?? 700}
+                rowCount={rowCount} // колл элементов
+                rowHeight={isBig ? 700 : 330} // если динамическая высота, то в доке есть
+                rowRenderer={rowRenderer} // функц. которая будет рендер. комп.
+                width={width ? width - 80 : 700} // нужно учит. паддинги в пейдж итд., но хардкодить тоже низя
+                autoHeight // просто булеан флаг
+                onScroll={onChildScroll}
+                isScrolling={isScrolling} // момент когда скроллим
+                scrollTop={scrollTop}
+              />
+            ) : (
+              articles.map(item => (
+                <ArticleListItem
+                  article={item}
+                  view={view}
+                  target={target}
+                  key={item.id}
+                  className={cl.card}
                 />
-              ) : (
-                articles.map(item => (
-                  <ArticleListItem
-                    article={item}
-                    view={view}
-                    target={target}
-                    key={item.id}
-                    className={cl.card}
-                  />
-                ))
-              )}
-            {isLoading && getSkeletons(view)}
-          </div>
-        )}
-      </WindowScroller>
-    </>
+              ))
+            )}
+          {isLoading && getSkeletons(view)}
+        </div>
+      )}
+    </WindowScroller>
   );
 });

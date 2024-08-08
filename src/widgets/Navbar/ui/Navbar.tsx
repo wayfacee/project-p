@@ -70,6 +70,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
             }
           ]}
           trigger={<Avatar size={30} src={authData.avatar} />}
+          direction={'bottom left'}
         />
 
         {authData && (
