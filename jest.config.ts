@@ -75,7 +75,7 @@ const config: Config = {
   globals: {
     __IS_DEV__: true,
     __API__: '',
-    __PROJECT: 'jest',
+    __PROJECT__: 'jest',
   },
 
   reporters: [

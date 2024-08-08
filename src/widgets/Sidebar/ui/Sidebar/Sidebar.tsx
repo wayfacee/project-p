@@ -38,6 +38,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
     ))
   ), [collapsed, sidebarItemsList]);
 
+  // menu устарело
   return (
     <aside
       data-testid='sidebar'
