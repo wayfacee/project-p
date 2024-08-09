@@ -1,8 +1,8 @@
 import type { Meta, StoryFn } from '@storybook/react';
 import { ProfileCard } from './ProfileCard';
-import { Country } from 'entities/Country';
-import { Currency } from 'entities/Currency';
-import AvatarImg from 'widgets/assets/tests/AvatarImg.jpg';
+import { Country } from '@/entities/Country';
+import { Currency } from '@/entities/Currency';
+import AvatarImg from '@/widgets/assets/tests/AvatarImg.jpg';
 
 export default {
   title: 'entities/ProfileCard',

@@ -1,9 +1,9 @@
 // может содержать любой контент
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames } from "@/shared/lib/classNames/classNames";
 import * as cl from './Popover.module.scss';
 import { ReactNode } from "react";
 import { Popover as HPopover } from '@headlessui/react'
-import { DropdownDirection } from "shared/types/ui";
+import { DropdownDirection } from "@/shared/types/ui";
 import { mapDirectionClass } from "../../styles/consts";
 import * as popupCl from '../../styles/popup.module.scss';
 

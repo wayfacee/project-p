@@ -1,13 +1,13 @@
-import 'app/styles/index.scss';
+import '@/app/styles/index.scss';
 import { Decorator } from '@storybook/react';
-import { StateSchema, StoreProvider } from 'app/providers/StoreProvider';
+import { StateSchema, StoreProvider } from '@/app/providers/StoreProvider';
 // чтобы определять толькот конкрет. кусочки стейта:
-import { loginReducer } from 'features/AuthByUsername/model/slice/loginSlice';
-import { ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { articleDetailsReducer } from 'entities/Article/model/slice/articleDetailsSlice';
-import { addCommentFormReducer } from 'features/addCommentForm/model/slices/addCommentFormSlice';
-import { articleDetailsPageReducer } from 'pages/ArticleDetailsPage/model/slices';
-import { profileReducer } from 'features/editableProfileCard';
+import { loginReducer } from '@/features/AuthByUsername/model/slice/loginSlice';
+import { ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { articleDetailsReducer } from '@/entities/Article/model/slice/articleDetailsSlice';
+import { addCommentFormReducer } from '@/features/addCommentForm/model/slices/addCommentFormSlice';
+import { articleDetailsPageReducer } from '@/pages/ArticleDetailsPage/model/slices';
+import { profileReducer } from '@/features/editableProfileCard';
 
 // ЭТО ВСЕ ДЕЛАЕТСЯ ДЛ СТОРИСОВ, ПОЭТОМУ МОЖНО ЗАБИТЬ
 // ДАЖЕ НА АБСОЛЮТ ИМПОРТЫ

@@ -1,12 +1,12 @@
 // лучше было бы в фичах 
 
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames } from "@/shared/lib/classNames/classNames";
 import * as cl from './ArticlesSortSelector.module.scss';
 import { useTranslation } from "react-i18next";
 import { memo, useMemo } from "react";
-import { Select, SelectOption } from "shared/ui/Select/Select";
+import { Select, SelectOption } from "@/shared/ui/Select/Select";
 import { ArticleSortField } from "../../model/consts/consts";
-import { SortOrder } from "shared/types";
+import { SortOrder } from "@/shared/types";
 
 interface ArticlesSortSelectorProps {
   className?: string;

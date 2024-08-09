@@ -1,7 +1,7 @@
 // слишком много пишем цсс, в идеале ui библа. должна охватывать
 // все кейсы которые предусмотр. дизайнером, в соотв. вашей дизайн системой.
 
-import { classNames, Mods } from "shared/lib/classNames/classNames";
+import { classNames, Mods } from "@/shared/lib/classNames/classNames";
 import * as cl from './Flex.module.scss';
 import { DetailedHTMLProps, HTMLAttributes, ReactNode } from "react";
 

@@ -12,6 +12,8 @@ export function buildResolvers(options: BuildOptions): ResolveOptions {
     // для кд. файла, гл. файл индекс:
     mainFiles: ['index'],
     // можно еще "@": paths.src
-    alias: {}
+    alias: {
+      '@': options.paths.src,
+    }
   }
 }

@@ -1,11 +1,11 @@
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames } from "@/shared/lib/classNames/classNames";
 import * as cl from './ArticleViewSelector.module.scss';
 import { memo } from "react";
-import { ArticleView } from "entities/Article";
-import ListIcon from 'widgets/assets/icons/list.svg';
-import TiledIcon from 'widgets/assets/icons/tiled.svg';
-import { Button, ButtonTheme } from "shared/ui/Button/Button";
-import { Icon } from "shared/ui/Icon/Icon";
+import { ArticleView } from "@/entities/Article";
+import ListIcon from '@/widgets/assets/icons/list.svg';
+import TiledIcon from '@/widgets/assets/icons/tiled.svg';
+import { Button, ButtonTheme } from "@/shared/ui/Button/Button";
+import { Icon } from "@/shared/ui/Icon/Icon";
 
 // можно было бы на ур. ентити, фичи, или стр. но лучш. в фичи
 interface ArticleViewSelectorProps {

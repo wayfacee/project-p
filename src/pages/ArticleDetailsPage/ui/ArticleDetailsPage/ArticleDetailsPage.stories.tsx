@@ -1,9 +1,9 @@
 import type { Meta, StoryFn } from '@storybook/react';
 import ArticleDetailsPage from './ArticleDetailsPage';
-import { Article } from 'entities/Article/model/types/article';
-import { ArticleType } from "entities/Article/model/consts/consts";
-import { ArticleBlockType } from "entities/Article/model/consts/consts";
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
+import { Article } from '@/entities/Article/model/types/article';
+import { ArticleType } from "@/entities/Article/model/consts/consts";
+import { ArticleBlockType } from "@/entities/Article/model/consts/consts";
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 
 export default {
   title: 'pages/ArticleDetailsPage/ArticleDetailsPage',

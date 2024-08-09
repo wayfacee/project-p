@@ -1,11 +1,11 @@
 // нужно было делать изолированной фичой, чтобы свой стейт, функц была
 // но это все хранится на ур. стр, проблематично было бы
 
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames } from "@/shared/lib/classNames/classNames";
 import { useTranslation } from "react-i18next";
 import { memo, useCallback, useMemo } from "react";
-import { TabItem, Tabs } from "shared/ui/Tabs/Tabs";
-import { ArticleType } from "entities/Article/model/consts/consts";
+import { TabItem, Tabs } from "@/shared/ui/Tabs/Tabs";
+import { ArticleType } from "@/entities/Article/model/consts/consts";
 
 interface ArticleTypeTabsProps {
   className?: string;

@@ -1,21 +1,21 @@
 // можно было вынести в отдел. фичу, но это будет исп.
 // только здесь, поэтому  создали здесь
 
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames } from "@/shared/lib/classNames/classNames";
 import * as cl from './ArticlesPageFilters.module.scss';
 import { useTranslation } from "react-i18next";
 import { memo, useCallback, useMemo } from "react";
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { useSelector } from "react-redux";
 import { getArticlesPageOrder, getArticlesPageSearch, getArticlesPageSort, getArticlesPageType, getArticlesPageView } from "../../models/selectors/articlesPageSelectors";
 import { articlesPageActions } from "../../models/slices/articlesPageSlice";
-import { ArticleSortField, ArticlesSortSelector, ArticleType, ArticleTypeTabs, ArticleView } from "entities/Article";
-import { ArticleViewSelector } from "features/ArticleViewSelector/ArticleViewSelector";
-import { Card } from "shared/ui/Card/Card";
-import { Input } from "shared/ui/Input/Input";
-import { SortOrder } from "shared/types";
+import { ArticleSortField, ArticlesSortSelector, ArticleType, ArticleTypeTabs, ArticleView } from "@/entities/Article";
+import { ArticleViewSelector } from "@/features/ArticleViewSelector/ArticleViewSelector";
+import { Card } from "@/shared/ui/Card/Card";
+import { Input } from "@/shared/ui/Input/Input";
+import { SortOrder } from "@/shared/types";
 import { fetchArticlesList } from "../../models/services/fetchArticlesList/fetchArticlesList";
-import { useDebounce } from "shared/lib/hooks/useDebounce/useDebounce";
+import { useDebounce } from "@/shared/lib/hooks/useDebounce/useDebounce";
 
 interface ArticlesPageFilterProps {
   className?: string;

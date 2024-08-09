@@ -1,4 +1,4 @@
-import { StateSchema } from "app/providers/StoreProvider"
+import { StateSchema } from "@/app/providers/StoreProvider"
 
 // чтоб был управляемым ''
 // оч части исп. ИЛИ (но когда введут 0 (false) - сломается)

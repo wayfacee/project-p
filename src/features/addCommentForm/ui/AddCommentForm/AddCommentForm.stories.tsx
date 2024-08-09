@@ -1,6 +1,6 @@
 import type { Meta, StoryFn } from '@storybook/react';
 import AddCommentForm from './AddCommentForm';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { action } from '@storybook/addon-actions';
 
 export default {

@@ -1,6 +1,5 @@
 .Overlay {
-  // var(--overlay-color)
-  background: 99;
+  background: var(--overlay-color);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -9,6 +8,6 @@
   bottom: 0;
   right: 0;
   left: 0;
-  z-index: -1;
   cursor: pointer;
+  z-index: var(--overlay-z-index);
 }

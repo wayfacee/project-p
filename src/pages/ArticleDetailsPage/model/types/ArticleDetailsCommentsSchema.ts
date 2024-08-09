@@ -6,7 +6,7 @@
 // но мы делаем тоже самое на ур. стр
 
 import { EntityState } from "@reduxjs/toolkit";
-import { Comment } from "entities/Comment";
+import { Comment } from "@/entities/Comment";
 
 // type EntetyId = number | string;
 

@@ -1,8 +1,8 @@
 import type { Meta, StoryFn } from '@storybook/react';
-import 'app/styles/index.scss'
+import '@/app/styles/index.scss'
 import { Input } from './Input';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from 'app/providers/ThemeProvider';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Theme } from '@/app/providers/ThemeProvider';
 
 export default {
   title: 'shared/Input',

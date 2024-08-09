@@ -1,6 +1,6 @@
 import { createSelector } from "@reduxjs/toolkit";
-import { getArticleDetailsData } from "entities/Article";
-import { getUserAuthData } from "entities/User";
+import { getArticleDetailsData } from "@/entities/Article";
+import { getUserAuthData } from "@/entities/User";
 
 // начали получать инфу а юзере + про артикл внутри самого
 // компонента, поэтому можем сделать селектор

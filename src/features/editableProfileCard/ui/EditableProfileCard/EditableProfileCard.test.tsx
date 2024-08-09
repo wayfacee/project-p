@@ -1,13 +1,13 @@
 import { screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { EditableProfileCard } from './EditableProfileCard';
-import { componentRender } from 'shared/lib/tests/componentRender/componentRender';
-import { Profile } from 'entities/Profile';
-import { Currency } from 'entities/Currency';
-import { Country } from 'entities/Country';
+import { componentRender } from '@/shared/lib/tests/componentRender/componentRender';
+import { Profile } from '@/entities/Profile';
+import { Currency } from '@/entities/Currency';
+import { Country } from '@/entities/Country';
 import { profileReducer } from '../../model/slice/profileSlice';
 import userEvent from '@testing-library/user-event';
-import { $api } from 'shared/api/api';
+import { $api } from '@/shared/api/api';
 
 const profile: Profile = {
   id: '1',

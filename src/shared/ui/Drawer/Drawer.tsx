@@ -1,12 +1,12 @@
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import {
   memo, ReactNode, useCallback, useEffect,
 } from 'react';
-import { useTheme } from 'app/providers/ThemeProvider';
-import { useAnimationLibs } from 'shared/lib/components/AnimationProvider';
+import { useTheme } from '@/app/providers/ThemeProvider';
+import { useAnimationLibs } from '../../lib/components/AnimationProvider';
 import { Overlay } from '../Overlay/Overlay';
 import cls from './Drawer.module.scss';
-import { Portal } from 'widgets/Portal/Portal';
+import { Portal } from '@/widgets/Portal/Portal';
 import { BeatLoader } from 'react-spinners';
 
 interface DrawerProps {
@@ -23,7 +23,7 @@ export const DrawerContent = memo((props: DrawerProps) => {
   const { Spring, Gesture } = useAnimationLibs();
   const [{ y }, api] = Spring.useSpring(() => ({ y: height }));
   const { theme } = useTheme();
-  
+
   const {
     className,
     children,

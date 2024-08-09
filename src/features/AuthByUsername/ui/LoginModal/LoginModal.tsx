@@ -1,5 +1,5 @@
-import { Modal } from "widgets/Modal/Modal";
-import { classNames } from "shared/lib/classNames/classNames";
+import { Modal } from "@/widgets/Modal/Modal";
+import { classNames } from "@/shared/lib/classNames/classNames";
 import { Suspense } from "react";
 import { LoginFormAsync } from "../LoginForm/LoginForm.async";
 import { BeatLoader } from "react-spinners";

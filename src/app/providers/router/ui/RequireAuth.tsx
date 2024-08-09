@@ -1,11 +1,11 @@
 // когда маршруты открываем получаем ошибки, так делать не над
 // 1-раз открывает, 2 - раз открывать пейж нот фоунд
 
-import { getUserAuthData, getUserRoles, UserRole } from "entities/User";
+import { getUserAuthData, getUserRoles, UserRole } from "@/entities/User";
 import { useMemo } from "react";
 import { useSelector } from "react-redux";
 import { Navigate, useLocation } from "react-router-dom";
-import { RoutePath } from "shared/config/routeConfig/routeConfig";
+import { RoutePath } from "@/shared/config/routeConfig/routeConfig";
 
 interface RequireAuthProps {
   children: JSX.Element,

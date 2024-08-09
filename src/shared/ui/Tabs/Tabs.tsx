@@ -1,4 +1,4 @@
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames } from "@/shared/lib/classNames/classNames";
 import * as cl from './Tabs.module.scss';
 import { useTranslation } from "react-i18next";
 import { memo, ReactNode, useCallback } from "react";
