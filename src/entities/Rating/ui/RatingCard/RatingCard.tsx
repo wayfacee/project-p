@@ -1,5 +1,3 @@
-import { classNames } from "@/shared/lib/classNames/classNames";
-import * as cl from './RatingCard.module.scss';
 import { useTranslation } from "react-i18next";
 import { memo, useCallback, useState } from "react";
 import { HStack, VStack } from "@/shared/ui/Stack";
@@ -10,6 +8,7 @@ import { Button, ButtonSize, ButtonTheme } from "@/shared/ui/Button/Button";
 import { Input } from "@/shared/ui/Input/Input";
 import { BrowserView, MobileView } from 'react-device-detect';
 import { Drawer } from "@/shared/ui/Drawer/Drawer";
+import { Card } from "@/shared/ui/Card/Card";
 
 interface RatingCardProps {
   className?: string;
@@ -18,6 +17,7 @@ interface RatingCardProps {
   hasFeedback?: boolean;
   onCancel?: (starsCount: number) => void;
   onAccept?: (starsCount: number, feedback?: string) => void;
+  rate?: number; // колл. звезд которое юзер выбрал.
 }
 
 // ЗАДАЧА СДЕЛАТЬ ТАК ЧТОБЫ КОМП. БЫЛ ПЕРЕИСП.
@@ -31,6 +31,7 @@ export const RatingCard = memo((props: RatingCardProps) => {
     onAccept,
     onCancel,
     title,
+    rate = 0,
   } = props;
   const { t } = useTranslation();
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -39,7 +40,7 @@ export const RatingCard = memo((props: RatingCardProps) => {
   // с помощью них данные на вверх отдавать будет
 
   // а фичи которые будут исп., будут иметь стейт, отпр бэк итд.
-  const [starsCount, setStarsCount] = useState(0);
+  const [starsCount, setStarsCount] = useState(rate);
   const [feedback, setFeedback] = useState('');
 
   const onSelectStars = useCallback((selectedStarsCount: number) => {
@@ -75,10 +76,14 @@ export const RatingCard = memo((props: RatingCardProps) => {
   )
 
   return (
-    <div className={classNames(cl.RatingCard, {}, [className])}>
-      <VStack align="center" gap="8">
-        <Text title={title} />
-        <StarRating size={40} onSelect={onSelectStars} />
+    <Card className={className} fullWidth>
+      <VStack align="center" gap="8" max>
+        <Text title={starsCount ? t('Спасибо за оценку!') : title} />
+        <StarRating
+          selectedStars={starsCount}
+          size={40}
+          onSelect={onSelectStars}
+        />
       </VStack>
 
       <BrowserView>
@@ -119,6 +124,6 @@ export const RatingCard = memo((props: RatingCardProps) => {
           </VStack>
         </Drawer>
       </MobileView>
-    </div>
+    </Card>
   );
 });

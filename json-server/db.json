@@ -1,4 +1,38 @@
 {
+  "notifications": [
+    {
+      "id": "1",
+      "title": "Уведомление 1",
+      "description": "Произошло какое-то событие",
+      "userId": "1"
+    },
+    {
+      "id": "2",
+      "title": "Уведомление 2",
+      "description": "Произошло какое-то событие",
+      "userId": "1",
+      "href": "http://localhost:3000/admin"
+    },
+    {
+      "id": "3",
+      "title": "Уведомление 3",
+      "description": "Произошло какое-то событие",
+      "userId": "1",
+      "href": "http://localhost:3000/admin"
+    },
+    {
+      "id": "4",
+      "title": "Уведомление 4",
+      "description": "Произошло какое-то событие",
+      "userId": "1"
+    },
+    {
+      "id": "5",
+      "title": "Уведомление 1",
+      "description": "Произошло какое-то событие",
+      "userId": "2"
+    }
+  ],
   "articles": [
     {
       "id": "1",
@@ -716,38 +750,64 @@
       "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
     }
   ],
-  "notifications": [
+  "article-ratings": [
     {
       "id": "1",
-      "title": "Уведомление 1",
-      "description": "Произошло какое-то событие",
-      "userId": "1"
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "articleId": "1"
     },
     {
       "id": "2",
-      "title": "Уведомление 2",
-      "description": "Произошло какое-то событие",
+      "rate": 4,
+      "feedback": "Хорошая статья",
       "userId": "1",
-      "href": "http://localhost:3000/admin"
+      "articleId": "2"
     },
     {
-      "id": "3",
-      "title": "Уведомление 3",
-      "description": "Произошло какое-то событие",
       "userId": "1",
-      "href": "http://localhost:3000/admin"
+      "articleId": "3",
+      "rate": 3,
+      "feedback": "",
+      "id": "I7ofk1u"
     },
     {
-      "id": "4",
-      "title": "Уведомление 4",
-      "description": "Произошло какое-то событие",
-      "userId": "1"
+      "userId": "1",
+      "articleId": "9",
+      "rate": 5,
+      "feedback": "asdasdasdasd",
+      "id": "Y7MhPzo"
     },
     {
-      "id": "5",
-      "title": "Уведомление 1",
-      "description": "Произошло какое-то событие",
-      "userId": "2"
+      "userId": "1",
+      "articleId": "10",
+      "rate": 1,
+      "feedback": "отстой",
+      "id": "II0a75O"
+    },
+    {
+      "userId": "1",
+      "articleId": "7",
+      "rate": 3,
+      "feedback": "",
+      "id": "bcPnbbZ"
+    }
+  ],
+  "profile-ratings": [
+    {
+      "id": "1",
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "profileId": "1"
+    },
+    {
+      "id": "2",
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "profileId": "2"
     }
   ]
 }

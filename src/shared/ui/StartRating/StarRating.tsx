@@ -1,6 +1,5 @@
 import { classNames } from "@/shared/lib/classNames/classNames";
 import * as cl from './StarRating.module.scss';
-import { useTranslation } from "react-i18next";
 import { memo, useState } from "react";
 import StarIcon from '@/widgets/assets/icons/star.svg';
 import { Icon } from "../Icon/Icon";
@@ -22,9 +21,8 @@ export const StarRating = memo((props: StartRatingProps) => {
     size = 30,
   } = props;
 
-  const { t } = useTranslation();
   // направленную и предыд. звезды, подсвечивать:
-  const [currentStarsCount, setCurrentStarsCount] = useState(0);
+  const [currentStarsCount, setCurrentStarsCount] = useState(selectedStars);
   // если польз. уже колл. звезд выбрал 0 - false, 1+ - true
   const [isSelected, setIsSelected] = useState(Boolean(selectedStars));
 

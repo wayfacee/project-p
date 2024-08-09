@@ -11,6 +11,7 @@ import { ArticleDetailsPageHeader } from "../ArticleDetailsPageHeader/ArticleDet
 import { VStack } from "@/shared/ui/Stack";
 import { ArticleRecommendationList } from "@/features/articleRecommendationList";
 import { ArticleDetailsComments } from "../ArticleDetailsComments/ArticleDetailsComments";
+import { ArticleRating } from "@/features/articleRating";
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -23,16 +24,16 @@ const reducers: ReducersList = {
 const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
   const { t } = useTranslation('article-details');
   const { id } = useParams<{ id: string }>();
-  
+
   // вылезает заглушка статья не найдена
   // иф убираем, а внутри комп. делаем не обяз.
-  // if (!id) {
-  //   return (
-  //     <Page className={classNames(cl.ArticleDetailsPage, {}, [className])}>
-  //       {t('Статья не найдена')}
-  //     </Page>
-  //   )
-  // }
+  if (!id) {
+    return (
+      <Page className={classNames(cl.ArticleDetailsPage, {}, [className])}>
+        {t('Статья не найдена')}
+      </Page>
+    )
+  }
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterAmount>
@@ -41,6 +42,7 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
           <ArticleDetailsPageHeader />
 
           <ArticleDetails id={id} />
+          <ArticleRating articleId={id} />
           <ArticleRecommendationList />
           <ArticleDetailsComments id={id} />
         </VStack>
