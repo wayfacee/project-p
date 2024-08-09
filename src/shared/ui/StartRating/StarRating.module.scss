@@ -1,0 +1,16 @@
+.StartRating {
+}
+
+.starIcon {
+  fill: none;
+  stroke: var(--primary-color);
+  cursor: pointer;
+}
+
+.hovered {
+  fill: var(--primary-color);
+}
+
+.selected {
+  cursor: auto;
+}

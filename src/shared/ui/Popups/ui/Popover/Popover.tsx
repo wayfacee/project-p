@@ -24,10 +24,13 @@ export function Popover(props: PopoverProps) {
 
   const menuClasses = mapDirectionClass[direction];
 
-// HPopover = H - headless, чтоб не было пересич.
+  // HPopover = H - headless, чтоб не было пересич.
   return (
     <HPopover className={classNames('', {}, [className, popupCl.popup])}>
-      <HPopover.Button className={popupCl.trigger}>
+      <HPopover.Button
+        as="div" // button into button??? bad
+        className={popupCl.trigger}
+      >
         {trigger}
       </HPopover.Button>
 
