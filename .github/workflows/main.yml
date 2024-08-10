@@ -40,7 +40,6 @@
 #         if: always()
 
 name: linting, testing, building
-
 on:
   push:
     branches: [ master ]
