@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import { memo, useCallback, useState } from "react";
 import { HStack, VStack } from "@/shared/ui/Stack";
 import { Text } from "@/shared/ui/Text/Text";
-import { StarRating } from "@/shared/ui/StartRating/StarRating";
+import { StarRating } from "@/shared/ui/StarRating/StarRating";
 import { Modal } from "@/widgets/Modal/Modal";
 import { Button, ButtonSize, ButtonTheme } from "@/shared/ui/Button/Button";
 import { Input } from "@/shared/ui/Input/Input";

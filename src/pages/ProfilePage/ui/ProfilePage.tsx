@@ -3,6 +3,9 @@ import { useParams } from "react-router-dom";
 import { Page } from "@/widgets/Page/Page";
 import { EditableProfileCard } from "@/features/editableProfileCard";
 import { VStack } from "@/shared/ui/Stack";
+import { ProfileRating } from "@/features/profileRating";
+import { Text } from "@/shared/ui/Text/Text";
+import { useTranslation } from "react-i18next";
 
 interface ProfilePageProps {
   className?: string;
@@ -13,15 +16,17 @@ interface ProfilePageProps {
 const ProfilePage = ({ className }: ProfilePageProps) => {
   // надо чтобы ид передовался, пропсом, пошта эдитабле можем исп. нескока раз
   const { id } = useParams<{ id: string }>();
+  const { t } = useTranslation();
 
-  // if (!id) {
-  //   return <Text title={t('Статья не найдена')} />
-  // }
+  if (!id) {
+    return <Text title={t('Статья не найдена')} />
+  }
 
   return (
     <Page className={classNames('', {}, [className])}>
       <VStack max gap="16">
         <EditableProfileCard id={id} />
+        <ProfileRating profileId={id} />
       </VStack>
     </Page>
   );

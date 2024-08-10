@@ -743,8 +743,8 @@
       "first": "ulbi tv",
       "lastname": "asf",
       "age": 465,
-      "currency": "EUR",
-      "country": "Ukraine",
+      "currency": "USD",
+      "country": "Kyrgyzstan",
       "city": "Moscow",
       "username": "ulbi tv",
       "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
@@ -808,6 +808,13 @@
       "feedback": "Хорошая статья",
       "userId": "1",
       "profileId": "2"
+    },
+    {
+      "userId": "2",
+      "profileId": "2",
+      "rate": 5,
+      "feedback": "erthgre",
+      "id": "xo5yygP"
     }
   ]
 }
