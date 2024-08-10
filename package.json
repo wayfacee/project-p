@@ -26,6 +26,9 @@
     "json": "json-server --watch ./json-server/db.json --port 8000",
     "generate:slice": "node ./scripts/createSlice/index.js"
   },
+  "lint-staged": {
+    "**/*.{ts,tsx}": "eslint"
+  },
   "author": "",
   "license": "ISC",
   "description": "",
