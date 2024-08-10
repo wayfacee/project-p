@@ -90,8 +90,16 @@ jobs:
         run: npm run test:ui:ci
         if: always()
 
+      - name: unit testing
+        run: npm run test:unit
+        if: always()
+
       - name: Generate HTML report
         run: npm run test:ui:report
+        if: always()
+
+      - name: move loki
+        run: mv .loki reports/ # перемещаем .локи в репортс
         if: always()
 
       - name: Setup Pages
@@ -102,7 +110,7 @@ jobs:
         uses: actions/upload-pages-artifact@v1
         if: always()
         with:
-          path: '.loki'
+          path: '.reports' # раздавались скрин тесты
 
       - name: Deploy to GitHub Pages
         id: deployment
@@ -134,6 +142,3 @@ jobs:
       - name: linting css
         run: npm run lint:scss
 
-      - name: unit testing
-        run: npm run test:unit
-        if: always()
