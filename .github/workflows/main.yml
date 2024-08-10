@@ -46,14 +46,15 @@ on:
     branches: [ master ]
   pull_request:
     branches: [ master ]
-  permissions:
-    contents: write
-    pages: write
-    id-token: write
 
-  concurrency:
-    group: "pages"
-    cancel-in-progress: true
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
 
 jobs:
   build-and-ui-testing:
@@ -67,7 +68,6 @@ jobs:
       matrix:
         node-version: [ 17.x ]
 
-        # требуется сборка
     steps:
       - uses: actions/checkout@v2
 
@@ -117,7 +117,6 @@ jobs:
       matrix:
         node-version: [ 17.x ]
 
-        # не требуется сборка
     steps:
       - uses: actions/checkout@v2
 
