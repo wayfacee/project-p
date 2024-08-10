@@ -15,6 +15,9 @@ export default ({ config }: { config: Configuration }) => {
   }
   config!.resolve!.modules!.push(paths.src);
   config!.resolve!.extensions!.push('.ts', '.tsx');
+  config!.resolve!.alias = {
+    '@': paths.src,
+  };
 
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore - ругается на рулсы, но в конфиге сторибука не так страшно
