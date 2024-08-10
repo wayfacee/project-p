@@ -59,6 +59,7 @@ const config: Config = {
     "\\.svg": path.resolve(__dirname, 'config/jest/jestEmptyComponent.tsx'),
     // '^shared/(.*)$': '<rootDir>src/shared/$1',
     // '^widgets/(.*)$': '<rootDir>src/widgets/$1'
+    '^@/(.*)$': '<rootDir>/src/$1', // alias
   },
 
   // путь до нод модулей, ошибка с абсолют импортами..
