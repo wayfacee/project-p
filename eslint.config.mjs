@@ -9,6 +9,7 @@ import i18nPlugin from 'eslint-plugin-i18next';
 import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
 import pathChecker from 'eslint-plugin-path-checker-ulbi-tv';
+import unusedImports from "eslint-plugin-unused-imports";
 
 /**@type {import('eslint').Linter.FlatConfig[]} */
 export default tseslint.config(
@@ -44,6 +45,7 @@ export default tseslint.config(
       react,
       'react-hooks': fixupPluginRules(reactHooks),
       "path-checker-ulbi-tv": pathChecker,
+      "unused-imports": unusedImports,
     },
     rules: {
       'react/jsx-indent': [2, 2],
@@ -83,13 +85,15 @@ export default tseslint.config(
       "no-undef": "off",
 
       'path-checker-ulbi-tv/path-checker': ['error', { alias: '@' }],
-      'path-checker-ulbi-tv/public-api-imports': ['error', { 
+      'path-checker-ulbi-tv/public-api-imports': ['error', {
         alias: '@',
         ignoreImportPatterns: [
           '**/StoreProvider',
           '**/testing',
         ],
-    }],
+      }],
+
+      'unused-imports/no-unused-imports': "error",
     },
   },
   pluginJs.configs.recommended,
