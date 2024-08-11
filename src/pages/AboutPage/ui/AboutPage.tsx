@@ -1,9 +1,9 @@
 import { useTranslation } from "react-i18next";
-import { Page } from "@/widgets/Page/Page";
+import { Page } from "@/widgets/Page";
 
 const AboutPage = () => {
   // можно указ. name space = translation
-  const {t} = useTranslation('about');
+  const { t } = useTranslation('about');
 
   return (
     <Page data-testid='AboutPage'>

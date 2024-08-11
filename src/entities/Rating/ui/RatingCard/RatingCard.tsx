@@ -3,7 +3,7 @@ import { memo, useCallback, useState } from "react";
 import { HStack, VStack } from "@/shared/ui/Stack";
 import { Text } from "@/shared/ui/Text/Text";
 import { StarRating } from "@/shared/ui/StarRating/StarRating";
-import { Modal } from "@/widgets/Modal/Modal";
+import { Modal } from "@/widgets/Modal";
 import { Button, ButtonSize, ButtonTheme } from "@/shared/ui/Button/Button";
 import { Input } from "@/shared/ui/Input/Input";
 import { BrowserView, MobileView } from 'react-device-detect';

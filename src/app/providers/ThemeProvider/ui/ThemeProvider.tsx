@@ -1,4 +1,4 @@
-import { FC, ReactNode, useMemo, useState } from "react";
+import { ReactNode, useMemo, useState } from "react";
 import { LOCAL_STORAGE_KEY, Theme, ThemeContext } from "../lib/ThemeContext";
 // советуется исп. относительные пути, чтобы переместить,
 // и импортв не поменяются, а когда экспорт лучше абсолют.

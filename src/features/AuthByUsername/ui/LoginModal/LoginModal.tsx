@@ -1,4 +1,4 @@
-import { Modal } from "@/widgets/Modal/Modal";
+import { Modal } from "@/widgets/Modal";
 import { classNames } from "@/shared/lib/classNames/classNames";
 import { Suspense } from "react";
 import { LoginFormAsync } from "../LoginForm/LoginForm.async";

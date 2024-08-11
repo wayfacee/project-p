@@ -1,9 +1,8 @@
-/* eslint-disable react/jsx-indent */
 import { classNames } from "@/shared/lib/classNames/classNames";
 import * as cl from './ArticleList.module.scss';
 import { HTMLAttributeAnchorTarget, memo } from "react";
 import { Article } from "../../model/types/article";
-import { ArticleView } from "@/entities/Article/model/consts/consts";
+import { ArticleView } from "@/entities/Article";
 import { ArticleListItem } from "../ArticleListItem/ArticleListItem";
 import { ArticleListItemSkeleton } from "../ArticleListItem/ArticleListItemSkeleton";
 import { Text, TextSize } from "@/shared/ui/Text/Text";

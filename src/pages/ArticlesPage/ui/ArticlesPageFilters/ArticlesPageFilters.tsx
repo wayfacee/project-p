@@ -4,7 +4,7 @@
 import { classNames } from "@/shared/lib/classNames/classNames";
 import * as cl from './ArticlesPageFilters.module.scss';
 import { useTranslation } from "react-i18next";
-import { memo, useCallback, useMemo } from "react";
+import { memo, useCallback } from "react";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { useSelector } from "react-redux";
 import { getArticlesPageOrder, getArticlesPageSearch, getArticlesPageSort, getArticlesPageType, getArticlesPageView } from "../../models/selectors/articlesPageSelectors";

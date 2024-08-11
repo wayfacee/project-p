@@ -8,7 +8,7 @@ import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/g
 import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
 import { getValidateErrors } from '../../model/selectors/getValidateErrors/getValidateErrors';
-import { ValidateProfileError } from "@/features/editableProfileCard/model/consts/consts";
+import { ValidateProfileError } from "../../model/consts/consts";
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { profileActions, profileReducer } from '../../model/slice/profileSlice';

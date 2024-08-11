@@ -1,7 +1,7 @@
 import { classNames, Mods } from "@/shared/lib/classNames/classNames";
 import * as cl from './Modal.module.scss';
-import { ReactNode} from "react";
-import { Portal } from "../Portal/Portal";
+import { ReactNode } from "react";
+import { Portal } from "../../Portal/Portal/Portal";
 import { Overlay } from "@/shared/ui/Overlay/Overlay";
 import { useModal } from "@/shared/lib/hooks/useModal/useModal";
 
@@ -28,7 +28,7 @@ export const Modal = (props: ModalProps) => {
     isClosing,
     isMounted,
     close,
-  } = useModal({ 
+  } = useModal({
     animationDelay: ANIMATION_DELAY,
     onClose,
     isOpen,

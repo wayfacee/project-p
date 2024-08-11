@@ -32,7 +32,7 @@ export const NotificationItem = memo((props: NotificationItemProps) => {
   if (notification.href) {
     return (
       <AppLink
-      className={cl.link} // чтобы вся область была кликабл.
+        className={cl.link} // чтобы вся область была кликабл.
         to={notification.href}
         target="_blank"
       >

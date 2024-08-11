@@ -83,6 +83,7 @@ export default tseslint.config(
       "no-undef": "off",
 
       'path-checker-ulbi-tv/path-checker': ['error', { alias: '@' }],
+      'path-checker-ulbi-tv/public-api-imports': ['error', { alias: '@' }],
     },
   },
   pluginJs.configs.recommended,

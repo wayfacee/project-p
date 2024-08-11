@@ -4,7 +4,8 @@ export { ArticlesSortSelector } from "./ui/ArticlesSortSelector/ArticlesSortSele
 export {
   ArticleView,
   ArticleSortField,
-  ArticleType
+  ArticleType,
+  ArticleBlockType,
 } from "./model/consts/consts";
 export { ArticleList } from "./ui/ArticleList/ArticleList";
 export { ArticleDetails } from "./ui/ArticleDetails/ArticleDetails";

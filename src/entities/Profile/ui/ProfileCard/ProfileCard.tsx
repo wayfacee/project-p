@@ -7,7 +7,7 @@ import { Profile } from "../../model/types/profile";
 import { BeatLoader } from "react-spinners";
 import { Avatar } from "@/shared/ui/Avatar/Avatar";
 import { Currency, CurrencySelect } from "@/entities/Currency";
-import { Country } from "@/entities/Country/model/types/country";
+import { Country } from "@/entities/Country";
 import { CountrySelect } from "@/entities/Country";
 import { HStack, VStack } from "@/shared/ui/Stack";
 // slice entety мало обладает каким-то своим состоянием,
