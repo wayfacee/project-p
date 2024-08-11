@@ -82,7 +82,7 @@ export default tseslint.config(
       "@typescript-eslint/ban-ts-comment": "warn",
       "no-undef": "off",
 
-      'path-checker-ulbi-tv/path-checker': 'error',
+      'path-checker-ulbi-tv/path-checker': ['error', { alias: '@' }],
     },
   },
   pluginJs.configs.recommended,
