@@ -6,7 +6,7 @@ import { loginReducer } from '@/features/AuthByUsername';
 import { ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { articleDetailsReducer } from '@/entities/Article';
 import { addCommentFormReducer } from '@/features/addCommentForm';
-import { articleDetailsPageReducer } from '@/pages/ArticleDetailsPage/model/slices';
+import { articleDetailsPageReducer } from '@/pages/ArticleDetailsPage';
 import { profileReducer } from '@/features/editableProfileCard';
 
 // ЭТО ВСЕ ДЕЛАЕТСЯ ДЛ СТОРИСОВ, ПОЭТОМУ МОЖНО ЗАБИТЬ
