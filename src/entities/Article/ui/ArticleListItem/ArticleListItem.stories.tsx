@@ -4,7 +4,7 @@ import { Article } from '../../model/types/article';
 import { ArticleView } from "@/entities/Article/model/consts/consts";
 
 export default {
-  title: 'enteties/Article/ArticleListItem',
+  title: 'entities/Article/ArticleListItem',
   component: ArticleListItem,
   tags: ['autodocs'],
 } as Meta<typeof ArticleListItem>;

@@ -2,7 +2,7 @@ import type { Meta, StoryFn } from '@storybook/react';
 import AdminPanelPage from './AdminPanelPage';
 
 export default {
-  title: 'shared/AdminPanelPage',
+  title: 'pages/AdminPanelPage',
   component: AdminPanelPage,
   tags: ['autodocs'],
 } as Meta<typeof AdminPanelPage>;

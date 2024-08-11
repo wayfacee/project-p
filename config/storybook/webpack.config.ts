@@ -16,6 +16,7 @@ export default ({ config }: { config: Configuration }) => {
   config!.resolve!.modules!.push(paths.src);
   config!.resolve!.extensions!.push('.ts', '.tsx');
   config!.resolve!.alias = {
+    ...config!.resolve!.alias,
     '@': paths.src,
   };
 
@@ -41,7 +42,7 @@ export default ({ config }: { config: Configuration }) => {
   // global consts:
   config!.plugins!.push(new DefinePlugin({
     __IS_DEV__: JSON.stringify(true),
-    __API__: JSON.stringify('https://testapi.ru'),
+    __API__: JSON.stringify('http://localhost:8000'), // https://testapi.ru
     __PROJECT__: JSON.stringify('storybook'),
   }))
   return config;

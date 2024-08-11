@@ -1,14 +1,13 @@
 /* eslint-disable react/jsx-indent */
 import { classNames } from "@/shared/lib/classNames/classNames";
 import * as cl from './ArticleList.module.scss';
-import { HTMLAttributeAnchorTarget, LegacyRef, memo } from "react";
+import { HTMLAttributeAnchorTarget, memo } from "react";
 import { Article } from "../../model/types/article";
 import { ArticleView } from "@/entities/Article/model/consts/consts";
 import { ArticleListItem } from "../ArticleListItem/ArticleListItem";
 import { ArticleListItemSkeleton } from "../ArticleListItem/ArticleListItemSkeleton";
 import { Text, TextSize } from "@/shared/ui/Text/Text";
 import { useTranslation } from "react-i18next";
-import { PAGE_ID } from "@/widgets/Page/Page";
 
 interface ArticleListProps {
   className?: string;
