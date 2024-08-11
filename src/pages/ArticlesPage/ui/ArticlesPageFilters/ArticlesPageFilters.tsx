@@ -10,7 +10,7 @@ import { useSelector } from "react-redux";
 import { getArticlesPageOrder, getArticlesPageSearch, getArticlesPageSort, getArticlesPageType, getArticlesPageView } from "../../models/selectors/articlesPageSelectors";
 import { articlesPageActions } from "../../models/slices/articlesPageSlice";
 import { ArticleSortField, ArticlesSortSelector, ArticleType, ArticleTypeTabs, ArticleView } from "@/entities/Article";
-import { ArticleViewSelector } from "@/features/ArticleViewSelector/ArticleViewSelector";
+import { ArticleViewSelector } from "@/features/ArticleViewSelector";
 import { Card } from "@/shared/ui/Card/Card";
 import { Input } from "@/shared/ui/Input/Input";
 import { SortOrder } from "@/shared/types/sort";

@@ -1,3 +1,4 @@
+// eslint-disable-next-line исключение
 import '@/app/styles/index.scss';
 import { Decorator } from '@storybook/react';
 

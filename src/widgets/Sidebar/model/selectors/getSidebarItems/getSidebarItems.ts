@@ -2,10 +2,10 @@ import { createSelector } from "@reduxjs/toolkit";
 import { getUserAuthData } from "@/entities/User";
 import { RoutePath } from "@/shared/const/router";
 import { SidebarItemType } from "../../types/sidebar";
-import MainIcon from '@/widgets/assets/icons/main.svg';
-import AboutIcon from '@/widgets/assets/icons/about.svg';
-import ProfileIcon from '@/widgets/assets/icons/profile.svg';
-import ArticlesIcon from '@/widgets/assets/icons/articles.svg';
+import MainIcon from '@/shared/assets/icons/main.svg';
+import AboutIcon from '@/shared/assets/icons/about.svg';
+import ProfileIcon from '@/shared/assets/icons/profile.svg';
+import ArticlesIcon from '@/shared/assets/icons/articles.svg';
 
 // вытащить необход. данные из стейта,
 // и сформировать массив айтемов

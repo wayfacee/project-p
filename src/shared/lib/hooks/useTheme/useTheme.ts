@@ -1,5 +1,7 @@
 import { useContext, useEffect } from "react";
-import { LOCAL_STORAGE_KEY, Theme, ThemeContext } from "./ThemeContext";
+// можно относительным
+import { ThemeContext } from "../../context/ThemeContext";
+import { LOCAL_STORAGE_KEY, Theme } from "../../../const/theme";
 
 interface UseThemeResult {
   theme: Theme;

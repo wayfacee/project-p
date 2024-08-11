@@ -1,8 +1,8 @@
 import { classNames } from "@/shared/lib/classNames/classNames";
 import * as cl from './Sidebar.module.scss';
 import { memo, useMemo, useState } from "react";
-import { ThemeSwitcher } from "@/widgets/ThemeSwitcher";
-import { LangSwitcher } from "@/widgets/LangSwitcher";
+import { ThemeSwitcher } from "@/features/ThemeSwitcher";
+import { LangSwitcher } from "@/features/LangSwitcher";
 import { Button, ButtonSize, ButtonTheme } from "@/shared/ui/Button/Button";
 import { SidebarItem } from "../SidebarItem/SidebarItem";
 import { useSelector } from "react-redux";

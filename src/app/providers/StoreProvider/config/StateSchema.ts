@@ -11,6 +11,12 @@ import { ArticleDetailsPageSchema } from "@/pages/ArticleDetailsPage";
 import { ArticlesPageSchema } from "@/pages/ArticlesPage";
 import { rtkApi } from "@/shared/api/rtkApi";
 
+// мы объяв ее на самом верхнем уровне (app)
+// из всех ентети,фичей,виждетов подтягиваем туда другие схемы
+// кусочки схемы, но при этом нам приходится импорт. в ниже лежащ. слои
+// но если перенесем в shared, тогда нам
+// из всех ентети,фичей,виждетов в ниже лежащ. слой
+
 export interface StateSchema {
   counter: CounterSchema;
   user: UserSchema;

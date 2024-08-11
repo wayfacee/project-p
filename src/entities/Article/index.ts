@@ -1,3 +1,4 @@
+export { articleDetailsReducer } from "./model/slice/articleDetailsSlice";
 export { getArticleDetailsData } from "./model/selectors/articleDetails";
 export { ArticleTypeTabs } from "./ui/ArticleTypeTabs/ArticleTypeTabs";
 export { ArticlesSortSelector } from "./ui/ArticlesSortSelector/ArticlesSortSelector";

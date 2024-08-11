@@ -1,5 +1,7 @@
 import { ReactNode, useMemo, useState } from "react";
-import { LOCAL_STORAGE_KEY, Theme, ThemeContext } from "../lib/ThemeContext";
+import { ThemeContext } from "../../../../shared/lib/context/ThemeContext";
+import { LOCAL_STORAGE_KEY } from "@/shared/const/theme";
+import { Theme } from "@/shared/const/theme";
 // советуется исп. относительные пути, чтобы переместить,
 // и импортв не поменяются, а когда экспорт лучше абсолют.
 
