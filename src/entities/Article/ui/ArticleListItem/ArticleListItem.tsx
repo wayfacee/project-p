@@ -11,7 +11,7 @@ import { Card } from "@/shared/ui/Card/Card";
 import { Avatar } from "@/shared/ui/Avatar/Avatar";
 import { Button, ButtonTheme } from "@/shared/ui/Button/Button";
 import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
-import { RoutePath } from "@/shared/const/router";
+import { getRouteArticleDetails } from "@/shared/const/router";
 import { AppLink } from "@/shared/ui/AppLink/AppLink";
 import { AppImage } from "@/shared/ui/AppImage";
 import { Skeleton } from "@/shared/ui/Skeleton/Skeleton";
@@ -73,7 +73,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
           )}
 
           <div className={cl.footer}>
-            <AppLink to={`${RoutePath.article_details}${article.id}`}>
+            <AppLink to={getRouteArticleDetails(article.id)}>
               <Button
                 theme={ButtonTheme.OUTLINE}
               >
@@ -93,7 +93,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
   return (
     <AppLink
       target={target}
-      to={`${RoutePath.article_details}${article.id}`}
+      to={getRouteArticleDetails(article.id)}
       className={classNames(cl.ArticleListItem, {}, [className, cl[view]])}
     >
       <Card className={cl.card} >
