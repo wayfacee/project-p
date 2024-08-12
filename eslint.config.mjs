@@ -87,6 +87,7 @@ export default tseslint.config(
       'path-checker-ulbi-tv/path-checker': ['error', { alias: '@' }],
       'path-checker-ulbi-tv/public-api-imports': ['error', {
         alias: '@',
+        testFilePatterns: ['**/*.test.*', '**/StoreDecorator.tsx'],
         ignoreImportPatterns: [
           '**/StoreProvider',
           '**/testing',
