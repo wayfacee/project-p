@@ -29,7 +29,7 @@ export const Tabs = memo((props: TabsProps) => {
     return () => {
       onTabClick(tab);
     }
-  }, []);
+  }, [onTabClick]);
 
   return (
     <div className={classNames(cl.Tabs, {}, [className])}>
