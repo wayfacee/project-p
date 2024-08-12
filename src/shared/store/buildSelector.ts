@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
  * избавляем от useSelector 
  */
 
-// то чо возв., генриком будет подхв. и автоматомю типиз.
+// то чо возв., генриком будет подхв. и автоматом. типиз.
 type Selector<T> = (state: StateSchema) => T;
 type Result<T> = [() => T, Selector<T>];
 

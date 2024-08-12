@@ -2,7 +2,8 @@ import { bindActionCreators, createSlice } from "@reduxjs/toolkit";
 import { SliceCaseReducers, CreateSliceOptions } from '@reduxjs/toolkit/dist';
 import { useAppDispatch } from "../lib/hooks/useAppDispatch/useAppDispatch";
 import { useMemo } from "react";
-// dist - куда билидтся сам редакс, тут так делать можно, пошта они нам нужны
+// dist - куда билдится сам редакс, тут так делать можно, пошта они нам нужны
+
 /**
  * хотим тянуть данные без useDispatch and useSelector
  * 

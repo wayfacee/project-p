@@ -39,6 +39,8 @@
 #         run: npm run test:ui:ci
 #         if: always()
 
+# 109 - module
+
 name: linting, testing, building
 on:
   push:
@@ -103,14 +105,14 @@ jobs:
         if: always()
 
       - name: Setup Pages
-        uses: actions/configure-pages@v2
+        uses: actions/configure-pages@v2 # настраиваем гхПж
         if: always()
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         if: always()
         with:
-          path: '.reports' # раздавались скрин тесты
+          path: 'reports' # раздавались скрин тесты
 
       - name: Deploy to GitHub Pages
         id: deployment
