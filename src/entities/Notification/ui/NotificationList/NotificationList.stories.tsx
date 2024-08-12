@@ -1,13 +1,11 @@
 import type { Meta, StoryFn } from '@storybook/react';
 import { NotificationList } from './NotificationList';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
-// import withMock from 'storybook-addon-mock';
 
 export default {
   title: 'entities/Notification/NotificationList',
   component: NotificationList,
   tags: ['autodocs'],
-  // decorators: [withMock],
 } as Meta<typeof NotificationList>;
 
 const Template: StoryFn<typeof NotificationList> = (args) => <NotificationList {...args} />;

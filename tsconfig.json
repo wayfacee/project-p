@@ -55,6 +55,7 @@
     "jest.config.ts",
 
     "./config/storybook/**/*.ts",
+    "./vite.config.ts",
   ],
   "exclude": [
     "./scripts/"

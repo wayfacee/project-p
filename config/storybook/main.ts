@@ -29,6 +29,8 @@ const config: StorybookConfig = {
       },
     },
   },
+  // webpackFinal: {} //  ЕСЛИ НЕ РАБОТАЕТ ВЕБПАК + СБ
+  // ТО ВЫНОСИМ ВЕБПАК КОНФИГ В ЭТОТ ФАЙЛ
   framework: "@storybook/react-webpack5",
   swc: () => ({
     jsc: {
@@ -43,4 +45,5 @@ const config: StorybookConfig = {
     autodocs: 'tag'
   }
 };
+
 export default config;

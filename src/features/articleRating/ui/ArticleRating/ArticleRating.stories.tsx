@@ -1,12 +1,10 @@
 import type { Meta, StoryFn } from '@storybook/react';
 import ArticleRating from './ArticleRating';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
-// import withMock from 'storybook-addon-mock';
 
 export default {
   title: 'entities/ArticleRating',
   component: ArticleRating,
-  // decorators: [withMock],
   tags: ['autodocs'],
 } as Meta<typeof ArticleRating>;
 
