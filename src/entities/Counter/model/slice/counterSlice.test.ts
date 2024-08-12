@@ -1,7 +1,8 @@
-import { counterReducer, decremented, incremented } from "./counterSlice";
+import { counterActions, counterReducer } from "./counterSlice";
 import { CounterSchema } from "../types/counterSchema";
 
 describe('counterSlice', () => {
+  const { incremented, decremented } = counterActions
   test('incremented', () => {
     const state: CounterSchema = { value: 10 };
 

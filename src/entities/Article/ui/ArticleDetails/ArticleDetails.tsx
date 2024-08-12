@@ -15,11 +15,11 @@ import EyeIcon from '@/shared/assets/icons/eye.svg';
 import CalendarIcon from '@/shared/assets/icons/calendar.svg';
 import { Icon } from "@/shared/ui/Icon/Icon";
 import { ArticleBlock } from "../../model/types/article";
-import { ArticleBlockType } from "@/entities/Article";
 import { ArticleCodeBlockComponent } from "../ArticleCodeBlockComponent/ArticleCodeBlockComponent";
 import { ArticleImageBlockComponent } from "../ArticleImageBlockComponent/ArticleImageBlockComponent";
 import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
 import { HStack, VStack } from "@/shared/ui/Stack";
+import { ArticleBlockType } from "../../model/consts/consts";
 
 interface ArticleDetailsProps {
   className?: string;

@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["es5", "dom"],
+    "types": ["cypress", "node"], // благодаря этому будет работать типы для кп
+    "allowJs": true,
+    "isolatedModules": false
+  },
+  "extends": ["../tsconfig.json"], // расшируяем
+  "include": ["**/*.ts", "tsconfig.json"]
+}

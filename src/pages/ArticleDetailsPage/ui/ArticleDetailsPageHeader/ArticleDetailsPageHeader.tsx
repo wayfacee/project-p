@@ -27,6 +27,8 @@ export const ArticleDetailsPageHeader = memo((props: ArticleDetailsPageHeaderPro
   }, [navigate]);
 
   const onEditArticle = useCallback(() => {
+    // eslint-disable-next-line
+    // @ts-ignore
     navigate(getRouteArticleEdit(article?.id));
   }, [navigate, article?.id]);
 
