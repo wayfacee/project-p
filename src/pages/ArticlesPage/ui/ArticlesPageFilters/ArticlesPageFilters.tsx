@@ -9,13 +9,15 @@ import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { useSelector } from "react-redux";
 import { getArticlesPageOrder, getArticlesPageSearch, getArticlesPageSort, getArticlesPageType, getArticlesPageView } from "../../models/selectors/articlesPageSelectors";
 import { articlesPageActions } from "../../models/slices/articlesPageSlice";
-import { ArticleSortField, ArticlesSortSelector, ArticleType, ArticleTypeTabs, ArticleView } from "@/entities/Article";
+import { ArticleSortField, ArticleType, ArticleView } from "@/entities/Article";
 import { ArticleViewSelector } from "@/features/ArticleViewSelector";
 import { Card } from "@/shared/ui/Card/Card";
 import { Input } from "@/shared/ui/Input/Input";
 import { SortOrder } from "@/shared/types/sort";
 import { fetchArticlesList } from "../../models/services/fetchArticlesList/fetchArticlesList";
 import { useDebounce } from "@/shared/lib/hooks/useDebounce/useDebounce";
+import { ArticlesSortSelector } from "@/features/ArticlesSortSelector";
+import { ArticleTypeTabs } from "@/features/ArticleTypeTabs";
 
 interface ArticlesPageFilterProps {
   className?: string;
