@@ -14,7 +14,16 @@ const preview: Preview = {
       },
     },
     // без педддингов:
-    layout: 'fullscreen'
+    layout: 'fullscreen',
+    themes: {
+      default: 'light',
+      list: [
+        // color - цветовой кружочек, рядом с пункт. меню
+        { name: 'light', class: Theme.LIGHT, color: '#090949' },
+        { name: 'dark', class: Theme.DARK, color: '#e8e8ea' },
+        { name: 'violet', class: Theme.VIOLET, color: '#844d71' },
+      ],
+    },
   },
   decorators: [
     // обретка, типо импорт стайлов, чтоб кд раз не импортить, порядок не важен

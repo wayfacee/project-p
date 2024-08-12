@@ -9,10 +9,16 @@ const config: StorybookConfig = {
     "@storybook/addon-webpack5-compiler-swc",
     "@storybook/addon-onboarding",
     "@storybook/addon-links",
-    "@storybook/addon-essentials",
+    {
+      name: "@storybook/addon-essentials",
+      options: {
+        backgrounds: false,
+      },
+    },
     "@chromatic-com/storybook",
     "@storybook/addon-interactions",
     'storybook-addon-mock',
+    'storybook-addon-themes'
   ],
   core: {
     builder: {
