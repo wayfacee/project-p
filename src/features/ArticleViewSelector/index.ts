@@ -1,1 +1,1 @@
-export { ArticleViewSelector } from "./ArticleViewSelector/ui/ArticleViewSelector/ArticleViewSelector";
+export { ArticleViewSelector } from "./ui/ArticleViewSelector/ArticleViewSelector";
