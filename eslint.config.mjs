@@ -95,7 +95,7 @@ export default tseslint.config(
       }],
 
       'unused-imports/no-unused-imports': "error",
-      "@typescript-eslint/no-namespace": "error",
+      // "@typescript-eslint/no-namespace": "off",
       "@typescript-eslint/explicit-module-boundary-types": "off"
     },
   },

@@ -41,7 +41,7 @@ export function buildWebpackConfig(options: BuildOptions): Configuration {
     },
     // import Component from './Component
     resolve: buildResolvers(options),
-    // где произошла ошибка (source-map)
+    // где произошла ошибка (source-map - ссылка в конце файла)
     devtool: isDev ? 'inline-source-map' : undefined,
     // не будет запуск. дев сервер:
     devServer: isDev ? buildDevServer(options) : undefined,

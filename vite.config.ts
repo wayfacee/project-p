@@ -8,10 +8,7 @@ export default defineConfig({
     react(),
     svgr({
       // исп. именованный экспорт {ReactCompoent as SVG}
-      // exportAsDefault: true,
-      svgrOptions: {
-        exportType: 'default'
-      }
+      exportAsDefault: true,
     }),
   ],
   resolve: {

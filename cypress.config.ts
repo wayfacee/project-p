@@ -9,6 +9,6 @@ export default defineConfig({
     // на тестовые среды, среды на стенды которые поднимаем в рамках
     // ci/cd, препрод. стенды которые гоняются на данных приближенных
     // проду
-    baseUrl: 'https://localhost:3000/'
+    baseUrl: 'http://localhost:3000/',
   },
 });
