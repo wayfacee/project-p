@@ -32,7 +32,7 @@ Cypress.Commands.addAll(ratingCommands);
 //     // cy.intercept('GET', '**/articles?*', req => { req. })
 //     createFixture(fixtureName);
 //   }
-  
+
 //   // local создаем задачу -> создаем pull request -> test
 //   // представьте что у вас 30 фронтендеров
 //   // для кд разрабов будут прогоняться тесты -> бесит -> spam backend
@@ -53,4 +53,4 @@ Cypress.Commands.addAll(ratingCommands);
 //   // одна релиз. проверка работоспособности нашего сервиса
 //   if (FIXTURE_MODE === 'API') {
 //   }
-// }); 
+// });

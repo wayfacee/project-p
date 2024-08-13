@@ -18,11 +18,11 @@ export const Primary = Template.bind({});
 Primary.args = {
   isOpen: true,
   children: 'lorem',
-}
+};
 
 export const Dark = Template.bind({});
 Dark.args = {
   isOpen: true,
   children: 'lorem',
-}
-Dark.decorators = [ThemeDecorator(Theme.DARK)]
+};
+Dark.decorators = [ThemeDecorator(Theme.DARK)];

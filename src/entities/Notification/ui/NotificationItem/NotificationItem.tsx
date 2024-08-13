@@ -1,11 +1,11 @@
-import { classNames } from "@/shared/lib/classNames/classNames";
+import { classNames } from '@/shared/lib/classNames/classNames';
 import * as cl from './NotificationItem.module.scss';
-import { useTranslation } from "react-i18next";
-import { memo } from "react";
-import { Notification } from "../../model/types/notification";
-import { Card, CardTheme } from "@/shared/ui/Card/Card";
-import { Text } from "@/shared/ui/Text/Text";
-import { AppLink } from "@/shared/ui/AppLink/AppLink";
+import { useTranslation } from 'react-i18next';
+import { memo } from 'react';
+import { Notification } from '../../model/types/notification';
+import { Card, CardTheme } from '@/shared/ui/Card/Card';
+import { Text } from '@/shared/ui/Text/Text';
+import { AppLink } from '@/shared/ui/AppLink/AppLink';
 
 interface NotificationItemProps {
   className?: string;
@@ -13,10 +13,7 @@ interface NotificationItemProps {
 }
 
 export const NotificationItem = memo((props: NotificationItemProps) => {
-  const {
-    className,
-    notification
-  } = props;
+  const { className, notification } = props;
   const { t } = useTranslation();
 
   // некоторые нотиф. будут иметь сс.
@@ -38,7 +35,7 @@ export const NotificationItem = memo((props: NotificationItemProps) => {
       >
         {content}
       </AppLink>
-    )
+    );
   }
 
   return content;

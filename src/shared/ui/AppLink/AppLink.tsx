@@ -1,7 +1,7 @@
-import { classNames } from "@/shared/lib/classNames/classNames";
+import { classNames } from '@/shared/lib/classNames/classNames';
 import * as cl from './AppLink.module.scss';
-import { Link, LinkProps } from "react-router-dom";
-import { FC, memo } from "react";
+import { Link, LinkProps } from 'react-router-dom';
+import { FC, memo } from 'react';
 
 export enum AppLinkTheme {
   PRIMARY = 'primary',
@@ -10,7 +10,7 @@ export enum AppLinkTheme {
 
 interface AppLinkProps extends LinkProps {
   className?: string;
-  theme?: AppLinkTheme,
+  theme?: AppLinkTheme;
 }
 
 export const AppLink: FC<AppLinkProps> = memo((props) => {
@@ -23,7 +23,7 @@ export const AppLink: FC<AppLinkProps> = memo((props) => {
   } = props;
 
   // [cl[theme]] - как динам. ключ обращ. к кл,
-  // и как динам. свойство передаем тему, для того чтобы получить 
+  // и как динам. свойство передаем тему, для того чтобы получить
   // то что сген
 
   return (

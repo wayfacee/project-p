@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { LoginSchema } from '../types/loginSchema';
 import { loginByUsername } from '../services/loginByUsername/loginByUsername';
 
@@ -7,7 +7,7 @@ const initialState: LoginSchema = {
   password: '',
   isLoading: false,
   error: '',
-}
+};
 
 const loginSlice = createSlice({
   name: 'login',
@@ -18,7 +18,7 @@ const loginSlice = createSlice({
     },
     setPassword: (state, actions: PayloadAction<string>) => {
       state.password = actions.payload;
-    }
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -33,9 +33,9 @@ const loginSlice = createSlice({
         // данные который возв. ассинк санк, попадают в экшен
         state.isLoading = false;
         state.error = action.payload as string;
-      })
-  }
-})
+      });
+  },
+});
 
 export const { actions: loginActions } = loginSlice;
 export const { reducer: loginReducer } = loginSlice;

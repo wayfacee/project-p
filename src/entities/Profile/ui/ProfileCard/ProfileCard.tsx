@@ -1,15 +1,15 @@
-import { classNames, Mods } from "@/shared/lib/classNames/classNames";
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import * as cl from './ProfileCard.module.scss';
-import { useTranslation } from "react-i18next";
-import { Input } from "@/shared/ui/Input/Input";
-import { Text, TextAlign, TextTheme } from "@/shared/ui/Text/Text";
-import { Profile } from "../../model/types/profile";
-import { BeatLoader } from "react-spinners";
-import { Avatar } from "@/shared/ui/Avatar/Avatar";
-import { Currency, CurrencySelect } from "@/entities/Currency";
-import { Country } from "@/entities/Country";
-import { CountrySelect } from "@/entities/Country";
-import { HStack, VStack } from "@/shared/ui/Stack";
+import { useTranslation } from 'react-i18next';
+import { Input } from '@/shared/ui/Input/Input';
+import { Text, TextAlign, TextTheme } from '@/shared/ui/Text/Text';
+import { Profile } from '../../model/types/profile';
+import { BeatLoader } from 'react-spinners';
+import { Avatar } from '@/shared/ui/Avatar/Avatar';
+import { Currency, CurrencySelect } from '@/entities/Currency';
+import { Country } from '@/entities/Country';
+import { CountrySelect } from '@/entities/Country';
+import { HStack, VStack } from '@/shared/ui/Stack';
 // slice entety мало обладает каким-то своим состоянием,
 // в основном - запрос комп тип итд.
 
@@ -55,17 +55,22 @@ export const ProfileCard = (props: ProfileCardProps) => {
   if (isLoading) {
     return (
       <HStack
-        justify="center" max
+        justify="center"
+        max
         className={classNames(cl.ProfileCard, {}, [className, cl.loading])}
       >
         <BeatLoader color="#f48dff" />
       </HStack>
-    )
+    );
   }
 
   if (error) {
     return (
-      <HStack justify={'center'} max className={classNames(cl.ProfileCard, {}, [className, cl.error])}>
+      <HStack
+        justify={'center'}
+        max
+        className={classNames(cl.ProfileCard, {}, [className, cl.error])}
+      >
         <Text
           theme={TextTheme.ERROR}
           title={t('Произошла ошибка при загрузке профиля')}
@@ -73,22 +78,23 @@ export const ProfileCard = (props: ProfileCardProps) => {
           align={TextAlign.LEFT}
         />
       </HStack>
-    )
+    );
   }
 
   const mods: Mods = {
     [cl.editing]: !readonly,
-  }
+  };
 
   return (
     <VStack
       className={classNames(cl.ProfileCard, mods, [className])}
       gap="8"
-      justify="center" max
+      justify="center"
+      max
     >
       {data?.avatar && (
         <HStack justify="center" max>
-          <Avatar src={data?.avatar} alt='Avatar image' />
+          <Avatar src={data?.avatar} alt="Avatar image" />
         </HStack>
       )}
 
@@ -148,7 +154,6 @@ export const ProfileCard = (props: ProfileCardProps) => {
         onChange={onChangeCountry}
         readonly={readonly}
       />
-
     </VStack>
   );
 };

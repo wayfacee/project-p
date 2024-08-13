@@ -1,5 +1,5 @@
-import axios from "axios";
-import { USER_LOCALSTORAGE_KEY } from "@/shared/const/localstorage";
+import axios from 'axios';
+import { USER_LOCALSTORAGE_KEY } from '@/shared/const/localstorage';
 
 // const baseURL = __IS_DEV__ ? 'http://localhost:8000' : 'https://production.ru';
 // есть более правильный вариант __API__
@@ -13,7 +13,7 @@ export const $api = axios.create({
   // },
 });
 
-// ошибка (в начале), что не юзер не авториз. 
+// ошибка (в начале), что не юзер не авториз.
 // все дело из за хедера достаем в момент созд. инстанса
 // когда авториз. инстанс уже был создан, но в Authorization
 // оставалась пустая строка
@@ -25,8 +25,9 @@ export const $api = axios.create({
 // можно убрать хедер в $апи
 $api.interceptors.request.use((config) => {
   if (config.headers) {
-    config.headers.Authorization = localStorage.getItem(USER_LOCALSTORAGE_KEY) || '';
+    config.headers.Authorization =
+      localStorage.getItem(USER_LOCALSTORAGE_KEY) || '';
   }
 
   return config;
-})
+});

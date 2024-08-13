@@ -1,7 +1,7 @@
-import { classNames } from "@/shared/lib/classNames/classNames";
+import { classNames } from '@/shared/lib/classNames/classNames';
 import * as cl from './Code.module.scss';
-import { memo, useCallback } from "react";
-import { Button, ButtonTheme } from "../Button/Button";
+import { memo, useCallback } from 'react';
+import { Button, ButtonTheme } from '../Button/Button';
 import CopyIcon from '@/shared/assets/icons/copy.svg';
 
 interface CodeProps {
@@ -10,15 +10,12 @@ interface CodeProps {
 }
 
 export const Code = memo((props: CodeProps) => {
-  const {
-    className,
-    text
-  } = props;
+  const { className, text } = props;
 
   const onCopy = useCallback(() => {
     // copy text:
     navigator.clipboard.writeText(text);
-  }, [text])
+  }, [text]);
 
   // pre - позволяет сохранить пробелы, перенос строки, все, итд.
   return (
@@ -26,9 +23,7 @@ export const Code = memo((props: CodeProps) => {
       <Button onClick={onCopy} className={cl.copyBtn} theme={ButtonTheme.CLEAR}>
         <CopyIcon className={cl.copyIcon} />
       </Button>
-      <code>
-        {text}
-      </code>
+      <code>{text}</code>
     </pre>
   );
 });

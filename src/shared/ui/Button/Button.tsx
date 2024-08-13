@@ -1,5 +1,5 @@
 import * as cl from './Button.module.scss';
-import { ButtonHTMLAttributes, FC, memo, ReactNode } from "react";
+import { ButtonHTMLAttributes, FC, memo, ReactNode } from 'react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 
 export enum ButtonTheme {
@@ -43,7 +43,6 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
    * Увеличивает кнопку на всю свободную ширину
    */
   fullWidth?: boolean;
-
 }
 
 export const Button: FC<ButtonProps> = memo((props) => {
@@ -63,7 +62,7 @@ export const Button: FC<ButtonProps> = memo((props) => {
     [cl.square]: square,
     [cl.disabled]: disabled,
     [cl.fullWidth]: fullWidth,
-  }
+  };
 
   return (
     <button

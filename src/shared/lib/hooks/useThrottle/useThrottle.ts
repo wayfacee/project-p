@@ -2,7 +2,7 @@
 // тротлинг - выполнить одно событъе в промежуток времени
 // сохранять позцию скролла раз в сек.
 
-import { useCallback, useRef } from "react";
+import { useCallback, useRef } from 'react';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function useThrottle(callback: (...args: any[]) => void, delay: number) {
@@ -10,16 +10,19 @@ export function useThrottle(callback: (...args: any[]) => void, delay: number) {
   // каллюэк или нельзя
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  return useCallback((...args: any[]) => {
-    // обяз. если фалс
-    if (!throttleRef.current) {
-      callback(...args);
-      // будут проигнор. если трот не будет фалс.
-      throttleRef.current = true;
+  return useCallback(
+    (...args: any[]) => {
+      // обяз. если фалс
+      if (!throttleRef.current) {
+        callback(...args);
+        // будут проигнор. если трот не будет фалс.
+        throttleRef.current = true;
 
-      setTimeout(() => {
-        throttleRef.current = false;
-      }, delay);
-    }
-  }, [callback, delay]);
+        setTimeout(() => {
+          throttleRef.current = false;
+        }, delay);
+      }
+    },
+    [callback, delay],
+  );
 }

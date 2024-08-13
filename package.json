@@ -10,6 +10,7 @@
     "start:dev:vite": "concurrently \"npm run start:vite\" \"npm start:dev:server\"",
     "build:prod": "webpack --env mode=production apiUrl=https://backend-json-server-mq0lnjlof-wayfaces-projects.vercel.app",
     "build:dev": "webpack --env mode=development",
+    "prettier": "npx prettier --write **/*.{ts,tsx,json}",
     "lint:ts": "eslint \"**/*.{ts,tsx}\"",
     "lint:ts:fix": "eslint \"**/*.{ts,tsx}\" --fix",
     "lint:st": "npx lint-staged",
@@ -29,7 +30,10 @@
     "generate:slice": "node ./scripts/createSlice/index.js"
   },
   "lint-staged": {
-    "**/*.{ts,tsx}": "eslint"
+    "**/*.{ts,tsx}": [
+      "prettier --list-different",
+      "eslint"
+    ]
   },
   "author": "",
   "license": "ISC",
@@ -105,7 +109,7 @@
     "lint-staged": "^15.2.8",
     "loki": "^0.35.0",
     "mini-css-extract-plugin": "^2.9.0",
-    "prettier": "^3.3.3",
+    "prettier": "3.3.3",
     "react-device-detect": "^2.2.3",
     "react-i18next": "^15.0.1",
     "react-refresh": "^0.14.2",

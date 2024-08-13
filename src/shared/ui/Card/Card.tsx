@@ -1,6 +1,6 @@
-import { classNames } from "@/shared/lib/classNames/classNames";
+import { classNames } from '@/shared/lib/classNames/classNames';
 import * as cl from './Card.module.scss';
-import { HTMLAttributes, memo, ReactNode } from "react";
+import { HTMLAttributes, memo, ReactNode } from 'react';
 
 export enum CardTheme {
   NORMAL = 'normal',
@@ -25,7 +25,10 @@ export const Card = memo((props: CardProps) => {
 
   return (
     <div
-      className={classNames(cl.Card, {[cl.fullWidth]: fullWidth}, [className, cl[theme]])}
+      className={classNames(cl.Card, { [cl.fullWidth]: fullWidth }, [
+        className,
+        cl[theme],
+      ])}
       {...otherProps}
     >
       {children}

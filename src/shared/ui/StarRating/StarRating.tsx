@@ -1,8 +1,8 @@
-import { classNames } from "@/shared/lib/classNames/classNames";
+import { classNames } from '@/shared/lib/classNames/classNames';
 import * as cl from './StarRating.module.scss';
-import { memo, useState } from "react";
+import { memo, useState } from 'react';
 import StarIcon from '@/shared/assets/icons/star.svg';
-import { Icon } from "../Icon/Icon";
+import { Icon } from '../Icon/Icon';
 
 interface StartRatingProps {
   className?: string;
@@ -14,12 +14,7 @@ interface StartRatingProps {
 const stars = [1, 2, 3, 4, 5];
 
 export const StarRating = memo((props: StartRatingProps) => {
-  const {
-    className,
-    onSelect,
-    selectedStars = 0,
-    size = 30,
-  } = props;
+  const { className, onSelect, selectedStars = 0, size = 30 } = props;
 
   // направленную и предыд. звезды, подсвечивать:
   const [currentStarsCount, setCurrentStarsCount] = useState(selectedStars);
@@ -33,13 +28,13 @@ export const StarRating = memo((props: StartRatingProps) => {
       // на какую направил:
       setCurrentStarsCount(starsCount);
     }
-  }
+  };
 
   const onLeave = () => {
     if (!isSelected) {
       setCurrentStarsCount(0);
     }
-  }
+  };
 
   // чтобы могли на вверх прокинуть
   const onClick = (starsCount: number) => () => {
@@ -48,18 +43,20 @@ export const StarRating = memo((props: StartRatingProps) => {
       setCurrentStarsCount(starsCount);
       setIsSelected(true);
     }
-  }
+  };
 
   return (
     <div className={classNames(cl.StartRating, {}, [className])}>
-      {stars.map(starNumber => (
+      {stars.map((starNumber) => (
         <Icon
           className={classNames(
             cl.starIcon,
             {
               [cl.hovered]: currentStarsCount >= starNumber,
-              [cl.selected]: isSelected
-            }, [])}
+              [cl.selected]: isSelected,
+            },
+            [],
+          )}
           Svg={StarIcon}
           key={starNumber}
           width={size}

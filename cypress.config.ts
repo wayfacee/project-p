@@ -1,4 +1,4 @@
-import { defineConfig } from "cypress";
+import { defineConfig } from 'cypress';
 
 export default defineConfig({
   e2e: {
@@ -9,13 +9,13 @@ export default defineConfig({
     // на тестовые среды, среды на стенды которые поднимаем в рамках
     // ci/cd, препрод. стенды которые гоняются на данных приближенных
     // проду
-    baseUrl: "http://localhost:3000/",
+    baseUrl: 'http://localhost:3000/',
   },
 
   component: {
     devServer: {
-      framework: "react",
-      bundler: "webpack",
+      framework: 'react',
+      bundler: 'webpack',
     },
   },
 });

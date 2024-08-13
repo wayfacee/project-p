@@ -1,7 +1,7 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect } from 'react';
 // можно относительным
-import { ThemeContext } from "../../context/ThemeContext";
-import { LOCAL_STORAGE_KEY, Theme } from "../../../const/theme";
+import { ThemeContext } from '../../context/ThemeContext';
+import { LOCAL_STORAGE_KEY, Theme } from '../../../const/theme';
 
 interface UseThemeResult {
   theme: Theme;
@@ -15,18 +15,18 @@ export function useTheme(): UseThemeResult {
     // const newTheme = theme === Theme.DARK ? Theme.LIGHT : Theme.DARK;
     let newTheme: Theme;
     switch (theme) {
-    case Theme.DARK:
-      newTheme = Theme.LIGHT;
-      break;
-    case Theme.LIGHT:
-      newTheme = Theme.VIOLET;
-      break;
-    case Theme.VIOLET:
-      newTheme = Theme.DARK;
-      break;
-    default:
-      newTheme = Theme.LIGHT;
-      break;
+      case Theme.DARK:
+        newTheme = Theme.LIGHT;
+        break;
+      case Theme.LIGHT:
+        newTheme = Theme.VIOLET;
+        break;
+      case Theme.VIOLET:
+        newTheme = Theme.DARK;
+        break;
+      default:
+        newTheme = Theme.LIGHT;
+        break;
     }
 
     // контекст иниц. не сразу, в какое-то время пустой
@@ -42,5 +42,5 @@ export function useTheme(): UseThemeResult {
   return {
     theme: theme || Theme.LIGHT,
     toggleTheme,
-  }
+  };
 }

@@ -15,13 +15,13 @@ Primary.args = {
   trigger: <Button>Open!</Button>,
   items: [
     {
-      content: 'first'
+      content: 'first',
     },
     {
-      content: '2'
+      content: '2',
     },
     {
-      content: 'sdfgerrge'
-    }
-  ]
+      content: 'sdfgerrge',
+    },
+  ],
 };

@@ -1,5 +1,11 @@
-import { Button, Listbox as HListbox, ListboxButton, ListboxOption, ListboxOptions } from '@headlessui/react'
-import { Fragment, ReactNode } from 'react'
+import {
+  Button,
+  Listbox as HListbox,
+  ListboxButton,
+  ListboxOption,
+  ListboxOptions,
+} from '@headlessui/react';
+import { Fragment, ReactNode } from 'react';
 import * as cl from './ListBox.module.scss';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { DropdownDirection } from '@/shared/types/ui';
@@ -40,7 +46,7 @@ export function ListBox(props: ListBoxProps) {
   const optionsClasses = mapDirectionClass[direction];
 
   return (
-    <HStack gap='4'>
+    <HStack gap="4">
       {label && <span>{`${label}>`}</span>}
 
       <HListbox
@@ -50,21 +56,12 @@ export function ListBox(props: ListBoxProps) {
         value={value}
         onChange={onChange}
       >
-
-        <ListboxButton
-          disabled={readonly}
-          className={cl.trigger}
-        >
-          <Button
-            disabled={readonly}
-          >
-            {value ?? defaultValue}
-          </Button>
+        <ListboxButton disabled={readonly} className={cl.trigger}>
+          <Button disabled={readonly}>{value ?? defaultValue}</Button>
         </ListboxButton>
         <ListboxOptions
           className={classNames(cl.options, {}, [optionsClasses])}
         >
-
           {items?.map((item) => (
             <ListboxOption
               key={item.value}
@@ -73,10 +70,12 @@ export function ListBox(props: ListBoxProps) {
               as={Fragment} // чтоб не создавалась лишняя нода
             >
               {({ active, selected }) => (
-                <li className={classNames(cl.item, {
-                  [popupCl.active]: active,
-                  [popupCl.disabled]: item.disabled,
-                })}>
+                <li
+                  className={classNames(cl.item, {
+                    [popupCl.active]: active,
+                    [popupCl.disabled]: item.disabled,
+                  })}
+                >
                   {selected && '!!!'}
                   {item.content}
                 </li>
@@ -86,6 +85,5 @@ export function ListBox(props: ListBoxProps) {
         </ListboxOptions>
       </HListbox>
     </HStack>
-
-  )
+  );
 }

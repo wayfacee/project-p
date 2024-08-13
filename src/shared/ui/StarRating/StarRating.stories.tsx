@@ -11,5 +11,5 @@ const Template: StoryFn<typeof StarRating> = (args) => <StarRating {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  size: 50
+  size: 50,
 };

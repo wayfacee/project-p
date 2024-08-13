@@ -1,4 +1,10 @@
-import { MutableRefObject, useCallback, useEffect, useRef, useState } from "react";
+import {
+  MutableRefObject,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 
 interface UseModalProps {
   isOpen?: boolean;
@@ -13,11 +19,7 @@ interface UseModalProps {
  * @param onClose
  */
 export function useModal(props: UseModalProps) {
-  const {
-    isOpen,
-    onClose,
-    animationDelay
-  } = props;
+  const { isOpen, onClose, animationDelay } = props;
 
   const [isClosing, setIsClosing] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
@@ -28,29 +30,32 @@ export function useModal(props: UseModalProps) {
     if (isOpen) {
       setIsMounted(true);
     }
-  }, [isOpen])
+  }, [isOpen]);
 
   const close = useCallback(() => {
     if (onClose) {
       setIsClosing(true);
 
-      // реф - не/мутабельный, тип надо явно указать 
+      // реф - не/мутабельный, тип надо явно указать
       timeRef.current = setTimeout(() => {
         onClose();
         setIsClosing(false);
       }, animationDelay);
     }
-  }, [animationDelay, onClose])
+  }, [animationDelay, onClose]);
 
   // new links!!! создаются заново на кд перерендер
-  // useCallback - мемориз. знач. функции, запоминает, 
+  // useCallback - мемориз. знач. функции, запоминает,
   // возвращает одну и ту же ссылку,
   // если в массиве завис. ниче не измен. | react-hooks
-  const onKeyDown = useCallback((e: KeyboardEvent) => {
-    if (e.key === 'Enter') {
-      close();
-    }
-  }, [close]);
+  const onKeyDown = useCallback(
+    (e: KeyboardEvent) => {
+      if (e.key === 'Enter') {
+        close();
+      }
+    },
+    [close],
+  );
 
   useEffect(() => {
     if (isOpen) {
@@ -65,5 +70,5 @@ export function useModal(props: UseModalProps) {
     isClosing,
     isMounted,
     close,
-  }
-} 
+  };
+}

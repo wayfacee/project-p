@@ -1,6 +1,6 @@
-import { createSelector } from "@reduxjs/toolkit";
-import { getCounter } from "../getCounter/getCounter";
-import { CounterSchema } from "../../types/counterSchema";
+import { createSelector } from '@reduxjs/toolkit';
+import { getCounter } from '../getCounter/getCounter';
+import { CounterSchema } from '../../types/counterSchema';
 
 // позволяет переисп. селекторы, которые уже есть
 // этот селектор, знач. меморизирует, работ. так же как и

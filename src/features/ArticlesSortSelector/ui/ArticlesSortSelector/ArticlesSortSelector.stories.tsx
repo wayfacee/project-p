@@ -7,9 +7,9 @@ export default {
   component: ArticlesSortSelector,
 } as Meta<typeof ArticlesSortSelector>;
 
-const Template: StoryFn<typeof ArticlesSortSelector> = (args) => <ArticlesSortSelector {...args} />;
+const Template: StoryFn<typeof ArticlesSortSelector> = (args) => (
+  <ArticlesSortSelector {...args} />
+);
 
 export const Normal = Template.bind({});
-Normal.args = {
-  
-};
+Normal.args = {};

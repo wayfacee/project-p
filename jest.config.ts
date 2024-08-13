@@ -20,24 +20,21 @@ const config: Config = {
   clearMocks: true,
 
   // The test environment that will be used for testing
-  testEnvironment: "jsdom",
+  testEnvironment: 'jsdom',
 
   // An array of regexp pattern strings used to skip coverage collection
-  coveragePathIgnorePatterns: [
-    "\\\\node_modules\\\\"
-  ],
-
+  coveragePathIgnorePatterns: ['\\\\node_modules\\\\'],
 
   // An array of file extensions your modules use
   moduleFileExtensions: [
-    "js",
-    "mjs",
-    "cjs",
-    "jsx",
-    "ts",
-    "tsx",
-    "json",
-    "node"
+    'js',
+    'mjs',
+    'cjs',
+    'jsx',
+    'ts',
+    'tsx',
+    'json',
+    'node',
   ],
 
   // The root directory that Jest should scan for tests and modules within
@@ -45,7 +42,7 @@ const config: Config = {
 
   // An array of directory names to be searched recursively up from the requiring module's location
   moduleDirectories: [
-    "node_modules",
+    'node_modules',
     // "<rootDir>"
   ],
 
@@ -56,19 +53,19 @@ const config: Config = {
   moduleNameMapper: {
     '\\.(s?css)$': 'identity-obj-proxy',
     '\\.module.(s?css)$': 'identity-obj-proxy',
-    "\\.svg": path.resolve(__dirname, 'config/jest/jestEmptyComponent.tsx'),
+    '\\.svg': path.resolve(__dirname, 'config/jest/jestEmptyComponent.tsx'),
     // '^shared/(.*)$': '<rootDir>src/shared/$1',
     // '^widgets/(.*)$': '<rootDir>src/widgets/$1'
     '^@/(.*)$': '<rootDir>/src/$1', // alias
   },
 
   // путь до нод модулей, ошибка с абсолют импортами..
-  modulePaths: ["<rootDir>src"],
+  modulePaths: ['<rootDir>src'],
 
   // The glob patterns Jest uses to detect test files
   testMatch: [
-    "**/__tests__/**/*.[jt]s?(x)",
-    "**/?(*.)+(spec|test).[tj]s?(x)",
+    '**/__tests__/**/*.[jt]s?(x)',
+    '**/?(*.)+(spec|test).[tj]s?(x)',
     // '<rootDir>src/**/*(*.)@(spec/test).[tj]s?(x)'
   ],
 
@@ -81,14 +78,17 @@ const config: Config = {
 
   reporters: [
     'default',
-    ["jest-html-reporters", {
-      // лучше в гитигнор добавить
-      publicPath: `<rootDir>/reports/unit`, // путь до папки где будет сохр. репорт
-      filename: "report.html",
-      openReport: true,
-      inlineSource: true, // не будут ген. отдельн. жс файлы, и весь код в одном хтмл
-    }]
-  ]
+    [
+      'jest-html-reporters',
+      {
+        // лучше в гитигнор добавить
+        publicPath: `<rootDir>/reports/unit`, // путь до папки где будет сохр. репорт
+        filename: 'report.html',
+        openReport: true,
+        inlineSource: true, // не будут ген. отдельн. жс файлы, и весь код в одном хтмл
+      },
+    ],
+  ],
 
   // A list of paths to directories that Jest should use to search for files in
   // roots: [
@@ -103,8 +103,6 @@ const config: Config = {
 
   // The directory where Jest should output its coverage files
   // coverageDirectory: undefined,
-
-
 
   // Indicates which provider should be used to instrument code for coverage
   // coverageProvider: "babel",
@@ -140,16 +138,8 @@ const config: Config = {
   // A path to a module which exports an async function that is triggered once after all test suites
   // globalTeardown: undefined,
 
-
-
   // The maximum amount of workers used to run your tests. Can be specified as % or a number. E.g. maxWorkers: 10% will use 10% of your CPU amount + 1 as the maximum worker number. maxWorkers: 2 will use a maximum of 2 workers.
   // maxWorkers: "50%",
-
-
-
-
-
-
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
   // modulePathIgnorePatterns: [],
@@ -181,17 +171,11 @@ const config: Config = {
   // Automatically restore mock state and implementation before every test
   // restoreMocks: false,
 
-
-
-
-
   // Allows you to use a custom runner instead of Jest's default test runner
   // runner: "jest-runner",
 
   // The paths to modules that run some code to configure or set up the testing environment before each test
   // setupFiles: [],
-
-
 
   // The number of seconds after which a test is considered as slow and reported as such in the results.
   // slowTestThreshold: 5,
@@ -199,15 +183,11 @@ const config: Config = {
   // A list of paths to snapshot serializer modules Jest should use for snapshot testing
   // snapshotSerializers: [],
 
-
-
   // Options that will be passed to the testEnvironment
   // testEnvironmentOptions: {},
 
   // Adds a location field to test results
   // testLocationInResults: false,
-
-
 
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
   // testPathIgnorePatterns: [

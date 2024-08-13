@@ -19,7 +19,7 @@ const profileRatingApi = rtkApi.injectEndpoints({
         params: {
           userId,
           profileId,
-        }
+        },
       }),
     }),
 
@@ -27,7 +27,7 @@ const profileRatingApi = rtkApi.injectEndpoints({
       query: (arg) => ({
         url: '/profile-ratings',
         method: 'POST',
-        body: arg
+        body: arg,
       }),
     }),
   }),

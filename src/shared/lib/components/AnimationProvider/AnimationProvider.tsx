@@ -1,4 +1,12 @@
-import { createContext, ReactNode, useContext, useEffect, useMemo, useRef, useState } from 'react';
+import {
+  createContext,
+  ReactNode,
+  useContext,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 
 // чтоб корректно работала типиз., нужно вынести типы
 // на размер бандла не повлияет, пошта типы в бандл не уходят
@@ -10,7 +18,7 @@ interface AnimationContextPayload {
   Spring?: SpringType;
   // true - loaded
   isLoaded?: boolean;
-};
+}
 
 const AnimationContext = createContext<AnimationContextPayload>({});
 
@@ -37,7 +45,7 @@ export const useAnimationLibs = () => {
   // кд раз проверку на тайплав - андефайнд неудобно
   // можем скаставать, что вернет в обяз. порядке
   return useContext(AnimationContext) as Required<AnimationContextPayload>;
-}
+};
 
 // AnimationProvider - обрачивает только те места
 // в которых нам нужен доступ к Гестуре и Спринг библам.
@@ -58,16 +66,19 @@ export const AnimationProvider = ({ children }: { children: ReactNode }) => {
   }, []);
 
   // пошта передаем вниз, и там могуть быть перерис.
-  const value = useMemo(() => ({
-    Gesture: GestureRef.current,
-    Spring: SpringRef.current,
-    isLoaded,
-  }), [isLoaded]);
+  const value = useMemo(
+    () => ({
+      Gesture: GestureRef.current,
+      Spring: SpringRef.current,
+      isLoaded,
+    }),
+    [isLoaded],
+  );
   // рефы. в массив завис - добавлять смысла нет
 
   return (
     <AnimationContext.Provider value={value}>
       {children}
     </AnimationContext.Provider>
-  )
-}
+  );
+};

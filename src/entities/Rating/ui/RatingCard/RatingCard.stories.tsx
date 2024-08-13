@@ -10,5 +10,4 @@ export default {
 const Template: StoryFn<typeof RatingCard> = (args) => <RatingCard {...args} />;
 
 export const Primary = Template.bind({});
-Primary.args = {
-};
+Primary.args = {};

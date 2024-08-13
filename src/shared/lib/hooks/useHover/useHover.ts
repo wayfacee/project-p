@@ -1,14 +1,14 @@
 // спей событ. onMouse(-) - полож. мыши относ. элемента
-// можно следить за ховер через жс 
+// можно следить за ховер через жс
 // [isHover, bindHover]
 // {...bindHover}
 
-import { useCallback, useMemo, useState } from "react"
+import { useCallback, useMemo, useState } from 'react';
 
 interface UseHoverBind {
   onMouseEnter: () => void;
   onMouseLeave: () => void;
-};
+}
 
 type UseHoverResult = [boolean, UseHoverBind];
 
@@ -23,9 +23,14 @@ export const useHover = (): UseHoverResult => {
     setIsHover(false);
   }, []);
 
-  return useMemo(() => [
-    isHover, {
-      onMouseEnter, onMouseLeave
-    }
-  ], [isHover, onMouseEnter, onMouseLeave]);
-}
+  return useMemo(
+    () => [
+      isHover,
+      {
+        onMouseEnter,
+        onMouseLeave,
+      },
+    ],
+    [isHover, onMouseEnter, onMouseLeave],
+  );
+};

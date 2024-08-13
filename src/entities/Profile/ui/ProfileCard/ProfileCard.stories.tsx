@@ -13,10 +13,12 @@ export default {
   },
   args: {
     to: '/',
-  }
+  },
 } as Meta<typeof ProfileCard>;
 
-const Template: StoryFn<typeof ProfileCard> = (args) => <ProfileCard {...args} />;
+const Template: StoryFn<typeof ProfileCard> = (args) => (
+  <ProfileCard {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {
@@ -34,10 +36,10 @@ Primary.args = {
 
 export const withError = Template.bind({});
 withError.args = {
-  error: 'true'
-}
+  error: 'true',
+};
 
 export const isLoading = Template.bind({});
 isLoading.args = {
   isLoading: true,
-}
+};

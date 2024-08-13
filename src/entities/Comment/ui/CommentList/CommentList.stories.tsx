@@ -7,7 +7,9 @@ export default {
   tags: ['autodocs'],
 } as Meta<typeof CommentList>;
 
-const Template: StoryFn<typeof CommentList> = (args) => <CommentList {...args} />;
+const Template: StoryFn<typeof CommentList> = (args) => (
+  <CommentList {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {
@@ -15,12 +17,12 @@ Primary.args = {
     {
       id: '1',
       text: 'hello world',
-      user: { id: '1', username: 'Vasya' }
+      user: { id: '1', username: 'Vasya' },
     },
     {
       id: '2',
       text: 'hello',
-      user: { id: '2', username: 'Petya' }
-    }
-  ]
+      user: { id: '2', username: 'Petya' },
+    },
+  ],
 };

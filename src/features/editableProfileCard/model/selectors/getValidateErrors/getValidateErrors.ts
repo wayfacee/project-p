@@ -1,3 +1,4 @@
-import { StateSchema } from "@/app/providers/StoreProvider";
+import { StateSchema } from '@/app/providers/StoreProvider';
 
-export const getValidateErrors = (state: StateSchema) => state.profile?.validateErrors;
+export const getValidateErrors = (state: StateSchema) =>
+  state.profile?.validateErrors;

@@ -1,4 +1,4 @@
-import { MutableRefObject, useCallback, useRef } from "react";
+import { MutableRefObject, useCallback, useRef } from 'react';
 
 // отменять пред. событъе в течении какого-то времени
 // до тех пор пока что то ввдоим в инпут, каллбэк
@@ -11,15 +11,18 @@ import { MutableRefObject, useCallback, useRef } from "react";
  * @param delay - задержка в мс
  */
 export function useDebounce(callback: (...args: any[]) => void, delay: number) {
-  const timer = useRef() as MutableRefObject<any>; 
-  
-  return useCallback((...args: any[]) => {
-    if (timer.current) {
-      clearTimeout(timer.current);
-    }
+  const timer = useRef() as MutableRefObject<any>;
 
-    timer.current = setTimeout(() => {
-      callback(...args);
-    }, delay);
-  }, [callback, delay]);
+  return useCallback(
+    (...args: any[]) => {
+      if (timer.current) {
+        clearTimeout(timer.current);
+      }
+
+      timer.current = setTimeout(() => {
+        callback(...args);
+      }, delay);
+    },
+    [callback, delay],
+  );
 }

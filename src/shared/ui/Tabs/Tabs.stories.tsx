@@ -1,7 +1,7 @@
 import type { Meta, StoryFn } from '@storybook/react';
 import { Tabs } from './Tabs';
 
-// обычный экшен который мокает функц., и позволяет 
+// обычный экшен который мокает функц., и позволяет
 // отслеживать в логах, какая функц. была вызвана
 import { action } from '@storybook/addon-actions';
 
@@ -18,17 +18,17 @@ Primary.args = {
   tabs: [
     {
       value: '1',
-      content: 't 1'
+      content: 't 1',
     },
     {
       value: '2',
-      content: 't 2'
+      content: 't 2',
     },
     {
       value: '3',
-      content: 't 3'
+      content: 't 3',
     },
   ],
   value: '2',
-  onTabClick: action('onTabClick')
+  onTabClick: action('onTabClick'),
 };

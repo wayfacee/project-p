@@ -14,7 +14,7 @@ export default {
   args: {
     to: '/',
   },
-  decorators: [StoreDecorator({})]
+  decorators: [StoreDecorator({})],
 } as Meta<typeof MainPage>;
 
 const Template: StoryFn<typeof MainPage> = () => <MainPage />;

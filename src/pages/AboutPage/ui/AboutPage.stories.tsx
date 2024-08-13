@@ -12,7 +12,7 @@ export default {
   },
   args: {
     to: '/',
-  }
+  },
 } as Meta<typeof AboutPage>;
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment

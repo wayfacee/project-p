@@ -8,9 +8,10 @@ export default {
   tags: ['autodocs'],
 } as Meta<typeof EditableProfileCardHeader>;
 
-const Template: StoryFn<typeof EditableProfileCardHeader> = (args) => <EditableProfileCardHeader {...args} />;
+const Template: StoryFn<typeof EditableProfileCardHeader> = (args) => (
+  <EditableProfileCardHeader {...args} />
+);
 
 export const Primary = Template.bind({});
-Primary.args = {
-};
-Primary.decorators = [StoreDecorator({})]
+Primary.args = {};
+Primary.decorators = [StoreDecorator({})];

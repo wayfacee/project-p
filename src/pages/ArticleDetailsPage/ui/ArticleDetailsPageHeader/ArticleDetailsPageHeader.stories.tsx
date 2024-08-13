@@ -8,9 +8,10 @@ export default {
   tags: ['autodocs'],
 } as Meta<typeof ArticleDetailsPageHeader>;
 
-const Template: StoryFn<typeof ArticleDetailsPageHeader> = (args) => <ArticleDetailsPageHeader {...args} />;
+const Template: StoryFn<typeof ArticleDetailsPageHeader> = (args) => (
+  <ArticleDetailsPageHeader {...args} />
+);
 
 export const Primary = Template.bind({});
-Primary.args = {
-};
-Primary.decorators = [StoreDecorator({})]
+Primary.args = {};
+Primary.decorators = [StoreDecorator({})];

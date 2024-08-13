@@ -22,17 +22,17 @@ export function getQueryParams(params: OptionalRecord<string, string>) {
   // старые и новые параметры, добавляем в строку запросов
   // после ? можем добавлять query params
   return `?${searchParams.toString()}`;
-};
+}
 
 /**
  * Функция добавления параметров строки запроса в URL,
  * но этот велосипед, работает только в одну сторону, надо
  * усовершенствовать, или просто useSearchParams
- * @param params 
+ * @param params
  */
 export function addQueryParams(params: OptionalRecord<string, string>) {
   // 3 арг. - то что в урл
   window.history.pushState(null, '', getQueryParams(params));
-};
+}
 
 // все функции которые наход в шеред слое надо док.

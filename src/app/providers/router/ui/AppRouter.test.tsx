@@ -1,8 +1,12 @@
-import AppRouter from "./AppRouter";
-import { componentRender } from "@/shared/lib/tests/componentRender/componentRender";
-import { screen } from "@testing-library/dom";
-import { getRouteAbout, getRouteAdmin, getRouteProfile } from "@/shared/const/router";
-import { UserRole } from "@/entities/User";
+import AppRouter from './AppRouter';
+import { componentRender } from '@/shared/lib/tests/componentRender/componentRender';
+import { screen } from '@testing-library/dom';
+import {
+  getRouteAbout,
+  getRouteAdmin,
+  getRouteProfile,
+} from '@/shared/const/router';
+import { UserRole } from '@/entities/User';
 
 describe('AppRouter', () => {
   test('page should render', async () => {
@@ -37,8 +41,8 @@ describe('AppRouter', () => {
     componentRender(<AppRouter />, {
       route: getRouteProfile('1'),
       initialState: {
-        user: { _inited: true, authData: {} }
-      }
+        user: { _inited: true, authData: {} },
+      },
     });
 
     const page = await screen.findByTestId('ProfilePage');
@@ -49,8 +53,8 @@ describe('AppRouter', () => {
     componentRender(<AppRouter />, {
       route: getRouteAdmin(),
       initialState: {
-        user: { _inited: true, authData: {} }
-      }
+        user: { _inited: true, authData: {} },
+      },
     });
 
     const page = await screen.findByTestId('ForbiddenPage');
@@ -62,14 +66,15 @@ describe('AppRouter', () => {
       route: getRouteAdmin(),
       initialState: {
         user: {
-          _inited: true, authData: {
-            roles: [UserRole.ADMIN]
-          }
-        }
-      }
+          _inited: true,
+          authData: {
+            roles: [UserRole.ADMIN],
+          },
+        },
+      },
     });
 
     const page = await screen.findByTestId('AdminPanelPage');
     expect(page).toBeInTheDocument();
   });
-}); 
+});

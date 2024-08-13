@@ -2,8 +2,8 @@ import type { Meta, StoryFn } from '@storybook/react';
 import { ArticleDetails } from './ArticleDetails';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { Article } from '../../model/types/article';
-import { ArticleType } from "@/entities/Article";
-import { ArticleBlockType } from "@/entities/Article";
+import { ArticleType } from '@/entities/Article';
+import { ArticleBlockType } from '@/entities/Article';
 
 export default {
   title: 'entities/Article/ArticleDetails',
@@ -11,7 +11,9 @@ export default {
   tags: ['autodocs'],
 } as Meta<typeof ArticleDetails>;
 
-const Template: StoryFn<typeof ArticleDetails> = (args) => <ArticleDetails {...args} />;
+const Template: StoryFn<typeof ArticleDetails> = (args) => (
+  <ArticleDetails {...args} />
+);
 
 const article: Article = {
   id: '1',
@@ -54,28 +56,31 @@ const article: Article = {
 };
 
 export const Light = Template.bind({});
-Light.args = {
-};
-Light.decorators = [StoreDecorator({
-  articleDetails: {
-    data: article,
-  }
-})];
+Light.args = {};
+Light.decorators = [
+  StoreDecorator({
+    articleDetails: {
+      data: article,
+    },
+  }),
+];
 
 export const Loading = Template.bind({});
-Loading.args = {
-};
-Loading.decorators = [StoreDecorator({
-  articleDetails: {
-    isLoading: true,
-  }
-})];
+Loading.args = {};
+Loading.decorators = [
+  StoreDecorator({
+    articleDetails: {
+      isLoading: true,
+    },
+  }),
+];
 
 export const Error = Template.bind({});
-Error.args = {
-};
-Error.decorators = [StoreDecorator({
-  articleDetails: {
-    error: 'true',
-  }
-})];
+Error.args = {};
+Error.decorators = [
+  StoreDecorator({
+    articleDetails: {
+      error: 'true',
+    },
+  }),
+];

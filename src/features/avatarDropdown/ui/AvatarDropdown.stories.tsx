@@ -7,8 +7,9 @@ export default {
   tags: ['autodocs'],
 } as Meta<typeof AvatarDropdown>;
 
-const Template: StoryFn<typeof AvatarDropdown> = (args) => <AvatarDropdown {...args} />;
+const Template: StoryFn<typeof AvatarDropdown> = (args) => (
+  <AvatarDropdown {...args} />
+);
 
 export const Primary = Template.bind({});
-Primary.args = {
-};
+Primary.args = {};

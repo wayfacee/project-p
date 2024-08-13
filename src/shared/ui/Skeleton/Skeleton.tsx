@@ -1,6 +1,6 @@
-import { classNames } from "@/shared/lib/classNames/classNames";
+import { classNames } from '@/shared/lib/classNames/classNames';
 import * as cl from './Skeleton.module.scss';
-import { CSSProperties, memo } from "react";
+import { CSSProperties, memo } from 'react';
 
 interface SkeletonProps {
   className?: string;
@@ -10,12 +10,7 @@ interface SkeletonProps {
 }
 
 export const Skeleton = memo((props: SkeletonProps) => {
-  const {
-    className,
-    border,
-    height,
-    width,
-  } = props;
+  const { className, border, height, width } = props;
 
   // styles мемо. тут не особо надо, пошта перерис. скелетона
   // не так страшны, тока на этапе загрузки
@@ -23,14 +18,12 @@ export const Skeleton = memo((props: SkeletonProps) => {
     width,
     height,
     borderRadius: border,
-  }
+  };
 
   return (
-    <div 
+    <div
       className={classNames(cl.Skeleton, {}, [className])}
       style={styles}
-    >
-
-    </div>
+    ></div>
   );
 });

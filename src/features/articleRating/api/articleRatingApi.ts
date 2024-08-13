@@ -22,7 +22,7 @@ const articleRatingApi = rtkApi.injectEndpoints({
           // json по этим айдишнимка найдет, и вернет
           userId,
           articleId,
-        }
+        },
       }),
     }),
 
@@ -30,7 +30,7 @@ const articleRatingApi = rtkApi.injectEndpoints({
       query: (arg) => ({
         url: '/article-ratings',
         method: 'POST',
-        body: arg
+        body: arg,
       }),
     }),
   }),

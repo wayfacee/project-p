@@ -12,10 +12,12 @@ export default {
   },
   args: {
     to: '/',
-  }
+  },
 } as Meta<typeof NotFoundPage>;
 
-const Template: StoryFn<typeof NotFoundPage> = (args) => <NotFoundPage {...args} />;
+const Template: StoryFn<typeof NotFoundPage> = (args) => (
+  <NotFoundPage {...args} />
+);
 
 export const Light = Template.bind({});
 Light.args = {};

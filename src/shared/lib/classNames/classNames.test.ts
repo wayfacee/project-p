@@ -1,4 +1,4 @@
-import { classNames } from "./classNames";
+import { classNames } from './classNames';
 
 describe('classNames', () => {
   test('test with only first param', () => {
@@ -11,7 +11,7 @@ describe('classNames', () => {
   });
 
   test('test', () => {
-    const expected = 'true class1'
+    const expected = 'true class1';
     expect(classNames('true', {}, ['class1'])).toBe(expected);
   });
 

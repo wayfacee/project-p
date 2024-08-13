@@ -9,10 +9,10 @@ export default {
   component: EditableProfileCard,
 } as Meta<typeof EditableProfileCard>;
 
-const Template: StoryFn<typeof EditableProfileCard> = (args) => <EditableProfileCard {...args} />;
+const Template: StoryFn<typeof EditableProfileCard> = (args) => (
+  <EditableProfileCard {...args} />
+);
 
 export const Normal = Template.bind({});
-Normal.args = {
-  
-};
-Normal.decorators = [StoreDecorator({})]
+Normal.args = {};
+Normal.decorators = [StoreDecorator({})];

@@ -1,6 +1,4 @@
-import ThemeProvider from "./ui/ThemeProvider"
+import ThemeProvider from './ui/ThemeProvider';
 
 // public api, регулирует то, что отдаем наружу
-export {
-  ThemeProvider,
-}
+export { ThemeProvider };

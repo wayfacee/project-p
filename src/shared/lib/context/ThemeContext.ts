@@ -1,5 +1,5 @@
-import { Theme } from "../../const/theme";
-import { createContext } from "react";
+import { Theme } from '../../const/theme';
+import { createContext } from 'react';
 
 export interface ThemeContextProps {
   theme?: Theme;

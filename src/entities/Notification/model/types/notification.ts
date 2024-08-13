@@ -3,4 +3,4 @@ export interface Notification {
   title: string;
   description: string;
   href?: string;
-} 
+}

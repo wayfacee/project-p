@@ -10,5 +10,4 @@ export default {
 const Template: StoryFn<typeof AdminPanelPage> = () => <AdminPanelPage />;
 
 export const Primary = Template.bind({});
-Primary.args = {
-};
+Primary.args = {};

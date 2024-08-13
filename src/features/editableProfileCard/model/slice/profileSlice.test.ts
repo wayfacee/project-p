@@ -1,9 +1,9 @@
-import { Country } from "@/entities/Country";
-import { Currency } from "@/entities/Currency";
-import { ProfileSchema } from "../types/editableProfileCardSchema";
-import { ValidateProfileError } from "../consts/consts";
-import { profileActions, profileReducer } from "./profileSlice";
-import { updateProfileData } from "../services/updataProfileData/updateProfileData";
+import { Country } from '@/entities/Country';
+import { Currency } from '@/entities/Currency';
+import { ProfileSchema } from '../types/editableProfileCardSchema';
+import { ValidateProfileError } from '../consts/consts';
+import { profileActions, profileReducer } from './profileSlice';
+import { updateProfileData } from '../services/updataProfileData/updateProfileData';
 
 // в продукшене вот такие тесты, лучше не над
 // трата времени, обычно тест. где есть логика, циклы, условия итд.
@@ -21,36 +21,36 @@ describe('profileSlice', () => {
   test('test set readonly', () => {
     const state: DeepPartial<ProfileSchema> = { readonly: false };
 
-    expect(profileReducer(
-      state as ProfileSchema,
-      profileActions.setReadonly(true)
-    )).toEqual({ readonly: true });
+    expect(
+      profileReducer(state as ProfileSchema, profileActions.setReadonly(true)),
+    ).toEqual({ readonly: true });
   });
 
   test('test cancel edit', () => {
     const state: DeepPartial<ProfileSchema> = { data, form: { username: '' } };
 
-    expect(profileReducer(
-      state as ProfileSchema,
-      profileActions.cancelEdit()
-    )).toEqual({
+    expect(
+      profileReducer(state as ProfileSchema, profileActions.cancelEdit()),
+    ).toEqual({
       readonly: true,
       validateErrors: [],
       data,
-      form: data
+      form: data,
     });
   });
 
   test('test update profile', () => {
     const state: DeepPartial<ProfileSchema> = { form: { username: '123' } };
 
-    expect(profileReducer(
-      state as ProfileSchema,
-      profileActions.updateProfile({
-        username: '12345'
-      }),
-    )).toEqual({
-      form: { username: '12345' }
+    expect(
+      profileReducer(
+        state as ProfileSchema,
+        profileActions.updateProfile({
+          username: '12345',
+        }),
+      ),
+    ).toEqual({
+      form: { username: '12345' },
     });
   });
 
@@ -61,14 +61,13 @@ describe('profileSlice', () => {
       validateErrors: [ValidateProfileError.SERVER_ERROR],
     };
 
-    expect(profileReducer(
-      state as ProfileSchema,
-      updateProfileData.pending(''),
-    )).toEqual({
+    expect(
+      profileReducer(state as ProfileSchema, updateProfileData.pending('')),
+    ).toEqual({
       form: {
         isLoading: true,
         validateErrors: undefined,
-      }
+      },
     });
   });
 
@@ -77,17 +76,19 @@ describe('profileSlice', () => {
       isLoading: true,
     };
 
-    expect(profileReducer(
-      state as ProfileSchema,
-      updateProfileData.fulfilled(data, ''),
-    )).toEqual({
+    expect(
+      profileReducer(
+        state as ProfileSchema,
+        updateProfileData.fulfilled(data, ''),
+      ),
+    ).toEqual({
       form: {
         isLoading: false,
         validateErrors: undefined,
         reodonly: true,
         form: data,
-        data
-      }
+        data,
+      },
     });
   });
 });

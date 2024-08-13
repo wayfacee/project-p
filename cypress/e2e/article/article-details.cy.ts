@@ -3,8 +3,8 @@ let currentArticleId = '';
 
 describe('юзер заходит на стр. статьи', () => {
   beforeEach(() => {
-    cy.login()
-    cy.createArticle().then(article => {
+    cy.login();
+    cy.createArticle().then((article) => {
       currentArticleId = article.id;
       // cy.log(JSON.stringify(article));
       cy.visit(`articles/${article.id}`);
@@ -14,7 +14,7 @@ describe('юзер заходит на стр. статьи', () => {
   // Создали статью - протестили все что нужно - удалили статью
   afterEach(() => {
     cy.removeArticle(currentArticleId);
-  })
+  });
 
   it('и видит содержимое статьи', () => {
     cy.getByTestId('ArticleDetails.Info').should('exist');
@@ -37,16 +37,16 @@ describe('юзер заходит на стр. статьи', () => {
     cy.getByTestId('RatingCard').scrollIntoView();
     cy.setRate(5, 'feedback');
     // data-selected={currentStarsCount >= starNumber
-    cy.get('[data-selected=true]').should('have.length', 5)
+    cy.get('[data-selected=true]').should('have.length', 5);
   });
 
   it('и ставит оценку (пример на фикстурах)', () => {
     // 2) на что вешаем, юрл 3) в качестве фикструы исп. (ответы бэка)
-    cy.intercept('GET', '**/articles/*', { fixture: 'article-details.json' })
+    cy.intercept('GET', '**/articles/*', { fixture: 'article-details.json' });
     cy.getByTestId('ArticleDetails.Info');
     cy.getByTestId('RatingCard').scrollIntoView();
     cy.setRate(5, 'feedback');
     // data-selected={currentStarsCount >= starNumber
-    cy.get('[data-selected=true]').should('have.length', 5)
+    cy.get('[data-selected=true]').should('have.length', 5);
   });
 });

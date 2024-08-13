@@ -22,7 +22,7 @@ if (rootElement) {
           </I18nextProvider>
         </ErrorBoundary>
       </StoreProvider>
-    </BrowserRouter>
+    </BrowserRouter>,
   );
 } else {
   throw new Error("Could not find root element with id 'root'");

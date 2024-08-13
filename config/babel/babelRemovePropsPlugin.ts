@@ -1,4 +1,4 @@
-import { PluginItem } from "@babel/core";
+import { PluginItem } from '@babel/core';
 
 export default function babelRemovePlugin(): PluginItem {
   return {
@@ -22,9 +22,9 @@ export default function babelRemovePlugin(): PluginItem {
             if (forbidden.includes(nodeName)) {
               current.parentPath.remove();
             }
-          }
-        })
-      }
+          },
+        });
+      },
     },
   };
 }

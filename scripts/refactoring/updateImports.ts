@@ -13,13 +13,13 @@ const files = project.getSourceFiles();
 
 function isAbsolute(value: string) {
   const layers = ['app', 'shared', 'entities', 'features', 'widgets', 'pages'];
-  return layers.some(layer => value.startsWith(layer));
+  return layers.some((layer) => value.startsWith(layer));
 }
 
-files.forEach(sourceFile => {
+files.forEach((sourceFile) => {
   const importDeclarations = sourceFile.getImportDeclarations();
 
-  importDeclarations.forEach(importDeclaration => {
+  importDeclarations.forEach((importDeclaration) => {
     // то откуда идет импорт:
     const value = importDeclaration.getModuleSpecifierValue();
 
@@ -33,5 +33,5 @@ files.forEach(sourceFile => {
 project.save();
 
 // ts-node .\scripts\updateImports.ts
-// 
+//
 // npm install -g ts-node (если не работает, попробуй скачать)

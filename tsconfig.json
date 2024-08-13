@@ -6,7 +6,7 @@
     // Однако это не означает, что теперь вовсе нельзя использовать any.
     // Это означает лишь, что в подобных ситуация разработчик должен явно писать any
     "module": "ESNext", // модуль. система (require, import etc.)
-    // ESNext or es6, back - commonJs,  
+    // ESNext or es6, back - commonJs,
     "target": "es5", // версия стандарт. экмаскрипта, в который код будет компил.
     // es5 (+) or es6
     // В какую спецификацию компилируем: для поддержки большинства браузеров
@@ -22,7 +22,7 @@
       "@/*": ["./src/*"]
     },
     "isolatedModules": true,
-    
+
     "allowSyntheticDefaultImports": true,
     // Если какая-либо библиотека не имеет default import,
     // лоадеры вроде ts-loader или babel-loader автоматически создают их
@@ -30,7 +30,7 @@
     // import * as React from 'react';
     // можно писать такой
     // import React from 'react';
-    "esModuleInterop": true,
+    "esModuleInterop": true
     // esModuleInterop позволяет работать с пакетами, которые используют
     // common js как с обычными пакета с помощью import (require() module.export) = common js
     // import Moment from 'moment';
@@ -57,9 +57,7 @@
     "./config/storybook/**/*.ts",
     "./vite.config.ts",
     "./cypress/**/*.ts",
-    "cypress.config.ts",
+    "cypress.config.ts"
   ],
-  "exclude": [
-    "./scripts/"
-  ]
+  "exclude": ["./scripts/"]
 }

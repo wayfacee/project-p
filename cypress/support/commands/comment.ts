@@ -11,13 +11,13 @@ export const removeComment = (commentId: string) => {
     url: `http://localhost:8000/comments/${commentId}`,
     headers: { Authorization: 'asdfg' },
   });
-}
+};
 
 declare global {
   namespace Cypress {
     interface Chainable {
       addComment(text: string): Chainable<void>;
-      removeComment(commentId: string): Chainable<void>
+      removeComment(commentId: string): Chainable<void>;
     }
   }
 }

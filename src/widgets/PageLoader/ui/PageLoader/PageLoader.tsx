@@ -1,6 +1,6 @@
-import { classNames } from "@/shared/lib/classNames/classNames";
+import { classNames } from '@/shared/lib/classNames/classNames';
 import * as cl from './PageLoader.module.scss';
-import { BeatLoader } from "react-spinners";
+import { BeatLoader } from 'react-spinners';
 
 interface PageLoaderProps {
   className?: string;

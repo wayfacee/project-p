@@ -7,8 +7,9 @@ export default {
   tags: ['autodocs'],
 } as Meta<typeof ArticleEditPage>;
 
-const Template: StoryFn<typeof ArticleEditPage> = (args) => <ArticleEditPage {...args} />;
+const Template: StoryFn<typeof ArticleEditPage> = (args) => (
+  <ArticleEditPage {...args} />
+);
 
 export const Primary = Template.bind({});
-Primary.args = {
-};
+Primary.args = {};

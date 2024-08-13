@@ -7,8 +7,7 @@ export default {
   title: 'shared/Avatar',
   component: Avatar,
   tags: ['autodocs'],
-  argTypes: {
-  },
+  argTypes: {},
 } as Meta<typeof Avatar>;
 
 const Template: StoryFn<typeof Avatar> = (args) => <Avatar {...args} />;

@@ -8,11 +8,12 @@ export default {
   tags: ['autodocs'],
 } as Meta<typeof NotificationList>;
 
-const Template: StoryFn<typeof NotificationList> = (args) => <NotificationList {...args} />;
+const Template: StoryFn<typeof NotificationList> = (args) => (
+  <NotificationList {...args} />
+);
 
 export const Primary = Template.bind({});
-Primary.args = {
-};
+Primary.args = {};
 Primary.decorators = [StoreDecorator({})]; // rtk => redux state
 Primary.parameters = {
   mockData: [
@@ -24,19 +25,19 @@ Primary.parameters = {
         {
           id: '1',
           title: 'sdfghjkl',
-          description: 'waesfdghj'
+          description: 'waesfdghj',
         },
         {
           id: '2',
           title: 'gfhjkjhngfdbsa',
-          description: 'waesfmjhgnfdbsfhfngbdxcdghj'
+          description: 'waesfmjhgnfdbsfhfngbdxcdghj',
         },
         {
           id: '3',
           title: '34567uijmhngbfvdcswqwedrfgth',
-          description: 'htjyukilo,iymudnbd'
+          description: 'htjyukilo,iymudnbd',
         },
       ],
     },
-  ]
-}
+  ],
+};

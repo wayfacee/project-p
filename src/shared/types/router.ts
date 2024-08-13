@@ -2,4 +2,3 @@
 // type AppRoutesProps = RouteProps & {
 //   authOnly?: boolean;
 // }
-

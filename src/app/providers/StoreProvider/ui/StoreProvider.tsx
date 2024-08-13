@@ -1,8 +1,8 @@
-import { ReactNode } from "react";
-import { Provider } from "react-redux";
-import { createReduxStore } from "../config/store";
-import { StateSchema } from "../config/StateSchema";
-import { ReducersMapObject } from "@reduxjs/toolkit";
+import { ReactNode } from 'react';
+import { Provider } from 'react-redux';
+import { createReduxStore } from '../config/store';
+import { StateSchema } from '../config/StateSchema';
+import { ReducersMapObject } from '@reduxjs/toolkit';
 
 interface StoreProviderProps {
   children?: ReactNode;
@@ -11,11 +11,7 @@ interface StoreProviderProps {
 }
 
 export const StoreProvider = (props: StoreProviderProps) => {
-  const {
-    children,
-    initialState,
-    asyncReducers
-  } = props;
+  const { children, initialState, asyncReducers } = props;
 
   // из за навигейта происходит при обнов. новый рендер
   // НЕЛЬЗЯ ТАК ДЕЛАТЬ!!!
@@ -24,14 +20,10 @@ export const StoreProvider = (props: StoreProviderProps) => {
 
   const store = createReduxStore(
     // с as это плохо, но нам надо
-    initialState as StateSchema, 
+    initialState as StateSchema,
     asyncReducers as ReducersMapObject<StateSchema>,
     // navigate,
   );
 
-  return (
-    <Provider store={store}>
-      {children}
-    </Provider>
-  );
+  return <Provider store={store}>{children}</Provider>;
 };

@@ -5,8 +5,8 @@
 // и внутри изолировать стейт, запрос на сервер, переисп. сущ. энтети
 // но мы делаем тоже самое на ур. стр
 
-import { EntityState } from "@reduxjs/toolkit";
-import { Comment } from "@/entities/Comment";
+import { EntityState } from '@reduxjs/toolkit';
+import { Comment } from '@/entities/Comment';
 
 // type EntetyId = number | string;
 
@@ -23,7 +23,8 @@ import { Comment } from "@/entities/Comment";
 //   entities: Dictionary<T>;
 // }
 
-export interface ArticleDetailsCommentsSchema extends EntityState<Comment, string> {
+export interface ArticleDetailsCommentsSchema
+  extends EntityState<Comment, string> {
   isLoading: boolean;
   error?: string;
 }

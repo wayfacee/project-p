@@ -9,7 +9,9 @@ export default {
   tags: ['autodocs'],
 } as Meta<typeof ArticleDetailsPage>;
 
-const Template: StoryFn<typeof ArticleDetailsPage> = (args) => <ArticleDetailsPage {...args} />;
+const Template: StoryFn<typeof ArticleDetailsPage> = (args) => (
+  <ArticleDetailsPage {...args} />
+);
 
 const article: Article = {
   id: '1',
@@ -52,10 +54,11 @@ const article: Article = {
 };
 
 export const Light = Template.bind({});
-Light.args = {
-};
-Light.decorators = [StoreDecorator({
-  articleDetails: {
-    data: article,
-  }
-})];
+Light.args = {};
+Light.decorators = [
+  StoreDecorator({
+    articleDetails: {
+      data: article,
+    },
+  }),
+];

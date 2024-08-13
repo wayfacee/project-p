@@ -1,9 +1,9 @@
-import { getQueryParams } from "./addQueryParams";
+import { getQueryParams } from './addQueryParams';
 
 describe('addQueryParams', () => {
   test('with one param', () => {
     const params = getQueryParams({
-      test: 'value'
+      test: 'value',
     });
 
     expect(params).toBe('?test=value');
@@ -12,7 +12,7 @@ describe('addQueryParams', () => {
   test('with two params', () => {
     const params = getQueryParams({
       test: 'value',
-      second: '2'
+      second: '2',
     });
 
     expect(params).toBe('?test=value&second=2');

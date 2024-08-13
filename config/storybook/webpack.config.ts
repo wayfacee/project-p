@@ -1,7 +1,7 @@
-import path from "path";
-import { BuildPaths } from "../build/types/config";
-import { Configuration, DefinePlugin, RuleSetRule } from "webpack";
-import { buildCssLoader } from "../build/loaders/buildCssLoader";
+import path from 'path';
+import { BuildPaths } from '../build/types/config';
+import { Configuration, DefinePlugin, RuleSetRule } from 'webpack';
+import { buildCssLoader } from '../build/loaders/buildCssLoader';
 
 // absolute imports for storybook
 export default ({ config }: { config: Configuration }) => {
@@ -12,7 +12,7 @@ export default ({ config }: { config: Configuration }) => {
     src: path.resolve(__dirname, '..', '..', 'src'),
     locales: '', // в качестве переводов исп. ключи на русс.
     buildLocales: '', // но если англ был, то надо настроить
-  }
+  };
   config!.resolve!.modules!.push(paths.src);
   config!.resolve!.extensions!.push('.ts', '.tsx');
   config!.resolve!.alias = {
@@ -25,7 +25,7 @@ export default ({ config }: { config: Configuration }) => {
   config!.module!.rules = config!.module!.rules!.map((rule: RuleSetRule) => {
     if (/svg/.test(rule.test as string)) {
       // дефолт лоадер обрабатывать не будет.
-      return { ...rule, exclude: /\.svg$/i }
+      return { ...rule, exclude: /\.svg$/i };
     }
 
     return rule;
@@ -40,10 +40,12 @@ export default ({ config }: { config: Configuration }) => {
   config!.module!.rules.push(buildCssLoader(true));
 
   // global consts:
-  config!.plugins!.push(new DefinePlugin({
-    __IS_DEV__: JSON.stringify(true),
-    __API__: JSON.stringify('http://localhost:8000'), // https://testapi.ru
-    __PROJECT__: JSON.stringify('storybook'),
-  }))
+  config!.plugins!.push(
+    new DefinePlugin({
+      __IS_DEV__: JSON.stringify(true),
+      __API__: JSON.stringify('http://localhost:8000'), // https://testapi.ru
+      __PROJECT__: JSON.stringify('storybook'),
+    }),
+  );
   return config;
-}
+};

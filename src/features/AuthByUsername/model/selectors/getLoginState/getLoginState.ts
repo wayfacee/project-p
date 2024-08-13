@@ -1,4 +1,4 @@
-import { StateSchema } from "@/app/providers/StoreProvider";
+import { StateSchema } from '@/app/providers/StoreProvider';
 
 // из undefined пфтаемся достать поля, надо возв
 // дефолт стейт, или отдельный сеелектор, лоадинг еррор юзер пасс итд.

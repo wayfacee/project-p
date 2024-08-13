@@ -1,4 +1,10 @@
-import { ImgHTMLAttributes, memo, ReactElement, useLayoutEffect, useState } from "react";
+import {
+  ImgHTMLAttributes,
+  memo,
+  ReactElement,
+  useLayoutEffect,
+  useState,
+} from 'react';
 
 // LAZY LOADING OF IMG.
 // SKELETON WHILE IMG IS LOADING
@@ -24,7 +30,7 @@ export const AppImage = memo((props: AppImageProps) => {
 
   // вызовется еще до того как комп. вмонтируется
   useLayoutEffect(() => {
-    const img = new Image;
+    const img = new Image();
     img.src = src ?? '';
     // начнется фоновая подгрузка
 
@@ -37,7 +43,7 @@ export const AppImage = memo((props: AppImageProps) => {
     img.onerror = () => {
       setIsLoading(false);
       setHasError(true);
-    }
+    };
   }, [src]);
 
   if (isLoading && fallback) {
@@ -48,12 +54,5 @@ export const AppImage = memo((props: AppImageProps) => {
     return errorFallback;
   }
 
-  return (
-    <img
-      src={src}
-      alt={alt}
-      className={className}
-      {...otherProps}
-    />
-  );
+  return <img src={src} alt={alt} className={className} {...otherProps} />;
 });

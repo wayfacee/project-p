@@ -1,4 +1,6 @@
-import { lazy } from "react";
+import { lazy } from 'react';
 
 // лези - только с дефолт экспортами робит!
-export const ArticleDetailsPageAsync = lazy(() => import('./ArticleDetailsPage'));
+export const ArticleDetailsPageAsync = lazy(
+  () => import('./ArticleDetailsPage'),
+);

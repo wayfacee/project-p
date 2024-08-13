@@ -16,43 +16,50 @@ export default {
   },
   args: {
     to: '/',
-  }
+  },
 } as Meta<typeof ProfilePage>;
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-const Template: StoryFn<typeof ProfilePage> = (args) => <ProfilePage {...args} />;
+const Template: StoryFn<typeof ProfilePage> = (args) => (
+  <ProfilePage {...args} />
+);
 
 export const Light = Template.bind({});
 Light.args = {};
-Light.decorators = [StoreDecorator({
-  profile: {
-    form: {
-      username: 'admin',
-      age: 22,
-      country: Country.Kyrgyzstan,
-      lastname: 'ulbi tv',
-      first: 'asd',
-      city: 'asd',
-      currency: Currency.RUB,
-      avatar: AvatarImg,
-    }
-  }
-})]
+Light.decorators = [
+  StoreDecorator({
+    profile: {
+      form: {
+        username: 'admin',
+        age: 22,
+        country: Country.Kyrgyzstan,
+        lastname: 'ulbi tv',
+        first: 'asd',
+        city: 'asd',
+        currency: Currency.RUB,
+        avatar: AvatarImg,
+      },
+    },
+  }),
+];
 
 export const Dark = Template.bind({});
 Dark.args = {};
-Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
-  profile: {
-    form: {
-      username: 'admin',
-      age: 22,
-      country: Country.Kyrgyzstan,
-      lastname: 'ulbi tv',
-      first: 'asd',
-      city: 'asd',
-      currency: Currency.RUB,
-      avatar: AvatarImg,
-    }
-  }
-})];
+Dark.decorators = [
+  ThemeDecorator(Theme.DARK),
+  StoreDecorator({
+    profile: {
+      form: {
+        username: 'admin',
+        age: 22,
+        country: Country.Kyrgyzstan,
+        lastname: 'ulbi tv',
+        first: 'asd',
+        city: 'asd',
+        currency: Currency.RUB,
+        avatar: AvatarImg,
+      },
+    },
+  }),
+];

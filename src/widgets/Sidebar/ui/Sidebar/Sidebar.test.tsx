@@ -8,8 +8,8 @@ describe('sidebar', () => {
     // const SidebarWithTranslation = withTranslation()(Sidebar);
     // renderWithTranslations(<SidebarWithTranslation />);
 
-    componentRender(<Sidebar />)
-    expect(screen.getByTestId("sidebar")).toBeInTheDocument();
+    componentRender(<Sidebar />);
+    expect(screen.getByTestId('sidebar')).toBeInTheDocument();
   });
 
   // test('test toggle', () => {

@@ -1,14 +1,17 @@
-import { classNames } from "@/shared/lib/classNames/classNames";
+import { classNames } from '@/shared/lib/classNames/classNames';
 import * as cl from './ArticlesPage.module.scss';
-import { useTranslation } from "react-i18next";
-import { memo, useCallback } from "react";
-import { DynamicModuleLoader, ReducersList } from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
-import { articlesPageReducer } from "../../models/slices/articlesPageSlice";
-import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
-import { Page } from "@/widgets/Page";
-import { fetchNextArticlesPage } from "../../models/services/fetchNextArticlesPage/fetchNextArticlesPage";
-import { ArticlesPageFilters } from "../ArticlesPageFilters/ArticlesPageFilters";
-import { ArticleInfiniteList } from "../ArticleInfiniteList/ArticleInfiniteList";
+import { useTranslation } from 'react-i18next';
+import { memo, useCallback } from 'react';
+import {
+  DynamicModuleLoader,
+  ReducersList,
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { articlesPageReducer } from '../../models/slices/articlesPageSlice';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { Page } from '@/widgets/Page';
+import { fetchNextArticlesPage } from '../../models/services/fetchNextArticlesPage/fetchNextArticlesPage';
+import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
+import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList';
 
 interface ArticlesPageProps {
   className?: string;
@@ -21,12 +24,11 @@ interface ArticlesPageProps {
 
 const reducers: ReducersList = {
   articlesPage: articlesPageReducer,
-}
+};
 
 const ArticlesPage = ({ className }: ArticlesPageProps) => {
   const { t } = useTranslation('article');
   const dispatch = useAppDispatch();
-
 
   const onLoadNextPart = useCallback(() => {
     dispatch(fetchNextArticlesPage());

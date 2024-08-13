@@ -8,7 +8,9 @@ export default {
   component: ArticleRecommendationList,
 } as Meta<typeof ArticleRecommendationList>;
 
-const Template: StoryFn<typeof ArticleRecommendationList> = (args) => <ArticleRecommendationList {...args} />;
+const Template: StoryFn<typeof ArticleRecommendationList> = (args) => (
+  <ArticleRecommendationList {...args} />
+);
 
 const article: Article = {
   id: '1',
@@ -23,9 +25,8 @@ const article: Article = {
 };
 
 export const Normal = Template.bind({});
-Normal.args = {
-};
-Normal.decorators = [StoreDecorator({})]
+Normal.args = {};
+Normal.decorators = [StoreDecorator({})];
 Normal.parameters = {
   mockData: [
     {
@@ -38,5 +39,5 @@ Normal.parameters = {
         { ...article, id: '3' },
       ],
     },
-  ]
-}
+  ],
+};

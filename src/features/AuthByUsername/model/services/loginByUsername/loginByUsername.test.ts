@@ -1,14 +1,13 @@
-import { loginByUsername } from "./loginByUsername";
-import { userActions } from "@/entities/User";
-import { TestAsyncThunk } from "@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk";
-
+import { loginByUsername } from './loginByUsername';
+import { userActions } from '@/entities/User';
+import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 
 describe('loginByUsername', () => {
   // let dispatch: Dispatch;
   // let getState: () => StateSchema;
 
   // beforeEach(() => {
-  //   // присв. функц. закмоканные жеста 
+  //   // присв. функц. закмоканные жеста
   //   dispatch = jest.fn();
   //   getState = jest.fn();
   // });
@@ -49,7 +48,9 @@ describe('loginByUsername', () => {
     thunk.api.post.mockReturnValue(Promise.resolve({ data: userValue }));
     const result = await thunk.callThunk({ username: '123', password: '123' });
 
-    expect(thunk.dispatch).toHaveBeenCalledWith(userActions.setAuthData(userValue));
+    expect(thunk.dispatch).toHaveBeenCalledWith(
+      userActions.setAuthData(userValue),
+    );
     expect(thunk.dispatch).toHaveBeenCalledTimes(3);
     expect(thunk.api.post).toHaveBeenCalled();
     expect(result.meta.requestStatus).toBe('fulfilled');

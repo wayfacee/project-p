@@ -12,13 +12,13 @@ i18next
     debug: __IS_DEV__,
 
     interpolation: {
-      escapeValue: false // React already escapes
+      escapeValue: false, // React already escapes
     },
 
     backend: {
       // путь до загрузки переводов
-      loadPath: '/locales/{{lng}}/{{ns}}.json'
-    }
+      loadPath: '/locales/{{lng}}/{{ns}}.json',
+    },
   });
 
 export default i18next;

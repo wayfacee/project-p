@@ -1,12 +1,11 @@
-import { TestAsyncThunk } from "@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk";
-import { fetchNextArticlesPage } from "./fetchNextArticlesPage";
-import { fetchArticlesList } from "../fetchArticlesList/fetchArticlesList";
+import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
+import { fetchNextArticlesPage } from './fetchNextArticlesPage';
+import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList';
 
 // мокаем модуль
 jest.mock('../fetchArticlesList/fetchArticlesList');
 
 describe('fetchNextArticlesPage', () => {
-
   test('success', async () => {
     const thunk = new TestAsyncThunk(fetchNextArticlesPage, {
       articlesPage: {
@@ -16,7 +15,7 @@ describe('fetchNextArticlesPage', () => {
         limit: 9,
         isLoading: false,
         hasMore: true,
-      }
+      },
     });
     await thunk.callThunk();
 
@@ -34,12 +33,12 @@ describe('fetchNextArticlesPage', () => {
         limit: 9,
         isLoading: false,
         hasMore: false,
-      }
+      },
     });
     await thunk.callThunk();
 
     expect(thunk.dispatch).toHaveBeenCalledTimes(2);
-    expect(fetchArticlesList).not.toHaveBeenCalledWith()
+    expect(fetchArticlesList).not.toHaveBeenCalledWith();
   });
 
   test('isLoading', async () => {
@@ -51,11 +50,11 @@ describe('fetchNextArticlesPage', () => {
         limit: 9,
         isLoading: true,
         hasMore: true,
-      }
+      },
     });
     await thunk.callThunk();
 
     expect(thunk.dispatch).toHaveBeenCalledTimes(2);
-    expect(fetchArticlesList).not.toHaveBeenCalledWith()
+    expect(fetchArticlesList).not.toHaveBeenCalledWith();
   });
 });

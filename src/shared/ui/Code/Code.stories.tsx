@@ -11,7 +11,5 @@ const Template: StoryFn<typeof Code> = (args) => <Code {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  text: '<div>\n'
-    + '  eee\n'
-  + '</div>\n'
+  text: '<div>\n' + '  eee\n' + '</div>\n',
 };

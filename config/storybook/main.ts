@@ -1,24 +1,24 @@
-import type { StorybookConfig } from "@storybook/react-webpack5";
+import type { StorybookConfig } from '@storybook/react-webpack5';
 
 const config: StorybookConfig = {
   stories: [
-    // "../../src/**/*.mdx", 
-    "../../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"
+    // "../../src/**/*.mdx",
+    '../../src/**/*.stories.@(js|jsx|mjs|ts|tsx)',
   ],
   addons: [
-    "@storybook/addon-webpack5-compiler-swc",
-    "@storybook/addon-onboarding",
-    "@storybook/addon-links",
+    '@storybook/addon-webpack5-compiler-swc',
+    '@storybook/addon-onboarding',
+    '@storybook/addon-links',
     {
-      name: "@storybook/addon-essentials",
+      name: '@storybook/addon-essentials',
       options: {
         backgrounds: false,
       },
     },
-    "@chromatic-com/storybook",
-    "@storybook/addon-interactions",
+    '@chromatic-com/storybook',
+    '@storybook/addon-interactions',
     'storybook-addon-mock',
-    'storybook-addon-themes'
+    'storybook-addon-themes',
   ],
   core: {
     builder: {
@@ -31,19 +31,19 @@ const config: StorybookConfig = {
   },
   // webpackFinal: {} //  ЕСЛИ НЕ РАБОТАЕТ ВЕБПАК + СБ
   // ТО ВЫНОСИМ ВЕБПАК КОНФИГ В ЭТОТ ФАЙЛ
-  framework: "@storybook/react-webpack5",
+  framework: '@storybook/react-webpack5',
   swc: () => ({
     jsc: {
       transform: {
         react: {
-          runtime: 'automatic'
-        }
-      }
-    }
+          runtime: 'automatic',
+        },
+      },
+    },
   }),
   docs: {
-    autodocs: 'tag'
-  }
+    autodocs: 'tag',
+  },
 };
 
 export default config;

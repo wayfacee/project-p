@@ -1,4 +1,4 @@
-import { StateSchema } from "@/app/providers/StoreProvider";
+import { StateSchema } from '@/app/providers/StoreProvider';
 
 export const getProfileForm = (state: StateSchema) => state.profile?.form;
 
@@ -7,4 +7,4 @@ export const getProfileForm = (state: StateSchema) => state.profile?.form;
 // еще один запрос, чтобы получить данные сведие о профиле
 
 // но мы пытаемся избежать этого
-// лишних запросов надо избегать 
+// лишних запросов надо избегать

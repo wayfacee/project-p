@@ -1,5 +1,5 @@
 import { Meta, StoryFn } from '@storybook/react';
-import '@/app/styles/index.scss'
+import '@/app/styles/index.scss';
 import { Text, TextSize, TextTheme } from './Text';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '@/shared/const/theme';
@@ -15,31 +15,31 @@ const Template: StoryFn<typeof Text> = (args) => <Text {...args} />;
 export const Primary = Template.bind({});
 Primary.args = {
   title: 'Title',
-  text: 'Text'
-}
+  text: 'Text',
+};
 
 export const Error = Template.bind({});
 Error.args = {
   title: 'Title',
   text: 'Text',
   theme: TextTheme.ERROR,
-}
+};
 
 export const onlyTitle = Template.bind({});
 onlyTitle.args = {
   title: 'Title',
-}
+};
 
 export const onlyText = Template.bind({});
 onlyText.args = {
-  text: 'Text'
-}
+  text: 'Text',
+};
 
 // ----------
 export const PrimaryDark = Template.bind({});
 PrimaryDark.args = {
   title: 'Title',
-  text: 'Text'
+  text: 'Text',
 };
 PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)];
 
@@ -51,7 +51,7 @@ onlyTitleDark.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const onlyTextDark = Template.bind({});
 onlyTextDark.args = {
-  text: 'Text'
+  text: 'Text',
 };
 onlyTextDark.decorators = [ThemeDecorator(Theme.DARK)];
 
@@ -61,8 +61,7 @@ SizeL.args = {
   title: 'Title',
   text: 'Text',
   size: TextSize.L,
-}
-
+};
 
 export const SizeM = Template.bind({});
 SizeM.args = {

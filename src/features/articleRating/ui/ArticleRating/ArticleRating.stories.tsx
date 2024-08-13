@@ -8,17 +8,21 @@ export default {
   tags: ['autodocs'],
 } as Meta<typeof ArticleRating>;
 
-const Template: StoryFn<typeof ArticleRating> = (args) => <ArticleRating {...args} />;
+const Template: StoryFn<typeof ArticleRating> = (args) => (
+  <ArticleRating {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {
-  articleId: '1'
+  articleId: '1',
 };
-Primary.decorators = [StoreDecorator({
-  user: {
-    authData: { id: '1' }
-  }
-})]
+Primary.decorators = [
+  StoreDecorator({
+    user: {
+      authData: { id: '1' },
+    },
+  }),
+];
 Primary.parameters = {
   mockData: [
     {
@@ -28,21 +32,23 @@ Primary.parameters = {
       response: [
         {
           rate: 4,
-        }
+        },
       ],
     },
-  ]
-}
+  ],
+};
 
 export const WithoutRate = Template.bind({});
 WithoutRate.args = {
-  articleId: '1'
+  articleId: '1',
 };
-WithoutRate.decorators = [StoreDecorator({
-  user: {
-    authData: { id: '1' }
-  }
-})];
+WithoutRate.decorators = [
+  StoreDecorator({
+    user: {
+      authData: { id: '1' },
+    },
+  }),
+];
 WithoutRate.parameters = {
   mockData: [
     {
@@ -51,5 +57,5 @@ WithoutRate.parameters = {
       status: 200,
       response: [],
     },
-  ]
-}
+  ],
+};

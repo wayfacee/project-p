@@ -1,10 +1,10 @@
-import { selectByTestId } from "../../helpers/selectByTestId";
+import { selectByTestId } from '../../helpers/selectByTestId';
 
 describe('template spec', () => {
   describe('user is not authed', () => {
     it('переход на гл. стр.', () => {
       cy.visit('/');
-      // 1) chainer 
+      // 1) chainer
       cy.get(selectByTestId('MainPage')).should('exist');
     });
 
@@ -38,4 +38,4 @@ describe('template spec', () => {
       cy.get(selectByTestId('ArticlesPage')).should('exist');
     });
   });
-})
+});

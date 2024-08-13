@@ -1,4 +1,4 @@
-import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
+import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
 import * as cl from './Dropdown.module.scss';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Fragment, ReactNode } from 'react';
@@ -22,32 +22,25 @@ interface DropdownProps {
 }
 
 export function Dropdown(props: DropdownProps) {
-  const {
-    className,
-    items,
-    trigger,
-    direction = 'bottom right',
-  } = props;
+  const { className, items, trigger, direction = 'bottom right' } = props;
 
   const menuClasses = mapDirectionClass[direction];
 
   return (
     <Menu as={'div'} className={classNames('', {}, [className, popupCl.popup])}>
-      <MenuButton className={popupCl.trigger}>
-        {trigger}
-      </MenuButton>
+      <MenuButton className={popupCl.trigger}>{trigger}</MenuButton>
       <MenuItems className={classNames(cl.menu, {}, [menuClasses])}>
         {items.map((item, index) => {
           const content = ({ active }: { active: boolean }) => (
             <button
-              type='button'
+              type="button"
               onClick={item.onClick}
               disabled={item.disabled} // на кнопку тож надо продуб.
               className={classNames(cl.item, { [popupCl.active]: active })}
             >
               {item.content}
             </button>
-          )
+          );
 
           if (item.href) {
             return (
@@ -59,7 +52,7 @@ export function Dropdown(props: DropdownProps) {
               >
                 {content}
               </MenuItem>
-            )
+            );
           }
 
           return (
@@ -70,9 +63,9 @@ export function Dropdown(props: DropdownProps) {
             >
               {content}
             </MenuItem>
-          )
+          );
         })}
       </MenuItems>
     </Menu>
-  )
+  );
 }

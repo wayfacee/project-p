@@ -9,12 +9,12 @@ export default {
   tags: ['autodocs'],
 } as Meta<typeof AddCommentForm>;
 
-const Template: StoryFn<typeof AddCommentForm> = (args) => <AddCommentForm {...args} />;
+const Template: StoryFn<typeof AddCommentForm> = (args) => (
+  <AddCommentForm {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {
   onSendComment: action('onSendComment'),
 };
-Primary.decorators = [
-  StoreDecorator({})
-]
+Primary.decorators = [StoreDecorator({})];

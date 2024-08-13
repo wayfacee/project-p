@@ -15,18 +15,19 @@ export const resetProfile = (profileId: string) => {
     url: `http://localhost:8000/profile/${profileId}`,
     headers: { Authorization: 'asdfg' }, // чтобы юзер был авторизован
     body: {
-      "id": "4",
-      "first": "test",
-      "lastname": "user",
-      "age": 34,
-      "currency": "USD",
-      "country": "Kyrgyzstan",
-      "city": "Moscow",
-      "username": "testuser",
-      "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
-    }
+      id: '4',
+      first: 'test',
+      lastname: 'user',
+      age: 34,
+      currency: 'USD',
+      country: 'Kyrgyzstan',
+      city: 'Moscow',
+      username: 'testuser',
+      avatar:
+        'https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg',
+    },
   });
-}
+};
 
 declare global {
   namespace Cypress {

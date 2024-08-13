@@ -8,4 +8,4 @@
   },
   "extends": ["../tsconfig.json"], // расшируяем
   "include": ["**/*.ts", "**/*.tsx", "tsconfig.json"]
-} 
+}

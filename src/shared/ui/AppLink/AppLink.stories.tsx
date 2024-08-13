@@ -7,16 +7,17 @@ export default {
   title: 'shared/AppLink',
   component: AppLink,
   tags: ['autodocs'],
-  argTypes: {
-  },
+  argTypes: {},
   args: {
     to: '/',
-  }
+  },
 } as Meta<typeof AppLink>;
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-const Template: StoryFn<typeof AppLink> = (args) => <AppLink to='/' {...args} />;
+const Template: StoryFn<typeof AppLink> = (args) => (
+  <AppLink to="/" {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {

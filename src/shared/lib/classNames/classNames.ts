@@ -7,7 +7,7 @@ export type Mods = Record<string, boolean | string | undefined>;
 export function classNames(
   cls: string,
   mods: Mods = {},
-  additional: Array<string | undefined> = []
+  additional: Array<string | undefined> = [],
 ): string {
   return [
     cls,
@@ -15,9 +15,8 @@ export function classNames(
     ...Object.entries(mods)
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       .filter(([_, value]) => value)
-      .map(([className]) => className)
-  ]
-    .join(' ');
+      .map(([className]) => className),
+  ].join(' ');
 }
 
 // classNames('remove-btn', {hovered: true, selectable: false, red: true}, ['pdg'])

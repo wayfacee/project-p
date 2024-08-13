@@ -7,14 +7,16 @@ export default {
   tags: ['autodocs'],
 } as Meta<typeof CommentCard>;
 
-const Template: StoryFn<typeof CommentCard> = (args) => <CommentCard {...args} />;
+const Template: StoryFn<typeof CommentCard> = (args) => (
+  <CommentCard {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {
   comment: {
     id: '1',
     text: 'hello world',
-    user: { id: '1', username: 'Vasya' }
+    user: { id: '1', username: 'Vasya' },
   },
 };
 

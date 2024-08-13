@@ -8,10 +8,12 @@ export default {
   tags: ['autodocs'],
 } as Meta<typeof ArticleDetailsComments>;
 
-const Template: StoryFn<typeof ArticleDetailsComments> = (args) => <ArticleDetailsComments {...args} />;
+const Template: StoryFn<typeof ArticleDetailsComments> = (args) => (
+  <ArticleDetailsComments {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {
-  id: '1'
+  id: '1',
 };
-Primary.decorators = [StoreDecorator({})]
+Primary.decorators = [StoreDecorator({})];

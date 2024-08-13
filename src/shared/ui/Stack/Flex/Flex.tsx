@@ -1,14 +1,14 @@
 // слишком много пишем цсс, в идеале ui библа. должна охватывать
 // все кейсы которые предусмотр. дизайнером, в соотв. вашей дизайн системой.
 
-import { classNames, Mods } from "@/shared/lib/classNames/classNames";
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import * as cl from './Flex.module.scss';
-import { DetailedHTMLProps, HTMLAttributes, ReactNode } from "react";
+import { DetailedHTMLProps, HTMLAttributes, ReactNode } from 'react';
 
 // лучше создавать Union types, чем перечисления
 // пошта надо импортить итд. + в жс компил.
 export type FlexJustify = 'start' | 'center' | 'end' | 'between';
-export type FlexAlign ='start' | 'center' | 'end';
+export type FlexAlign = 'start' | 'center' | 'end';
 export type FlexDirection = 'row' | 'column';
 // это опред. дизайнер, а мы переносим в код из дизайна
 export type FlexGap = '4' | '8' | '16' | '32';
@@ -40,7 +40,10 @@ const gapClasses: Record<FlexGap, string> = {
 
 // появятся пропсы как у дива, можно поменять роль
 // фактически див, а с точки семнтики спаном можем сделать role='span'
-type DivProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
+type DivProps = DetailedHTMLProps<
+  HTMLAttributes<HTMLDivElement>,
+  HTMLDivElement
+>;
 
 export interface FlexProps extends DivProps {
   className?: string;
@@ -56,7 +59,7 @@ export const Flex = (props: FlexProps) => {
   const {
     className,
     children,
-    justify ='start',
+    justify = 'start',
     align = 'center',
     direction = 'row',
     gap,
@@ -73,13 +76,11 @@ export const Flex = (props: FlexProps) => {
   ];
 
   const mods: Mods = {
-    [cl.max]: max
-  }
+    [cl.max]: max,
+  };
 
   return (
-    <div className={classNames(cl.Flex, mods, classes)}
-    {...otherProps}
-    >
+    <div className={classNames(cl.Flex, mods, classes)} {...otherProps}>
       {children}
     </div>
   );

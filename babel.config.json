@@ -1,16 +1,20 @@
 {
   // {"presets": ["@babel/preset-react"]}
   "presets": [
-    ["@babel/preset-env", {
-      "targets": {"node": "current"}
-      }],
+    [
+      "@babel/preset-env",
+      {
+        "targets": { "node": "current" }
+      }
+    ],
     "@babel/preset-typescript",
     [
       "@babel/preset-react",
       {
         // чтобы реакт авоматом. рантайм подставлялся без импортов
         "runtime": "automatic"
-      }]
+      }
+    ]
   ],
   // "env": {
   //   "test": {
@@ -18,10 +22,13 @@
   //   }
   // },
   "plugins": [
-    ["i18next-extract",{
-      "locales": ["ru", "en"],
-      "keyAsDefaultValue": true // optional: if you want the default value to be the key
-    }]
+    [
+      "i18next-extract",
+      {
+        "locales": ["ru", "en"],
+        "keyAsDefaultValue": true // optional: if you want the default value to be the key
+      }
+    ]
     // […] your other plugins […]
   ]
 }

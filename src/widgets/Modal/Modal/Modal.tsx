@@ -1,9 +1,9 @@
-import { classNames, Mods } from "@/shared/lib/classNames/classNames";
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import * as cl from './Modal.module.scss';
-import { ReactNode } from "react";
-import { Portal } from "../../Portal/Portal/Portal";
-import { Overlay } from "@/shared/ui/Overlay/Overlay";
-import { useModal } from "@/shared/lib/hooks/useModal/useModal";
+import { ReactNode } from 'react';
+import { Portal } from '../../Portal/Portal/Portal';
+import { Overlay } from '@/shared/ui/Overlay/Overlay';
+import { useModal } from '@/shared/lib/hooks/useModal/useModal';
 
 interface ModalProps {
   className?: string;
@@ -16,19 +16,9 @@ interface ModalProps {
 const ANIMATION_DELAY = 300;
 
 export const Modal = (props: ModalProps) => {
-  const {
-    className,
-    children,
-    isOpen,
-    onClose,
-    lazy,
-  } = props;
+  const { className, children, isOpen, onClose, lazy } = props;
 
-  const {
-    isClosing,
-    isMounted,
-    close,
-  } = useModal({
+  const { isClosing, isMounted, close } = useModal({
     animationDelay: ANIMATION_DELAY,
     onClose,
     isOpen,
@@ -37,7 +27,7 @@ export const Modal = (props: ModalProps) => {
   const mods: Mods = {
     [cl.opened]: isOpen,
     [cl.isClosing]: isClosing,
-  }
+  };
 
   if (lazy && !isMounted) {
     // саму модалку не отрис.
@@ -52,9 +42,7 @@ export const Modal = (props: ModalProps) => {
     <Portal>
       <div className={classNames(cl.Modal, mods, [className])}>
         <Overlay onClick={close} />
-        <div className={cl.content}>
-          {children}
-        </div>
+        <div className={cl.content}>{children}</div>
       </div>
     </Portal>
   );

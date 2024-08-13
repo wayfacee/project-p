@@ -1,9 +1,18 @@
-import { classNames, Mods } from "@/shared/lib/classNames/classNames";
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import * as cl from './Input.module.scss';
-import React, { InputHTMLAttributes, memo, useEffect, useRef, useState } from "react";
+import React, {
+  InputHTMLAttributes,
+  memo,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 
 // исключаем, чтобы не объединился
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly'>
+type HTMLInputProps = Omit<
+  InputHTMLAttributes<HTMLInputElement>,
+  'value' | 'onChange' | 'readOnly'
+>;
 
 interface InputProps extends HTMLInputProps {
   className?: string;
@@ -28,7 +37,6 @@ export const Input = memo((props: InputProps) => {
     ...otherProps
   } = props;
 
-
   const ref = useRef<HTMLInputElement>(null);
   const [isFocused, setIsFocused] = useState(false);
   const [caretPosition, setCaretPosition] = useState(0);
@@ -49,7 +57,7 @@ export const Input = memo((props: InputProps) => {
       // нужно чтоб. уменьшить размер бандла
       ref.current?.focus();
     }
-  }, [autoFocus])
+  }, [autoFocus]);
 
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     // optional changing, если функц. не передана, то она
@@ -61,30 +69,26 @@ export const Input = memo((props: InputProps) => {
   // when we are exisiting out of input
   const onBlur = () => {
     setIsFocused(false);
-  }
+  };
 
   // when we are taping on input
   const onFocus = () => {
-    setIsFocused(true)
-  }
+    setIsFocused(true);
+  };
 
   // какая часть текста выделна, где находится каретка
   const onSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
     // позивиця каретки
     setCaretPosition(e?.target?.selectionStart || 0);
-  }
+  };
 
   const mods: Mods = {
     [cl.readonly]: readonly,
-  }
+  };
 
   return (
     <div className={classNames(cl.InputWrapper, mods, [className])}>
-      {placeholder && (
-        <div className={cl.placeholder}>
-          {`${placeholder}>`}
-        </div>
-      )}
+      {placeholder && <div className={cl.placeholder}>{`${placeholder}>`}</div>}
 
       <div className={cl.caretWrapper}>
         <input
@@ -110,4 +114,4 @@ export const Input = memo((props: InputProps) => {
       </div>
     </div>
   );
-}); 
+});

@@ -12,7 +12,7 @@ export default {
   },
   args: {
     to: '/',
-  }
+  },
 } as Meta<typeof PageLoader>;
 
 const Template: StoryFn<typeof PageLoader> = (args) => <PageLoader {...args} />;
