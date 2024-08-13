@@ -39,4 +39,14 @@ describe('юзер заходит на стр. статьи', () => {
     // data-selected={currentStarsCount >= starNumber
     cy.get('[data-selected=true]').should('have.length', 5)
   });
+
+  it('и ставит оценку (пример на фикстурах)', () => {
+    // 2) на что вешаем, юрл 3) в качестве фикструы исп. (ответы бэка)
+    cy.intercept('GET', '**/articles/*', { fixture: 'article-details.json' })
+    cy.getByTestId('ArticleDetails.Info');
+    cy.getByTestId('RatingCard').scrollIntoView();
+    cy.setRate(5, 'feedback');
+    // data-selected={currentStarsCount >= starNumber
+    cy.get('[data-selected=true]').should('have.length', 5)
+  });
 });
