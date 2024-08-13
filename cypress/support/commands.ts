@@ -33,7 +33,7 @@ Cypress.Commands.addAll(ratingCommands);
 //     createFixture(fixtureName);
 //   }
   
-//   // local -> pull request -> test
+//   // local создаем задачу -> создаем pull request -> test
 //   // представьте что у вас 30 фронтендеров
 //   // для кд разрабов будут прогоняться тесты -> бесит -> spam backend
 //   // + back is not stabable -> поднимать, опускать итд.

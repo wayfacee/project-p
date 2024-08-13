@@ -1,4 +1,3 @@
- 
 import '@/app/styles/index.scss';
 import { Decorator } from '@storybook/react';
 import { ThemeProvider } from '@/app/providers/ThemeProvider';

@@ -1,4 +1,4 @@
-import { selectByTestId } from "cypress/helpers/selectByTestId";
+import { selectByTestId } from "../../helpers/selectByTestId";
 
 describe('template spec', () => {
   describe('user is not authed', () => {
