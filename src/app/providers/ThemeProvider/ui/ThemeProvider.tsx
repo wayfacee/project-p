@@ -12,17 +12,22 @@ interface ThemeProviderProps {
 
 const ThemeProvider = (props: ThemeProviderProps) => {
   const { children, initialTheme } = props;
-  const { theme: defaultTheme = Theme.LIGHT } = useJsonSettings();
+  // defaultTheme = Theme.LIGHT было
+  // прилож еще не загруз., данных о теме еще нет, а мы
+  // уже иниц. тему, поэтому так не надо, а дефолт тему можно задать на 22-стр.
+  const { theme: defaultTheme } = useJsonSettings();
   // чтоб не было скачков в интерфейсе:
   const [isThemeInited, setIsThemeInited] = useState(false);
-  const [theme, setTheme] = useState<Theme>(initialTheme || defaultTheme);
+  const [theme, setTheme] = useState<Theme>(
+    initialTheme || defaultTheme || Theme.LIGHT,
+  );
 
   // наверное не самое лучшее решение, надо подумать:
   useEffect(() => {
-    if (!isThemeInited) {
+    if (!isThemeInited && defaultTheme) {
       setTheme(defaultTheme);
       setIsThemeInited(true);
-    } 
+    }
   }, [defaultTheme, isThemeInited]);
 
   // позволяет меморизировать знач какого-то obj, arr,

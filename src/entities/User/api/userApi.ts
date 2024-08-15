@@ -18,7 +18,16 @@ const userApi = rtkApi.injectEndpoints({
         },
       }),
     }),
+    // помимо юзерИД был бы токен, это либо JWT token или другая схема
+    getUserDataById: build.query<User, string>({
+      query: (userId) => ({
+        url: `/users/${userId}`,
+        method: 'GET',
+      }),
+    }),
   }),
 });
 
-export const setJsonSettingsMutation = userApi.endpoints.setJsonSettings.initiate;
+export const setJsonSettingsMutation =
+  userApi.endpoints.setJsonSettings.initiate;
+export const getUserDataByIdQuery = userApi.endpoints.getUserDataById.initiate;
