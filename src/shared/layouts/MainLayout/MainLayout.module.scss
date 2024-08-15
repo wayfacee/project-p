@@ -1,0 +1,44 @@
+.MainLayout {
+  min-height: 100vh; // можно было и % исп., чтоб на ios корректно отобр.
+  display: grid;
+
+  // когда задаете зоны, элементы в самой верстке распл.
+  // как угодно, от этого позиц. элем. не меняется
+  // пошта четко указ. в грид цсс, так распл будут:
+  grid-template-areas: "sidebar content rightbar";
+
+  grid-template-columns: 284px 1fr 176px; // width of columns 220px + 64px (paddings)
+  // 1fr - контентная часть должна занимать все свобод. простраснство (искл: отсуптов до ближ зон)
+  // 176 - toolbar
+}
+
+.sidebar {
+  grid-area: sidebar;
+  justify-self: center;
+  padding: 32px;
+}
+
+.content {
+  grid-area: content;
+  max-width: 1200px;
+  justify-self: center;
+  padding: 32px;
+}
+
+.rightbar {
+  grid-area: rightbar;
+  display: flex; // тк тулбар вложен в райтбар (дом ноду вложили)
+  flex-direction: column; // хедер + тулбар разом сделали
+  align-items: flex-end;
+}
+
+.rightbar,
+.sidebar {
+  position: sticky;
+  top: 0; // чтоб к верхнему углу.
+  height: 100vh; // ограничиваем размер, пошта растягивается на всю обл.
+}
+
+.toolbar {
+  height: 100%;
+}

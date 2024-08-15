@@ -9,6 +9,10 @@
   // можно еще width: 1% вместе с flex-grow: 1 = hack
 }
 
+.PageRedesighned {
+  overflow-y: auto;
+}
+
 .trigger{
   height: 20px;
   margin: 10px;

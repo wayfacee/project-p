@@ -8,6 +8,8 @@ import { SidebarItem } from '../SidebarItem/SidebarItem';
 import { useSelector } from 'react-redux';
 import { getSidebarItems } from '../../model/selectors/getSidebarItems/getSidebarItems';
 import { VStack } from '@/shared/ui/Stack';
+import { ToggleFeatures } from '@/shared/const/features';
+import { AppLogo } from '@/shared/ui/AppLogo';
 
 interface SidebarProps {
   className?: string;
@@ -35,34 +37,53 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
     [collapsed, sidebarItemsList],
   );
 
+  // если хотим сделать декомп. sidebarDeprecated / Redesigned
+  // или прямо в файле, если комп. большой - то декомп.
+  // а если маленький то не надо
+
   // menu устарело
   return (
-    <aside
-      data-testid="sidebar"
-      className={classNames(cl.Sidebar, { [cl.collapsed]: collapsed }, [
-        className,
-      ])}
-    >
-      <Button
-        data-testid="sidebar-toggle"
-        onClick={onToggle}
-        className={cl.collapsedBtn}
-        theme={ButtonTheme.BACKGROUND_INVERTED}
-        square
-        size={ButtonSize.L}
-      >
-        {collapsed ? '>' : '<'}
-      </Button>
+    <ToggleFeatures
+      feature="isAppRedesigned"
+      off={
+        <aside
+          data-testid="sidebar"
+          className={classNames(cl.Sidebar, { [cl.collapsed]: collapsed }, [
+            className,
+          ])}
+        >
+          <Button
+            data-testid="sidebar-toggle"
+            onClick={onToggle}
+            className={cl.collapsedBtn}
+            theme={ButtonTheme.BACKGROUND_INVERTED}
+            square
+            size={ButtonSize.L}
+          >
+            {collapsed ? '>' : '<'}
+          </Button>
 
-      <VStack role="navigation" gap="8" className={cl.items}>
-        {itemsList}
-      </VStack>
+          <VStack role="navigation" gap="8" className={cl.items}>
+            {itemsList}
+          </VStack>
 
-      <div className={cl.switchers}>
-        {/* зем, ланг свитчер тож перерис. */}
-        <ThemeSwitcher />
-        <LangSwitcher short={collapsed} className={cl.lang} />
-      </div>
-    </aside>
+          <div className={cl.switchers}>
+            {/* зем, ланг свитчер тож перерис. */}
+            <ThemeSwitcher />
+            <LangSwitcher short={collapsed} className={cl.lang} />
+          </div>
+        </aside>
+      }
+      on={
+        <aside
+          data-testid="sidebar"
+          className={classNames(cl.SidebarRedesigned, { [cl.collapsed]: collapsed }, [
+            className,
+          ])}
+        >
+          <AppLogo className={cl.appLogo} />
+        </aside>
+      }
+    />
   );
 });

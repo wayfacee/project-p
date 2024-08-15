@@ -10,10 +10,10 @@ import { JsxAttribute, Node, Project, SyntaxKind } from 'ts-morph';
   
   const counter = toggleFeatures({
     name: "isCounterEnabled",
-    on: () => <CounterRedisgned />,
+    on: () => <CounterRedesigned />,
     off: () => <Counter />,
   }) => 
-  const counter = <CounterRedisgned />
+  const counter = <CounterRedesigned />
   })
  */
 const removedFeatureName = process.argv[2]; // isArticleEnabled
@@ -30,7 +30,7 @@ if (!featureState) {
   throw new Error('Укажите состояние фичи (on или off)');
 }
 
-if (featureState !== 'on' && featureState === 'off') {
+if (featureState !== 'on' && featureState !== 'off') {
   throw new Error('Некорректное значение состояние фичи (on или off)');
 }
 
@@ -108,7 +108,10 @@ const getAttributeNodeByName = (
   jsxAttributes: JsxAttribute[],
   name: string,
 ) => {
-  return jsxAttributes.find((node) => node.getName() === name);
+  return jsxAttributes.find((node) => {
+    const nameNode = node.getNameNode();
+    return nameNode.getText() === name;
+  });
 };
 
 // если есть кавычки, on(<button>ddd</button), уберет:

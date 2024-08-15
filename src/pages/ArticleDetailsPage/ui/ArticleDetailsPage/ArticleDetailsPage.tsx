@@ -15,7 +15,11 @@ import { VStack } from '@/shared/ui/Stack';
 import { ArticleRecommendationList } from '@/features/articleRecommendationList';
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
 import { ArticleRating } from '@/features/articleRating';
-import { getFeatureFlag, ToggleFeatures, toggleFeatures } from '@/shared/const/features';
+import {
+  getFeatureFlag,
+  ToggleFeatures,
+  toggleFeatures,
+} from '@/shared/const/features';
 import { Counter } from '@/entities/Counter';
 import { Card } from '@/shared/ui/Card';
 
@@ -56,10 +60,10 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
           <ArticleDetailsPageHeader />
 
           <ArticleDetails id={id} />
-          <ToggleFeatures 
-          feature='isArticleRatingEnabled'
-          on={<ArticleRating articleId={id} />}
-          off={<Card>вам это функц. еще не доступна!</Card>}
+          <ToggleFeatures
+            feature="isArticleRatingEnabled"
+            on={<ArticleRating articleId={id} />}
+            off={<Card>вам это функц. еще не доступна!</Card>}
           />
           <ArticleRecommendationList />
           <ArticleDetailsComments id={id} />

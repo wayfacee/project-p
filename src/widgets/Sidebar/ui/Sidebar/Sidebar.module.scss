@@ -3,7 +3,7 @@
   width: var(--sidebar-width);
   background-color: var(--inverted-bg-color);
   position: relative;
-  transition: width .3s ease-in-out;
+  transition: width 0.3s ease-in-out;
 }
 
 // перед коллапсед
@@ -43,4 +43,15 @@
   .lang {
     margin-left: 0;
   }
+}
+
+.SidebarRedesigned {
+  background: var(--light-bg-redessigned);
+  width: 220px;
+  height: 100%;
+  border-radius: 32px;
+}
+
+.appLogo{
+  padding-top: 20px;
 }
