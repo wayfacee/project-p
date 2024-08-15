@@ -9,9 +9,9 @@ interface ToggleFeaturesOptions<T> {
 
 // для функции / хелперов
 export function toggleFeatures<T>({
-  off,
-  on,
   name,
+  on,
+  off,
 }: ToggleFeaturesOptions<T>): T {
   if (getFeatureFlag(name)) {
     return on();

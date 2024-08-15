@@ -16,11 +16,8 @@ import { ArticleRecommendationList } from '@/features/articleRecommendationList'
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
 import { ArticleRating } from '@/features/articleRating';
 import {
-  getFeatureFlag,
   ToggleFeatures,
-  toggleFeatures,
 } from '@/shared/const/features';
-import { Counter } from '@/entities/Counter';
 import { Card } from '@/shared/ui/Card';
 
 interface ArticleDetailsPageProps {
@@ -34,7 +31,6 @@ const reducers: ReducersList = {
 const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
   const { t } = useTranslation('article-details');
   const { id } = useParams<{ id: string }>();
-  const isArticleRatingEnabled = getFeatureFlag('isArticleRatingEnabled');
 
   // вылезает заглушка статья не найдена
   // иф убираем, а внутри комп. делаем не обяз.

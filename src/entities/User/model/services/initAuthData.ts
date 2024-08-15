@@ -11,7 +11,9 @@ export const initAuthData = createAsyncThunk<User, void, ThunkConfig<string>>(
 
     const userId = JSON.parse(localStorage.getItem(USER_LOCALSTORAGE_KEY) || '');
 
-    if (!userId) throw new Error('initAuthData userData');
+    if (!userId) {
+      return rejectWithValue('User ID not found in localStorage');
+    }
 
     try {
       const response = await dispatch(getUserDataByIdQuery(userId)).unwrap();

@@ -17,7 +17,7 @@ const ThemeProvider = (props: ThemeProviderProps) => {
   // уже иниц. тему, поэтому так не надо, а дефолт тему можно задать на 22-стр.
   const { theme: defaultTheme } = useJsonSettings();
   // чтоб не было скачков в интерфейсе:
-  const [isThemeInited, setIsThemeInited] = useState(false);
+  const [isThemeInited, setThemeInited] = useState(false);
   const [theme, setTheme] = useState<Theme>(
     initialTheme || defaultTheme || Theme.LIGHT,
   );
@@ -26,7 +26,7 @@ const ThemeProvider = (props: ThemeProviderProps) => {
   useEffect(() => {
     if (!isThemeInited && defaultTheme) {
       setTheme(defaultTheme);
-      setIsThemeInited(true);
+      setThemeInited(true);
     }
   }, [defaultTheme, isThemeInited]);
 

@@ -15,14 +15,23 @@ import { FeatureFlags } from '@/shared/types/featureFlags';
 // если хотим прочитать флажок то исп. спец гетер getFeatureFlag
 
 // ФИЧИ НЕ МЕНЯЮТСЯ В ХОДЕ СЕССИИ, ИХ НЕОБЯЗ. ДЕЛАТЬ РЕАКТИНЫМИ?
-let featureFlags: FeatureFlags;
+// mb undefined:
+let featureFlags: FeatureFlags = {};
 
 export function setFeatureFlags(newFeatureFlags?: FeatureFlags) {
   if (newFeatureFlags) {
     featureFlags = newFeatureFlags;
+  } else {
+    console.warn('Feature flags not set');
   }
 }
 
 export function getFeatureFlag(flag: keyof FeatureFlags) {
+  if (featureFlags === undefined) {
+    // Handle the case where featureFlags is not initialized
+    throw new Error('Feature flags have not been initialized');
+  }
+
+  // mb undefined:
   return featureFlags[flag];
 }

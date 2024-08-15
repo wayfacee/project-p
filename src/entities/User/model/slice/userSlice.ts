@@ -17,6 +17,7 @@ const counterSlice = createSlice({
     setAuthData: (state, action: PayloadAction<User>) => {
       state.authData = action.payload;
       setFeatureFlags(action.payload.features);
+      // Note: Consider moving side effects like localStorage operations outside of reducers
 
       // редюсеры должны быть чистыми, в данном месте не оч корректно
       // но чтоб не размазолось по проекту, оставили тут

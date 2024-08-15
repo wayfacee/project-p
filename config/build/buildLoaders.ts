@@ -9,7 +9,24 @@ export function buildLoaders(options: BuildOptions): RuleSetRule[] {
 
   const svgLoader = {
     test: /\.svg$/,
-    use: ['@svgr/webpack'],
+    use: [{
+      loader: '@svgr/webpack',
+      options: {
+        // заменяет width / height каким-то кастом value
+        icon: true,
+
+        // convert colors:
+        // заменяет цвета в файлах, на каррент колор
+        svgoConfig:{
+          plugins: [{
+            name: 'convertColors',
+            params: {
+              currentColor: true,
+            }
+          }]
+        }
+      }
+    }],
   }
 
   const codebabelLoader = buildBabelLoader({ ...options, isTsx: false });

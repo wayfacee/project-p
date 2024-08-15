@@ -45,6 +45,18 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
   return (
     <ToggleFeatures
       feature="isAppRedesigned"
+      on={
+        <aside
+          data-testid="sidebar"
+          className={classNames(
+            cl.SidebarRedesigned,
+            { [cl.collapsed]: collapsed },
+            [className],
+          )}
+        >
+          <AppLogo className={cl.appLogo} />
+        </aside>
+      }
       off={
         <aside
           data-testid="sidebar"
@@ -72,16 +84,6 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
             <ThemeSwitcher />
             <LangSwitcher short={collapsed} className={cl.lang} />
           </div>
-        </aside>
-      }
-      on={
-        <aside
-          data-testid="sidebar"
-          className={classNames(cl.SidebarRedesigned, { [cl.collapsed]: collapsed }, [
-            className,
-          ])}
-        >
-          <AppLogo className={cl.appLogo} />
         </aside>
       }
     />

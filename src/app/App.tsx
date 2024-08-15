@@ -13,11 +13,12 @@ import { MainLayout } from '@/shared/layouts/MainLayout';
 const App = () => {
   const dispatch = useAppDispatch();
   const inited = useSelector(getUserInited);
-
+  
   useEffect(() => {
     // app router renderится раньше чем мы иниц. данные о юзере,
     // можно было весь комп. не рендер. пока данные о юзере не будут
     dispatch(initAuthData());
+    console.log('ушел в сервер');
   }, [dispatch]);
 
   // будет выполянться запрос, а раньше мы получали из локал стораже мгновенно
@@ -27,7 +28,7 @@ const App = () => {
 
   return (
     <ToggleFeatures
-      feature="isAppRedesigned"
+      feature={'isAppRedesigned'}
       off={
         <div className={classNames('app', {}, [])}>
           <Suspense fallback="">
