@@ -15,6 +15,7 @@ import { VStack } from '@/shared/ui/Stack';
 import { ArticleRecommendationList } from '@/features/articleRecommendationList';
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
 import { ArticleRating } from '@/features/articleRating';
+import { getFeatureFlag } from '@/shared/const/features';
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -27,6 +28,7 @@ const reducers: ReducersList = {
 const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
   const { t } = useTranslation('article-details');
   const { id } = useParams<{ id: string }>();
+  const isArticleRatingEnabled = getFeatureFlag('isArticleRatingEnabled');
 
   // вылезает заглушка статья не найдена
   // иф убираем, а внутри комп. делаем не обяз.
@@ -45,7 +47,7 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
           <ArticleDetailsPageHeader />
 
           <ArticleDetails id={id} />
-          <ArticleRating articleId={id} />
+          {isArticleRatingEnabled && <ArticleRating articleId={id} />}
           <ArticleRecommendationList />
           <ArticleDetailsComments id={id} />
         </VStack>
