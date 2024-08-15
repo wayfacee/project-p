@@ -27,7 +27,8 @@
     "storybook": "storybook dev - p 6006 -c ./config/storybook",
     "build:storybook": "storybook build -c ./config/storybook",
     "json": "json-server --watch ./json-server/db.json --port 8000",
-    "generate:slice": "node ./scripts/createSlice/index.js"
+    "generate:slice": "node ./scripts/createSlice/index.js",
+    "remove-feature": "ts-node ./scripts/remove-feature.ts"
   },
   "lint-staged": {
     "**/*.{ts,tsx}": [

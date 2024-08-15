@@ -15,7 +15,7 @@ import { VStack } from '@/shared/ui/Stack';
 import { ArticleRecommendationList } from '@/features/articleRecommendationList';
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
 import { ArticleRating } from '@/features/articleRating';
-import { getFeatureFlag, toggleFeatures } from '@/shared/const/features';
+import { getFeatureFlag, ToggleFeatures, toggleFeatures } from '@/shared/const/features';
 import { Counter } from '@/entities/Counter';
 import { Card } from '@/shared/ui/Card';
 
@@ -43,11 +43,11 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
   }
 
   // чтобы не искать итп.:
-  const articleRatingCard = toggleFeatures({
-    name: 'isArticleRatingEnabled',
-    on: () => <ArticleRating articleId={id} />,
-    off: () => <Card>ddвапро</Card>,
-  });
+  // const articleRatingCard = toggleFeatures({
+  //   name: 'isArticleRatingEnabled',
+  //   on: () => ,
+  //   off: () => <Card>ddвапро</Card>,
+  // });
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterAmount>
@@ -56,7 +56,11 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
           <ArticleDetailsPageHeader />
 
           <ArticleDetails id={id} />
-          {isArticleRatingEnabled && articleRatingCard}
+          <ToggleFeatures 
+          feature='isArticleRatingEnabled'
+          on={<ArticleRating articleId={id} />}
+          off={<Card>вам это функц. еще не доступна!</Card>}
+          />
           <ArticleRecommendationList />
           <ArticleDetailsComments id={id} />
         </VStack>
