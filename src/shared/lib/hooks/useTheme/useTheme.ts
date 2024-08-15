@@ -5,13 +5,14 @@ import { LOCAL_STORAGE_KEY, Theme } from '../../../const/theme';
 
 interface UseThemeResult {
   theme: Theme;
-  toggleTheme: () => void;
+  // чтобы разраб мог опред., куда мы сохраняем эту тему (локал, или бэк)
+  toggleTheme: (saveAction?: (theme: Theme) => void) => void; 
 }
 
 export function useTheme(): UseThemeResult {
   const { theme, setTheme } = useContext(ThemeContext);
 
-  function toggleTheme() {
+  function toggleTheme(saveAction?: (theme: Theme) => void) {
     // const newTheme = theme === Theme.DARK ? Theme.LIGHT : Theme.DARK;
     let newTheme: Theme;
     switch (theme) {
@@ -31,7 +32,8 @@ export function useTheme(): UseThemeResult {
 
     // контекст иниц. не сразу, в какое-то время пустой
     setTheme?.(newTheme);
-    localStorage.setItem(LOCAL_STORAGE_KEY, newTheme);
+    // localStorage.setItem(LOCAL_STORAGE_KEY, newTheme);
+    saveAction?.(newTheme);
   }
 
   // вешаем класс на боди, и не надо вешать на модалки, и на апп итд.

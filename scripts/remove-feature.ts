@@ -16,10 +16,10 @@ import { Node, Project, SyntaxKind } from 'ts-morph';
   const counter = <CounterRedisgned />
   })
  */
-const removeFeatureName = process.argv[1]; // isArticleEnabled
-const featureState = process.argv[2]; // on / off
+const removedFeatureName = process.argv[2]; // isArticleEnabled
+const featureState = process.argv[3]; // on / off
 
-if (!removeFeatureName) {
+if (!removedFeatureName) {
   throw new Error('Укажите название фича-флага');
 }
 
@@ -82,14 +82,14 @@ files.forEach((sourceFile) => {
         SyntaxKind.ArrowFunction,
       );
 
-      if (featureName !== removeFeatureName) return;
+      if (featureName !== removedFeatureName) return;
 
-      if (featureName === 'on') {
+      if (featureState === 'on') {
         // ?? - чтоб тс не ругался
         node.replaceWithText(onFunction?.getBody().getText() ?? '');
       }
 
-      if (featureName === 'off') {
+      if (featureState === 'off') {
         node.replaceWithText(offFunction?.getBody().getText() ?? '');
       }
     }

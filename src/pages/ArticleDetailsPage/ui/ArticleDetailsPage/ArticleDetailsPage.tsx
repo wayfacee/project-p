@@ -44,7 +44,7 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
 
   // чтобы не искать итп.:
   const articleRatingCard = toggleFeatures({
-    name: 'isCounterEnabled',
+    name: 'isArticleRatingEnabled',
     on: () => <ArticleRating articleId={id} />,
     off: () => <Card>ddвапро</Card>,
   });
