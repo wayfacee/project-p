@@ -18,7 +18,7 @@ import { articlesPageActions } from '../../models/slices/articlesPageSlice';
 import { ArticleSortField, ArticleType, ArticleView } from '@/entities/Article';
 import { ArticleViewSelector } from '@/features/ArticleViewSelector';
 import { Card } from '@/shared/ui/deprecated/Card/Card';
-import { Input } from '@/shared/ui/Input/Input';
+import { Input } from '@/shared/ui/deprecated/Input';
 import { SortOrder } from '@/shared/types/sort';
 import { fetchArticlesList } from '../../models/services/fetchArticlesList/fetchArticlesList';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';

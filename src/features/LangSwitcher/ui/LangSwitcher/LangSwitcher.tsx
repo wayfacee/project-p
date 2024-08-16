@@ -1,7 +1,9 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button/Button';
+import { Button as ButtonDeprecated, ButtonTheme } from '@/shared/ui/deprecated/Button/Button';
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
+import { ToggleFeatures } from '@/shared/const/features';
+import { Button } from '@/shared/ui/redesigned/Button';
 
 interface LangSwitcherProps {
   className?: string;
@@ -16,13 +18,24 @@ export const LangSwitcher = memo(({ className, short }: LangSwitcherProps) => {
     i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru');
   };
 
+  // тут можно не делать декомп., а в сайдар итд надо
   return (
-    <Button
-      className={classNames('cl.LangSwitcher', {}, [className])}
-      theme={ButtonTheme.CLEAR}
-      onClick={toggle}
-    >
-      {t(short ? 'Короткий язык' : 'Язык')}
-    </Button>
+    <ToggleFeatures
+      feature="isAppRedesigned"
+      on={
+        <Button variant='clear'>
+          {t(short ? 'Короткий язык' : 'Язык')}
+        </Button>
+      }
+      off={
+        <ButtonDeprecated
+          className={classNames('cl.LangSwitcher', {}, [className])}
+          theme={ButtonTheme.CLEAR}
+          onClick={toggle}
+        >
+          {t(short ? 'Короткий язык' : 'Язык')}
+        </ButtonDeprecated>
+      }
+    />
   );
 });

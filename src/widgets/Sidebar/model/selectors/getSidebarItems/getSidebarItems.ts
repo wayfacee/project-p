@@ -7,44 +7,68 @@ import {
   getRouteProfile,
 } from '@/shared/const/router';
 import { SidebarItemType } from '../../types/sidebar';
-import MainIcon from '@/shared/assets/icons/main.svg';
-import AboutIcon from '@/shared/assets/icons/about.svg';
-import ProfileIcon from '@/shared/assets/icons/profile.svg';
-import ArticlesIcon from '@/shared/assets/icons/articles.svg';
+import MainIconDeprecated from '@/shared/assets/icons/main.svg';
+import AboutIconDeprecated from '@/shared/assets/icons/about.svg';
+import ProfileIconDeprecated from '@/shared/assets/icons/profile.svg';
+import ArticleIconDeprecated from '@/shared/assets/icons/articles.svg';
+
+import MainIcon from '@/shared/assets/icons/home.svg';
+import ArticleIcon from '@/shared/assets/icons/article.svg';
+import AboutIcon from '@/shared/assets/icons/Info.svg';
+import ProfileIcon from '@/shared/assets/icons/avatar.svg';
+import { toggleFeatures } from '@/shared/const/features';
 
 // вытащить необход. данные из стейта,
 // и сформировать массив айтемов
 
 // чтоб мемо. селектор, они особо измен. не будут
+
 export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
   const sidebarItemsList: SidebarItemType[] = [
     {
       path: getRouteMain(),
-      text: 'Главная страница',
-      Icon: MainIcon,
+      Icon: toggleFeatures({
+        name: 'isAppRedesigned',
+        off: () => MainIconDeprecated,
+        on: () => MainIcon,
+      }),
+      text: 'Главная',
     },
     {
       path: getRouteAbout(),
+      Icon: toggleFeatures({
+        name: 'isAppRedesigned',
+        off: () => AboutIconDeprecated,
+        on: () => AboutIcon,
+      }),
       text: 'О сайте',
-      Icon: AboutIcon,
     },
   ];
 
   if (userData) {
     sidebarItemsList.push(
       {
-        path: getRouteProfile(userData?.id),
+        path: getRouteProfile(userData.id),
+        Icon: toggleFeatures({
+          name: 'isAppRedesigned',
+          off: () => ProfileIconDeprecated,
+          on: () => ProfileIcon,
+        }),
         text: 'Профиль',
-        Icon: ProfileIcon,
         authOnly: true,
       },
       {
         path: getRouteArticles(),
+        Icon: toggleFeatures({
+          name: 'isAppRedesigned',
+          off: () => ArticleIconDeprecated,
+          on: () => ArticleIcon,
+        }),
         text: 'Статьи',
-        Icon: ArticlesIcon,
         authOnly: true,
       },
     );
   }
+
   return sidebarItemsList;
 });

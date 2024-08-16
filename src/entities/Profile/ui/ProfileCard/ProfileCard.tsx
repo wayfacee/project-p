@@ -1,7 +1,7 @@
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import * as cl from './ProfileCard.module.scss';
 import { useTranslation } from 'react-i18next';
-import { Input } from '@/shared/ui/Input/Input';
+import { Input } from '@/shared/ui/deprecated/Input';
 import { Text, TextAlign, TextTheme } from '@/shared/ui/deprecated/Text/Text';
 import { Profile } from '../../model/types/profile';
 import { BeatLoader } from 'react-spinners';

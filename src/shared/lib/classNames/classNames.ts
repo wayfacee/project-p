@@ -1,4 +1,5 @@
 // 1) key 2) value
+// если моды always true, то это уже additional class
 export type Mods = Record<string, boolean | string | undefined>;
 
 // cls - main class
