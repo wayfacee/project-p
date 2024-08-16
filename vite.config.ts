@@ -18,7 +18,7 @@ export default defineConfig({
               params: {
                 currentColor: true,
               },
-            },
+            }, 
           ],
         },
       },

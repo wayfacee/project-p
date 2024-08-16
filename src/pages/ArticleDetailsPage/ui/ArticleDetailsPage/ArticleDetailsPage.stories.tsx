@@ -2,6 +2,7 @@ import type { Meta, StoryFn } from '@storybook/react';
 import ArticleDetailsPage from './ArticleDetailsPage';
 import { Article, ArticleType, ArticleBlockType } from '@/entities/Article';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
+import { Theme } from '@/shared/const/theme';
 
 export default {
   title: 'pages/ArticleDetailsPage/ArticleDetailsPage',
@@ -24,6 +25,11 @@ const article: Article = {
   user: {
     id: '1',
     username: 'ulbi tv',
+    jsonSettings: {
+      isArticlesPageWasOpened: true,
+      isFirstVisit: false,
+      theme: Theme.LIGHT,
+    },
   },
   blocks: [
     {

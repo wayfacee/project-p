@@ -6,7 +6,7 @@ import {
   useGetProfileRating,
   useRateProfile,
 } from '../../api/profileRatingApi';
-import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
+import { Skeleton } from '@/shared/ui/deprecated/Skeleton/Skeleton';
 import { RatingCard } from '@/entities/Rating';
 
 export interface ProfileRatingProps {

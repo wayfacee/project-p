@@ -17,6 +17,9 @@ export function buildLoaders(options: BuildOptions): RuleSetRule[] {
 
         // convert colors:
         // заменяет цвета в файлах, на каррент колор
+
+        // из свг файлов выпилиываются, и мы можем гибко упр.
+        // через пропсы комп.,или через цсс
         svgoConfig:{
           plugins: [{
             name: 'convertColors',

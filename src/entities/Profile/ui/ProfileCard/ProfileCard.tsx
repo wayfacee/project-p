@@ -2,14 +2,14 @@ import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import * as cl from './ProfileCard.module.scss';
 import { useTranslation } from 'react-i18next';
 import { Input } from '@/shared/ui/Input/Input';
-import { Text, TextAlign, TextTheme } from '@/shared/ui/Text/Text';
+import { Text, TextAlign, TextTheme } from '@/shared/ui/deprecated/Text/Text';
 import { Profile } from '../../model/types/profile';
 import { BeatLoader } from 'react-spinners';
-import { Avatar } from '@/shared/ui/Avatar/Avatar';
+import { Avatar } from '@/shared/ui/deprecated/Avatar/Avatar';
 import { Currency, CurrencySelect } from '@/entities/Currency';
 import { Country } from '@/entities/Country';
 import { CountrySelect } from '@/entities/Country';
-import { HStack, VStack } from '@/shared/ui/Stack';
+import { HStack, VStack } from '@/shared/ui/deprecated/Stack';
 // slice entety мало обладает каким-то своим состоянием,
 // в основном - запрос комп тип итд.
 

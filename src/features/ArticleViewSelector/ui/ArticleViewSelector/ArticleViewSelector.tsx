@@ -4,8 +4,8 @@ import { memo } from 'react';
 import { ArticleView } from '@/entities/Article';
 import ListIcon from '@/shared/assets/icons/list.svg';
 import TiledIcon from '@/shared/assets/icons/tiled.svg';
-import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
-import { Icon } from '@/shared/ui/Icon/Icon';
+import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button/Button';
+import { Icon } from '@/shared/ui/deprecated/Icon/Icon';
 
 // можно было бы на ур. ентити, фичи, или стр. но лучш. в фичи
 interface ArticleViewSelectorProps {
