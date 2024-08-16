@@ -5,10 +5,12 @@
   // когда задаете зоны, элементы в самой верстке распл.
   // как угодно, от этого позиц. элем. не меняется
   // пошта четко указ. в грид цсс, так распл будут:
-  grid-template-areas: 
-              "sidebar content rightbar";
+  grid-template-areas: "sidebar content rightbar";
 
-  grid-template-columns: 284px 1fr 100px; // width of columns 220px + 64px (paddings)
+  // min-content - контентная часть не смещается, чтобы дать больше контентной части 
+  // для маленьких экранов, тогда контент часть будет съезжать
+  // вместе с сворачиванием сайдбара, на мел. экранах будет прижиматься
+  grid-template-columns: min-content 1fr 100px; // width of columns 220px + 64px (paddings)
   // 1fr - контентная часть должна занимать все свобод. простраснство (искл: отсуптов до ближ зон)
   // 100px - toolbar
 }
@@ -16,6 +18,7 @@
 .sidebar {
   grid-area: sidebar;
   padding: 32px;
+  max-width: 284px;
 }
 
 .content {

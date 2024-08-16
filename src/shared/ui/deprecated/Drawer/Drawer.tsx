@@ -1,7 +1,7 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { memo, ReactNode, useCallback, useEffect } from 'react';
 import { useAnimationLibs } from '../../../lib/components/AnimationProvider';
-import { Overlay } from '../Overlay';
+import { Overlay } from '../../redesigned/Overlay';
 import cls from './Drawer.module.scss';
 import { Portal } from '@/widgets/Portal';
 import { BeatLoader } from 'react-spinners';
@@ -19,7 +19,7 @@ const height = window.innerHeight - 100;
 
 /**
  * Устарел, используем новые компоненты из папки redesigned
- * @deprecated 
+ * @deprecated
  */
 export const DrawerContent = memo((props: DrawerProps) => {
   const { Spring, Gesture } = useAnimationLibs();
@@ -101,7 +101,7 @@ export const DrawerContent = memo((props: DrawerProps) => {
 
 /**
  * Устарел, используем новые компоненты из папки redesigned
- * @deprecated 
+ * @deprecated
  */
 export const Drawer = memo((props: DrawerProps) => {
   const { isLoaded } = useAnimationLibs();

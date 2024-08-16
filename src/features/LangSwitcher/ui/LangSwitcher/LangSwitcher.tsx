@@ -1,5 +1,8 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button as ButtonDeprecated, ButtonTheme } from '@/shared/ui/deprecated/Button/Button';
+import {
+  Button as ButtonDeprecated,
+  ButtonTheme,
+} from '@/shared/ui/deprecated/Button/Button';
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
 import { ToggleFeatures } from '@/shared/const/features';
@@ -23,7 +26,7 @@ export const LangSwitcher = memo(({ className, short }: LangSwitcherProps) => {
     <ToggleFeatures
       feature="isAppRedesigned"
       on={
-        <Button variant='clear'>
+        <Button variant="clear" onClick={toggle}>
           {t(short ? 'Короткий язык' : 'Язык')}
         </Button>
       }

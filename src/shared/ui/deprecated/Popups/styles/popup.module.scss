@@ -4,6 +4,12 @@
   position: relative;
 }
 
+.menu {
+  border-radius: 18px;
+  border: 1px solid var(--accent-redesigned);
+  overflow: hidden;
+}
+
 .trigger {
   background: none;
   outline: none;
@@ -14,11 +20,7 @@
 }
 
 .active {
-  background: var(--inverted-primary-color);
-}
-
-.disabled {
-  opacity: 0.7;
+  background: var(--light-bg-redesigned);
 }
 
 .optionsBottomLeft {
@@ -39,4 +41,8 @@
 .optionsTopLeft {
   right: 0;
   bottom: 100%;
+}
+
+.disabled {
+  opacity: 0.7;
 }

@@ -9,7 +9,7 @@ import { Fragment, ReactNode } from 'react';
 import * as cl from './ListBox.module.scss';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { DropdownDirection } from '@/shared/types/ui';
-import { HStack } from '../../../Stack';
+import { HStack } from '../../../../redesigned/Stack';
 import { mapDirectionClass } from '../../styles/consts';
 import * as popupCl from '../../styles/popup.module.scss';
 
@@ -33,7 +33,7 @@ interface ListBoxProps {
 
 /**
  * Устарел, используем новые компоненты из папки redesigned
- * @deprecated 
+ * @deprecated
  */
 export function ListBox(props: ListBoxProps) {
   const {

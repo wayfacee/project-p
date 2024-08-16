@@ -14,7 +14,7 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { VStack } from '@/shared/ui/deprecated/Stack';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 import { BeatLoader } from 'react-spinners';
 
 interface ArticleDetailsCommentsProps {

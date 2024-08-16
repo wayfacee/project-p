@@ -2,7 +2,7 @@ import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import * as cl from './Modal.module.scss';
 import { ReactNode } from 'react';
 import { Portal } from '../../Portal/Portal/Portal';
-import { Overlay } from '@/shared/ui/deprecated/Overlay/Overlay';
+import { Overlay } from '@/shared/ui/redesigned/Overlay/Overlay';
 import { useModal } from '@/shared/lib/hooks/useModal/useModal';
 
 interface ModalProps {
@@ -17,7 +17,7 @@ const ANIMATION_DELAY = 300;
 
 /**
  * Устарел, используем новые компоненты из папки redesigned
- * @deprecated 
+ * @deprecated
  */
 export const Modal = (props: ModalProps) => {
   const { className, children, isOpen, onClose, lazy } = props;

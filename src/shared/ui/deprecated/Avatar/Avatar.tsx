@@ -1,7 +1,7 @@
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import * as cl from './Avatar.module.scss';
 import { CSSProperties, useMemo } from 'react';
-import { AppImage } from '../AppImage';
+import { AppImage } from '../../redesigned/AppImage';
 import UserIcon from '@/shared/assets/icons/user.svg';
 import { Icon } from '../Icon/Icon';
 import { Skeleton } from '../Skeleton/Skeleton';
@@ -16,7 +16,7 @@ interface AvatarProps {
 
 /**
  * Устарел, используем новые компоненты из папки redesigned
- * @deprecated 
+ * @deprecated
  */
 export const Avatar = ({
   className,

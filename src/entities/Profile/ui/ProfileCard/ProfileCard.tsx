@@ -9,7 +9,7 @@ import { Avatar } from '@/shared/ui/deprecated/Avatar/Avatar';
 import { Currency, CurrencySelect } from '@/entities/Currency';
 import { Country } from '@/entities/Country';
 import { CountrySelect } from '@/entities/Country';
-import { HStack, VStack } from '@/shared/ui/deprecated/Stack';
+import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 // slice entety мало обладает каким-то своим состоянием,
 // в основном - запрос комп тип итд.
 
