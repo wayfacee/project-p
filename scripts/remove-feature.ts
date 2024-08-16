@@ -162,7 +162,8 @@ files.forEach((sourceFile) => {
   // чтобы обойти всех потомков:
   sourceFile.forEachDescendant((node) => {
     if (node.isKind(SyntaxKind.CallExpression) && isToggleFunction(node)) {
-      replaceToggleFunction(node);
+      // заменяем потом начинаем работать, поэтому ретурн надо добавить
+      return replaceToggleFunction(node);
     }
 
     // будет всегда одиноч., без чилдрен
@@ -170,7 +171,7 @@ files.forEach((sourceFile) => {
       node.isKind(SyntaxKind.JsxSelfClosingElement) &&
       isToggleComponent(node)
     ) {
-      replaceComponent(node);
+      return replaceComponent(node);
     }
   });
 });

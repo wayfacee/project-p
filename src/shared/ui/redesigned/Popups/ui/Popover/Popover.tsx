@@ -2,7 +2,11 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
 import * as cl from './Popover.module.scss';
 import { ReactNode } from 'react';
-import { Popover as HPopover } from '@headlessui/react';
+import {
+  Popover as HPopover,
+  PopoverButton as HPopoverButton,
+  PopoverPanel as HPopoverPanel,
+} from '@headlessui/react';
 import { DropdownDirection } from '@/shared/types/ui';
 import { mapDirectionClass } from '../../styles/consts';
 import * as popupCl from '../../styles/popup.module.scss';
@@ -14,10 +18,6 @@ interface PopoverProps {
   children: ReactNode;
 }
 
-/**
- * Устарел, используем новые компоненты из папки redesigned
- * @deprecated 
- */
 export function Popover(props: PopoverProps) {
   const { className, direction = 'bottom right', trigger, children } = props;
 
@@ -26,16 +26,16 @@ export function Popover(props: PopoverProps) {
   // HPopover = H - headless, чтоб не было пересич.
   return (
     <HPopover className={classNames('', {}, [className, popupCl.popup])}>
-      <HPopover.Button
+      <HPopoverButton
         as="div" // button into button??? bad
         className={popupCl.trigger}
       >
         {trigger}
-      </HPopover.Button>
+      </HPopoverButton>
 
-      <HPopover.Panel className={classNames(cl.panel, {}, menuClasses)}>
+      <HPopoverPanel className={classNames(cl.panel, {}, menuClasses)}>
         {children}
-      </HPopover.Panel>
+      </HPopoverPanel>
     </HPopover>
   );
 }

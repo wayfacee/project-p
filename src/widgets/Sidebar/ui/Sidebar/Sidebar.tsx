@@ -45,65 +45,31 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
 
   // menu устарело
   return (
-    <ToggleFeatures
-      feature="isAppRedesigned"
-      on={
-        <aside
-          data-testid="sidebar"
-          className={classNames(
-            cl.SidebarRedesigned,
-            { [cl.collapsedRedesigned]: collapsed },
-            [className],
-          )}
-        >
-          <AppLogo size={collapsed ? 30 : 50} className={cl.appLogo} />
-          <VStack role="navigation" gap="8" className={cl.items}>
-            {itemsList}
-          </VStack>
+    <aside
+                data-testid="sidebar"
+                className={classNames(
+                  cl.SidebarRedesigned,
+                  { [cl.collapsedRedesigned]: collapsed },
+                  [className],
+                )}
+              >
+                <AppLogo size={collapsed ? 30 : 50} className={cl.appLogo} />
+                <VStack role="navigation" gap="8" className={cl.items}>
+                  {itemsList}
+                </VStack>
 
-          <Icon
-            data-testid="sidebar-toggle"
-            Svg={ArrowIcon}
-            clickable
-            onClick={onToggle}
-            className={cl.collapsedBtn}
-          ></Icon>
+                <Icon
+                  data-testid="sidebar-toggle"
+                  Svg={ArrowIcon}
+                  clickable
+                  onClick={onToggle}
+                  className={cl.collapsedBtn}
+                ></Icon>
 
-          <div className={cl.switchers}>
-            <ThemeSwitcher />
-            <LangSwitcher short={collapsed} className={cl.lang} />
-          </div>
-        </aside>
-      }
-      off={
-        <aside
-          data-testid="sidebar"
-          className={classNames(cl.Sidebar, { [cl.collapsed]: collapsed }, [
-            className,
-          ])}
-        >
-          <Button
-            data-testid="sidebar-toggle"
-            onClick={onToggle}
-            className={cl.collapsedBtn}
-            theme={ButtonTheme.BACKGROUND_INVERTED}
-            square
-            size={ButtonSize.L}
-          >
-            {collapsed ? '>' : '<'}
-          </Button>
-
-          <VStack role="navigation" gap="8" className={cl.items}>
-            {itemsList}
-          </VStack>
-
-          <div className={cl.switchers}>
-            {/* зем, ланг свитчер тож перерис. */}
-            <ThemeSwitcher />
-            <LangSwitcher short={collapsed} className={cl.lang} />
-          </div>
-        </aside>
-      }
-    />
+                <div className={cl.switchers}>
+                  <ThemeSwitcher />
+                  <LangSwitcher short={collapsed} className={cl.lang} />
+                </div>
+              </aside>
   );
 });

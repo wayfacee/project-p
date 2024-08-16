@@ -27,20 +27,12 @@ export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
   const sidebarItemsList: SidebarItemType[] = [
     {
       path: getRouteMain(),
-      Icon: toggleFeatures({
-        name: 'isAppRedesigned',
-        off: () => MainIconDeprecated,
-        on: () => MainIcon,
-      }),
+      Icon: MainIcon,
       text: 'Главная',
     },
     {
       path: getRouteAbout(),
-      Icon: toggleFeatures({
-        name: 'isAppRedesigned',
-        off: () => AboutIconDeprecated,
-        on: () => AboutIcon,
-      }),
+      Icon: AboutIcon,
       text: 'О сайте',
     },
   ];
@@ -49,21 +41,13 @@ export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
     sidebarItemsList.push(
       {
         path: getRouteProfile(userData.id),
-        Icon: toggleFeatures({
-          name: 'isAppRedesigned',
-          off: () => ProfileIconDeprecated,
-          on: () => ProfileIcon,
-        }),
+        Icon: ProfileIcon,
         text: 'Профиль',
         authOnly: true,
       },
       {
         path: getRouteArticles(),
-        Icon: toggleFeatures({
-          name: 'isAppRedesigned',
-          off: () => ArticleIconDeprecated,
-          on: () => ArticleIcon,
-        }),
+        Icon: ArticleIcon,
         text: 'Статьи',
         authOnly: true,
       },

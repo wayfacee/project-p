@@ -22,28 +22,12 @@ export const NotificationItem = memo((props: NotificationItemProps) => {
 
   // некоторые нотиф. будут иметь сс.
   const content = (
-    <ToggleFeatures
-      feature="isAppRedesigned"
-      on={
-        <Card
-          variant="outlined"
-          className={classNames(cl.NotificationItem, {}, [className])}
-        >
-          <Text title={notification.title} text={notification.description} />
-        </Card>
-      }
-      off={
-        <CardDeprecated
-          theme={CardTheme.OUTLINED}
-          className={classNames(cl.NotificationItem, {}, [className])}
-        >
-          <TextDeprecated
-            title={notification.title}
-            text={notification.description}
-          />
-        </CardDeprecated>
-      }
-    />
+    <Card
+      variant="outlined"
+      className={classNames(cl.NotificationItem, {}, [className])}
+    >
+      <Text title={notification.title} text={notification.description} />
+    </Card>
   );
 
   if (notification.href) {

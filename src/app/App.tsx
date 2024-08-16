@@ -27,32 +27,16 @@ const App = () => {
   }
 
   return (
-    <ToggleFeatures
-      feature={'isAppRedesigned'}
-      off={
-        <div className={classNames('app', {}, [])}>
-          <Suspense fallback="">
-            <Navbar />
-            <div className="content-page">
-              <Sidebar />
-              {inited && <AppRouter />}
-            </div>
-          </Suspense>
-        </div>
-      }
-      on={
-        <div className={classNames('app_redesigned', {}, [])}>
-          <Suspense fallback="">
-            <MainLayout
-              header={<Navbar />}
-              content={<AppRouter />}
-              sidebar={<Sidebar />}
-              toolbar={<div>toolbar</div>}
-            />
-          </Suspense>
-        </div>
-      }
-    />
+    <div className={classNames('app_redesigned', {}, [])}>
+                <Suspense fallback="">
+                  <MainLayout
+                    header={<Navbar />}
+                    content={<AppRouter />}
+                    sidebar={<Sidebar />}
+                    toolbar={<div>toolbar</div>}
+                  />
+                </Suspense>
+              </div>
   );
 };
 

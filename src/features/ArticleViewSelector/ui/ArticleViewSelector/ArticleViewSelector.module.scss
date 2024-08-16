@@ -1,13 +1,17 @@
-.ArticleViewSelector{
-
+.ArticleViewSelector {
+  .selected {
+    fill: var(--secondary-color);
+  }
 }
 
-.icons {
-  width: 25px;
-  height: 25px;
-  margin-right: 5px;
-}
+// .icons {
+//   width: 25px;
+//   height: 25px;
+//   margin-right: 5px;
+// }
 
-.selected {
-  fill: var(--secondary-color);
+.ArticleViewSelectorRedesigned {
+  .notSelected {
+    color: var(--light-bg-redesigned);
+  }
 }

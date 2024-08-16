@@ -33,39 +33,13 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 
   if (authData) {
     return (
-      <ToggleFeatures
-        feature="isAppRedesigned"
-        on={
-          <header className={classNames(cl.NavbarRedesigned, {}, [className])}>
-            <HStack className={cl.actions} gap="16">
-              <NotificationButton />
+      <header className={classNames(cl.NavbarRedesigned, {}, [className])}>
+                    <HStack className={cl.actions} gap="16">
+                      <NotificationButton />
 
-              <AvatarDropdown />
-            </HStack>
-          </header>
-        }
-        off={
-          <header className={classNames(cl.Navbar, {}, [className])}>
-            <Text
-              className={cl.appName}
-              title={t('Ulbi TV App')}
-              theme={TextTheme.INVETED}
-            />
-            <AppLink
-              to={getRouteArticleCreate()}
-              theme={AppLinkTheme.SECONDARY}
-            >
-              {t('Создать статью')}
-            </AppLink>
-
-            <HStack className={cl.actions} gap="16">
-              <NotificationButton />
-
-              <AvatarDropdown />
-            </HStack>
-          </header>
-        }
-      />
+                      <AvatarDropdown />
+                    </HStack>
+                  </header>
     );
   }
 

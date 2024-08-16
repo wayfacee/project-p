@@ -1,14 +1,18 @@
 // лучше было бы в фичах
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import * as cl from './ArticlesSortSelector.module.scss';
+import * as cl from './ArticleSortSelector.module.scss';
 import { useTranslation } from 'react-i18next';
 import { memo, useMemo } from 'react';
 import { Select, SelectOption } from '@/shared/ui/deprecated/Select/Select';
 import { SortOrder } from '@/shared/types/sort';
 import { ArticleSortField } from '@/entities/Article';
+import { ToggleFeatures } from '@/shared/const/features';
+import { ListBox } from '@/shared/ui/redesigned/Popups';
+import { VStack } from '@/shared/ui/redesigned/Stack';
+import { Text } from '@/shared/ui/redesigned/Text';
 
-interface ArticlesSortSelectorProps {
+interface ArticleSortSelectorProps {
   className?: string;
   sort: ArticleSortField;
   onChangeSort: (newSort: ArticleSortField) => void;
@@ -16,7 +20,7 @@ interface ArticlesSortSelectorProps {
   onChangeOrder: (newOrder: SortOrder) => void;
 }
 
-export const ArticlesSortSelector = memo((props: ArticlesSortSelectorProps) => {
+export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
   const { className, order, onChangeOrder, sort, onChangeSort } = props;
   const { t } = useTranslation();
 
@@ -62,20 +66,44 @@ export const ArticlesSortSelector = memo((props: ArticlesSortSelectorProps) => {
   // }, [onChangeOrder]);
 
   return (
-    <div className={classNames(cl.ArticlesSortSelector, {}, [className])}>
-      <Select<ArticleSortField> // если хотим явно указать генерик
-        options={sortFieldOptions}
-        label={t('Сортировать ПО')}
-        value={sort}
-        onChange={onChangeSort}
-      />
-      <Select
-        className={cl.order}
-        options={orderOptions}
-        label={t('по')}
-        value={order}
-        onChange={onChangeOrder}
-      />
-    </div>
+    <ToggleFeatures
+      feature="isAppRedesigned"
+      on={
+        <div className={classNames(cl.ArticleSortSelectorRedesigned, {}, [className])}>
+          <Text text={t('Сортировать по:')} />
+          <VStack gap="8">
+            <ListBox
+              items={sortFieldOptions}
+              label={t('Сортировать ПО')}
+              value={sort}
+              onChange={onChangeSort}
+            />
+            <ListBox
+              items={orderOptions}
+              label={t('по')}
+              value={order}
+              onChange={onChangeOrder}
+            />
+          </VStack>
+        </div>
+      }
+      off={
+        <div className={classNames(cl.ArticleSortSelector , {}, [className])}>
+          <Select<ArticleSortField> // если хотим явно указать генерик
+            options={sortFieldOptions}
+            label={t('Сортировать ПО')}
+            value={sort}
+            onChange={onChangeSort}
+          />
+          <Select
+            className={cl.order}
+            options={orderOptions}
+            label={t('по')}
+            value={order}
+            onChange={onChangeOrder}
+          />
+        </div>
+      }
+    />
   );
 });

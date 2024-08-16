@@ -3,7 +3,7 @@ import { MutableRefObject, useEffect } from 'react';
 export interface UseInfiniteScrollOptions {
   callback?: () => void;
   triggerRef: MutableRefObject<HTMLElement>;
-  wrapperRef: MutableRefObject<HTMLElement>; // wrapper
+  wrapperRef?: MutableRefObject<HTMLElement>; // wrapper mb null
   // внутри которого наход. скролл
   // (иногда это document, when it's global)
 }
@@ -21,7 +21,10 @@ export function useInfiniteScroll(props: UseInfiniteScrollOptions) {
     // данные могут измен. затир., а отпис. от событья внутри юзЭффекта
     // изолируем элем., замыкаем внутри каллбэке который передаем. в юзЭффект
     // будет доступ. когда комп. уже демонтировался
-    const wrapperElement = wrapperRef.current;
+    const wrapperElement = wrapperRef?.current || null;
+    // если принимает знач налл, то по умолч. берется скролл
+    // который наход., в качестве враппере берется самый верхний элем. (window | body)
+    // берется бразуерный вьюпорт
     const triggerElement = triggerRef.current;
 
     let observer: IntersectionObserver | null = null;

@@ -23,22 +23,8 @@ export const LangSwitcher = memo(({ className, short }: LangSwitcherProps) => {
 
   // тут можно не делать декомп., а в сайдар итд надо
   return (
-    <ToggleFeatures
-      feature="isAppRedesigned"
-      on={
-        <Button variant="clear" onClick={toggle}>
-          {t(short ? 'Короткий язык' : 'Язык')}
-        </Button>
-      }
-      off={
-        <ButtonDeprecated
-          className={classNames('cl.LangSwitcher', {}, [className])}
-          theme={ButtonTheme.CLEAR}
-          onClick={toggle}
-        >
-          {t(short ? 'Короткий язык' : 'Язык')}
-        </ButtonDeprecated>
-      }
-    />
+    <Button variant="clear" onClick={toggle}>
+                {t(short ? 'Короткий язык' : 'Язык')}
+              </Button>
   );
 });

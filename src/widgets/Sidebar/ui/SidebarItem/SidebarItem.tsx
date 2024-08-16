@@ -27,30 +27,14 @@ export const SidebarItem = ({ item, collapsed }: SidebarItemProps) => {
   }
 
   return (
-    <ToggleFeatures
-      feature="isAppRedesigned"
-      on={
-        <AppLink
-          to={item.path}
-          className={classNames(cl.itemRedesigned, { [cl.collapsedRedesigned]: collapsed }, [])}
-          activeClassName={cl.active}
-        >
-          <Icon Svg={item.Icon} />
+    <AppLink
+                to={item.path}
+                className={classNames(cl.itemRedesigned, { [cl.collapsedRedesigned]: collapsed }, [])}
+                activeClassName={cl.active}
+              >
+                <Icon Svg={item.Icon} />
 
-          <span className={cl.link}>{t(item.text)}</span>
-        </AppLink>
-      }
-      off={
-        <AppLinkDeprecated
-          theme={AppLinkTheme.SECONDARY}
-          to={item.path}
-          className={classNames(cl.item, { [cl.collapsed]: collapsed }, [])}
-        >
-          <item.Icon className={cl.icon} />
-
-          <span className={cl.link}>{t(item.text)}</span>
-        </AppLinkDeprecated>
-      }
-    />
+                <span className={cl.link}>{t(item.text)}</span>
+              </AppLink>
   );
 };
