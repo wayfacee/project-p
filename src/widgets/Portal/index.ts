@@ -1,1 +1,1 @@
-export { Portal } from '@headlessui/react';
+export { Portal } from "./Portal/Portal";

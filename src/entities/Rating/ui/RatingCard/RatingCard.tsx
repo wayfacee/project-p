@@ -11,7 +11,7 @@ import {
 } from '@/shared/ui/deprecated/Button/Button';
 import { Input } from '@/shared/ui/deprecated/Input';
 import { BrowserView, MobileView } from 'react-device-detect';
-import { Drawer } from '@/shared/ui/deprecated/Drawer/Drawer';
+import { Drawer } from '@/shared/ui/redesigned/Drawer/Drawer';
 import { Card } from '@/shared/ui/deprecated/Card/Card';
 
 interface RatingCardProps {

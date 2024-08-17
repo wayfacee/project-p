@@ -1,11 +1,12 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { memo, ReactNode, useCallback, useEffect } from 'react';
 import { useAnimationLibs } from '../../../lib/components/AnimationProvider';
-import { Overlay } from '../../redesigned/Overlay';
-import cls from './Drawer.module.scss';
-import { Portal } from '@/widgets/Portal';
+import { Overlay } from '../Overlay';
+import * as cl from './Drawer.module.scss';
 import { BeatLoader } from 'react-spinners';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
+import { Portal } from '@/widgets/Portal';
+import { toggleFeatures } from '@/shared/lib/features';
 
 interface DrawerProps {
   className?: string;
@@ -17,10 +18,6 @@ interface DrawerProps {
 
 const height = window.innerHeight - 100;
 
-/**
- * Устарел, используем новые компоненты из папки redesigned
- * @deprecated
- */
 export const DrawerContent = memo((props: DrawerProps) => {
   const { Spring, Gesture } = useAnimationLibs();
   const [{ y }, api] = Spring.useSpring(() => ({ y: height }));
@@ -82,13 +79,21 @@ export const DrawerContent = memo((props: DrawerProps) => {
   const display = y.to((py) => (py < height ? 'block' : 'none'));
 
   return (
-    <Portal>
+    <Portal element={document.getElementById('app') ?? document.body}>
       <div
-        className={classNames(cls.Drawer, {}, [className, theme, 'app_drawer'])}
+        className={classNames(cl.Drawer, {}, [
+          className,
+          theme,
+          toggleFeatures({
+            name: 'isAppRedesigned',
+            on: () => cl.drawerNew,
+            off: () => cl.drawerOld,
+          }),
+        ])}
       >
         <Overlay onClick={close} />
         <Spring.a.div
-          className={cls.sheet}
+          className={cl.sheet}
           style={{ display, bottom: `calc(-100vh + ${height - 100}px)`, y }}
           {...bind()}
         >

@@ -27,7 +27,7 @@ const App = () => {
   }
 
   return (
-    <div className={classNames('app_redesigned', {}, [])}>
+    <div id='app' className={classNames('app_redesigned', {}, [])}>
       <Suspense fallback="">
         <MainLayout
           header={<Navbar />}
