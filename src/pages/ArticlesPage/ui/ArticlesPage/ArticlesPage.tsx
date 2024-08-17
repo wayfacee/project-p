@@ -52,7 +52,6 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
               onScrollEnd={onLoadNextPart}
               className={classNames(cl.ArticlesPageRedesigned, {}, [className])}
             >
-              <ArticlesPageFilters />
               <ArticleInfiniteList className={cl.list} />
               <ArticlesPageGreeting />
             </Page>

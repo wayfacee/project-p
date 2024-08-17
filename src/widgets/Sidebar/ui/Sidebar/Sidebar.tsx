@@ -46,30 +46,30 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
   // menu устарело
   return (
     <aside
-                data-testid="sidebar"
-                className={classNames(
-                  cl.SidebarRedesigned,
-                  { [cl.collapsedRedesigned]: collapsed },
-                  [className],
-                )}
-              >
-                <AppLogo size={collapsed ? 30 : 50} className={cl.appLogo} />
-                <VStack role="navigation" gap="8" className={cl.items}>
-                  {itemsList}
-                </VStack>
+      data-testid="sidebar"
+      className={classNames(
+        cl.SidebarRedesigned,
+        { [cl.collapsedRedesigned]: collapsed },
+        [className],
+      )}
+    >
+      <AppLogo size={collapsed ? 30 : 50} className={cl.appLogo} />
+      <VStack role="navigation" gap="8" className={cl.items}>
+        {itemsList}
+      </VStack>
 
-                <Icon
-                  data-testid="sidebar-toggle"
-                  Svg={ArrowIcon}
-                  clickable
-                  onClick={onToggle}
-                  className={cl.collapsedBtn}
-                ></Icon>
+      <Icon
+        data-testid="sidebar-toggle"
+        Svg={ArrowIcon}
+        clickable
+        onClick={onToggle}
+        className={cl.collapsedBtn}
+      />
 
-                <div className={cl.switchers}>
-                  <ThemeSwitcher />
-                  <LangSwitcher short={collapsed} className={cl.lang} />
-                </div>
-              </aside>
+      <div className={cl.switchers}>
+        <ThemeSwitcher />
+        <LangSwitcher short={collapsed} className={cl.lang} />
+      </div>
+    </aside>
   );
 });
