@@ -1,22 +1,7 @@
-import { classNames, Mods } from '@/shared/lib/classNames/classNames';
-import { useTranslation } from 'react-i18next';
-import { Input as InputDeprecated } from '@/shared/ui/deprecated/Input';
-import {
-  Text as TextDeprecated,
-  TextAlign,
-  TextTheme,
-} from '@/shared/ui/deprecated/Text/Text';
 import { Profile } from '../../model/types/profile';
-import { BeatLoader } from 'react-spinners';
-import { Avatar as AvatarDeprecated } from '@/shared/ui/deprecated/Avatar/Avatar';
-import { Currency, CurrencySelect } from '@/entities/Currency';
+import { Currency } from '@/entities/Currency';
 import { Country } from '@/entities/Country';
-import { CountrySelect } from '@/entities/Country';
-import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { ToggleFeatures } from '@/shared/const/features';
-import { Input } from '@/shared/ui/redesigned/Input';
-import { Card } from '@/shared/ui/redesigned/Card';
-import { Avatar } from '@/shared/ui/redesigned/Avatar';
 import {
   ProfileCardDeprecated,
   ProfileCardDeprecatedError,
@@ -52,7 +37,6 @@ export interface ProfileCardProps {
 
 export const ProfileCard = (props: ProfileCardProps) => {
   const { className, isLoading, error } = props;
-  const { t } = useTranslation('profile');
 
   if (isLoading) {
     return (

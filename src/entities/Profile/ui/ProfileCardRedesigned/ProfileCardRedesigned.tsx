@@ -8,7 +8,7 @@ import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { Card } from '@/shared/ui/redesigned/Card';
 import { Avatar } from '@/shared/ui/redesigned/Avatar';
 import { Input } from '@/shared/ui/redesigned/Input';
-import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
+import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
 import { Text } from '@/shared/ui/redesigned/Text';
 
 export const ProfileCardRedesignedError = () => {

@@ -6,7 +6,9 @@ import {
   useGetProfileRating,
   useRateProfile,
 } from '../../api/profileRatingApi';
-import { Skeleton } from '@/shared/ui/deprecated/Skeleton/Skeleton';
+import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton/Skeleton';
+import { ToggleFeatures } from '@/shared/const/features';
+import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
 import { RatingCard } from '@/entities/Rating';
 
 export interface ProfileRatingProps {
@@ -24,7 +26,6 @@ const ProfileRating = memo((props: ProfileRatingProps) => {
   });
   const [rateProfileMutation] = useRateProfile();
   const rating = data?.[0];
-  console.log(data);
 
   const handleRateProfile = useCallback(
     (starsCount: number, feedback?: string) => {
@@ -57,7 +58,13 @@ const ProfileRating = memo((props: ProfileRatingProps) => {
   );
 
   if (isLoading) {
-    return <Skeleton width={'100%'} height={120} />;
+    return (
+      <ToggleFeatures 
+      feature='isAppRedesigned'
+      off={<SkeletonDeprecated width={'100%'} height={120} />}
+      on={<Skeleton width={'100%'} height={120} />}
+      />
+    )
   }
 
   return (
