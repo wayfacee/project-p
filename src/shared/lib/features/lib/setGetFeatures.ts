@@ -1,3 +1,4 @@
+import { LOCAL_STORAGE_LAST_DESIGN_KEY } from '@/shared/const/theme';
 import { FeatureFlags } from '@/shared/types/featureFlags';
 
 // будем сохр в конст, не реактивные
@@ -13,10 +14,18 @@ import { FeatureFlags } from '@/shared/types/featureFlags';
 
 // снаружи не имеем доступа (нет эксп.), чтобы не измен. ее случ.
 // если хотим прочитать флажок то исп. спец гетер getFeatureFlag
+const defaultFeatures: FeatureFlags = {
+  // если есть какая-то тема, то проиниц:
+  // чтоб не мешало
+  isAppRedesigned:
+  localStorage.getItem(LOCAL_STORAGE_LAST_DESIGN_KEY) === 'new',
+};
 
 // ФИЧИ НЕ МЕНЯЮТСЯ В ХОДЕ СЕССИИ, ИХ НЕОБЯЗ. ДЕЛАТЬ РЕАКТИНЫМИ?
 // mb undefined:
-let featureFlags: FeatureFlags = {};
+let featureFlags: FeatureFlags = {
+  ...defaultFeatures,
+};
 
 export function setFeatureFlags(newFeatureFlags?: FeatureFlags) {
   if (newFeatureFlags) {

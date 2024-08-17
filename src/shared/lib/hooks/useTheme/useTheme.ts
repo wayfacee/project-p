@@ -1,7 +1,7 @@
 import { useContext, useEffect } from 'react';
 // можно относительным
 import { ThemeContext } from '../../context/ThemeContext';
-import { LOCAL_STORAGE_KEY, Theme } from '../../../const/theme';
+import { Theme } from '../../../const/theme';
 
 interface UseThemeResult {
   theme: Theme;
@@ -36,10 +36,6 @@ export function useTheme(): UseThemeResult {
     saveAction?.(newTheme);
   }
 
-  // вешаем класс на боди, и не надо вешать на модалки, и на апп итд.
-  useEffect(() => {
-    document.body.className = theme || Theme.LIGHT;
-  }, [theme]);
 
   return {
     theme: theme || Theme.LIGHT,

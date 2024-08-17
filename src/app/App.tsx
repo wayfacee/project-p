@@ -9,6 +9,7 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { PageLoader } from '@/widgets/PageLoader';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { MainLayout } from '@/shared/layouts/MainLayout';
+import { AppLoaderLayout } from '@/shared/layouts/AppLoaderLayout';
 
 const App = () => {
   const dispatch = useAppDispatch();
@@ -23,11 +24,24 @@ const App = () => {
 
   // будет выполянться запрос, а раньше мы получали из локал стораже мгновенно
   if (!inited) {
-    return <PageLoader />;
+    // инфа о юзере не получена, фича флаги незн. какие вкл.
+    // если перекл. тему, то данных какие темы выбр. нет
+    return (
+      <ToggleFeatures
+        feature="isAppRedesigned"
+        on={
+          // doc.body = theme
+          <div id="app" className={classNames('app_redesigned', {}, [])}>
+            <AppLoaderLayout />
+          </div>
+        }
+        off={<PageLoader />}
+      />
+    );
   }
 
   return (
-    <div id='app' className={classNames('app_redesigned', {}, [])}>
+    <div id="app" className={classNames('app_redesigned', {}, [])}>
       <Suspense fallback="">
         <MainLayout
           header={<Navbar />}

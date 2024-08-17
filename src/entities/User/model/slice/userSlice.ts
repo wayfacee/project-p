@@ -5,6 +5,7 @@ import { setFeatureFlags } from '@/shared/lib/features';
 import { saveJsonSettings } from '../services/saveJsonSettings';
 import { JsonSettings } from '../types/jsonSettings';
 import { initAuthData } from '../services/initAuthData';
+import { LOCAL_STORAGE_LAST_DESIGN_KEY } from '@/shared/const/theme';
 
 const initialState: UserSchema = {
   _inited: false,
@@ -14,9 +15,9 @@ const counterSlice = createSlice({
   name: 'users',
   initialState,
   reducers: {
-    setAuthData: (state, action: PayloadAction<User>) => {
-      state.authData = action.payload;
-      setFeatureFlags(action.payload.features);
+    setAuthData: (state, { payload }: PayloadAction<User>) => {
+      state.authData = payload;
+      setFeatureFlags(payload.features);
       // Note: Consider moving side effects like localStorage operations outside of reducers
 
       // редюсеры должны быть чистыми, в данном месте не оч корректно
@@ -24,9 +25,12 @@ const counterSlice = createSlice({
       // в конкретно данном случае ниче не произайдет
       // поскоку реальных токенов для авто. нет, делаем такие заглушки
       // помимо юзерИД был бы токен, это либо JWT token или другая схема
+
+      // по хорошему надо в асинк санке сохр.
+      localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(payload.id));
       localStorage.setItem(
-        USER_LOCALSTORAGE_KEY,
-        JSON.stringify(action.payload.id),
+        LOCAL_STORAGE_LAST_DESIGN_KEY,
+        payload.features?.isAppRedesigned ? 'new' : 'old',
       );
     },
     // initAuthData: (state) => {
