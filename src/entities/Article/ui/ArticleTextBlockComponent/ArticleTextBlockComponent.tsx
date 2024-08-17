@@ -2,7 +2,9 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import * as cl from './ArticleTextBlockComponent.module.scss';
 import { memo } from 'react';
 import { ArticleTextBlock } from '../../model/types/article';
-import { Text } from '@/shared/ui/deprecated/Text/Text';
+import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text/Text';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { Text } from '@/shared/ui/redesigned/Text';
 
 interface ArticleTextBlockComponentProps {
   className?: string;
@@ -17,11 +19,29 @@ export const ArticleTextBlockComponent = memo(
       <div
         className={classNames(cl.ArticleTextBlockComponent, {}, [className])}
       >
-        {block.title && <Text title={block.title} className={cl.title} />}
+        {block.title && (
+          <ToggleFeatures
+            feature="isAppRedesigned"
+            on={<Text title={block.title} className={cl.title} />}
+            off={<TextDeprecated title={block.title} className={cl.title} />}
+          />
+        )}
 
         {/* тк параграфы не будут меняться */}
         {block.paragraphs.map((paragraph) => (
-          <Text key={paragraph} text={paragraph} className={cl.paragraph} />
+          <ToggleFeatures
+            feature="isAppRedesigned"
+            on={
+              <Text key={paragraph} text={paragraph} className={cl.paragraph} />
+            }
+            off={
+              <TextDeprecated
+                key={paragraph}
+                text={paragraph}
+                className={cl.paragraph}
+              />
+            }
+          />
         ))}
       </div>
     );

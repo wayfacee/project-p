@@ -1,9 +1,10 @@
 import type { Meta, StoryFn } from '@storybook/react';
 import { ArticleDetails } from './ArticleDetails';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
-import { Article } from '../../model/types/article';
+import { Article } from '../../../model/types/article';
 import { ArticleType } from '@/entities/Article';
 import { ArticleBlockType } from '@/entities/Article';
+import { Theme } from '@/shared/const/theme';
 
 export default {
   title: 'entities/Article/ArticleDetails',
@@ -26,6 +27,11 @@ const article: Article = {
   user: {
     id: '1',
     username: 'ulbi tv',
+    jsonSettings: {
+      isArticlesPageWasOpened: true,
+      isFirstVisit: false,
+      theme: Theme.VIOLET,
+    }
   },
   blocks: [
     {

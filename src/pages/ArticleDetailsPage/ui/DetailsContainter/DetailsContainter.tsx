@@ -1,6 +1,5 @@
 // обертка над артиклДетайлс
 
-import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
 import { Card } from '@/shared/ui/redesigned/Card';
 import { ArticleDetails } from '@/entities/Article';
