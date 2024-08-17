@@ -48,19 +48,20 @@ export const ArticlesFilters = memo((props: ArticlesFiltersProps) => {
         <Input
           placeholder={t('Поиск')}
           value={search}
+          size="s"
           onChange={onChangeSearch}
-          addontLeft={<Icon Svg={SearchIcon} />}
+          addonLeft={<Icon Svg={SearchIcon} />}
+        />
+        <ArticleTypeTabs
+          value={type}
+          onChangeType={onChangeType}
+          className={cl.tabs}
         />
         <ArticleSortSelector
           order={order}
           sort={sort}
           onChangeOrder={onChangeOrder}
           onChangeSort={onChangeSort}
-        />
-        <ArticleTypeTabs
-          value={type}
-          onChangeType={onChangeType}
-          className={cl.tabs}
         />
       </VStack>
     </Card>

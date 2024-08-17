@@ -11,7 +11,7 @@ export type FlexJustify = 'start' | 'center' | 'end' | 'between';
 export type FlexAlign = 'start' | 'center' | 'end';
 export type FlexDirection = 'row' | 'column';
 // это опред. дизайнер, а мы переносим в код из дизайна
-export type FlexGap = '4' | '8' | '16' | '32';
+export type FlexGap = '4' | '8' | '16' | '24' | '32';
 
 const justifyClasses: Record<FlexJustify, string> = {
   start: cl.justifyStart,
@@ -35,6 +35,7 @@ const gapClasses: Record<FlexGap, string> = {
   4: cl.gap4,
   8: cl.gap8,
   16: cl.gap16,
+  24: cl.gap24,
   32: cl.gap32,
 };
 

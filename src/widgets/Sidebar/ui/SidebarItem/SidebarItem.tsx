@@ -28,13 +28,17 @@ export const SidebarItem = ({ item, collapsed }: SidebarItemProps) => {
 
   return (
     <AppLink
-                to={item.path}
-                className={classNames(cl.itemRedesigned, { [cl.collapsedRedesigned]: collapsed }, [])}
-                activeClassName={cl.active}
-              >
-                <Icon Svg={item.Icon} />
+      to={item.path}
+      className={classNames(
+        cl.itemRedesigned,
+        { [cl.collapsedRedesigned]: collapsed },
+        [],
+      )}
+      activeClassName={cl.active}
+    >
+      <Icon Svg={item.Icon} />
 
-                <span className={cl.link}>{t(item.text)}</span>
-              </AppLink>
+      <span className={cl.link}>{t(item.text)}</span>
+    </AppLink>
   );
 };
