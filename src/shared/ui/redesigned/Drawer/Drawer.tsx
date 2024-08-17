@@ -104,10 +104,6 @@ export const DrawerContent = memo((props: DrawerProps) => {
   );
 });
 
-/**
- * Устарел, используем новые компоненты из папки redesigned
- * @deprecated
- */
 export const Drawer = memo((props: DrawerProps) => {
   const { isLoaded } = useAnimationLibs();
 

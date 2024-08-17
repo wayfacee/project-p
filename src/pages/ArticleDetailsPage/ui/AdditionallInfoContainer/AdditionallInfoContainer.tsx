@@ -15,10 +15,10 @@ export const AdditionallInfoContainer = memo(() => {
 
   if (!article) return null;
 
-  // надо было ARTICLEEDITBUTTON СОЗДАТЬ!! и исп в двух местах (артиклхедер)
+  // // надо было ARTICLEEDITBUTTON СОЗДАТЬ!! и исп в двух местах (артиклхедер)
   const onEditArticle = useCallback(() => {
     navigate(getRouteArticleEdit(article.id));
-  }, [navigate, article.id]);
+  }, [navigate, article?.id]);
 
   return (
     <Card padding="24" border="round" className={cl.card}>

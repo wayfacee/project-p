@@ -22,7 +22,7 @@ interface ArticleDetailsDeprecatedProps {
 
 export const ArticleDetailsDeprecatedLoading = () => {
   return (
-    <>
+    <VStack gap='16' max>
       <SkeletonDeprecated
         className={cl.avatar}
         width={200}
@@ -33,7 +33,7 @@ export const ArticleDetailsDeprecatedLoading = () => {
       <SkeletonDeprecated className={cl.skeleton} width={600} height={24} />
       <SkeletonDeprecated className={cl.skeleton} width="100%" height={200} />
       <SkeletonDeprecated className={cl.skeleton} width="100%" height={200} />
-    </>
+    </VStack>
   );
 };
 

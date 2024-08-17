@@ -1,18 +1,23 @@
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback, useState } from 'react';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
-import { Text } from '@/shared/ui/deprecated/Text/Text';
-import { StarRating } from '@/shared/ui/deprecated/StarRating/StarRating';
+import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text/Text';
+import { StarRating } from '@/shared/ui/redesigned/StarRating/StarRating';
 import { Modal } from '@/widgets/Modal';
 import {
-  Button,
+  Button as ButtonDeprecated,
   ButtonSize,
   ButtonTheme,
 } from '@/shared/ui/deprecated/Button/Button';
-import { Input } from '@/shared/ui/deprecated/Input';
+import { Input as InputDeprecated } from '@/shared/ui/deprecated/Input';
 import { BrowserView, MobileView } from 'react-device-detect';
 import { Drawer } from '@/shared/ui/redesigned/Drawer/Drawer';
-import { Card } from '@/shared/ui/deprecated/Card/Card';
+import { Card as CardDeprecated } from '@/shared/ui/deprecated/Card/Card';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { Input } from '@/shared/ui/redesigned/Input';
+import { Text } from '@/shared/ui/redesigned/Text';
+import { Button } from '@/shared/ui/redesigned/Button';
+import { Card } from '@/shared/ui/redesigned/Card';
 
 interface RatingCardProps {
   className?: string;
@@ -72,21 +77,46 @@ export const RatingCard = memo((props: RatingCardProps) => {
   }, [starsCount, onCancel]);
 
   const modalContent = (
-    <>
-      <Text title={feedbackTitle} />
-      <Input
-        data-testid="RatingCard.Input"
-        value={feedback}
-        placeholder={t('Ваш отзыв')}
-        onChange={setFeedback}
-      />
-    </>
+    <ToggleFeatures
+      feature="isAppRedesigned"
+      on={
+        <>
+          <Text title={feedbackTitle} />
+          <Input
+            data-testid="RatingCard.Input"
+            value={feedback}
+            placeholder={t('Ваш отзыв')}
+            onChange={setFeedback}
+          />
+        </>
+      }
+      off={
+        <>
+          <TextDeprecated title={feedbackTitle} />
+          <InputDeprecated
+            data-testid="RatingCard.Input"
+            value={feedback}
+            placeholder={t('Ваш отзыв')}
+            onChange={setFeedback}
+          />
+        </>
+      }
+    />
   );
 
-  return (
-    <Card data-testid="RatingCard" className={className} fullWidth>
+  const content = (
+    <>
       <VStack align="center" gap="8" max>
-        <Text title={starsCount ? t('Спасибо за оценку!') : title} />
+        <ToggleFeatures
+          feature="isAppRedesigned"
+          on={<Text title={starsCount ? t('Спасибо за оценку!') : title} />}
+          off={
+            <TextDeprecated
+              title={starsCount ? t('Спасибо за оценку!') : title}
+            />
+          }
+        />
+
         <StarRating
           selectedStars={starsCount}
           size={40}
@@ -99,19 +129,42 @@ export const RatingCard = memo((props: RatingCardProps) => {
           <VStack max gap="32">
             {modalContent}
 
-            <HStack max gap="16" justify="end">
-              <Button
-                data-testid="RatingCard.Close"
-                onClick={cancelHandle}
-                theme={ButtonTheme.OUTLINE_RED}
-              >
-                {t('Закрыть')}
-              </Button>
+            <ToggleFeatures
+              feature="isAppRedesigned"
+              on={
+                <HStack max gap="16" justify="end">
+                  <Button
+                    data-testid="RatingCard.Close"
+                    onClick={cancelHandle}
+                    variant="outline"
+                  >
+                    {t('Закрыть')}
+                  </Button>
 
-              <Button data-testid="RatingCard.Send" onClick={acceptHandle}>
-                {t('Отправить')}
-              </Button>
-            </HStack>
+                  <Button data-testid="RatingCard.Send" onClick={acceptHandle}>
+                    {t('Отправить')}
+                  </Button>
+                </HStack>
+              }
+              off={
+                <HStack max gap="16" justify="end">
+                  <ButtonDeprecated
+                    data-testid="RatingCard.Close"
+                    onClick={cancelHandle}
+                    theme={ButtonTheme.OUTLINE_RED}
+                  >
+                    {t('Закрыть')}
+                  </ButtonDeprecated>
+
+                  <ButtonDeprecated
+                    data-testid="RatingCard.Send"
+                    onClick={acceptHandle}
+                  >
+                    {t('Отправить')}
+                  </ButtonDeprecated>
+                </HStack>
+              }
+            />
           </VStack>
         </Modal>
       </BrowserView>
@@ -120,13 +173,46 @@ export const RatingCard = memo((props: RatingCardProps) => {
         <Drawer isOpen={isModalOpen} lazy onClose={cancelHandle}>
           <VStack>
             {modalContent}
-
-            <Button onClick={acceptHandle} size={ButtonSize.L} fullWidth>
-              {t('Отправить')}
-            </Button>
+            <ToggleFeatures
+              feature="isAppRedesigned"
+              on={
+                <Button onClick={acceptHandle} size="l" fullWidth>
+                  {t('Отправить')}
+                </Button>
+              }
+              off={
+                <ButtonDeprecated
+                  onClick={acceptHandle}
+                  size={ButtonSize.L}
+                  fullWidth
+                >
+                  {t('Отправить')}
+                </ButtonDeprecated>
+              }
+            />
           </VStack>
         </Drawer>
       </MobileView>
-    </Card>
+    </>
+  );
+
+  return (
+    <ToggleFeatures
+      feature="isAppRedesigned"
+      on={
+        <Card max padding="24" border="round">
+          {content}
+        </Card>
+      }
+      off={
+        <CardDeprecated
+          data-testid="RatingCard"
+          className={className}
+          fullWidth
+        >
+          {content}
+        </CardDeprecated>
+      }
+    />
   );
 });

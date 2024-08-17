@@ -21,8 +21,16 @@ import {
 import { Skeleton } from '@/shared/ui/deprecated/Skeleton/Skeleton';
 import { VStack } from '@/shared/ui/redesigned/Stack';
 import { ToggleFeatures } from '@/shared/lib/features';
-import { ArticleDetailsDeprecated, ArticleDetailsDeprecatedError, ArticleDetailsDeprecatedLoading } from '../ArticleDetailsDeprecated/ArticleDetailsDeprecated';
-import { ArticleDetailsRedesigned } from '../ArticleDetailsRedesigned/ArticleDetailsRedesigned';
+import {
+  ArticleDetailsDeprecated,
+  ArticleDetailsDeprecatedError,
+  ArticleDetailsDeprecatedLoading,
+} from '../ArticleDetailsDeprecated/ArticleDetailsDeprecated';
+import {
+  ArticleDetailsRedesigned,
+  ArticleDetailsRedesignedError,
+  ArticleDetailsRedesignedLoading,
+} from '../ArticleDetailsRedesigned/ArticleDetailsRedesigned';
 
 interface ArticleDetailsProps {
   className?: string;
@@ -51,9 +59,21 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
   // из динамик модуль лоадер:
   let content;
   if (isLoading) {
-    content = <ArticleDetailsDeprecatedLoading />;
+    content = (
+      <ToggleFeatures
+        feature="isAppRedesigned"
+        on={<ArticleDetailsRedesignedLoading />}
+        off={<ArticleDetailsDeprecatedLoading />}
+      />
+    );
   } else if (error) {
-    content = <ArticleDetailsDeprecatedError />;
+    content = (
+      <ToggleFeatures
+        feature="isAppRedesigned"
+        on={<ArticleDetailsRedesignedError />}
+        off={<ArticleDetailsDeprecatedError />}
+      />
+    );
   } else {
     content = (
       <ToggleFeatures

@@ -1,7 +1,7 @@
 .Button {
   cursor: pointer;
   color: var(--text-redesigned);
-  padding: 8px 15px;
+  padding: 6px 15px;
   display: flex;
   align-items: center;
 
@@ -38,11 +38,11 @@
 
 .outline {
   background: none;
-  border: 1px solid var(--item-redesigned);
+  border: 2px solid var(--item-redesigned);
   border-radius: 34px;
 
   &:hover {
-    border: 1px solid var(--accent-redesigned);
+    border: 2px solid var(--accent-redesigned);
   }
 }
 

@@ -1,0 +1,22 @@
+.StartRating {
+  
+  .hovered {
+    fill: var(--primary-color);
+  }
+}
+
+.StartRatingRedesigned {
+  .hovered {
+    fill: var(--icon-redesigned);
+  }
+}
+
+.starIcon {
+  fill: none;
+  stroke: var(--primary-color);
+  cursor: pointer;
+}
+
+.selected {
+  cursor: auto;
+}

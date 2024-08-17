@@ -12,7 +12,7 @@ interface ArticleAdditionalInfoProps {
   author: User;
   createdAt: string;
   views: number;
-  onEdit: () => void;
+  onEdit?: () => void;
 }
 
 // не обороч. на кард, чтобы был переисп
