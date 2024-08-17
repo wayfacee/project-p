@@ -16,10 +16,12 @@ const App = () => {
   const inited = useSelector(getUserInited);
 
   useEffect(() => {
-    // app router renderится раньше чем мы иниц. данные о юзере,
-    // можно было весь комп. не рендер. пока данные о юзере не будут
-    dispatch(initAuthData());
-  }, [dispatch]);
+    if (!inited) {
+      // app router renderится раньше чем мы иниц. данные о юзере,
+      // можно было весь комп. не рендер. пока данные о юзере не будут
+      dispatch(initAuthData());
+    }
+  }, [dispatch, inited]);
 
   // будет выполянться запрос, а раньше мы получали из локал стораже мгновенно
   if (!inited) {

@@ -28,6 +28,7 @@ import { Text } from '@/shared/ui/redesigned/Text';
 import { Input } from '@/shared/ui/redesigned/Input';
 import { Button } from '@/shared/ui/redesigned/Button';
 import { VStack } from '@/shared/ui/redesigned/Stack';
+import { useForceUpdate } from '@/shared/lib/render/forceUpdate';
 
 export interface LoginFormProps {
   className?: string;
@@ -47,6 +48,7 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
   const password = useSelector(getLoginPassword);
   const isLoading = useSelector(getLoginIsLoading);
   const error = useSelector(getLoginError);
+  const forceUpdate = useForceUpdate();
 
   const onChangeUsername = useCallback(
     (value: string) => {
@@ -64,7 +66,10 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
 
   const onLoginClick = useCallback(async () => {
     const result = await dispatch(loginByUsername({ username, password }));
-    result.meta.requestStatus === 'fulfilled' && onSuccess?.();
+    if (result.meta.requestStatus === 'fulfilled') {
+      onSuccess?.();
+      forceUpdate();
+    }
   }, [onSuccess, dispatch, password, username]);
 
   return (
@@ -72,31 +77,34 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
       <ToggleFeatures
         feature="isAppRedesigned"
         on={
-            <VStack gap="16" className={classNames(cl.LoginForm, {}, [className])}>
-              <Text title={t('Форма авторизации')} />
-              {error && (
-                <Text
-                  text={t('Вы ввели неверный логин или пароль')}
-                  variant="error"
-                />
-              )}
+          <VStack
+            gap="16"
+            className={classNames(cl.LoginForm, {}, [className])}
+          >
+            <Text title={t('Форма авторизации')} />
+            {error && (
+              <Text
+                text={t('Вы ввели неверный логин или пароль')}
+                variant="error"
+              />
+            )}
 
-              <Input
-                autoFocus
-                type="text"
-                className={cl.input}
-                placeholder={t('Введите username')}
-                onChange={onChangeUsername}
-                value={username}
-              />
-              <Input
-                type="text"
-                className={cl.input}
-                placeholder={t('Введите пароль')}
-                onChange={onChangePassword}
-                value={password}
-              />
-            
+            <Input
+              autoFocus
+              type="text"
+              className={cl.input}
+              placeholder={t('Введите username')}
+              onChange={onChangeUsername}
+              value={username}
+            />
+            <Input
+              type="text"
+              className={cl.input}
+              placeholder={t('Введите пароль')}
+              onChange={onChangePassword}
+              value={password}
+            />
+
             <Button
               variant="outline"
               className={cl.loginBtn}
@@ -105,7 +113,7 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
             >
               {t('Войти')}
             </Button>
-            </VStack>
+          </VStack>
         }
         off={
           <div className={classNames(cl.LoginForm, {}, [className])}>

@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from '@/app/providers/StoreProvider';
 import { FeatureFlags } from '@/shared/types/featureFlags';
 import { updateFeatureFlagsMutation } from '../api/featureFlagsApi';
-import { getAllFeatureFlags } from '../lib/setGetFeatures';
+import { getAllFeatureFlags, setFeatureFlags } from '../lib/setGetFeatures';
 
 interface UpdateFeatureFlagOptions {
   userId: string;
@@ -16,14 +16,16 @@ export const updateFeatureFlag = createAsyncThunk<
 >('user/saveJsonSettings', async ({ userId, newFeatures }, thunkApi) => {
   const { rejectWithValue, dispatch } = thunkApi;
 
+  const allFeatures = {
+    ...getAllFeatureFlags(),
+    ...newFeatures,
+  };
+
   try {
-    await dispatch (
+    await dispatch(
       updateFeatureFlagsMutation({
         userId,
-        features: {
-          ...getAllFeatureFlags(),
-          ...newFeatures,
-        },
+        features: allFeatures,
       }),
     );
 
@@ -32,7 +34,13 @@ export const updateFeatureFlag = createAsyncThunk<
     // по скоку обыч. константа
     // это норм практика, пошта в большинств. проектов фича флаги
     // в рамках 1 - сессии не меняются
-    window.location.reload();
+
+    // но лучше надо было оставить:
+    // window.location.reload();
+
+    // обноваляем перем.
+    // app тоже перерендер., поэтому условие inited
+    setFeatureFlags(allFeatures);
     return undefined;
   } catch (e) {
     console.log(e);
