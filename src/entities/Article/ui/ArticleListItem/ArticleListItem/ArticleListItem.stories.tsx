@@ -1,6 +1,6 @@
 import type { Meta, StoryFn } from '@storybook/react';
 import { ArticleListItem } from './ArticleListItem';
-import { Article } from '../../model/types/article';
+import { Article } from '../../../model/types/article';
 import { ArticleView } from '@/entities/Article';
 
 export default {

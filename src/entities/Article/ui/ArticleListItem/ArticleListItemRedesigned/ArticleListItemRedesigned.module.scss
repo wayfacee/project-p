@@ -1,0 +1,22 @@
+.BIG {
+  .img {
+    width: 100%;
+    max-height: 420px;
+    object-fit: cover; // contain - полностью пропорц. сохр.
+    // просто изоб. уменьшается/увел. под пропроц.
+    // cover - пропорц. сохр., лишнее вырез
+  }
+
+  .textBlock {
+    height: 72px; // высота 1 строки - 24 (* 3 строки)
+    overflow: hidden;
+  }
+}
+
+// .SMALL {
+//   .img {
+//     width: 200px;
+//     height: 420px;
+//     object-fit: cover;
+//   }
+// }

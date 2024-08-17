@@ -1,29 +1,23 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
-import * as cl from './ArticleListItem.module.scss';
+import * as cl from '../ArticleListItem/ArticleListItem.module.scss';
 import { useTranslation } from 'react-i18next';
-import { HTMLAttributeAnchorTarget, memo } from 'react';
-import { Article, ArticleTextBlock } from '../../model/types/article';
-import { Text } from '@/shared/ui/deprecated/Text/Text';
-import { Icon } from '@/shared/ui/deprecated/Icon/Icon';
-import EyeIcon from '@/shared/assets/icons/eye.svg';
-import { Card } from '@/shared/ui/deprecated/Card/Card';
-import { Avatar } from '@/shared/ui/deprecated/Avatar/Avatar';
-import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button/Button';
-import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
-import { getRouteArticleDetails } from '@/shared/const/router';
-import { AppLink } from '@/shared/ui/deprecated/AppLink/AppLink';
+import { memo } from 'react';
+import { ArticleListItemProps } from '../ArticleListItem/ArticleListItem';
+import { Text } from '@/shared/ui/deprecated/Text';
+import { Icon } from '@/shared/ui/deprecated/Icon';
+import { ArticleBlockType, ArticleView } from '../../../model/consts/consts';
+import { ArticleTextBlock } from '../../../model/types/article';
+import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
+import { Card } from '@/shared/ui/deprecated/Card';
 import { AppImage } from '@/shared/ui/redesigned/AppImage';
-import { Skeleton } from '@/shared/ui/deprecated/Skeleton/Skeleton';
-import { ArticleBlockType, ArticleView } from '../../model/consts/consts';
+import { ArticleTextBlockComponent } from '../../ArticleTextBlockComponent/ArticleTextBlockComponent';
+import { AppLink } from '@/shared/ui/deprecated/AppLink';
+import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
+import { getRouteArticleDetails } from '@/shared/const/router';
+import { Avatar } from '@/shared/ui/deprecated/Avatar';
+import EyeIcon from '@/shared/assets/icons/eyeD.svg';
 
-interface ArticleListItemProps {
-  className?: string;
-  article: Article;
-  view: ArticleView;
-  target?: HTMLAttributeAnchorTarget;
-}
-
-export const ArticleListItem = memo((props: ArticleListItemProps) => {
+export const ArticleListItemDeprecated = memo((props: ArticleListItemProps) => {
   const { className, article, view, target } = props;
   const { t } = useTranslation();
 
