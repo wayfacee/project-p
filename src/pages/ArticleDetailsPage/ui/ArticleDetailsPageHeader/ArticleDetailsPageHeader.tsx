@@ -25,11 +25,11 @@ export const ArticleDetailsPageHeader = memo(
       navigate(getRouteArticles());
     }, [navigate]);
 
+    if (!article) return null;
+
     const onEditArticle = useCallback(() => {
-      // eslint-disable-next-line
-      // @ts-ignore
-      navigate(getRouteArticleEdit(article?.id));
-    }, [navigate, article?.id]);
+      navigate(getRouteArticleEdit(article.id));
+    }, [navigate, article.id]);
 
     return (
       <HStack max justify="between" className={classNames('', {}, [className])}>
