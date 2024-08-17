@@ -1,6 +1,6 @@
 import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { Article } from '../../../model/types/article';
-import { ArticleView } from '../../../model/consts/consts';
+import { ArticleView } from '../../../model/consts/articleConsts';
 import { ToggleFeatures } from '@/shared/const/features';
 import { ArticleListItemDeprecated } from '../ArticleListItemDeprecated/ArticleListItemDeprecated';
 import { ArticleListItemRedesigned } from '../ArticleListItemRedesigned/ArticleListItemRedesigned';

@@ -6,7 +6,9 @@ import { ArticleListItem } from '../ArticleListItem/ArticleListItem/ArticleListI
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItem/ArticleListItemSkeleton';
 import { Text, TextSize } from '@/shared/ui/deprecated/Text/Text';
 import { useTranslation } from 'react-i18next';
-import { ArticleView } from '../../model/consts/consts';
+import { ArticleView } from '../../model/consts/articleConsts';
+import { ToggleFeatures } from '@/shared/const/features';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 
 interface ArticleListProps {
   className?: string;
@@ -50,21 +52,46 @@ export const ArticleList = memo((props: ArticleListProps) => {
   }
 
   return (
-    <div
-      data-testid="ArticleList"
-      className={classNames(cl.ArticleList, {}, [className, cl[view]])}
-    >
-      {articles.map((item) => (
-        <ArticleListItem
-          article={item}
-          view={view}
-          target={target}
-          key={item.id}
-          className={cl.card}
-        />
-      ))}
+    <ToggleFeatures
+      feature="isAppRedesigned"
+      on={
+        <HStack
+          wrap="wrap"
+          gap="16"
+          data-testid="ArticleList"
+          className={classNames(cl.ArticleListRedesigned, {}, [])}
+        >
+          {articles.map((item) => (
+            <ArticleListItem
+              article={item}
+              view={view}
+              target={target}
+              key={item.id}
+              className={cl.card}
+            />
+          ))}
 
-      {isLoading && getSkeletons(view)}
-    </div>
+          {isLoading && getSkeletons(view)}
+        </HStack>
+      }
+      off={
+        <div
+          data-testid="ArticleList"
+          className={classNames(cl.ArticleList, {}, [className, cl[view]])}
+        >
+          {articles.map((item) => (
+            <ArticleListItem
+              article={item}
+              view={view}
+              target={target}
+              key={item.id}
+              className={cl.card}
+            />
+          ))}
+
+          {isLoading && getSkeletons(view)}
+        </div>
+      }
+    />
   );
 });

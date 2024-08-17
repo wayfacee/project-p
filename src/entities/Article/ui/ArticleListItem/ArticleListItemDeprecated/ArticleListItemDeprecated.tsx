@@ -5,7 +5,10 @@ import { memo } from 'react';
 import { ArticleListItemProps } from '../ArticleListItem/ArticleListItem';
 import { Text } from '@/shared/ui/deprecated/Text';
 import { Icon } from '@/shared/ui/deprecated/Icon';
-import { ArticleBlockType, ArticleView } from '../../../model/consts/consts';
+import {
+  ArticleBlockType,
+  ArticleView,
+} from '../../../model/consts/articleConsts';
 import { ArticleTextBlock } from '../../../model/types/article';
 import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
 import { Card } from '@/shared/ui/deprecated/Card';

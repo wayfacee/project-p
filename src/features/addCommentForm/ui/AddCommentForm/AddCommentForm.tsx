@@ -2,7 +2,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import * as cl from './AddCommentForm.module.scss';
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
-import { Input } from '@/shared/ui/Input/Input';
+import { Input } from '@/shared/ui/deprecated/Input';
 import { Button } from '@/shared/ui/deprecated/Button/Button';
 import { useSelector } from 'react-redux';
 import {

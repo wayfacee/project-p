@@ -5,7 +5,7 @@ export {
   ArticleSortField,
   ArticleType,
   ArticleBlockType,
-} from './model/consts/consts';
+} from './model/consts/articleConsts';
 export { ArticleList } from './ui/ArticleList/ArticleList';
 export { ArticleDetails } from './ui/ArticleDetails/ArticleDetails';
 

@@ -10,6 +10,7 @@ import { DetailedHTMLProps, HTMLAttributes, ReactNode } from 'react';
 export type FlexJustify = 'start' | 'center' | 'end' | 'between';
 export type FlexAlign = 'start' | 'center' | 'end';
 export type FlexDirection = 'row' | 'column';
+export type FlexWrap = 'nowrap' | 'wrap';
 // это опред. дизайнер, а мы переносим в код из дизайна
 export type FlexGap = '4' | '8' | '16' | '24' | '32';
 
@@ -53,6 +54,7 @@ export interface FlexProps extends DivProps {
   align?: FlexAlign;
   direction: FlexDirection;
   gap?: FlexGap;
+  wrap?: FlexWrap;
   max?: boolean;
 }
 
@@ -64,6 +66,7 @@ export const Flex = (props: FlexProps) => {
     align = 'center',
     direction = 'row',
     gap,
+    wrap = 'nowrap',
     max,
     ...otherProps
   } = props;
@@ -74,6 +77,7 @@ export const Flex = (props: FlexProps) => {
     alignClasses[align],
     directionClasses[direction],
     gap && gapClasses[gap],
+    cl[wrap],
   ];
 
   const mods: Mods = {
