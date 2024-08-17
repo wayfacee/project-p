@@ -15,7 +15,7 @@ import { VStack } from '@/shared/ui/redesigned/Stack';
 import { ArticleRecommendationList } from '@/features/articleRecommendationList';
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
 import { ArticleRating } from '@/features/articleRating';
-import { ToggleFeatures } from '@/shared/const/features';
+import { ToggleFeatures } from '@/shared/lib/features';
 import { Card } from '@/shared/ui/deprecated/Card';
 
 interface ArticleDetailsPageProps {

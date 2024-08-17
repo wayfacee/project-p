@@ -8,7 +8,7 @@ import { memo, useCallback } from 'react';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { saveJsonSettings } from '@/entities/User';
 import { Icon as IconDeprecated } from '@/shared/ui/deprecated/Icon';
-import { ToggleFeatures } from '@/shared/const/features';
+import { ToggleFeatures } from '@/shared/lib/features';
 import { Icon } from '@/shared/ui/redesigned/Icon';
 
 interface ThemeSwitcherProps {
@@ -25,7 +25,5 @@ export const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {
     });
   }, [toggleTheme, dispatch]);
 
-  return (
-    <Icon Svg={ThemeIcon} clickable onClick={onToggleHandler} />
-  );
+  return <Icon Svg={ThemeIcon} clickable onClick={onToggleHandler} />;
 });

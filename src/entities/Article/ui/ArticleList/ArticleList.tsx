@@ -7,7 +7,7 @@ import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItem/Arti
 import { Text, TextSize } from '@/shared/ui/deprecated/Text/Text';
 import { useTranslation } from 'react-i18next';
 import { ArticleView } from '../../model/consts/articleConsts';
-import { ToggleFeatures } from '@/shared/const/features';
+import { ToggleFeatures } from '@/shared/lib/features';
 import { HStack } from '@/shared/ui/redesigned/Stack';
 
 interface ArticleListProps {

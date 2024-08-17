@@ -12,7 +12,7 @@ import {
   ButtonTheme,
 } from '@/shared/ui/deprecated/Button/Button';
 import { Icon as IconDeprecated } from '@/shared/ui/deprecated/Icon/Icon';
-import { ToggleFeatures, toggleFeatures } from '@/shared/const/features';
+import { ToggleFeatures, toggleFeatures } from '@/shared/lib/features';
 import { Icon } from '@/shared/ui/redesigned/Icon';
 import { Card } from '@/shared/ui/redesigned/Card';
 import { HStack } from '@/shared/ui/redesigned/Stack';

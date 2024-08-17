@@ -7,7 +7,7 @@ import {
   useRateProfile,
 } from '../../api/profileRatingApi';
 import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton/Skeleton';
-import { ToggleFeatures } from '@/shared/const/features';
+import { ToggleFeatures } from '@/shared/lib/features';
 import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
 import { RatingCard } from '@/entities/Rating';
 
@@ -59,12 +59,12 @@ const ProfileRating = memo((props: ProfileRatingProps) => {
 
   if (isLoading) {
     return (
-      <ToggleFeatures 
-      feature='isAppRedesigned'
-      off={<SkeletonDeprecated width={'100%'} height={120} />}
-      on={<Skeleton width={'100%'} height={120} />}
+      <ToggleFeatures
+        feature="isAppRedesigned"
+        off={<SkeletonDeprecated width={'100%'} height={120} />}
+        on={<Skeleton width={'100%'} height={120} />}
       />
-    )
+    );
   }
 
   return (

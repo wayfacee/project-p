@@ -6,7 +6,7 @@ import { Card as CardDeprecated } from '@/shared/ui/deprecated/Card/Card';
 import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton/Skeleton';
 import { Card as CardRedesigned } from '@/shared/ui/redesigned/Card';
 import { Skeleton as SkeletonRedesigned } from '@/shared/ui/redesigned/Skeleton';
-import { toggleFeatures } from '@/shared/const/features';
+import { toggleFeatures } from '@/shared/lib/features';
 
 interface ArticleListItemSkeletonProps {
   className?: string;

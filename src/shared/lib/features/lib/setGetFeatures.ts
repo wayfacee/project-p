@@ -32,6 +32,14 @@ export function getFeatureFlag(flag: keyof FeatureFlags) {
     throw new Error('Feature flags have not been initialized');
   }
 
-  // mb undefined:
+  // mb undefined: (?.)
   return featureFlags[flag];
+}
+
+export function getAllFeatureFlags() {
+  if (featureFlags === undefined) {
+    throw new Error('Feature flags have not been initialized');
+  }
+
+  return featureFlags;
 }

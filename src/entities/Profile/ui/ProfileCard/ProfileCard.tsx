@@ -1,7 +1,7 @@
 import { Profile } from '../../model/types/profile';
 import { Currency } from '@/entities/Currency';
 import { Country } from '@/entities/Country';
-import { ToggleFeatures } from '@/shared/const/features';
+import { ToggleFeatures } from '@/shared/lib/features';
 import {
   ProfileCardDeprecated,
   ProfileCardDeprecatedError,

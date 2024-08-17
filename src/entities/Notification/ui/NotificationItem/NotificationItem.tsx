@@ -8,7 +8,7 @@ import {
 } from '@/shared/ui/deprecated/Card/Card';
 import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text/Text';
 import { AppLink } from '@/shared/ui/deprecated/AppLink';
-import { ToggleFeatures } from '@/shared/const/features';
+import { ToggleFeatures } from '@/shared/lib/features';
 import { Card } from '@/shared/ui/redesigned/Card';
 import { Text } from '@/shared/ui/redesigned/Text';
 

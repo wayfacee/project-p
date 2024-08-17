@@ -5,7 +5,7 @@ import {
 } from '@/shared/ui/deprecated/Button/Button';
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
-import { ToggleFeatures } from '@/shared/const/features';
+import { ToggleFeatures } from '@/shared/lib/features';
 import { Button } from '@/shared/ui/redesigned/Button';
 
 interface LangSwitcherProps {
@@ -24,7 +24,7 @@ export const LangSwitcher = memo(({ className, short }: LangSwitcherProps) => {
   // тут можно не делать декомп., а в сайдар итд надо
   return (
     <Button variant="clear" onClick={toggle}>
-                {t(short ? 'Короткий язык' : 'Язык')}
-              </Button>
+      {t(short ? 'Короткий язык' : 'Язык')}
+    </Button>
   );
 });

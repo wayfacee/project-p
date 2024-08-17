@@ -16,7 +16,7 @@ import MainIcon from '@/shared/assets/icons/home.svg';
 import ArticleIcon from '@/shared/assets/icons/article.svg';
 import AboutIcon from '@/shared/assets/icons/Info.svg';
 import ProfileIcon from '@/shared/assets/icons/avatar.svg';
-import { toggleFeatures } from '@/shared/const/features';
+import { toggleFeatures } from '@/shared/lib/features';
 
 // вытащить необход. данные из стейта,
 // и сформировать массив айтемов

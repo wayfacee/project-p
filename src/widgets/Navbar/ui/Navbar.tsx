@@ -12,7 +12,7 @@ import { HStack } from '@/shared/ui/redesigned/Stack';
 import { NotificationButton } from '@/features/notificationButton';
 import { AvatarDropdown } from '@/features/avatarDropdown';
 import { getRouteArticleCreate } from '@/shared/const/router';
-import { ToggleFeatures } from '@/shared/const/features';
+import { ToggleFeatures } from '@/shared/lib/features';
 
 interface NavbarProps {
   className?: string;
@@ -34,12 +34,12 @@ export const Navbar = memo(({ className }: NavbarProps) => {
   if (authData) {
     return (
       <header className={classNames(cl.NavbarRedesigned, {}, [className])}>
-                    <HStack className={cl.actions} gap="16">
-                      <NotificationButton />
+        <HStack className={cl.actions} gap="16">
+          <NotificationButton />
 
-                      <AvatarDropdown />
-                    </HStack>
-                  </header>
+          <AvatarDropdown />
+        </HStack>
+      </header>
     );
   }
 

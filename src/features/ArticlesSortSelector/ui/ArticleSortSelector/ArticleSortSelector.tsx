@@ -7,7 +7,7 @@ import { memo, useMemo } from 'react';
 import { Select, SelectOption } from '@/shared/ui/deprecated/Select/Select';
 import { SortOrder } from '@/shared/types/sort';
 import { ArticleSortField } from '@/entities/Article';
-import { ToggleFeatures } from '@/shared/const/features';
+import { ToggleFeatures } from '@/shared/lib/features';
 import { ListBox } from '@/shared/ui/redesigned/Popups';
 import { VStack } from '@/shared/ui/redesigned/Stack';
 import { Text } from '@/shared/ui/redesigned/Text';
@@ -69,7 +69,11 @@ export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
     <ToggleFeatures
       feature="isAppRedesigned"
       on={
-        <div className={classNames(cl.ArticleSortSelectorRedesigned, {}, [className])}>
+        <div
+          className={classNames(cl.ArticleSortSelectorRedesigned, {}, [
+            className,
+          ])}
+        >
           <Text text={t('Сортировать по:')} />
           <VStack gap="8">
             <ListBox
@@ -86,7 +90,7 @@ export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
         </div>
       }
       off={
-        <div className={classNames(cl.ArticleSortSelector , {}, [className])}>
+        <div className={classNames(cl.ArticleSortSelector, {}, [className])}>
           <Select<ArticleSortField> // если хотим явно указать генерик
             options={sortFieldOptions}
             label={t('Сортировать ПО')}

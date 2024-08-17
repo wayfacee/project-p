@@ -10,7 +10,7 @@ import { useSelector } from 'react-redux';
 import { StateSchema } from '@/app/providers/StoreProvider';
 import { useThrottle } from '@/shared/lib/hooks/useThrottle/useThrottle';
 import { TestProps } from '@/shared/types/tests';
-import { toggleFeatures } from '@/shared/const/features';
+import { toggleFeatures } from '@/shared/lib/features';
 
 interface PageProps extends TestProps {
   className?: string;
@@ -39,7 +39,7 @@ export const Page = memo((props: PageProps) => {
     triggerRef,
     wrapperRef: toggleFeatures({
       name: 'isAppRedesigned',
-      on: () => null,
+      on: () => undefined,
       off: () => wrapperRef,
     }),
     callback: onScrollEnd,

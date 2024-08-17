@@ -9,7 +9,7 @@ import {
   Tabs as TabsDeprecated,
 } from '@/shared/ui/deprecated/Tabs/Tabs';
 import { ArticleType } from '@/entities/Article';
-import { ToggleFeatures } from '@/shared/const/features';
+import { ToggleFeatures } from '@/shared/lib/features';
 import { Tabs } from '@/shared/ui/redesigned/Tabs';
 
 interface ArticleTypeTabsProps {
