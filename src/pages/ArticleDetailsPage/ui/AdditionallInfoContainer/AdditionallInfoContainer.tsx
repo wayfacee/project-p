@@ -11,20 +11,20 @@ import { getRouteArticleEdit } from '@/shared/const/router';
 // мб надо будет прокидывать данные, чтоб стр была макс. тонкой
 export const AdditionallInfoContainer = memo(() => {
   const article = useSelector(getArticleDetailsData);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   if (!article) return null;
 
-  // // надо было ARTICLEEDITBUTTON СОЗДАТЬ!! и исп в двух местах (артиклхедер)
-  const onEditArticle = useCallback(() => {
-    navigate(getRouteArticleEdit(article.id));
-  }, [navigate, article?.id]);
+  // надо было ARTICLEEDITBUTTON СОЗДАТЬ!! и исп в двух местах (артиклхедер)
+  // const onEditArticle = useCallback(() => {
+  //   navigate(getRouteArticleEdit(article.id));
+  // }, [navigate, article?.id]);
 
   return (
-    <Card padding="24" border="round" className={cl.card}>
+    <Card padding="24" border="partial" className={cl.card}>
       {/** внутри не обороч. на кард, чтобы был переисп */}
       <ArticleAdditionalInfo
-        onEdit={onEditArticle}
+        // onEdit={onEditArticle}
         author={article.user}
         createdAt={article.createdAt}
         views={article.views}

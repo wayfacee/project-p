@@ -6,6 +6,7 @@ import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { Avatar } from '@/shared/ui/redesigned/Avatar';
 import { Text } from '@/shared/ui/redesigned/Text';
 import { Button } from '@/shared/ui/redesigned/Button';
+import { ArticleEditButton } from '@/features/ArticleEditButton';
 
 interface ArticleAdditionalInfoProps {
   className?: string;
@@ -30,7 +31,7 @@ export const ArticleAdditionalInfo = memo(
           <Text text={createdAt} />
         </HStack>
         {/** ArticleEditButton - можно было создать такую фичу */}
-        <Button onClick={onEdit}>{t('Редактировать')}</Button>
+        <ArticleEditButton />
         <Text text={t('{{count}} просмотров', {count: views})} />
       </VStack>
     );
