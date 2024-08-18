@@ -3,12 +3,12 @@ import * as commonCl from '../ArticleDetails/ArticleDetails.module.scss';
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
 import { useSelector } from 'react-redux';
-import { getArticleDetailsData } from '@/entities/Article/model/selectors/articleDetails';
 import { Text } from '@/shared/ui/redesigned/Text';
 import { renderArticleBlock } from '../ArticleDetails/renderArticleBlock';
 import { AppImage } from '@/shared/ui/redesigned/AppImage';
 import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
 import { VStack } from '@/shared/ui/redesigned/Stack';
+import { getArticleDetailsData } from '@/entities/Article/model/selectors/articleDetails';
 
 interface ArticleDetailsRedesignedProps {
   className?: string;

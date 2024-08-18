@@ -3,6 +3,9 @@ import { ProfileCard } from './ProfileCard';
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
 import AvatarImg from '@/shared/assets/tests/AvatarImg.jpg';
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Theme } from '@/shared/const/theme';
 
 export default {
   title: 'entities/ProfileCard',
@@ -20,8 +23,7 @@ const Template: StoryFn<typeof ProfileCard> = (args) => (
   <ProfileCard {...args} />
 );
 
-export const Primary = Template.bind({});
-Primary.args = {
+const primaryArgs = {
   data: {
     username: 'admin',
     age: 22,
@@ -33,6 +35,13 @@ Primary.args = {
     avatar: AvatarImg,
   },
 };
+
+export const Primary = Template.bind({});
+Primary.args = primaryArgs;
+
+export const PrimaryRedesigned = Template.bind({});
+PrimaryRedesigned.args = primaryArgs;
+PrimaryRedesigned.decorators = [NewDesignDecorator, ThemeDecorator(Theme.DARK)];
 
 export const withError = Template.bind({});
 withError.args = {

@@ -1,7 +1,6 @@
 import * as cl from '../ArticleDetails/ArticleDetails.module.scss';
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
-import { getArticleDetailsData } from '@/entities/Article/model/selectors/articleDetails';
 import { useSelector } from 'react-redux';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import {
@@ -15,6 +14,7 @@ import EyeIcon from '@/shared/assets/icons/eyeD.svg';
 import { renderArticleBlock } from '../ArticleDetails/renderArticleBlock';
 import CalendarIcon from '@/shared/assets/icons/calendar.svg';
 import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton';
+import { getArticleDetailsData } from '@/entities/Article/model/selectors/articleDetails';
 
 interface ArticleDetailsDeprecatedProps {
   className?: string;

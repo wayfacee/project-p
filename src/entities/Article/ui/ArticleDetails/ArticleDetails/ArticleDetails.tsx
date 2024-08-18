@@ -14,11 +14,8 @@ import {
   getArticleDetailsError,
   getArticleDetailsIsLoading,
 } from '../../../model/selectors/articleDetails';
-import {
-  Text as TextDeprecated,
-  TextAlign,
-} from '@/shared/ui/deprecated/Text/Text';
-import { Skeleton } from '@/shared/ui/deprecated/Skeleton/Skeleton';
+
+
 import { VStack } from '@/shared/ui/redesigned/Stack';
 import { ToggleFeatures } from '@/shared/lib/features';
 import {

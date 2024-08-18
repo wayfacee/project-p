@@ -1,6 +1,6 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
 import * as cl from './AppLink.module.scss';
-import { Link, LinkProps } from 'react-router-dom';
+import { LinkProps } from 'react-router-dom';
 import { FC, memo } from 'react';
 import { NavLink } from 'react-router-dom';
 

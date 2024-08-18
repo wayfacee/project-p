@@ -1,11 +1,9 @@
 import { getArticleDetailsData } from '@/entities/Article';
 import { Card } from '@/shared/ui/redesigned/Card';
 import { ArticleAdditionalInfo } from '@/widgets/ArticleAdditionalInfo';
-import { memo, useCallback } from 'react';
+import { memo } from 'react';
 import { useSelector } from 'react-redux';
 import * as cl from './AdditionallInfoContainer.module.scss';
-import { useNavigate } from 'react-router-dom';
-import { getRouteArticleEdit } from '@/shared/const/router';
 // задаем стили не в ArticleAdditionalInfo, а в конейтере, и это норм
 
 // мб надо будет прокидывать данные, чтоб стр была макс. тонкой

@@ -17,9 +17,14 @@ const fallbackTheme = localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme;
 
 const ThemeProvider = (props: ThemeProviderProps) => {
   const { children, initialTheme } = props;
-  // defaultTheme = Theme.LIGHT было
+  // initialTheme = Theme.LIGHT было
   // прилож еще не загруз., данных о теме еще нет, а мы
   // уже иниц. тему, поэтому так не надо, а дефолт тему можно задать на 22-стр.
+
+  // обрщаемся к редаксу, из за этого не робит сторибук
+  // и обороч в земпровайдер в превью сторибука
+  // в независ. кусок логики, внедрили бизнес логику
+  // defaultTheme => initialTheme use
   const { theme: defaultTheme } = useJsonSettings();
   // чтоб не было скачков в интерфейсе:
   const [isThemeInited, setThemeInited] = useState(false);
@@ -29,11 +34,11 @@ const ThemeProvider = (props: ThemeProviderProps) => {
 
   // наверное не самое лучшее решение, надо подумать:
   useEffect(() => {
-    if (!isThemeInited && defaultTheme) {
-      setTheme(defaultTheme);
+    if (!isThemeInited && initialTheme) {
+      setTheme(initialTheme);
       setThemeInited(true);
     }
-  }, [defaultTheme, isThemeInited]);
+  }, [initialTheme, isThemeInited]);
 
   // вешаем класс на боди, и не надо вешать на модалки, и на апп итд.
   useEffect(() => {

@@ -1,4 +1,4 @@
-import { ArticleBlockType } from "@/entities/Article/model/consts/articleConsts"
+import { ArticleBlockType } from "@/entities/Article/model/consts/articleConsts";
 import { ArticleBlock } from "../../../model/types/article"
 import { ArticleCodeBlockComponent } from "../../ArticleCodeBlockComponent/ArticleCodeBlockComponent";
 import { ArticleImageBlockComponent } from "../../ArticleImageBlockComponent/ArticleImageBlockComponent";

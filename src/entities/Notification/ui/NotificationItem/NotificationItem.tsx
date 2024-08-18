@@ -2,13 +2,9 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import * as cl from './NotificationItem.module.scss';
 import { memo } from 'react';
 import { Notification } from '../../model/types/notification';
-import {
-  Card as CardDeprecated,
-  CardTheme,
-} from '@/shared/ui/deprecated/Card/Card';
-import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text/Text';
+
+
 import { AppLink } from '@/shared/ui/deprecated/AppLink';
-import { ToggleFeatures } from '@/shared/lib/features';
 import { Card } from '@/shared/ui/redesigned/Card';
 import { Text } from '@/shared/ui/redesigned/Text';
 

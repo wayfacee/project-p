@@ -6,12 +6,7 @@
  */
 
 import { ArticleViewSelector } from '@/features/ArticleViewSelector';
-import { articlesPageActions } from '../../models/slices/articlesPageSlice';
-import { ArticleView } from '@/entities/Article';
-import { memo, useCallback } from 'react';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { useSelector } from 'react-redux';
-import { getArticlesPageView } from '../../models/selectors/articlesPageSelectors';
+import { memo } from 'react';
 import { useArticleFilters } from '../../lib/useArticleFilters';
 
 interface ViewSelectorContainerProps {

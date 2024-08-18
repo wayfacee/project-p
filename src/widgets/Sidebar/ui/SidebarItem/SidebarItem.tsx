@@ -1,14 +1,11 @@
 import * as cl from './SidebarItem.module.scss';
 import { useTranslation } from 'react-i18next';
-import {
-  AppLink as AppLinkDeprecated,
-  AppLinkTheme,
-} from '@/shared/ui/deprecated/AppLink/AppLink';
+
+
 import { SidebarItemType } from '../../model/types/sidebar';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useSelector } from 'react-redux';
 import { getUserAuthData } from '@/entities/User';
-import { ToggleFeatures } from '@/shared/lib/features';
 import { AppLink } from '@/shared/ui/redesigned/AppLink';
 import { Icon } from '@/shared/ui/redesigned/Icon';
 

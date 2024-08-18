@@ -1,4 +1,3 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
 import { CountrySelect } from '@/entities/Country';
@@ -71,7 +70,8 @@ export const ProfileCardRedesigned = memo((props: ProfileCardProps) => {
   const { t } = useTranslation('profile');
 
   return (
-    <Card max padding="24" border="partial" className={className}>
+    <Card max padding="24" border="partial"
+className={className}>
       {/** лмшняя дома нода, мб в кард */}
       <VStack gap="32">
         {data?.avatar && (

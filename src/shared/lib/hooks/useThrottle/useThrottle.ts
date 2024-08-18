@@ -9,7 +9,7 @@ export function useThrottle(callback: (...args: any[]) => void, delay: number) {
   const throttleRef = useRef(false); // можно вызывать сейчас
   // каллюэк или нельзя
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+   
   return useCallback(
     (...args: any[]) => {
       // обяз. если фалс

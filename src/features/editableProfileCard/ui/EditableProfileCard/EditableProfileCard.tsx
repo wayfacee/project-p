@@ -81,7 +81,7 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
 
   const onChangeAge = useCallback(
     (value?: string) => {
-      // eslint-disable-next-line no-useless-escape
+       
       const reg = new RegExp('^d+$');
       if (value?.match(reg)) {
         dispatch(profileActions.updateProfile({ age: Number(value || 0) }));

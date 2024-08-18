@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 // можно относительным
 import { ThemeContext } from '../../context/ThemeContext';
 import { Theme } from '../../../const/theme';

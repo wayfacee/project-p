@@ -5,7 +5,6 @@ import { User } from '@/entities/User';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { Avatar } from '@/shared/ui/redesigned/Avatar';
 import { Text } from '@/shared/ui/redesigned/Text';
-import { Button } from '@/shared/ui/redesigned/Button';
 import { ArticleEditButton } from '@/features/ArticleEditButton';
 
 interface ArticleAdditionalInfoProps {
@@ -13,13 +12,12 @@ interface ArticleAdditionalInfoProps {
   author: User;
   createdAt: string;
   views: number;
-  onEdit?: () => void;
 }
 
 // не обороч. на кард, чтобы был переисп
 export const ArticleAdditionalInfo = memo(
   (props: ArticleAdditionalInfoProps) => {
-    const { className, author, createdAt, views, onEdit } = props;
+    const { className, author, createdAt, views } = props;
     const { t } = useTranslation();
 
     return (

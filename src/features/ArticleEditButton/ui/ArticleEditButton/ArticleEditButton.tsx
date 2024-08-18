@@ -1,5 +1,4 @@
 import { useTranslation } from 'react-i18next';
-import * as cl from './ArticleEditButton.module.scss';
 import { memo, useCallback } from 'react';
 import { Button } from '@/shared/ui/redesigned/Button';
 import { useSelector } from 'react-redux';
