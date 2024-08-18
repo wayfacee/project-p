@@ -1,5 +1,5 @@
 import * as cl from './Button.module.scss';
-import { ButtonHTMLAttributes, FC, memo, ReactNode } from 'react';
+import { ButtonHTMLAttributes, FC, ForwardedRef, forwardRef, memo, ReactNode } from 'react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 
 export type ButtonVariant = 'clear' | 'outline' | 'filled';
@@ -38,7 +38,12 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   color?: ButtonColor;
 }
 
-export const Button: FC<ButtonProps> = memo((props) => {
+// headless ui когда в качестве эс передаем какой-то свой кастом. комп.
+// он туда пытается прокинуть реф, а у нас прокидывания рефа в эту кнопку
+// не поддерживается, 2-аргументом, помимо пропсов будет прокидываться
+// ref = useRef(), без ForwardedRef<HTMLButtonElement> будет ругаться
+// пошта не знает куда прокидываем
+export const Button: FC<ButtonProps> = forwardRef((props, ref: ForwardedRef<HTMLButtonElement>) => {
   const {
     className,
     children,
@@ -73,6 +78,7 @@ export const Button: FC<ButtonProps> = memo((props) => {
       ])}
       disabled={disabled}
       {...otherProps}
+      ref={ref}
     >
       <div className={cl.addonLeft}>{addonLeft}</div>
       {children}
