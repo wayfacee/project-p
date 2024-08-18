@@ -38,3 +38,19 @@ export const getRouteForbidden = () => '/forbidden';
 
 //   [AppRoutes.NOT_FOUND]: '*'
 // };
+
+// текущ. юрл/маршрут будет мапить в эти названия артиклес/дет. итд.
+// ротуинги технически. смапить в роутинги семантические - названия
+// 1) ключи 2) названия
+export const AppRouteByPathPattern: Record<string, AppRoutes> = {
+  [getRouteMain()]: AppRoutes.MAIN,
+  [getRouteSettings()]: AppRoutes.SETTINGS,
+  [getRouteAbout()]: AppRoutes.ABOUT,
+  [getRouteProfile(':id')]: AppRoutes.PROFILE,
+  [getRouteArticles()]: AppRoutes.ARTICLES,
+  [getRouteArticleDetails(':id')]: AppRoutes.ARTICLE_DETAILS,
+  [getRouteArticleCreate()]: AppRoutes.ARTICLE_CREATE,
+  [getRouteArticleEdit(':id')]: AppRoutes.ARTICLE_EDIT,
+  [getRouteAdmin()]: AppRoutes.ADMIN_PANEL,
+  [getRouteForbidden()]: AppRoutes.FORBIDDEN,
+};
