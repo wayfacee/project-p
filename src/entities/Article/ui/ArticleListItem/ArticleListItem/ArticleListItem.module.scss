@@ -1,4 +1,3 @@
-
 .BIG {
   .views {
     margin-left: auto;
@@ -109,7 +108,7 @@
 }
 
 .ArticleListItemRedesigned {
-  // ArticleListItemRedesigned  and BIG используются на одном и 
+  // ArticleListItemRedesigned  and BIG используются на одном и
   // том же элементе, и когда исп. вложеность мы ее исп. немного н етак
   // задача сделать так чтобы эти стили примен.к элем. у которого есть и 1 класс и 2
   // &. через точку 2 класса
@@ -118,7 +117,9 @@
   }
 
   &.SMALL {
-    width: 240px;
-    height: 350px;
+    .card {
+      width: 240px;
+      height: 350px;
+    }
   }
 }

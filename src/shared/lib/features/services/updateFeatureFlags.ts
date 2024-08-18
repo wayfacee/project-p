@@ -13,7 +13,8 @@ export const updateFeatureFlag = createAsyncThunk<
   void,
   UpdateFeatureFlagOptions,
   ThunkConfig<string>
->('user/saveJsonSettings', async ({ userId, newFeatures }, thunkApi) => {
+  // надо правильно указывать features/saveJsonSettings
+>('features/saveJsonSettings', async ({ userId, newFeatures }, thunkApi) => {
   const { rejectWithValue, dispatch } = thunkApi;
 
   const allFeatures = {
@@ -36,11 +37,11 @@ export const updateFeatureFlag = createAsyncThunk<
     // в рамках 1 - сессии не меняются
 
     // но лучше надо было оставить:
-    // window.location.reload();
+    window.location.reload();
 
     // обноваляем перем.
     // app тоже перерендер., поэтому условие inited
-    setFeatureFlags(allFeatures);
+    // setFeatureFlags(allFeatures);
     return undefined;
   } catch (e) {
     console.log(e);

@@ -1,5 +1,6 @@
 import { createContext, ReactNode, useContext, useMemo, useState } from 'react';
 
+// + exmplanation - setGetFeatures
 // костыль - в риль проектах лучше не делать
 const ForceUpdateContext = createContext({
   value: true,
