@@ -10,6 +10,7 @@
     "start:dev:vite": "concurrently \"npm run start:vite\" \"npm start:dev:server\"",
     "build:prod": "webpack --env mode=production apiUrl=https://backend-json-server-mq0lnjlof-wayfaces-projects.vercel.app",
     "build:dev": "webpack --env mode=development",
+    "build": "vite build",
     "prettier": "npx prettier --write **/*.{ts,tsx,json}",
     "lint:ts": "eslint \"**/*.{ts,tsx}\"",
     "lint:ts:fix": "eslint \"**/*.{ts,tsx}\" --fix",
