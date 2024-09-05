@@ -3,7 +3,7 @@ import { useRouteChange } from "@/shared/router/useRouteChange";
 import { ScrollToolbar } from "@/widgets/ScrollToolbar";
 import { ReactElement } from "react";
 
-// в завис. от той стр. которая открыта выбирать, тулбар который будет исп.
+// в завис. от той стр. которая открыта, выбирать тулбар который будет исп.
 export function useAppToolbar() {
   // будет слдеить за измен. маршрута, и возв. понятное название текущ. маршрута
   const appRoute = useRouteChange();

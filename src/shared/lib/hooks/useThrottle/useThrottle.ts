@@ -9,7 +9,6 @@ export function useThrottle(callback: (...args: any[]) => void, delay: number) {
   const throttleRef = useRef(false); // можно вызывать сейчас
   // каллюэк или нельзя
 
-   
   return useCallback(
     (...args: any[]) => {
       // обяз. если фалс

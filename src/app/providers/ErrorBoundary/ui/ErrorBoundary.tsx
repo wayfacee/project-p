@@ -1,6 +1,10 @@
 import React, { ErrorInfo, ReactNode, Suspense } from 'react';
 import { PageError } from '@/widgets/PageError';
+import { withTranslation } from 'react-i18next';
 
+// в try catch - не обернули, и ошибку не обработали.
+// не отклав. ошибки в ассинх коде / событьях, при сервер сайт рендеринг
+// и в самом себе
 interface ErrorBoundaryProps {
   children: ReactNode;
 }
@@ -9,6 +13,7 @@ interface ErrorBoundaryState {
   hasError: boolean;
 }
 
+// 1)пропс 2) тип для стейта
 class ErrorBoundary extends React.Component<
   ErrorBoundaryProps,
   ErrorBoundaryState
@@ -47,3 +52,8 @@ class ErrorBoundary extends React.Component<
 }
 
 export default ErrorBoundary;
+// i18n будет ругаться что не сделали переводы
+// usTranslation исп в FC. а в CC такое не прокатит
+// и поэтому можем исп. хок (обертка)
+// export default withTranslation()(ErrorBoundary)
+// но здесь так делать не будем, пошта есть пэйжЕррор

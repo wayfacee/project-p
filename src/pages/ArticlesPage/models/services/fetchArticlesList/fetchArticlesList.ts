@@ -50,7 +50,7 @@ export const fetchArticlesList = createAsyncThunk<
         _sort: sort,
         _order: order,
         q: search,
-        // чтобы вернул все типы, сли уже Алл
+        // чтобы вернул все типы, если уже Алл
         type: type === ArticleType.ALL ? undefined : type,
       },
     });

@@ -30,7 +30,7 @@ const App = memo(() => {
   if (!inited) {
     // инфа о юзере не получена, фича флаги незн. какие вкл.
     // если перекл. тему, то данных какие темы выбр. нет
-    return (
+  return (
       <ToggleFeatures
         feature="isAppRedesigned"
         on={

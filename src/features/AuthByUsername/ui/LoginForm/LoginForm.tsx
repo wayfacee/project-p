@@ -70,7 +70,7 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
       onSuccess?.();
       forceUpdate();
     }
-  }, [onSuccess, dispatch, password, username]);
+  }, [onSuccess, dispatch, password, username, forceUpdate]);
 
   return (
     <DynamicModuleLoader reducers={initialReducers} removeAfterAmount>

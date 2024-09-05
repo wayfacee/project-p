@@ -10,7 +10,7 @@ npm run start:dev или npm run start:dev:vite - запуск сервера + 
 ## Скрипты
 
 - `npm run start` - Запуск frontend проекта на webpack dev server
-- `npm run start:vite` - Запуск frontend проекта на vite
+- `npm run start:vite` - Запуск frontend проекта на vite (только через vite! в webpack'е есть ошибки)
 - `npm run start:dev` - Запуск frontend проекта на webpack dev server + backend
 - `npm run start:dev:vite` - Запуск frontend проекта на vite + backend
 - `npm run start:dev:server` - Запуск backend сервера

@@ -4,9 +4,9 @@ import { memo } from 'react';
 import { Notification } from '../../model/types/notification';
 
 
-import { AppLink } from '@/shared/ui/deprecated/AppLink';
 import { Card } from '@/shared/ui/redesigned/Card';
 import { Text } from '@/shared/ui/redesigned/Text';
+import { AppLink } from '@/shared/ui/redesigned/AppLink';
 
 interface NotificationItemProps {
   className?: string;

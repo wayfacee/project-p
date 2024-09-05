@@ -21,6 +21,7 @@ export const initAuthData = createAsyncThunk<User, void, ThunkConfig<string>>(
     try {
       const response = await dispatch(getUserDataByIdQuery(userId)).unwrap();
 
+      // fillback design:
       localStorage.setItem(
         LOCAL_STORAGE_LAST_DESIGN_KEY,
         response.features ? 'new' : 'old',
