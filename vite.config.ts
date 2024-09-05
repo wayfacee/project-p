@@ -18,11 +18,13 @@ export default defineConfig({
       //         params: {
       //           currentColor: true,
       //         },
-      //       }, 
+      //       },
       //     ],
       //   },
       // },
-      
+      svgrOptions: {
+        exportType: 'default',
+      },
     }),
   ],
   resolve: {
