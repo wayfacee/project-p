@@ -4,6 +4,5 @@
   status = 200
 
 [build]
-  command = "vite build"
-  functions = "netlify/functions"
-  publish = "dist"
+  command = "npm run build"
+  publish = "build"
